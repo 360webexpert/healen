@@ -51,6 +51,9 @@ function RadialTicks({ count = 60, radius = 340 }: { count?: number; radius?: nu
 
 function RadialSelectorSection() {
   const [activeIdx, setActiveIdx] = useState(2);
+  const [rotation, setRotation] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   // Auto-cycle every 2.5 s
   useEffect(() => {
@@ -58,19 +61,52 @@ function RadialSelectorSection() {
     return () => clearInterval(id);
   }, []);
 
+  // Scroll-driven ring rotation
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrolled = window.innerHeight - rect.top;
+      setRotation(scrolled * 0.06);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Entrance visibility via IntersectionObserver
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-[#E0EAF8] relative overflow-hidden py-16 md:py-24">
-      {/* Radial ticks decoration */}
+    <section ref={sectionRef} className="bg-[#E0EAF8] relative overflow-hidden py-16 md:py-24">
+      {/* Radial ticks — rotates on scroll */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="relative w-[700px] h-[700px] max-w-full">
+        <div
+          className="relative w-[700px] h-[700px] max-w-full"
+          style={{ transform: `rotate(${rotation}deg)` }}
+        >
           <RadialTicks count={80} radius={340} />
         </div>
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between gap-8 min-h-[420px]">
 
-        {/* Left — specialty list */}
-        <div className="hidden md:flex flex-col gap-3 w-52 shrink-0">
+        {/* Left — specialty list — slides in from left */}
+        <div
+          className="hidden md:flex flex-col gap-3 w-52 shrink-0"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateX(0)" : "translateX(-36px)",
+            transition: "opacity 0.7s ease 0.1s, transform 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.1s",
+          }}
+        >
           {specialties.map((s, i) => {
             const dist = Math.abs(i - activeIdx);
             const opacity = dist === 0 ? 1 : dist === 1 ? 0.5 : 0.2;
@@ -97,8 +133,15 @@ function RadialSelectorSection() {
           })}
         </div>
 
-        {/* Center — main content */}
-        <div className="flex-1 flex flex-col items-center text-center px-4">
+        {/* Center — fades up */}
+        <div
+          className="flex-1 flex flex-col items-center text-center px-4"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(28px)",
+            transition: "opacity 0.8s ease 0.25s, transform 0.8s cubic-bezier(0.34,1.2,0.64,1) 0.25s",
+          }}
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] text-[#16215B] leading-[1.1] mb-5 max-w-lg">
             A Practice Built<br />
             <span className="italic">Around You</span>
@@ -111,8 +154,15 @@ function RadialSelectorSection() {
           </button>
         </div>
 
-        {/* Right — doctor list */}
-        <div className="hidden md:flex flex-col gap-3 w-52 shrink-0 items-end">
+        {/* Right — doctor list — slides in from right */}
+        <div
+          className="hidden md:flex flex-col gap-3 w-52 shrink-0 items-end"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateX(0)" : "translateX(36px)",
+            transition: "opacity 0.7s ease 0.1s, transform 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.1s",
+          }}
+        >
           {doctors.map((d, i) => {
             const dist = Math.abs(i - activeIdx);
             const opacity = dist === 0 ? 1 : dist === 1 ? 0.5 : 0.2;
