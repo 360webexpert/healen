@@ -418,8 +418,8 @@ export function LandingPage() {
         />
 
         {/* Main content */}
-        <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-6 md:px-12 pt-32 pb-16">
-          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 items-end w-full">
+        <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-6 md:px-12 pt-20 pb-12">
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 items-center w-full">
 
             {/* Left column — text */}
             <div>
