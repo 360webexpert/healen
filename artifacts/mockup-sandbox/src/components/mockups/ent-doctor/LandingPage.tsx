@@ -209,28 +209,6 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Marquee Strip */}
-      <div className="bg-[#020202] border-y border-white/10 py-4 overflow-hidden relative z-20">
-        <div className="flex whitespace-nowrap animate-marquee w-max">
-          {[...Array(2)].map((_, i) => (
-            <div key={i} className="flex items-center gap-12 px-6">
-              {[
-                "20+ Years Experience",
-                "Board Certified",
-                "ENT Specialists",
-                "Advanced Surgery",
-                "5-Star Rated"
-              ].map((badge, j) => (
-                <div key={j} className="flex items-center gap-3">
-                  <Star className="w-4 h-4 text-[#E4FF60] fill-[#E4FF60]" />
-                  <span className="text-[#E4FF60] uppercase tracking-widest text-sm font-semibold">{badge}</span>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Services Section */}
       <section id="services" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
