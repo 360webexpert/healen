@@ -218,9 +218,36 @@ const faqs = [
   },
 ];
 
+function useCountUp(target: number, duration = 1400, started = false) {
+  const [count, setCount] = useState(0);
+  const hasRun = useRef(false);
+  useEffect(() => {
+    if (!started || hasRun.current) return;
+    hasRun.current = true;
+    const startTime = performance.now();
+    const tick = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [started, target, duration]);
+  return count;
+}
+
+function StatNumber({ target, suffix, started }: { target: number; suffix: string; started: boolean }) {
+  const count = useCountUp(target, 1600, started);
+  const formatted = target >= 1000 ? count.toLocaleString() : count;
+  return <>{formatted}{suffix}</>;
+}
+
 function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
+  const [statsStarted, setStatsStarted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -234,6 +261,17 @@ function AboutSection() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Trigger count-up once stats scroll into view
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStatsStarted(true); observer.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
   const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -299,13 +337,15 @@ function AboutSection() {
             </p>
             <div className="grid grid-cols-2 gap-8 mb-12">
               {[
-                { value: "2,000+", label: "Patients Served" },
-                { value: "98%", label: "Satisfaction" },
-                { value: "20+", label: "Years Experience" },
-                { value: "4", label: "Clinic Locations" },
+                { target: 2000, suffix: "+", label: "Patients Served" },
+                { target: 98,   suffix: "%", label: "Satisfaction" },
+                { target: 20,   suffix: "+", label: "Years Experience" },
+                { target: 4,    suffix: "",  label: "Clinic Locations" },
               ].map((stat, i) => (
                 <div key={i}>
-                  <div className="text-4xl md:text-5xl font-['Inter'] text-[#E7FFD9] mb-2">{stat.value}</div>
+                  <div className="text-4xl md:text-5xl font-['Inter'] text-[#E7FFD9] mb-2">
+                    <StatNumber target={stat.target} suffix={stat.suffix} started={statsStarted} />
+                  </div>
                   <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
                 </div>
               ))}
