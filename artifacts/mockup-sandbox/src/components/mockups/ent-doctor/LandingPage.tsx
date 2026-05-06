@@ -1311,8 +1311,18 @@ export function LandingPage() {
       <FaqSection />
 
       {/* CTA Banner */}
-      <section className="bg-[#809EB1] py-24 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto text-center">
+      <section className="relative overflow-hidden bg-[#809EB1] py-24 px-6 md:px-12">
+        {/* Office background photo */}
+        <img
+          src="/__mockup/images/office-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+          style={{ opacity: 0.35 }}
+        />
+        {/* Tinted overlay to maintain brand colour */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(128,158,177,0.6)" }} />
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
           <h2 className="text-5xl md:text-7xl font-['Inter'] text-[#1D3A5F] mb-8">
             Ready to Breathe Better and Sleep Sounder?
           </h2>
@@ -1327,7 +1337,7 @@ export function LandingPage() {
               Call Our Office
             </button>
           </div>
-        </div>
+        </div>{/* end z-10 */}
       </section>
 
       {/* Footer — scroll-expand floating card */}
