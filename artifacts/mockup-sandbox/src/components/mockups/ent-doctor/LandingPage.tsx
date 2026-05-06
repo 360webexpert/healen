@@ -728,7 +728,15 @@ export function LandingPage() {
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
-                <div className="absolute -bottom-8 -right-8 bg-[#809EB1] text-[#1D3A5F] p-8 rounded-[20px] hidden md:block">
+                <div className="absolute -bottom-8 -right-8 p-8 rounded-[20px] hidden md:block text-[#1D3A5F]"
+                  style={{
+                    background: "rgba(187, 219, 237, 0.45)",
+                    backdropFilter: "blur(16px)",
+                    WebkitBackdropFilter: "blur(16px)",
+                    border: "1px solid rgba(255,255,255,0.5)",
+                    boxShadow: "0 4px 24px rgba(29,58,95,0.12), inset 0 1px 0 rgba(255,255,255,0.6)"
+                  }}
+                >
                   <h3 className="text-4xl font-['Inter'] mb-1">Dr. Scheid</h3>
                   <p className="font-medium">Otolaryngologist & Sleep Specialist</p>
                 </div>
