@@ -419,7 +419,7 @@ export function LandingPage() {
           className="absolute pointer-events-none select-none"
           style={{
             top: '20%',
-            left: '38%',
+            left: '46%',
             width: '320px',
             opacity: 0.12,
             mixBlendMode: 'screen',
