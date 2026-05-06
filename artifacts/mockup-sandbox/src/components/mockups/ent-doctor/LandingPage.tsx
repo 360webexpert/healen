@@ -558,6 +558,8 @@ function FaqSection() {
 
 export function LandingPage() {
   const [navOpacity, setNavOpacity] = useState(0);
+  const [bentoProgress, setBentoProgress] = useState(0);
+  const bentoRef = useRef<HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [heroReady, setHeroReady] = useState(false);
   const [ringOffset, setRingOffset] = useState(100.5);
@@ -565,8 +567,12 @@ export function LandingPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Fade in from 0→1 over first 200px of scroll
       setNavOpacity(Math.min(window.scrollY / 200, 1));
+      if (bentoRef.current) {
+        const rect = bentoRef.current.getBoundingClientRect();
+        const raw = 1 - rect.top / (window.innerHeight * 0.75);
+        setBentoProgress(Math.min(1, Math.max(0, raw)));
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -942,15 +948,17 @@ export function LandingPage() {
       </section>
 
       {/* Bento Highlights Section */}
-      <section className="py-16 px-6 md:px-12" style={{ background: "#BBDBED" }}>
-        {/* Floating card */}
+      <section ref={bentoRef} className="overflow-hidden" style={{ background: "#BBDBED", paddingTop: `${(1 - bentoProgress) * 64}px`, paddingBottom: `${(1 - bentoProgress) * 64}px` }}>
+        {/* Floating card — expands to full-bleed on scroll */}
         <div
-          className="relative max-w-5xl mx-auto overflow-hidden"
+          className="relative overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #2A5080 0%, #1D3A5F 60%, #0F2840 100%)",
-            borderRadius: 32,
-            boxShadow: "0 32px 80px rgba(15,40,64,0.45), 0 8px 24px rgba(15,40,64,0.25)",
-            padding: "40px 40px 40px 40px",
+            borderRadius: `${(1 - bentoProgress) * 32}px`,
+            boxShadow: bentoProgress < 1 ? "0 32px 80px rgba(15,40,64,0.45), 0 8px 24px rgba(15,40,64,0.25)" : "none",
+            marginLeft: `${(1 - bentoProgress) * 48}px`,
+            marginRight: `${(1 - bentoProgress) * 48}px`,
+            padding: `${32 + bentoProgress * 16}px ${(1 - bentoProgress) * 40 + bentoProgress * 80}px`,
           }}
         >
           {/* Soft radial glow */}
