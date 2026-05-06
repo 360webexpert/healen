@@ -1299,10 +1299,26 @@ export function LandingPage() {
       <TestimonialsCarousel />
 
       {/* Photo Banner Card */}
-      <section className="py-10 px-6 md:px-16 bg-[#F5F5F3]">
+      <section className="relative py-10 px-6 md:px-16 overflow-hidden" style={{ background: "#F5F5F3" }}>
+        {/* Section background photo — blurred behind the glass card */}
+        <img
+          src="/__mockup/images/ent-about-doctor-orig.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "50% 18%", filter: "blur(18px) saturate(1.2) brightness(0.9)", transform: "scale(1.08)" }}
+        />
+        <div className="absolute inset-0" style={{ background: "rgba(245,245,243,0.35)" }} />
         <div
           className="relative overflow-hidden rounded-3xl"
-          style={{ minHeight: 260, background: "linear-gradient(135deg, #1D3A5F 0%, #2A5080 60%, #0F2840 100%)" }}
+          style={{
+            minHeight: 260,
+            background: "rgba(20, 42, 80, 0.45)",
+            backdropFilter: "blur(28px) saturate(1.6)",
+            WebkitBackdropFilter: "blur(28px) saturate(1.6)",
+            border: "1px solid rgba(187,219,237,0.18)",
+            boxShadow: "0 8px 48px rgba(10,20,40,0.28), inset 0 1px 0 rgba(255,255,255,0.1)",
+          }}
         >
           {/* Content */}
           <div className="relative z-10 flex flex-col justify-center h-full px-10 py-14 max-w-lg">
