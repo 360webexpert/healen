@@ -140,19 +140,6 @@ function RadialSelectorSection() {
           })}
         </div>
 
-        {/* Nav arrows */}
-        <button
-          onClick={() => setActiveIdx(i => Math.max(0, i - 1))}
-          className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#020202]/8 border border-[#020202]/15 flex items-center justify-center hover:bg-[#020202]/15 transition-colors"
-        >
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2L3.5 6L7.5 10" stroke="#020202" strokeWidth="1.5" strokeLinecap="round"/></svg>
-        </button>
-        <button
-          onClick={() => setActiveIdx(i => Math.min(specialties.length - 1, i + 1))}
-          className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#020202]/8 border border-[#020202]/15 flex items-center justify-center hover:bg-[#020202]/15 transition-colors"
-        >
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2L8.5 6L4.5 10" stroke="#020202" strokeWidth="1.5" strokeLinecap="round"/></svg>
-        </button>
       </div>
     </section>
   );
