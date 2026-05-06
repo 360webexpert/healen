@@ -416,8 +416,16 @@ function TestimonialsCarousel() {
   ];
 
   return (
-    <section className="bg-white py-24 md:py-32 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 items-center">
+    <section className="relative bg-white py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+      {/* Wave particle texture */}
+      <img
+        src="/__mockup/images/wave-bg.jpg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        style={{ mixBlendMode: "multiply", opacity: 0.55 }}
+      />
+      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 items-center">
 
         {/* Left — avatar card grid */}
         <div className="grid grid-cols-3 gap-3">
