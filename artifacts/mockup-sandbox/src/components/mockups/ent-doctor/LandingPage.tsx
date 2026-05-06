@@ -36,7 +36,7 @@ function RadialTicks({ count = 60, radius = 340 }: { count?: number; radius?: nu
         key={i}
         x1={`${x1}%`} y1={`${y1}%`}
         x2={`${x2}%`} y2={`${y2}%`}
-        stroke="#16215B"
+        stroke="#1D3A5F"
         strokeWidth={i % 5 === 0 ? "0.7" : "0.35"}
         strokeOpacity={i % 5 === 0 ? "0.25" : "0.12"}
       />
@@ -119,13 +119,13 @@ function RadialSelectorSection() {
                 style={{ opacity, transform: `scale(${scale})` }}
               >
                 {dist === 0 ? (
-                  <div className="w-5 h-5 rounded-full bg-[#16215B] flex items-center justify-center shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-[#1D3A5F] flex items-center justify-center shrink-0">
                     <svg width="8" height="8" viewBox="0 0 8 8" fill="white"><polygon points="2,1 7,4 2,7"/></svg>
                   </div>
                 ) : (
-                  <div className="w-5 h-5 rounded-full border border-[#16215B]/30 shrink-0" />
+                  <div className="w-5 h-5 rounded-full border border-[#1D3A5F]/30 shrink-0" />
                 )}
-                <span className={`text-sm font-medium ${dist === 0 ? "text-[#16215B]" : "text-[#16215B]/50"}`}>
+                <span className={`text-sm font-medium ${dist === 0 ? "text-[#1D3A5F]" : "text-[#1D3A5F]/50"}`}>
                   {s.label}
                 </span>
               </button>
@@ -142,14 +142,14 @@ function RadialSelectorSection() {
             transition: "opacity 0.8s ease 0.25s, transform 0.8s cubic-bezier(0.34,1.2,0.64,1) 0.25s",
           }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] text-[#16215B] leading-[1.1] mb-5 max-w-lg">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] text-[#1D3A5F] leading-[1.1] mb-5 max-w-lg">
             A Practice Built<br />
             <span className="italic">Around You</span>
           </h2>
-          <p className="text-[#16215B]/55 text-base md:text-lg mb-8 max-w-sm font-light leading-relaxed">
+          <p className="text-[#1D3A5F]/55 text-base md:text-lg mb-8 max-w-sm font-light leading-relaxed">
             Synergy ENT & Wellness is led by Dr. Sara C. Scheid, MD — one of the few physicians in New Jersey board-certified in both Otolaryngology and Sleep Medicine.
           </p>
-          <button className="bg-[#30D1FF] text-[#16215B] px-8 py-3.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all">
+          <button className="bg-[#E7FFD9] text-[#1D3A5F] px-8 py-3.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all">
             Meet Dr. Scheid →
           </button>
         </div>
@@ -175,13 +175,13 @@ function RadialSelectorSection() {
                 style={{ opacity, transform: `scale(${scale})` }}
               >
                 <div className="text-right">
-                  <div className={`text-sm font-medium ${dist === 0 ? "text-[#16215B]" : "text-[#16215B]/50"}`}>{d.name}</div>
-                  {dist === 0 && <div className="text-xs text-[#16215B]/40">{d.title}</div>}
+                  <div className={`text-sm font-medium ${dist === 0 ? "text-[#1D3A5F]" : "text-[#1D3A5F]/50"}`}>{d.name}</div>
+                  {dist === 0 && <div className="text-xs text-[#1D3A5F]/40">{d.title}</div>}
                 </div>
                 <div className={`w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-xs font-bold transition-all duration-300 ${
                   dist === 0
-                    ? "bg-[#16215B] text-white ring-2 ring-[#16215B]/20 ring-offset-2"
-                    : "bg-[#16215B]/10 text-[#16215B]/40"
+                    ? "bg-[#1D3A5F] text-white ring-2 ring-[#1D3A5F]/20 ring-offset-2"
+                    : "bg-[#1D3A5F]/10 text-[#1D3A5F]/40"
                 }`}>
                   {d.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
                 </div>
@@ -222,24 +222,24 @@ function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#E0EAF8] py-24 md:py-32 px-6 md:px-12">
+    <section className="bg-[#BBDBED] py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
 
         {/* Left — heading + contact card */}
         <div className="flex flex-col gap-10">
           {/* Label */}
           <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#16215B]" />
-            <span className="text-xs uppercase tracking-widest font-semibold text-[#16215B]/60">FAQs</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#1D3A5F]" />
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#1D3A5F]/60">FAQs</span>
           </div>
 
           {/* Heading */}
-          <h2 className="text-5xl md:text-6xl font-['Inter'] text-[#16215B] leading-[1.1] -mt-4">
+          <h2 className="text-5xl md:text-6xl font-['Inter'] text-[#1D3A5F] leading-[1.1] -mt-4">
             Frequently asked<br />questions
           </h2>
 
           {/* Still have questions? card */}
-          <div className="relative rounded-[20px] overflow-hidden min-h-[200px] bg-[#16215B]">
+          <div className="relative rounded-[20px] overflow-hidden min-h-[200px] bg-[#1D3A5F]">
             <img
               src="/__mockup/images/ent-about-doctor-orig.png?v=1"
               alt="Doctor ready to help"
@@ -250,7 +250,7 @@ function FaqSection() {
                 <h3 className="text-white font-['Inter'] text-2xl mb-2">Still have questions?</h3>
                 <p className="text-white/70 text-sm mb-6 max-w-xs">Our team is here to help. Get in touch for personalized answers.</p>
                 <button className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white rounded-full px-5 py-2.5 text-sm font-medium hover:bg-white/25 transition-colors">
-                  <span className="text-[#F25929]">✦</span> Contact us
+                  <span className="text-[#809EB1]">✦</span> Contact us
                 </button>
               </div>
             </div>
@@ -258,7 +258,7 @@ function FaqSection() {
         </div>
 
         {/* Right — accordion */}
-        <div className="flex flex-col divide-y divide-[#16215B]/10">
+        <div className="flex flex-col divide-y divide-[#1D3A5F]/10">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
@@ -267,18 +267,18 @@ function FaqSection() {
                   className="w-full flex items-start justify-between gap-6 text-left group"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                 >
-                  <span className={`text-lg font-['Inter'] leading-snug transition-colors ${isOpen ? "text-[#16215B]" : "text-[#16215B]/80 group-hover:text-[#16215B]"}`}>
+                  <span className={`text-lg font-['Inter'] leading-snug transition-colors ${isOpen ? "text-[#1D3A5F]" : "text-[#1D3A5F]/80 group-hover:text-[#1D3A5F]"}`}>
                     {faq.q}
                   </span>
-                  <div className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all mt-0.5 ${isOpen ? "border-[#16215B]/20 bg-[#16215B]/5" : "border-[#16215B]/20 bg-white"}`}>
+                  <div className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all mt-0.5 ${isOpen ? "border-[#1D3A5F]/20 bg-[#1D3A5F]/5" : "border-[#1D3A5F]/20 bg-white"}`}>
                     {isOpen
-                      ? <X className="w-3.5 h-3.5 text-[#16215B]" />
-                      : <span className="text-[#16215B] text-lg leading-none -mt-px">+</span>
+                      ? <X className="w-3.5 h-3.5 text-[#1D3A5F]" />
+                      : <span className="text-[#1D3A5F] text-lg leading-none -mt-px">+</span>
                     }
                   </div>
                 </button>
                 {isOpen && (
-                  <p className="mt-4 text-[#16215B]/60 font-light leading-relaxed text-[15px]">
+                  <p className="mt-4 text-[#1D3A5F]/60 font-light leading-relaxed text-[15px]">
                     {faq.a}
                   </p>
                 )}
@@ -331,7 +331,7 @@ export function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#E0EAF8] text-[#16215B] font-['Inter',sans-serif] selection:bg-[#F25929] selection:text-[#16215B] overflow-x-hidden">
+    <div className="min-h-screen bg-[#BBDBED] text-[#1D3A5F] font-['Inter',sans-serif] selection:bg-[#809EB1] selection:text-[#1D3A5F] overflow-x-hidden">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -405,7 +405,7 @@ export function LandingPage() {
 
           {/* Right group */}
           <div className="hidden lg:flex items-center gap-2 shrink-0">
-            <button className="bg-[#30D1FF] rounded-full px-5 py-2.5 text-[#16215B] text-sm font-semibold hover:brightness-110 transition-all">
+            <button className="bg-[#E7FFD9] rounded-full px-5 py-2.5 text-[#1D3A5F] text-sm font-semibold hover:brightness-110 transition-all">
               Book Appointment
             </button>
           </div>
@@ -436,7 +436,7 @@ export function LandingPage() {
               {item}
             </a>
           ))}
-          <button className="mt-6 bg-[#30D1FF] text-[#16215B] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all">
+          <button className="mt-6 bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all">
             Book Appointment
           </button>
         </div>
@@ -445,12 +445,12 @@ export function LandingPage() {
       {/* Hero Section — Medora style */}
       <section id="home" className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ backgroundImage: "url('/__mockup/images/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
         {/* Dark overlay for text legibility */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(22,33,91,0.72) 0%, rgba(31,41,156,0.55) 50%, rgba(3,115,255,0.35) 100%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(29,58,95,0.72) 0%, rgba(42,80,128,0.55) 50%, rgba(128,158,177,0.35) 100%)" }} />
         {/* Decorative dot-grid background */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #F25929 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #809EB1 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
         {/* Glow blobs */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: "#F25929" }} />
-        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "#30D1FF" }} />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: "#809EB1" }} />
+        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "#E7FFD9" }} />
         {/* NJ outline — decorative, behind doctor column */}
         <img
           src="/__mockup/images/nj-outline.png"
@@ -482,7 +482,7 @@ export function LandingPage() {
                   "Accepting New Patients"
                 ].map((item) => (
                   <div key={item} className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5">
-                    <CheckCircle className="w-3.5 h-3.5 text-[#30D1FF] shrink-0" />
+                    <CheckCircle className="w-3.5 h-3.5 text-[#E7FFD9] shrink-0" />
                     <span className="text-white/90 text-xs font-medium">{item}</span>
                   </div>
                 ))}
@@ -490,7 +490,7 @@ export function LandingPage() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-4">
                 Clear Breathing.<br />Restful Sleep.<br />
-                <span className="text-[#30D1FF]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>Total Wellness.</span>
+                <span className="text-[#E7FFD9]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>Total Wellness.</span>
               </h1>
 
               <p className="text-white/80 text-base font-medium mb-4 max-w-lg">
@@ -498,7 +498,7 @@ export function LandingPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <button className="bg-[#30D1FF] text-[#16215B] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#30D1FF]/20">
+                <button className="bg-[#E7FFD9] text-[#1D3A5F] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#E7FFD9]/20">
                   Request an Appointment
                 </button>
                 <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-7 py-4 rounded-full font-semibold text-sm hover:bg-white/20 transition-all">
@@ -522,7 +522,7 @@ export function LandingPage() {
               <div className={`card-top-right${heroReady ? " ready" : ""} absolute top-10 right-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-64 shadow-xl z-[5]`}>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white text-xs font-semibold">Patient Overview</span>
-                  <TrendingUp className="w-3.5 h-3.5 text-[#F25929]" />
+                  <TrendingUp className="w-3.5 h-3.5 text-[#809EB1]" />
                 </div>
                 <svg viewBox="0 0 220 100" className="w-full" style={{ opacity: heroReady ? 1 : 0, transition: "opacity 0.8s ease 1s" }}>
                   {/* Y-axis labels */}
@@ -553,7 +553,7 @@ export function LandingPage() {
               {/* Floating card — Recovery Rate (bottom-left, at body level) */}
               <div className={`card-bottom-left${heroReady ? " ready" : ""} absolute bottom-8 left-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-52 shadow-xl z-20`}>
                 <div className="flex items-center gap-2 mb-3">
-                  <Activity className="w-4 h-4 text-[#F25929]" />
+                  <Activity className="w-4 h-4 text-[#809EB1]" />
                   <span className="text-white text-xs font-semibold">Recovery Rate</span>
                 </div>
                 <div className="flex items-center justify-between gap-4">
@@ -562,7 +562,7 @@ export function LandingPage() {
                       <circle cx="22" cy="22" r="16" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="4" />
                       <circle
                         cx="22" cy="22" r="16" fill="none"
-                        stroke="#F25929" strokeWidth="4"
+                        stroke="#809EB1" strokeWidth="4"
                         strokeDasharray="100.5"
                         strokeDashoffset={ringOffset}
                         strokeLinecap="round"
@@ -574,7 +574,7 @@ export function LandingPage() {
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5 mb-2">
-                      <div className="w-2 h-2 rounded-full bg-[#F25929] shrink-0" />
+                      <div className="w-2 h-2 rounded-full bg-[#809EB1] shrink-0" />
                       <span className="text-white/70 text-[10px]">Satisfied</span>
                       <span className="text-white text-xs font-bold ml-auto">2k+</span>
                     </div>
@@ -591,7 +591,7 @@ export function LandingPage() {
         </div>
 
         {/* Gradient fade into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, #E0EAF8 100%)" }} />
+        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, white 100%)" }} />
 
       </section>
 
@@ -602,7 +602,7 @@ export function LandingPage() {
       <section id="about" className="bg-white py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Floating card */}
-          <div className="bg-[#16215B] text-white rounded-[32px] shadow-2xl overflow-visible px-10 md:px-16 py-14 md:py-20">
+          <div className="bg-[#1D3A5F] text-white rounded-[32px] shadow-2xl overflow-visible px-10 md:px-16 py-14 md:py-20">
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <div className="relative">
                 <div className="aspect-[3/4] rounded-[20px] overflow-hidden">
@@ -612,7 +612,7 @@ export function LandingPage() {
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
-                <div className="absolute -bottom-8 -right-8 bg-[#F25929] text-[#16215B] p-8 rounded-[20px] hidden md:block">
+                <div className="absolute -bottom-8 -right-8 bg-[#809EB1] text-[#1D3A5F] p-8 rounded-[20px] hidden md:block">
                   <h3 className="text-4xl font-['Inter'] mb-1">Dr. Scheid</h3>
                   <p className="font-medium">Otolaryngologist & Sleep Specialist</p>
                 </div>
@@ -620,8 +620,8 @@ export function LandingPage() {
 
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-[#F25929] font-semibold text-sm">—</span>
-                  <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">Meet Dr Scheid.</span>
+                  <span className="text-[#809EB1] font-semibold text-sm">—</span>
+                  <span className="uppercase tracking-widest text-sm font-semibold text-[#809EB1]">Meet Dr Scheid.</span>
                 </div>
                 
                 <h2 className="text-3xl md:text-4xl font-['Inter'] leading-tight mb-8">
@@ -643,7 +643,7 @@ export function LandingPage() {
                     { value: "4", label: "Clinic Locations" }
                   ].map((stat, i) => (
                     <div key={i}>
-                      <div className="text-4xl md:text-5xl font-['Inter'] text-[#F25929] mb-2">{stat.value}</div>
+                      <div className="text-4xl md:text-5xl font-['Inter'] text-[#809EB1] mb-2">{stat.value}</div>
                       <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
                     </div>
                   ))}
@@ -672,7 +672,7 @@ export function LandingPage() {
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-[#16215B]"></div>
+              <div className="w-2 h-2 rounded-full bg-[#1D3A5F]"></div>
               <span className="uppercase tracking-widest text-sm font-semibold">Our Specialties</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-['Inter'] leading-tight mb-8">
@@ -681,7 +681,7 @@ export function LandingPage() {
             <p className="text-lg text-black/60 mb-8 font-light">
               From ear infections to obstructive sleep apnea, we treat the full spectrum of ear, nose, throat, and sleep concerns.
             </p>
-            <button className="flex items-center gap-2 font-semibold border-b-2 border-[#16215B] pb-1 hover:text-[#16215B]/60 hover:border-[#16215B]/60 transition-colors">
+            <button className="flex items-center gap-2 font-semibold border-b-2 border-[#1D3A5F] pb-1 hover:text-[#1D3A5F]/60 hover:border-[#1D3A5F]/60 transition-colors">
               View All Services <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -721,9 +721,9 @@ export function LandingPage() {
             ].map((service, i) => (
               <div 
                 key={i} 
-                className="bg-white p-8 rounded-[20px] border border-[#16215B]/5 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-md group"
+                className="bg-white p-8 rounded-[20px] border border-[#1D3A5F]/5 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-md group"
               >
-                <div className="w-16 h-16 rounded-full bg-[#E0EAF8] flex items-center justify-center text-[#16215B] mb-6 group-hover:bg-[#F25929] group-hover:scale-110 transition-all duration-300">
+                <div className="w-16 h-16 rounded-full bg-[#BBDBED] flex items-center justify-center text-[#1D3A5F] mb-6 group-hover:bg-[#809EB1] group-hover:scale-110 transition-all duration-300">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-['Inter'] mb-3">{service.title}</h3>
@@ -736,13 +736,13 @@ export function LandingPage() {
       </section>
 
       {/* Bento Highlights Section */}
-      <section className="relative py-20 px-6 md:px-12 overflow-hidden" style={{ background: "linear-gradient(135deg, #1F299C 0%, #16215B 60%, #0a1240 100%)" }}>
+      <section className="relative py-20 px-6 md:px-12 overflow-hidden" style={{ background: "linear-gradient(135deg, #2A5080 0%, #1D3A5F 60%, #0F2840 100%)" }}>
         {/* Soft radial glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(48,209,255,0.08) 0%, transparent 70%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(187,219,237,0.18) 0%, transparent 70%)" }} />
 
         {/* Top CTA buttons */}
         <div className="relative z-10 flex justify-center gap-3 mb-12">
-          <button className="bg-[#30D1FF] text-[#16215B] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg">
+          <button className="bg-[#E7FFD9] text-[#1D3A5F] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg">
             Get Started
           </button>
           <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-sm px-6 py-2.5 rounded-full hover:bg-white/20 transition-all">
@@ -754,7 +754,7 @@ export function LandingPage() {
         <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-4 items-start">
 
           {/* Left large card */}
-          <div className="relative rounded-3xl overflow-hidden bg-[#0d1a4a] flex flex-col" style={{ minHeight: 420 }}>
+          <div className="relative rounded-3xl overflow-hidden bg-[#0F2840] flex flex-col" style={{ minHeight: 420 }}>
             <div className="p-8 pb-4 flex-1">
               <h3 className="text-white text-2xl font-bold leading-tight mb-3">
                 Comprehensive ear, nose &amp; throat diagnostics to protect your health
@@ -774,7 +774,7 @@ export function LandingPage() {
             </div>
             {/* Bottom CTA */}
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <button className="w-full bg-[#30D1FF] text-[#16215B] text-xs font-semibold py-3 rounded-xl hover:brightness-110 transition-all">
+              <button className="w-full bg-[#E7FFD9] text-[#1D3A5F] text-xs font-semibold py-3 rounded-xl hover:brightness-110 transition-all">
                 Schedule Exam Now
               </button>
             </div>
@@ -794,7 +794,7 @@ export function LandingPage() {
               {/* Dark overlay for legibility */}
               <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(10,18,64,0.78) 0%, rgba(10,18,64,0.35) 60%, rgba(10,18,64,0.1) 100%)" }} />
               <div className="relative z-10 p-7">
-                <span className="text-[#30D1FF] text-xs font-semibold uppercase tracking-widest mb-3 block">Specialty Care</span>
+                <span className="text-[#E7FFD9] text-xs font-semibold uppercase tracking-widest mb-3 block">Specialty Care</span>
                 <h4 className="text-white text-xl font-bold leading-snug">
                   Advanced sinus &amp; allergy treatment for lasting relief
                 </h4>
@@ -802,7 +802,7 @@ export function LandingPage() {
             </div>
 
             {/* Right bottom card — bar chart */}
-            <div className="relative rounded-3xl overflow-hidden bg-[#0d1a4a] p-6">
+            <div className="relative rounded-3xl overflow-hidden bg-[#0F2840] p-6">
               {/* Animated bar chart */}
               <div className="flex items-end gap-1 h-20 mb-4">
                 {[30, 50, 40, 65, 55, 80, 60, 90, 75, 95, 70, 85, 65, 78, 88, 72, 82, 92, 68, 76].map((h, i) => (
@@ -811,7 +811,7 @@ export function LandingPage() {
                     className="flex-1 rounded-sm"
                     style={{
                       height: `${h}%`,
-                      background: i >= 16 ? "#30D1FF" : i >= 10 ? "rgba(48,209,255,0.5)" : "rgba(48,209,255,0.25)",
+                      background: i >= 16 ? "#E7FFD9" : i >= 10 ? "rgba(128,158,177,0.5)" : "rgba(128,158,177,0.25)",
                       transition: "height 0.8s ease",
                     }}
                   />
@@ -832,7 +832,7 @@ export function LandingPage() {
         </div>
 
         <div className="grid md:grid-cols-5 gap-8 relative">
-          <div className="hidden md:block absolute top-12 left-[5%] right-[5%] h-[1px] bg-[#16215B]/10 z-0"></div>
+          <div className="hidden md:block absolute top-12 left-[5%] right-[5%] h-[1px] bg-[#1D3A5F]/10 z-0"></div>
           
           {[
             { num: "01", title: "Dual Board Certification", desc: "Dr. Scheid holds rare dual certification in both Otolaryngology and Sleep Medicine, connecting your ENT health and sleep quality." },
@@ -842,7 +842,7 @@ export function LandingPage() {
             { num: "05", title: "Compassionate Care", desc: "Patients consistently describe Dr. Scheid as attentive, warm, and genuinely invested in their outcomes." }
           ].map((step, i) => (
             <div key={i} className="relative z-10 flex flex-col items-center text-center">
-              <div className="w-24 h-24 rounded-full bg-white border border-[#16215B]/10 flex items-center justify-center text-3xl font-['Inter'] text-[#16215B] mb-6 shadow-sm">
+              <div className="w-24 h-24 rounded-full bg-white border border-[#1D3A5F]/10 flex items-center justify-center text-3xl font-['Inter'] text-[#1D3A5F] mb-6 shadow-sm">
                 {step.num}
               </div>
               <h3 className="text-xl font-['Inter'] mb-3">{step.title}</h3>
@@ -853,13 +853,13 @@ export function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-[#16215B] py-24 md:py-32 px-6 md:px-12">
+      <section className="bg-[#1D3A5F] py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 rounded-full bg-[#F25929]"></div>
-                <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">Patient Stories</span>
+                <div className="w-2 h-2 rounded-full bg-[#809EB1]"></div>
+                <span className="uppercase tracking-widest text-sm font-semibold text-[#809EB1]">Patient Stories</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-['Inter'] text-white max-w-xl">
                 What Our Patients Are Saying
@@ -893,7 +893,7 @@ export function LandingPage() {
               <div key={i} className="bg-white/5 border border-white/10 rounded-[20px] p-8 hover:bg-white/10 transition-colors">
                 <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-5 h-5 text-[#F25929] fill-[#F25929]" />
+                    <Star key={j} className="w-5 h-5 text-[#809EB1] fill-[#809EB1]" />
                   ))}
                 </div>
                 <p className="text-lg text-white/90 mb-8 font-light leading-relaxed">"{testimonial.quote}"</p>
@@ -911,19 +911,19 @@ export function LandingPage() {
       <FaqSection />
 
       {/* CTA Banner */}
-      <section className="bg-[#F25929] py-24 px-6 md:px-12">
+      <section className="bg-[#809EB1] py-24 px-6 md:px-12">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-['Inter'] text-[#16215B] mb-8">
+          <h2 className="text-5xl md:text-7xl font-['Inter'] text-[#1D3A5F] mb-8">
             Ready to Breathe Better and Sleep Sounder?
           </h2>
-          <p className="text-xl text-[#16215B]/70 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-[#1D3A5F]/70 mb-10 max-w-2xl mx-auto">
             New and returning patients are welcome. Reach out today to schedule your appointment with Dr. Scheid at our Paramus, NJ office.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-[#16215B]/80 backdrop-blur-sm border border-[#16215B]/40 text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#16215B] transition-all inline-flex items-center gap-3">
+            <button className="bg-[#1D3A5F]/80 backdrop-blur-sm border border-[#1D3A5F]/40 text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#1D3A5F] transition-all inline-flex items-center gap-3">
               Request an Appointment <ArrowRight className="w-5 h-5" />
             </button>
-            <button className="bg-[#16215B]/20 border border-[#16215B]/30 text-[#16215B] px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#16215B]/30 transition-all">
+            <button className="bg-[#1D3A5F]/20 border border-[#1D3A5F]/30 text-[#1D3A5F] px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#1D3A5F]/30 transition-all">
               Call Our Office
             </button>
           </div>
@@ -931,7 +931,7 @@ export function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#16215B] text-white pt-14 pb-6 px-6 md:px-12">
+      <footer className="bg-[#1D3A5F] text-white pt-14 pb-6 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
 
@@ -951,7 +951,7 @@ export function LandingPage() {
               <ul className="space-y-3">
                 {[["Home", true], ["About Us", false], ["Our Services", false], ["Meet the Team", false], ["Patient Portal", false]].map(([link, active]) => (
                   <li key={link as string}>
-                    <a href="#" className={`text-sm transition-colors ${active ? "text-[#F25929] font-medium" : "text-white/55 hover:text-white"}`}>{link as string}</a>
+                    <a href="#" className={`text-sm transition-colors ${active ? "text-[#809EB1] font-medium" : "text-white/55 hover:text-white"}`}>{link as string}</a>
                   </li>
                 ))}
               </ul>
@@ -974,15 +974,15 @@ export function LandingPage() {
               <h4 className="text-sm font-bold mb-5 uppercase tracking-widest text-white">Contact</h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-white/55 text-sm">
-                  <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#F25929]" />
+                  <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#809EB1]" />
                   <span>1450 Medical Plaza Way<br />Suite 300<br />San Francisco, CA 94102</span>
                 </li>
                 <li className="flex items-center gap-3 text-white/55 text-sm">
-                  <Phone className="w-4 h-4 shrink-0 text-[#F25929]" />
+                  <Phone className="w-4 h-4 shrink-0 text-[#809EB1]" />
                   <span>(415) 555-0198</span>
                 </li>
                 <li className="flex items-center gap-3 text-white/55 text-sm">
-                  <Mail className="w-4 h-4 shrink-0 text-[#F25929]" />
+                  <Mail className="w-4 h-4 shrink-0 text-[#809EB1]" />
                   <span>care@synergyentwellness.com</span>
                 </li>
               </ul>
