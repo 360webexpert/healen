@@ -1,6 +1,163 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Menu, X, ArrowRight, Ear, Stethoscope, Droplets, Mic2, Star, CheckCircle, MapPin, Phone, Mail, Zap, Play, TrendingUp, Activity, Search, ShoppingBag, Cross, ChevronDown } from "lucide-react";
 
+const specialties = [
+  { icon: "🦻", label: "Hearing & Balance" },
+  { icon: "💧", label: "Sinusitis & Allergy" },
+  { icon: "🩺", label: "Nasal Surgery", active: true },
+  { icon: "🗣️", label: "Throat & Voice" },
+  { icon: "👶", label: "Pediatric ENT" },
+];
+
+const doctors = [
+  { name: "Dr. Robert Chen", title: "Lead Surgeon" },
+  { name: "Dr. Sarah Park", title: "Audiologist" },
+  { name: "Dr. Alin Torres", title: "Rhinologist", active: true },
+  { name: "Dr. James Wilson", title: "Laryngologist" },
+  { name: "Dr. Emily Nguyen", title: "Pediatric ENT" },
+];
+
+// Tick marks arranged in a semicircle on left and right, with gap at sides for the lists
+function RadialTicks({ count = 60, radius = 340 }: { count?: number; radius?: number }) {
+  const ticks = [];
+  // Draw ticks from ~30deg to ~150deg (bottom arc) and 210deg to 330deg (top arc) — leaving gaps at 9 and 3 o'clock
+  const gaps = [[75, 105], [255, 285]]; // degrees to skip (left/right list areas)
+  for (let i = 0; i < count; i++) {
+    const angle = (i / count) * 360;
+    const inGap = gaps.some(([a, b]) => angle >= a && angle <= b);
+    if (inGap) continue;
+    const rad = (angle * Math.PI) / 180;
+    const x1 = 50 + ((radius - 14) / radius) * 50 * Math.cos(rad);
+    const y1 = 50 + ((radius - 14) / radius) * 50 * Math.sin(rad);
+    const x2 = 50 + (radius / radius) * 50 * Math.cos(rad);
+    const y2 = 50 + (radius / radius) * 50 * Math.sin(rad);
+    ticks.push(
+      <line
+        key={i}
+        x1={`${x1}%`} y1={`${y1}%`}
+        x2={`${x2}%`} y2={`${y2}%`}
+        stroke="#020202"
+        strokeWidth={i % 5 === 0 ? "1.5" : "0.8"}
+        strokeOpacity={i % 5 === 0 ? "0.25" : "0.12"}
+      />
+    );
+  }
+  return (
+    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+      {ticks}
+    </svg>
+  );
+}
+
+function RadialSelectorSection() {
+  const [activeIdx, setActiveIdx] = useState(2);
+
+  // Auto-cycle every 2.5 s
+  useEffect(() => {
+    const id = setInterval(() => setActiveIdx(i => (i + 1) % specialties.length), 2500);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <section className="bg-[#FAF5EF] relative overflow-hidden py-16 md:py-24">
+      {/* Radial ticks decoration */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="relative w-[700px] h-[700px] max-w-full">
+          <RadialTicks count={80} radius={340} />
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between gap-8 min-h-[420px]">
+
+        {/* Left — specialty list */}
+        <div className="hidden md:flex flex-col gap-3 w-52 shrink-0">
+          {specialties.map((s, i) => {
+            const dist = Math.abs(i - activeIdx);
+            const opacity = dist === 0 ? 1 : dist === 1 ? 0.5 : 0.2;
+            const scale = dist === 0 ? 1 : 0.95;
+            return (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                className="flex items-center gap-2.5 text-left transition-all duration-500 group"
+                style={{ opacity, transform: `scale(${scale})` }}
+              >
+                {dist === 0 ? (
+                  <div className="w-5 h-5 rounded-full bg-[#020202] flex items-center justify-center shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 8 8" fill="white"><polygon points="2,1 7,4 2,7"/></svg>
+                  </div>
+                ) : (
+                  <div className="w-5 h-5 rounded-full border border-[#020202]/30 shrink-0" />
+                )}
+                <span className={`text-sm font-medium ${dist === 0 ? "text-[#020202]" : "text-[#020202]/50"}`}>
+                  {s.label}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Center — main content */}
+        <div className="flex-1 flex flex-col items-center text-center px-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-['DM_Serif_Display'] text-[#020202] leading-[1.1] mb-5 max-w-lg">
+            Care built around<br />
+            <span className="italic">your ENT health</span>
+          </h2>
+          <p className="text-[#020202]/55 text-base md:text-lg mb-8 max-w-sm font-light leading-relaxed">
+            From ear infections to sinus surgery, our specialists provide calm, expert, personalised care.
+          </p>
+          <button className="bg-[#020202] text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-[#020202]/80 transition-colors">
+            Schedule Now
+          </button>
+        </div>
+
+        {/* Right — doctor list */}
+        <div className="hidden md:flex flex-col gap-3 w-52 shrink-0 items-end">
+          {doctors.map((d, i) => {
+            const dist = Math.abs(i - activeIdx);
+            const opacity = dist === 0 ? 1 : dist === 1 ? 0.5 : 0.2;
+            const scale = dist === 0 ? 1 : 0.95;
+            return (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                className="flex items-center gap-2.5 text-right transition-all duration-500"
+                style={{ opacity, transform: `scale(${scale})` }}
+              >
+                <div className="text-right">
+                  <div className={`text-sm font-medium ${dist === 0 ? "text-[#020202]" : "text-[#020202]/50"}`}>{d.name}</div>
+                  {dist === 0 && <div className="text-xs text-[#020202]/40">{d.title}</div>}
+                </div>
+                <div className={`w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+                  dist === 0
+                    ? "bg-[#020202] text-white ring-2 ring-[#020202]/20 ring-offset-2"
+                    : "bg-[#020202]/10 text-[#020202]/40"
+                }`}>
+                  {d.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Nav arrows */}
+        <button
+          onClick={() => setActiveIdx(i => Math.max(0, i - 1))}
+          className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#020202]/8 border border-[#020202]/15 flex items-center justify-center hover:bg-[#020202]/15 transition-colors"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2L3.5 6L7.5 10" stroke="#020202" strokeWidth="1.5" strokeLinecap="round"/></svg>
+        </button>
+        <button
+          onClick={() => setActiveIdx(i => Math.min(specialties.length - 1, i + 1))}
+          className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#020202]/8 border border-[#020202]/15 flex items-center justify-center hover:bg-[#020202]/15 transition-colors"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2L8.5 6L4.5 10" stroke="#020202" strokeWidth="1.5" strokeLinecap="round"/></svg>
+        </button>
+      </div>
+    </section>
+  );
+}
+
 const faqs = [
   {
     q: "What conditions do ENT specialists treat?",
@@ -339,6 +496,9 @@ export function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Radial Selector Section */}
+      <RadialSelectorSection />
 
       {/* Services Section */}
       <section id="services" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
