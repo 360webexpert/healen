@@ -191,9 +191,9 @@ function FaqSection() {
           {/* Still have questions? card */}
           <div className="relative rounded-[20px] overflow-hidden min-h-[200px] bg-[#16215B]">
             <img
-              src="/__mockup/images/ent-about.png"
+              src="/__mockup/images/ent-about-doctor-orig.png?v=1"
               alt="Doctor ready to help"
-              className="absolute inset-0 w-full h-full object-cover opacity-50"
+              className="absolute inset-0 w-full h-full object-cover object-top opacity-50"
             />
             <div className="relative z-10 p-8 flex flex-col justify-end h-full min-h-[200px]">
               <div className="mt-auto">
@@ -608,9 +608,9 @@ export function LandingPage() {
             <div className="relative">
               <div className="aspect-[3/4] rounded-[20px] overflow-hidden">
                 <img 
-                  src="/__mockup/images/ent-about.png" 
+                  src="/__mockup/images/ent-about-doctor-orig.png?v=1" 
                   alt="Dr. Headshot" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="absolute -bottom-8 -right-8 bg-[#F25929] text-[#16215B] p-8 rounded-[20px] hidden md:block">
