@@ -537,17 +537,6 @@ export function LandingPage() {
         {/* Gradient fade into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, #E0EAF8 100%)" }} />
 
-        {/* Partner logos strip */}
-        <div className="relative z-10 border-t border-white/10 py-6 px-6 md:px-12">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-6 sm:gap-0 justify-between">
-            <span className="text-white/40 text-xs uppercase tracking-widest whitespace-nowrap">Trusted & Accredited By</span>
-            <div className="flex flex-wrap justify-center sm:justify-end items-center gap-8 sm:gap-12">
-              {["American Academy of Otolaryngology", "ACS Fellow", "Johns Hopkins", "Mayo Clinic Network", "JCI Accredited"].map((name) => (
-                <span key={name} className="text-white/50 text-xs md:text-sm font-semibold uppercase tracking-wider hover:text-white/80 transition-colors">{name}</span>
-              ))}
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Radial Selector Section */}
