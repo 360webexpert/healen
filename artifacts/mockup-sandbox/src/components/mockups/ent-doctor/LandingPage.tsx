@@ -612,23 +612,26 @@ export function LandingPage() {
                 />
               </div>
               <div className="absolute -bottom-8 -right-8 bg-[#F25929] text-[#16215B] p-8 rounded-[20px] hidden md:block">
-                <h3 className="text-4xl font-['Inter'] mb-1">Dr. Robert Chen</h3>
-                <p className="font-medium">Lead Surgeon, MD, FACS</p>
+                <h3 className="text-4xl font-['Inter'] mb-1">Dr. Scheid</h3>
+                <p className="font-medium">Otolaryngologist & Sleep Specialist</p>
               </div>
             </div>
 
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 rounded-full bg-[#F25929]"></div>
-                <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">About Practice</span>
+                <span className="text-[#F25929] font-semibold text-sm">—</span>
+                <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">Meet Dr Scheid.</span>
               </div>
               
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] leading-tight mb-8">
-                Precision medicine with a human touch.
+                Focused on Excellence in ENT and Sleep Medicine.
               </h2>
               
+              <p className="text-lg text-white/70 mb-6 font-light leading-relaxed">
+                Dr. Scheid is a Board certified Otolaryngologist and Sleep medicine specialist who offers care of a wide range of sleep, ear, nose, and throat conditions, including nasal obstruction, sinusitis, snoring, sleep apnea, circadian rhythm disorders, insomnia, allergy, ear infections, hearing loss, dizziness, voice, and swallowing problems.
+              </p>
               <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
-                Synergy ENT & Wellness was founded on a simple principle: every patient deserves specialized care tailored to their unique anatomy and lifestyle. We combine decades of surgical expertise with the latest minimally invasive technologies to ensure faster recovery and better outcomes.
+                As her career has evolved and her expertise has broadened, Dr. Scheid has become increasingly focused on taking a holistic approach to each patient. She moved away from corporate medicine to spend more time with patients, search for the root cause of disease, and incorporate lifestyle, nutrition, and other interventions that support optimal health, sleep, and longevity.
               </p>
 
               <div className="grid grid-cols-2 gap-8 mb-12">
