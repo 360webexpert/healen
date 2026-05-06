@@ -418,7 +418,7 @@ export function LandingPage() {
           aria-hidden="true"
           className="absolute pointer-events-none select-none"
           style={{
-            top: '20%',
+            top: '10%',
             left: '46%',
             width: '320px',
             opacity: 0.12,
