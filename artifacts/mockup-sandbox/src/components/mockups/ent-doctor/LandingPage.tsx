@@ -1311,9 +1311,6 @@ export function LandingPage() {
       {/* Testimonials — Carousel */}
       <TestimonialsCarousel />
 
-      {/* FAQ Section */}
-      <FaqSection />
-
       {/* CTA Banner */}
       <section className="relative overflow-hidden bg-[#809EB1] py-24 px-6 md:px-12">
         {/* Office background photo */}
