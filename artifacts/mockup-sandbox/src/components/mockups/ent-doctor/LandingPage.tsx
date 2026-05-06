@@ -765,15 +765,71 @@ export function LandingPage() {
         }
         .why-card {
           opacity: 0;
-          transform: translateY(48px) scale(0.97);
+          transform: translateY(56px) scale(0.95);
         }
         .why-card.visible {
-          animation: slideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
         .why-card:nth-child(1).visible { animation-delay: 0ms; }
-        .why-card:nth-child(2).visible { animation-delay: 100ms; }
-        .why-card:nth-child(3).visible { animation-delay: 200ms; }
-        .why-card:nth-child(4).visible { animation-delay: 300ms; }
+        .why-card:nth-child(2).visible { animation-delay: 160ms; }
+        .why-card:nth-child(3).visible { animation-delay: 320ms; }
+        .why-card:nth-child(4).visible { animation-delay: 480ms; }
+        /* Icon pulse glow */
+        @keyframes iconPulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(187,219,237,0); transform: scale(1); }
+          50% { box-shadow: 0 0 0 10px rgba(187,219,237,0.08), 0 0 24px 4px rgba(187,219,237,0.12); transform: scale(1.06); }
+        }
+        .why-icon-box {
+          animation: iconPulse 3.6s ease-in-out infinite;
+        }
+        .why-card:nth-child(2) .why-icon-box { animation-delay: 1.2s; }
+        .why-card:nth-child(3) .why-icon-box { animation-delay: 2.4s; }
+        /* Beam sweep */
+        @keyframes beamSweep {
+          0%   { transform: translateX(-120%) skewX(-12deg); opacity: 0; }
+          10%  { opacity: 1; }
+          90%  { opacity: 1; }
+          100% { transform: translateX(220%) skewX(-12deg); opacity: 0; }
+        }
+        .why-beam {
+          pointer-events: none;
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .why-beam::after {
+          content: '';
+          position: absolute;
+          top: 0; bottom: 0;
+          left: 0;
+          width: 30%;
+          background: linear-gradient(90deg, transparent, rgba(187,219,237,0.07) 40%, rgba(187,219,237,0.13) 50%, rgba(187,219,237,0.07) 60%, transparent);
+          animation: beamSweep 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+        }
+        /* Ambient orb drift */
+        @keyframes orbDrift1 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(40px, -30px) scale(1.12); }
+        }
+        @keyframes orbDrift2 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(-30px, 20px) scale(0.92); }
+        }
+        .why-orb-1 { animation: orbDrift1 9s ease-in-out infinite; }
+        .why-orb-2 { animation: orbDrift2 11s ease-in-out infinite 1.5s; }
+        /* Connector line draw */
+        @keyframes lineDraw {
+          from { width: 0; opacity: 0; }
+          to   { width: 100%; opacity: 1; }
+        }
+        .why-connector {
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(187,219,237,0.2) 20%, rgba(187,219,237,0.35) 50%, rgba(187,219,237,0.2) 80%, transparent);
+          width: 0; opacity: 0;
+        }
+        .why-connector.visible {
+          animation: lineDraw 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+        }
         .why-card-image {
           transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
           cursor: pointer;
@@ -1172,8 +1228,12 @@ export function LandingPage() {
             padding: `${32 + bentoProgress * 16}px ${(1 - bentoProgress) * 40 + bentoProgress * 80}px`,
           }}
         >
-          {/* Soft radial glow */}
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(187,219,237,0.18) 0%, transparent 70%)" }} />
+          {/* Ambient drifting orbs */}
+          <div className="why-orb-1 absolute pointer-events-none" style={{ top: "-20%", left: "10%", width: 420, height: 420, borderRadius: "50%", background: "radial-gradient(circle, rgba(187,219,237,0.14) 0%, transparent 70%)", filter: "blur(2px)" }} />
+          <div className="why-orb-2 absolute pointer-events-none" style={{ bottom: "-30%", right: "5%", width: 360, height: 360, borderRadius: "50%", background: "radial-gradient(circle, rgba(187,219,237,0.10) 0%, transparent 70%)", filter: "blur(2px)" }} />
+
+          {/* Beam sweep overlay */}
+          {whyCardsVisible && <div className="why-beam" />}
 
           {/* Top CTA buttons */}
           <div className="relative z-10 flex justify-center gap-3 mb-10">
@@ -1193,6 +1253,10 @@ export function LandingPage() {
                 A Different Approach to ENT Care
               </h2>
             </div>
+
+            {/* Connector line between cards */}
+            <div className={`why-connector mx-auto mb-10 max-w-xl${whyCardsVisible ? " visible" : ""}`} />
+
             <div ref={whyGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               {[
                 {
@@ -1214,9 +1278,9 @@ export function LandingPage() {
                 <div
                   key={i}
                   className={`why-card flex flex-col items-center gap-4${whyCardsVisible ? " visible" : ""}`}
-                  style={{ animationDelay: `${i * 120}ms` }}
+                  style={{ animationDelay: `${i * 160}ms` }}
                 >
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(187,219,237,0.12)" }}>
+                  <div className="why-icon-box w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "rgba(187,219,237,0.12)", animationDelay: `${i * 1.2}s` }}>
                     {item.icon}
                   </div>
                   <div>
