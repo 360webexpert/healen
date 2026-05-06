@@ -244,6 +244,9 @@ function FaqSection() {
 export function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [heroReady, setHeroReady] = useState(false);
+  const [ringOffset, setRingOffset] = useState(100.5);
+  const [counterVal, setCounterVal] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -251,6 +254,30 @@ export function LandingPage() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setHeroReady(true);
+      // Animate donut ring: dashoffset 100.5 → 16 over 1400ms cubic-ease-out
+      const duration = 1400;
+      const start = performance.now();
+      const animRing = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        setRingOffset(100.5 + (16 - 100.5) * ease);
+        if (p < 1) requestAnimationFrame(animRing);
+      };
+      requestAnimationFrame(animRing);
+      // Count up 0 → 98 over same duration
+      let current = 0;
+      const interval = setInterval(() => {
+        current = Math.min(current + 2, 98);
+        setCounterVal(current);
+        if (current >= 98) clearInterval(interval);
+      }, Math.round(duration / 49));
+    }, 350);
+    return () => clearTimeout(t);
   }, []);
 
   return (
@@ -269,6 +296,26 @@ export function LandingPage() {
         }
         .animate-ken-burns {
           animation: kenBurns 20s ease-out forwards;
+        }
+        @keyframes slideInTopRight {
+          from { opacity: 0; transform: translate(32px, -32px) scale(0.92); }
+          to   { opacity: 1; transform: translate(0, 0) scale(1); }
+        }
+        @keyframes slideInBottomLeft {
+          from { opacity: 0; transform: translate(-32px, 32px) scale(0.92); }
+          to   { opacity: 1; transform: translate(0, 0) scale(1); }
+        }
+        .card-top-right {
+          opacity: 0;
+        }
+        .card-top-right.ready {
+          animation: slideInTopRight 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+        }
+        .card-bottom-left {
+          opacity: 0;
+        }
+        .card-bottom-left.ready {
+          animation: slideInBottomLeft 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s forwards;
         }
       `}</style>
 
@@ -409,15 +456,24 @@ export function LandingPage() {
                 />
 
                 {/* Floating card — Dashboard Report (top right) */}
-                <div className="absolute -top-4 -right-4 md:right-0 lg:-right-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-52 shadow-xl z-20">
+                <div className={`card-top-right${heroReady ? " ready" : ""} absolute -top-4 -right-4 md:right-0 lg:-right-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-52 shadow-xl z-20`}>
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-white text-xs font-semibold">Patient Overview</span>
                     <TrendingUp className="w-3.5 h-3.5 text-[#F25929]" />
                   </div>
-                  {/* Mini chart bars */}
+                  {/* Mini chart bars — grow upward on load */}
                   <div className="flex items-end gap-1 h-12 mb-2">
                     {[30, 55, 40, 70, 50, 80, 65].map((h, i) => (
-                      <div key={i} className="flex-1 rounded-t-sm transition-all" style={{ height: `${h}%`, background: i === 5 ? "#F25929" : "rgba(255,255,255,0.25)" }} />
+                      <div
+                        key={i}
+                        className="flex-1 rounded-t-sm"
+                        style={{
+                          height: heroReady ? `${h}%` : "0%",
+                          background: i === 5 ? "#F25929" : "rgba(255,255,255,0.25)",
+                          transition: `height 0.6s cubic-bezier(0.34,1.2,0.64,1)`,
+                          transitionDelay: heroReady ? `${0.9 + i * 0.07}s` : "0s",
+                        }}
+                      />
                     ))}
                   </div>
                   <div className="flex justify-between text-white/50 text-[10px]">
@@ -426,20 +482,26 @@ export function LandingPage() {
                 </div>
 
                 {/* Floating card — Daily Stats (bottom left) */}
-                <div className="absolute -bottom-4 -left-4 md:left-0 lg:-left-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-48 shadow-xl z-20">
+                <div className={`card-bottom-left${heroReady ? " ready" : ""} absolute -bottom-4 -left-4 md:left-0 lg:-left-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-48 shadow-xl z-20`}>
                   <div className="flex items-center gap-2 mb-3">
                     <Activity className="w-4 h-4 text-[#F25929]" />
                     <span className="text-white text-xs font-semibold">Recovery Rate</span>
                   </div>
-                  {/* Radial gauge mockup */}
+                  {/* Radial gauge — ring draws itself on load */}
                   <div className="flex items-center justify-between">
                     <div className="relative w-14 h-14">
                       <svg viewBox="0 0 44 44" className="w-14 h-14 -rotate-90">
                         <circle cx="22" cy="22" r="16" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="4" />
-                        <circle cx="22" cy="22" r="16" fill="none" stroke="#F25929" strokeWidth="4" strokeDasharray="100.5" strokeDashoffset="16" strokeLinecap="round" />
+                        <circle
+                          cx="22" cy="22" r="16" fill="none"
+                          stroke="#F25929" strokeWidth="4"
+                          strokeDasharray="100.5"
+                          strokeDashoffset={ringOffset}
+                          strokeLinecap="round"
+                        />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">98%</span>
+                        <span className="text-white text-xs font-bold">{counterVal}%</span>
                       </div>
                     </div>
                     <div className="text-right">
