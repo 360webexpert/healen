@@ -560,6 +560,8 @@ export function LandingPage() {
   const [navOpacity, setNavOpacity] = useState(0);
   const [bentoProgress, setBentoProgress] = useState(0);
   const bentoRef = useRef<HTMLElement>(null);
+  const [whyCardsVisible, setWhyCardsVisible] = useState(false);
+  const whyGridRef = useRef<HTMLDivElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [heroReady, setHeroReady] = useState(false);
   const [ringOffset, setRingOffset] = useState(100.5);
@@ -576,6 +578,16 @@ export function LandingPage() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!whyGridRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setWhyCardsVisible(true); observer.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    observer.observe(whyGridRef.current);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -638,6 +650,52 @@ export function LandingPage() {
         }
         .card-bottom-left.ready {
           animation: slideInBottomLeft 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s forwards;
+        }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(48px) scale(0.97); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .why-card {
+          opacity: 0;
+          transform: translateY(48px) scale(0.97);
+        }
+        .why-card.visible {
+          animation: slideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .why-card:nth-child(1).visible { animation-delay: 0ms; }
+        .why-card:nth-child(2).visible { animation-delay: 100ms; }
+        .why-card:nth-child(3).visible { animation-delay: 200ms; }
+        .why-card:nth-child(4).visible { animation-delay: 300ms; }
+        .why-card-image {
+          transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+          cursor: pointer;
+        }
+        .why-card-image:hover {
+          transform: translateY(-6px) scale(1.02);
+          box-shadow: 0 24px 56px rgba(29,58,95,0.28);
+        }
+        .why-card-image:hover img {
+          transform: scale(1.05);
+        }
+        .why-card-image img {
+          transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .why-card-article {
+          transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+          cursor: pointer;
+        }
+        .why-card-article:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 48px rgba(29,58,95,0.15);
+        }
+        .why-card-article:hover .arrow-btn {
+          background: #1D3A5F;
+        }
+        .why-card-article:hover .arrow-btn svg {
+          color: white;
+        }
+        .arrow-btn {
+          transition: background 0.3s ease;
         }
       `}</style>
 
@@ -1062,10 +1120,10 @@ export function LandingPage() {
           </div>
 
           {/* 4-col bento grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-start">
+          <div ref={whyGridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 items-start">
 
             {/* Card 1 — tall image + Learn More */}
-            <div className="relative rounded-3xl overflow-hidden bg-[#BBDBED]" style={{ minHeight: 420 }}>
+            <div className={`why-card why-card-image relative rounded-3xl overflow-hidden bg-[#BBDBED]${whyCardsVisible ? " visible" : ""}`} style={{ minHeight: 420 }}>
               <img
                 src="/__mockup/images/ent-about.png"
                 alt="ENT specialty care"
@@ -1083,7 +1141,7 @@ export function LandingPage() {
             </div>
 
             {/* Card 2 — article/text card */}
-            <div className="rounded-3xl bg-white p-6 flex flex-col justify-between" style={{ minHeight: 420 }}>
+            <div className={`why-card why-card-article rounded-3xl bg-white p-6 flex flex-col justify-between${whyCardsVisible ? " visible" : ""}`} style={{ minHeight: 420 }}>
               <div>
                 <span className="text-xs font-semibold tracking-widest text-[#809EB1] uppercase">Blog / Article</span>
                 <div className="mt-4 rounded-2xl overflow-hidden h-44">
@@ -1096,14 +1154,14 @@ export function LandingPage() {
               </div>
               <div>
                 <h3 className="font-['Inter'] text-lg leading-snug mb-3 text-[#1D3A5F]">Dual Board Certification in ENT &amp; Sleep Medicine</h3>
-                <div className="w-9 h-9 rounded-full bg-[#BBDBED] flex items-center justify-center ml-auto">
+                <div className="arrow-btn w-9 h-9 rounded-full bg-[#BBDBED] flex items-center justify-center ml-auto">
                   <ArrowRight className="w-4 h-4 text-[#1D3A5F]" />
                 </div>
               </div>
             </div>
 
             {/* Card 3 — tall image */}
-            <div className="relative rounded-3xl overflow-hidden bg-[#1D3A5F]" style={{ minHeight: 420 }}>
+            <div className={`why-card why-card-image relative rounded-3xl overflow-hidden bg-[#1D3A5F]${whyCardsVisible ? " visible" : ""}`} style={{ minHeight: 420 }}>
               <img
                 src="/__mockup/images/ent-about-doctor-orig.png"
                 alt="Dr. Scheid"
@@ -1121,7 +1179,7 @@ export function LandingPage() {
             </div>
 
             {/* Card 4 — article/text card */}
-            <div className="rounded-3xl bg-white p-6 flex flex-col justify-between" style={{ minHeight: 420 }}>
+            <div className={`why-card why-card-article rounded-3xl bg-white p-6 flex flex-col justify-between${whyCardsVisible ? " visible" : ""}`} style={{ minHeight: 420 }}>
               <div>
                 <span className="text-xs font-semibold tracking-widest text-[#809EB1] uppercase">Blog / Article</span>
                 <div className="mt-4 rounded-2xl overflow-hidden h-44">
@@ -1134,7 +1192,7 @@ export function LandingPage() {
               </div>
               <div>
                 <h3 className="font-['Inter'] text-lg leading-snug mb-3 text-[#1D3A5F]">In-Office Procedures &amp; Personalized Care Plans</h3>
-                <div className="w-9 h-9 rounded-full bg-[#BBDBED] flex items-center justify-center ml-auto">
+                <div className="arrow-btn w-9 h-9 rounded-full bg-[#BBDBED] flex items-center justify-center ml-auto">
                   <ArrowRight className="w-4 h-4 text-[#1D3A5F]" />
                 </div>
               </div>
