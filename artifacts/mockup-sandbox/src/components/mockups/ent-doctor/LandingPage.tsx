@@ -218,6 +218,108 @@ const faqs = [
   },
 ];
 
+function AboutSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      // progress 0 when section top hits bottom of viewport, 1 when section top is at 30% of viewport
+      const raw = 1 - rect.top / (windowH * 0.7);
+      setProgress(Math.min(1, Math.max(0, raw)));
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+  const mx = lerp(48, 0, progress);
+  const radius = lerp(32, 0, progress);
+  const py = lerp(56, 80, progress);
+  const px = lerp(40, 64, progress);
+
+  return (
+    <section ref={sectionRef} id="about" className="bg-white overflow-hidden" style={{ paddingTop: 64, paddingBottom: 64 }}>
+      {/* Scroll-expand card */}
+      <div
+        className="bg-[#1D3A5F] text-white shadow-2xl"
+        style={{
+          marginLeft: mx,
+          marginRight: mx,
+          borderRadius: radius,
+          paddingTop: py,
+          paddingBottom: py,
+          paddingLeft: px,
+          paddingRight: px,
+          transition: "border-radius 0.05s linear",
+          overflow: "visible",
+        }}
+      >
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="relative">
+            <div className="aspect-[3/4] rounded-[20px] overflow-hidden">
+              <img
+                src="/__mockup/images/ent-about-doctor-orig.png?v=1"
+                alt="Dr. Headshot"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div
+              className="absolute -bottom-8 -right-8 p-8 rounded-[20px] hidden md:block text-[#1D3A5F]"
+              style={{
+                background: "rgba(187, 219, 237, 0.45)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                border: "1px solid rgba(255,255,255,0.5)",
+                boxShadow: "0 4px 24px rgba(29,58,95,0.12), inset 0 1px 0 rgba(255,255,255,0.6)",
+              }}
+            >
+              <h3 className="text-4xl font-['Inter'] mb-1">Dr. Scheid</h3>
+              <p className="font-medium">Otolaryngologist & Sleep Specialist</p>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-[#809EB1] font-semibold text-sm">—</span>
+              <span className="uppercase tracking-widest text-sm font-semibold text-[#809EB1]">Meet Dr Scheid.</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-['Inter'] leading-tight mb-8">
+              Focused on Excellence in ENT and Sleep Medicine.
+            </h2>
+            <p className="text-lg text-white/70 mb-6 font-light leading-relaxed">
+              Dr. Scheid is a Board certified Otolaryngologist and Sleep medicine specialist who offers care of a wide range of sleep, ear, nose, and throat conditions, including nasal obstruction, sinusitis, snoring, sleep apnea, circadian rhythm disorders, insomnia, allergy, ear infections, hearing loss, dizziness, voice, and swallowing problems.
+            </p>
+            <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
+              As her career has evolved and her expertise has broadened, Dr. Scheid has become increasingly focused on taking a holistic approach to each patient. She moved away from corporate medicine to spend more time with patients, search for the root cause of disease, and incorporate lifestyle, nutrition, and other interventions that support optimal health, sleep, and longevity.
+            </p>
+            <div className="grid grid-cols-2 gap-8 mb-12">
+              {[
+                { value: "2,000+", label: "Patients Served" },
+                { value: "98%", label: "Satisfaction" },
+                { value: "20+", label: "Years Experience" },
+                { value: "4", label: "Clinic Locations" },
+              ].map((stat, i) => (
+                <div key={i}>
+                  <div className="text-4xl md:text-5xl font-['Inter'] text-[#809EB1] mb-2">{stat.value}</div>
+                  <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+            <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
+              Meet The Team <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const testimonials = [
   {
     quote: "Dr. Scheid has been an enormous asset to my family for over ten years. Her skill and expertise is unparalleled — she goes above and beyond in every way.",
@@ -715,72 +817,7 @@ export function LandingPage() {
       <RadialSelectorSection />
 
       {/* About/Stats Section */}
-      <section id="about" className="bg-white py-16 md:py-24 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          {/* Floating card */}
-          <div className="bg-[#1D3A5F] text-white rounded-[32px] shadow-2xl overflow-visible px-10 md:px-16 py-14 md:py-20">
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="relative">
-                <div className="aspect-[3/4] rounded-[20px] overflow-hidden">
-                  <img 
-                    src="/__mockup/images/ent-about-doctor-orig.png?v=1" 
-                    alt="Dr. Headshot" 
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <div className="absolute -bottom-8 -right-8 p-8 rounded-[20px] hidden md:block text-[#1D3A5F]"
-                  style={{
-                    background: "rgba(187, 219, 237, 0.45)",
-                    backdropFilter: "blur(16px)",
-                    WebkitBackdropFilter: "blur(16px)",
-                    border: "1px solid rgba(255,255,255,0.5)",
-                    boxShadow: "0 4px 24px rgba(29,58,95,0.12), inset 0 1px 0 rgba(255,255,255,0.6)"
-                  }}
-                >
-                  <h3 className="text-4xl font-['Inter'] mb-1">Dr. Scheid</h3>
-                  <p className="font-medium">Otolaryngologist & Sleep Specialist</p>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-[#809EB1] font-semibold text-sm">—</span>
-                  <span className="uppercase tracking-widest text-sm font-semibold text-[#809EB1]">Meet Dr Scheid.</span>
-                </div>
-                
-                <h2 className="text-3xl md:text-4xl font-['Inter'] leading-tight mb-8">
-                  Focused on Excellence in ENT and Sleep Medicine.
-                </h2>
-                
-                <p className="text-lg text-white/70 mb-6 font-light leading-relaxed">
-                  Dr. Scheid is a Board certified Otolaryngologist and Sleep medicine specialist who offers care of a wide range of sleep, ear, nose, and throat conditions, including nasal obstruction, sinusitis, snoring, sleep apnea, circadian rhythm disorders, insomnia, allergy, ear infections, hearing loss, dizziness, voice, and swallowing problems.
-                </p>
-                <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
-                  As her career has evolved and her expertise has broadened, Dr. Scheid has become increasingly focused on taking a holistic approach to each patient. She moved away from corporate medicine to spend more time with patients, search for the root cause of disease, and incorporate lifestyle, nutrition, and other interventions that support optimal health, sleep, and longevity.
-                </p>
-
-                <div className="grid grid-cols-2 gap-8 mb-12">
-                  {[
-                    { value: "2,000+", label: "Patients Served" },
-                    { value: "98%", label: "Satisfaction" },
-                    { value: "20+", label: "Years Experience" },
-                    { value: "4", label: "Clinic Locations" }
-                  ].map((stat, i) => (
-                    <div key={i}>
-                      <div className="text-4xl md:text-5xl font-['Inter'] text-[#809EB1] mb-2">{stat.value}</div>
-                      <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
-                  Meet The Team <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
       {/* Services Section */}
       <section id="services" className="py-24 md:py-32 px-6 md:px-12">
