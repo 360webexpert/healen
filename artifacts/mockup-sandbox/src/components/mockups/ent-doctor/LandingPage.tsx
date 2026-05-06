@@ -1,6 +1,102 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Menu, X, ArrowRight, Ear, Stethoscope, Droplets, Mic2, Star, CheckCircle, MapPin, Phone, Mail, Zap, Play, TrendingUp, Activity, Search, ShoppingBag, Cross, ChevronDown } from "lucide-react";
 
+const faqs = [
+  {
+    q: "What conditions do ENT specialists treat?",
+    a: "Our ENT specialists treat a wide range of conditions including chronic sinusitis, hearing loss, tinnitus, sleep apnea, voice disorders, thyroid issues, nasal polyps, and ear infections — in both adults and children."
+  },
+  {
+    q: "How do I know if I need a referral to see an ENT?",
+    a: "While many insurers allow direct ENT appointments, a referral from your primary care physician can help. If you experience recurring ear infections, persistent sinus issues, hearing changes, or breathing difficulties, it's time to see a specialist."
+  },
+  {
+    q: "Are ENT procedures painful?",
+    a: "Most diagnostic procedures are minimally uncomfortable and performed in-office with local anesthesia if needed. Surgical procedures use appropriate anesthesia and our team provides detailed aftercare instructions to ensure a smooth recovery."
+  },
+  {
+    q: "What should I expect at my first visit?",
+    a: "Your first visit includes a thorough review of your medical history, a physical examination of your ears, nose, and throat, and any necessary in-office diagnostic tests. We'll discuss findings with you and outline a personalized treatment plan."
+  },
+  {
+    q: "Do you offer minimally invasive surgical options?",
+    a: "Yes. We specialize in balloon sinuplasty, functional endoscopic sinus surgery (FESS), and other minimally invasive procedures that offer shorter recovery times and less discomfort compared to traditional surgery."
+  },
+];
+
+function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <section className="bg-[#FAF5EF] py-24 md:py-32 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
+
+        {/* Left — heading + contact card */}
+        <div className="flex flex-col gap-10">
+          {/* Label */}
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#020202]" />
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#020202]/60">FAQs</span>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-5xl md:text-6xl font-['DM_Serif_Display'] text-[#020202] leading-[1.1] -mt-4">
+            Frequently asked<br />questions
+          </h2>
+
+          {/* Still have questions? card */}
+          <div className="relative rounded-[20px] overflow-hidden min-h-[200px] bg-[#020202]">
+            <img
+              src="/__mockup/images/ent-about.png"
+              alt="Doctor ready to help"
+              className="absolute inset-0 w-full h-full object-cover opacity-50"
+            />
+            <div className="relative z-10 p-8 flex flex-col justify-end h-full min-h-[200px]">
+              <div className="mt-auto">
+                <h3 className="text-white font-['DM_Serif_Display'] text-2xl mb-2">Still have questions?</h3>
+                <p className="text-white/70 text-sm mb-6 max-w-xs">Our team is here to help. Get in touch for personalized answers.</p>
+                <button className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white rounded-full px-5 py-2.5 text-sm font-medium hover:bg-white/25 transition-colors">
+                  <span className="text-[#E4FF60]">✦</span> Contact us
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right — accordion */}
+        <div className="flex flex-col divide-y divide-[#020202]/10">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div key={i} className={`py-6 transition-colors ${isOpen ? "bg-white rounded-[20px] px-7 -mx-7 shadow-sm" : ""}`}>
+                <button
+                  className="w-full flex items-start justify-between gap-6 text-left group"
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                >
+                  <span className={`text-lg font-['DM_Serif_Display'] leading-snug transition-colors ${isOpen ? "text-[#020202]" : "text-[#020202]/80 group-hover:text-[#020202]"}`}>
+                    {faq.q}
+                  </span>
+                  <div className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all mt-0.5 ${isOpen ? "border-[#020202]/20 bg-[#020202]/5" : "border-[#020202]/20 bg-white"}`}>
+                    {isOpen
+                      ? <X className="w-3.5 h-3.5 text-[#020202]" />
+                      : <span className="text-[#020202] text-lg leading-none -mt-px">+</span>
+                    }
+                  </div>
+                </button>
+                {isOpen && (
+                  <p className="mt-4 text-[#020202]/60 font-light leading-relaxed text-[15px]">
+                    {faq.a}
+                  </p>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -431,6 +527,9 @@ export function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FaqSection />
 
       {/* CTA Banner */}
       <section className="bg-[#E4FF60] py-24 px-6 md:px-12">
