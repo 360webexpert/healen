@@ -1245,6 +1245,11 @@ export function LandingPage() {
             <button className="flex items-center gap-2 font-semibold border-b-2 border-[#1D3A5F] pb-1 hover:text-[#1D3A5F]/60 hover:border-[#1D3A5F]/60 transition-colors">
               View All Services <ArrowRight className="w-4 h-4" />
             </button>
+
+            {/* 3D rotating wireframe head — bottom-left decoration */}
+            <div className="mt-10 flex justify-start opacity-80">
+              <WireframeHead />
+            </div>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
@@ -1419,10 +1424,6 @@ export function LandingPage() {
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="rgba(255,255,255,0.4)"/><path d="M4 7.5a3 3 0 0 0 6 0" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round"/><circle cx="7" cy="4.5" r="1" fill="rgba(255,255,255,0.5)"/></svg>
                 Now accepting new patients in Paramus, NJ
               </p>
-            </div>
-            {/* 3D wireframe head — right side */}
-            <div className="hidden md:flex items-center justify-center pr-8 opacity-90">
-              <WireframeHead />
             </div>
           </div>
         </div>
