@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Menu, X, ArrowRight, Ear, Stethoscope, Droplets, Mic2, Star, CheckCircle, MapPin, Phone, Mail, Zap, Play, TrendingUp, Activity } from "lucide-react";
+import { Menu, X, ArrowRight, Ear, Stethoscope, Droplets, Mic2, Star, CheckCircle, MapPin, Phone, Mail, Zap, Play, TrendingUp, Activity, Search, ShoppingBag, Cross, ChevronDown } from "lucide-react";
 
 export function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,49 +32,84 @@ export function LandingPage() {
         }
       `}</style>
 
-      {/* Navigation */}
-      <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-[#020202]/90 backdrop-blur-md py-4" : "bg-transparent py-6"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <div className="flex items-center gap-12">
-            <a href="#" className="text-2xl font-['DM_Serif_Display'] tracking-wide text-white">
-              ClearPath<span className="text-[#E4FF60]">.</span>
-            </a>
-            <div className="hidden lg:flex items-center gap-8">
-              {["Home", "Services", "About", "Team", "Contact"].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-white/80 hover:text-white text-sm uppercase tracking-wider font-medium transition-colors"
-                >
-                  {item}
-                </a>
-              ))}
+      {/* Navigation — Medora glassmorphism style */}
+      <nav className="fixed top-0 w-full z-50 px-6 md:px-10 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+
+          {/* Logo pill */}
+          <a href="#" className="hidden lg:flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2.5 hover:bg-white/15 transition-colors shrink-0">
+            <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M7 1v12M1 7h12" stroke="#E4FF60" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
             </div>
+            <span className="text-white font-semibold text-sm tracking-wide">ClearPath ENT</span>
+          </a>
+
+          {/* Center nav links pill */}
+          <div className="hidden lg:flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-1.5 gap-1">
+            {[
+              { label: "Home", active: true },
+              { label: "Services", dropdown: true },
+              { label: "About Us" },
+              { label: "Treatments" },
+              { label: "Blog" },
+              { label: "Contact" },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={`#${item.label.toLowerCase().replace(" ", "")}`}
+                className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  item.active
+                    ? "bg-white/20 text-white"
+                    : "text-white/70 hover:text-white hover:bg-white/10"
+                }`}
+              >
+                {item.label}
+                {item.dropdown && <ChevronDown className="w-3 h-3 opacity-60" />}
+              </a>
+            ))}
           </div>
-          
-          <div className="hidden lg:flex items-center gap-6">
-            <button className="bg-[#E4FF60] text-[#020202] px-6 py-3 rounded-[50px] font-semibold text-sm uppercase tracking-wide hover:bg-[#d4f04b] transition-colors flex items-center gap-2">
-              Book Appointment <ArrowRight className="w-4 h-4" />
+
+          {/* Right group */}
+          <div className="hidden lg:flex items-center gap-2 shrink-0">
+            {/* Search pill */}
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2.5 w-36">
+              <Search className="w-4 h-4 text-white/50 shrink-0" />
+              <span className="text-white/40 text-sm">Search</span>
+            </div>
+            {/* Icon button */}
+            <button className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors">
+              <ShoppingBag className="w-4 h-4 text-white/80" />
+            </button>
+            {/* Contact Us pill */}
+            <button className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-white text-sm font-medium hover:bg-white/20 transition-colors">
+              Book Appointment
             </button>
           </div>
 
-          <button 
-            className="lg:hidden text-white"
+          {/* Mobile: logo + hamburger */}
+          <a href="#" className="lg:hidden flex items-center gap-2 text-white font-semibold">
+            <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M7 1v12M1 7h12" stroke="#E4FF60" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </div>
+            ClearPath
+          </a>
+          <button
+            className="lg:hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2.5 text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-[#020202] z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {["Home", "Services", "About", "Team", "Contact"].map((item) => (
+      <div className={`fixed inset-0 z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ background: "linear-gradient(135deg, #0a2a2a 0%, #0d3d3a 60%, #1a5c4a 100%)" }}>
+        <div className="flex flex-col items-center justify-center h-full gap-6">
+          {["Home", "Services", "About Us", "Treatments", "Blog", "Contact"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -84,8 +119,8 @@ export function LandingPage() {
               {item}
             </a>
           ))}
-          <button className="mt-8 bg-[#E4FF60] text-[#020202] px-8 py-4 rounded-[50px] font-semibold text-lg flex items-center gap-2">
-            Book Appointment <ArrowRight className="w-5 h-5" />
+          <button className="mt-6 bg-[#E4FF60] text-[#020202] px-8 py-4 rounded-full font-semibold text-base">
+            Book Appointment
           </button>
         </div>
       </div>
