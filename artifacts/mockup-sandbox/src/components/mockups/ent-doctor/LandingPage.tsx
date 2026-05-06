@@ -1298,26 +1298,45 @@ export function LandingPage() {
       {/* Testimonials — Carousel */}
       <TestimonialsCarousel />
 
-      {/* Insurance Section */}
-      <section className="py-20 px-6 md:px-16 bg-[#F5F5F3]">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="uppercase tracking-widest text-xs font-semibold text-[#809EB1] mb-4">Insurance</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1D3A5F] mb-10">Insurance Accepted</h2>
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {["Aetna", "Blue Cross Blue Shield", "Cigna", "United Healthcare", "Medicare", "Horizon BCBS", "Oxford", "Humana"].map((name) => (
-              <span
-                key={name}
-                className="px-5 py-2.5 rounded-xl border border-[#1D3A5F]/15 text-[#1D3A5F] text-sm font-medium bg-white hover:border-[#809EB1] hover:shadow-sm transition-all cursor-default"
-              >
-                {name}
-              </span>
-            ))}
+      {/* Photo Banner Card */}
+      <section className="py-10 px-6 md:px-16 bg-[#F5F5F3]">
+        <div
+          className="relative overflow-hidden rounded-3xl"
+          style={{ minHeight: 260 }}
+        >
+          {/* Background photo */}
+          <img
+            src="/__mockup/images/ent-about-doctor-orig.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            style={{ objectPosition: "60% 20%" }}
+          />
+          {/* Dark gradient left → transparent right */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(100deg, rgba(10,20,40,0.88) 0%, rgba(10,20,40,0.72) 35%, rgba(10,20,40,0.28) 65%, transparent 100%)",
+            }}
+          />
+          {/* Content */}
+          <div className="relative z-10 flex flex-col justify-center h-full px-10 py-14 max-w-lg">
+            <p className="text-white text-2xl md:text-3xl font-bold leading-snug mb-5">
+              <span className="text-[#E7FFD9]">Synergy ENT</span> addresses what traditional care overlooks.{" "}
+              <span className="font-normal text-white/80">How you actually feel.</span>
+            </p>
+            <button className="self-start flex items-center gap-2 bg-white text-[#1D3A5F] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-all shadow-md">
+              Book my appointment
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="#1D3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <p className="mt-3 text-white/50 text-xs flex items-center gap-1.5">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="rgba(255,255,255,0.4)"/><path d="M4 7.5a3 3 0 0 0 6 0" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round"/><circle cx="7" cy="4.5" r="1" fill="rgba(255,255,255,0.5)"/></svg>
+              Now accepting new patients in Paramus, NJ
+            </p>
           </div>
-          <p className="text-[#1D3A5F]/60 text-sm">
-            Don't see your insurance?{" "}
-            <a href="#" className="text-[#809EB1] font-semibold hover:underline">Call us</a>
-            {" "}— we accept most major plans.
-          </p>
         </div>
       </section>
 
