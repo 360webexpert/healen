@@ -599,7 +599,7 @@ export function LandingPage() {
       <RadialSelectorSection />
 
       {/* About/Stats Section */}
-      <section id="about" className="bg-[#f0f4fa] py-16 md:py-24 px-6 md:px-12">
+      <section id="about" className="bg-white py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Floating card */}
           <div className="bg-[#16215B] text-white rounded-[32px] shadow-2xl overflow-visible px-10 md:px-16 py-14 md:py-20">
