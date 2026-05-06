@@ -591,7 +591,7 @@ export function LandingPage() {
         </div>
 
         {/* Gradient fade into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, white 100%)" }} />
+        <div className="absolute bottom-0 left-0 right-0 h-64 pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 60%, white 100%)" }} />
 
       </section>
 
