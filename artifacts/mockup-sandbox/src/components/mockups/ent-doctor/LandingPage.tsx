@@ -99,7 +99,7 @@ function RadialSelectorSection() {
 
         {/* Center — main content */}
         <div className="flex-1 flex flex-col items-center text-center px-4">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-['DM_Serif_Display'] text-[#020202] leading-[1.1] mb-5 max-w-lg">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] text-[#020202] leading-[1.1] mb-5 max-w-lg">
             Care built around<br />
             <span className="italic">your ENT health</span>
           </h2>
@@ -197,7 +197,7 @@ function FaqSection() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-5xl md:text-6xl font-['DM_Serif_Display'] text-[#020202] leading-[1.1] -mt-4">
+          <h2 className="text-5xl md:text-6xl font-['Inter'] text-[#020202] leading-[1.1] -mt-4">
             Frequently asked<br />questions
           </h2>
 
@@ -210,7 +210,7 @@ function FaqSection() {
             />
             <div className="relative z-10 p-8 flex flex-col justify-end h-full min-h-[200px]">
               <div className="mt-auto">
-                <h3 className="text-white font-['DM_Serif_Display'] text-2xl mb-2">Still have questions?</h3>
+                <h3 className="text-white font-['Inter'] text-2xl mb-2">Still have questions?</h3>
                 <p className="text-white/70 text-sm mb-6 max-w-xs">Our team is here to help. Get in touch for personalized answers.</p>
                 <button className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white rounded-full px-5 py-2.5 text-sm font-medium hover:bg-white/25 transition-colors">
                   <span className="text-[#E4FF60]">✦</span> Contact us
@@ -230,7 +230,7 @@ function FaqSection() {
                   className="w-full flex items-start justify-between gap-6 text-left group"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                 >
-                  <span className={`text-lg font-['DM_Serif_Display'] leading-snug transition-colors ${isOpen ? "text-[#020202]" : "text-[#020202]/80 group-hover:text-[#020202]"}`}>
+                  <span className={`text-lg font-['Inter'] leading-snug transition-colors ${isOpen ? "text-[#020202]" : "text-[#020202]/80 group-hover:text-[#020202]"}`}>
                     {faq.q}
                   </span>
                   <div className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all mt-0.5 ${isOpen ? "border-[#020202]/20 bg-[#020202]/5" : "border-[#020202]/20 bg-white"}`}>
@@ -366,7 +366,7 @@ export function LandingPage() {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-white text-2xl font-['DM_Serif_Display']"
+              className="text-white text-2xl font-['Inter']"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item}
@@ -398,7 +398,7 @@ export function LandingPage() {
                 <span className="text-white/90 text-sm font-medium">Board Certified ENT Specialists</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-['DM_Serif_Display'] text-white leading-[1.1] mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-['Inter'] text-white leading-[1.1] mb-6">
                 Expert ENT Care<br />
                 <span className="text-[#E4FF60]">Starts Here.</span>
               </h1>
@@ -508,7 +508,7 @@ export function LandingPage() {
               <div className="w-2 h-2 rounded-full bg-[#020202]"></div>
               <span className="uppercase tracking-widest text-sm font-semibold">Our Specialties</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-['DM_Serif_Display'] leading-tight mb-8">
+            <h2 className="text-4xl md:text-5xl font-['Inter'] leading-tight mb-8">
               Advanced care for your vital senses.
             </h2>
             <p className="text-lg text-black/60 mb-8 font-light">
@@ -549,7 +549,7 @@ export function LandingPage() {
                 <div className="w-16 h-16 rounded-full bg-[#FAF5EF] flex items-center justify-center text-[#020202] mb-6 group-hover:bg-[#E4FF60] group-hover:scale-110 transition-all duration-300">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-['DM_Serif_Display'] mb-3">{service.title}</h3>
+                <h3 className="text-xl font-['Inter'] mb-3">{service.title}</h3>
                 <p className="text-black/60 font-light leading-relaxed">{service.desc}</p>
               </div>
             ))}
@@ -570,7 +570,7 @@ export function LandingPage() {
                 />
               </div>
               <div className="absolute -bottom-8 -right-8 bg-[#E4FF60] text-[#020202] p-8 rounded-[20px] hidden md:block">
-                <h3 className="text-4xl font-['DM_Serif_Display'] mb-1">Dr. Robert Chen</h3>
+                <h3 className="text-4xl font-['Inter'] mb-1">Dr. Robert Chen</h3>
                 <p className="font-medium">Lead Surgeon, MD, FACS</p>
               </div>
             </div>
@@ -581,7 +581,7 @@ export function LandingPage() {
                 <span className="uppercase tracking-widest text-sm font-semibold text-[#E4FF60]">About Practice</span>
               </div>
               
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-['DM_Serif_Display'] leading-tight mb-8">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] leading-tight mb-8">
                 Precision medicine with a human touch.
               </h2>
               
@@ -597,7 +597,7 @@ export function LandingPage() {
                   { value: "4", label: "Clinic Locations" }
                 ].map((stat, i) => (
                   <div key={i}>
-                    <div className="text-4xl md:text-5xl font-['DM_Serif_Display'] text-[#E4FF60] mb-2">{stat.value}</div>
+                    <div className="text-4xl md:text-5xl font-['Inter'] text-[#E4FF60] mb-2">{stat.value}</div>
                     <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
                   </div>
                 ))}
@@ -614,7 +614,7 @@ export function LandingPage() {
       {/* Process Section */}
       <section className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-['DM_Serif_Display'] mb-6">Your Path to Relief</h2>
+          <h2 className="text-4xl md:text-5xl font-['Inter'] mb-6">Your Path to Relief</h2>
           <p className="text-lg text-black/60 font-light">We've streamlined our clinical process to provide swift, accurate diagnoses and effective treatment plans.</p>
         </div>
 
@@ -628,10 +628,10 @@ export function LandingPage() {
             { num: "04", title: "Follow-up", desc: "Ongoing care to ensure complete recovery." }
           ].map((step, i) => (
             <div key={i} className="relative z-10 flex flex-col items-center text-center">
-              <div className="w-24 h-24 rounded-full bg-white border border-[#020202]/10 flex items-center justify-center text-3xl font-['DM_Serif_Display'] text-[#020202] mb-6 shadow-sm">
+              <div className="w-24 h-24 rounded-full bg-white border border-[#020202]/10 flex items-center justify-center text-3xl font-['Inter'] text-[#020202] mb-6 shadow-sm">
                 {step.num}
               </div>
-              <h3 className="text-xl font-['DM_Serif_Display'] mb-3">{step.title}</h3>
+              <h3 className="text-xl font-['Inter'] mb-3">{step.title}</h3>
               <p className="text-black/60 font-light">{step.desc}</p>
             </div>
           ))}
@@ -647,7 +647,7 @@ export function LandingPage() {
                 <div className="w-2 h-2 rounded-full bg-[#E4FF60]"></div>
                 <span className="uppercase tracking-widest text-sm font-semibold text-[#E4FF60]">Patient Stories</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-['DM_Serif_Display'] text-white max-w-xl">
+              <h2 className="text-4xl md:text-5xl font-['Inter'] text-white max-w-xl">
                 Life-changing results, in their own words.
               </h2>
             </div>
@@ -694,7 +694,7 @@ export function LandingPage() {
       {/* CTA Banner */}
       <section className="bg-[#E4FF60] py-24 px-6 md:px-12">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-['DM_Serif_Display'] text-[#020202] mb-8">
+          <h2 className="text-5xl md:text-7xl font-['Inter'] text-[#020202] mb-8">
             Ready to Breathe Easier?
           </h2>
           <p className="text-xl text-[#020202]/70 mb-10 max-w-2xl mx-auto">
@@ -711,7 +711,7 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
-              <a href="#" className="text-3xl font-['DM_Serif_Display'] tracking-wide text-white block mb-6">
+              <a href="#" className="text-3xl font-['Inter'] tracking-wide text-white block mb-6">
                 ClearPath<span className="text-[#E4FF60]">.</span>
               </a>
               <p className="text-white/60 font-light mb-8 max-w-sm">
