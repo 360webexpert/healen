@@ -414,7 +414,7 @@ export function LandingPage() {
 
         {/* Main content */}
         <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-6 md:px-12 pt-32 pb-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 items-end w-full">
 
             {/* Left column — text */}
             <div>
@@ -424,7 +424,7 @@ export function LandingPage() {
                 <span className="text-white/90 text-sm font-medium">Board Certified ENT Specialists</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-['Inter'] text-white leading-[1.1] mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-6">
                 Expert ENT Care<br />
                 <span className="text-[#F25929]">Starts Here.</span>
               </h1>
@@ -447,76 +447,73 @@ export function LandingPage() {
             </div>
 
             {/* Right column — doctor + floating cards */}
-            <div className="relative flex justify-center lg:justify-end">
-              {/* Doctor image */}
-              <div className="relative">
-                <img
-                  src="/__mockup/images/ent-hero-doctor.png?v=2"
-                  alt="ENT Doctor"
-                  className="w-72 md:w-80 lg:w-96 object-contain drop-shadow-2xl relative z-10"
-                  style={{ filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.5))" }}
-                />
+            <div className="relative flex justify-center lg:justify-end items-end" style={{ minHeight: '580px' }}>
 
-                {/* Floating card — Dashboard Report (top right) */}
-                <div className={`card-top-right${heroReady ? " ready" : ""} absolute -top-4 -right-4 md:right-0 lg:-right-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-52 shadow-xl z-20`}>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-white text-xs font-semibold">Patient Overview</span>
-                    <TrendingUp className="w-3.5 h-3.5 text-[#F25929]" />
-                  </div>
-                  {/* Mini chart bars — grow upward on load */}
-                  <div className="flex items-end gap-1 h-12 mb-2">
-                    {[30, 55, 40, 70, 50, 80, 65].map((h, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 rounded-t-sm"
-                        style={{
-                          height: heroReady ? `${h}%` : "0%",
-                          background: i === 5 ? "#F25929" : "rgba(255,255,255,0.25)",
-                          transition: `height 0.6s cubic-bezier(0.34,1.2,0.64,1)`,
-                          transitionDelay: heroReady ? `${0.9 + i * 0.07}s` : "0s",
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <div className="flex justify-between text-white/50 text-[10px]">
-                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-                  </div>
+              {/* Doctor image — tall, anchored to bottom, centred in column */}
+              <img
+                src="/__mockup/images/ent-hero-doctor.png?v=2"
+                alt="ENT Doctor"
+                className="h-[540px] w-auto object-contain drop-shadow-2xl relative z-10 mx-auto"
+                style={{ filter: "drop-shadow(0 30px 80px rgba(0,0,0,0.45))" }}
+              />
+
+              {/* Floating card — Patient Overview (top-right corner, above face) */}
+              <div className={`card-top-right${heroReady ? " ready" : ""} absolute top-0 right-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-56 shadow-xl z-20`}>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-white text-xs font-semibold">Patient Overview</span>
+                  <TrendingUp className="w-3.5 h-3.5 text-[#F25929]" />
                 </div>
+                <div className="flex items-end gap-1 h-14 mb-2">
+                  {[30, 55, 40, 70, 50, 85, 65].map((h, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-t-sm"
+                      style={{
+                        height: heroReady ? `${h}%` : "0%",
+                        background: i === 5 ? "#F25929" : "rgba(255,255,255,0.25)",
+                        transition: `height 0.6s cubic-bezier(0.34,1.2,0.64,1)`,
+                        transitionDelay: heroReady ? `${0.9 + i * 0.07}s` : "0s",
+                      }}
+                    />
+                  ))}
+                </div>
+                <div className="flex justify-between text-white/50 text-[10px]">
+                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+              </div>
 
-                {/* Floating card — Daily Stats (bottom left) */}
-                <div className={`card-bottom-left${heroReady ? " ready" : ""} absolute -bottom-4 -left-4 md:left-0 lg:-left-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-48 shadow-xl z-20`}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Activity className="w-4 h-4 text-[#F25929]" />
-                    <span className="text-white text-xs font-semibold">Recovery Rate</span>
-                  </div>
-                  {/* Radial gauge — ring draws itself on load */}
-                  <div className="flex items-center justify-between">
-                    <div className="relative w-14 h-14">
-                      <svg viewBox="0 0 44 44" className="w-14 h-14 -rotate-90">
-                        <circle cx="22" cy="22" r="16" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="4" />
-                        <circle
-                          cx="22" cy="22" r="16" fill="none"
-                          stroke="#F25929" strokeWidth="4"
-                          strokeDasharray="100.5"
-                          strokeDashoffset={ringOffset}
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">{counterVal}%</span>
-                      </div>
+              {/* Floating card — Recovery Rate (bottom-left, at body level) */}
+              <div className={`card-bottom-left${heroReady ? " ready" : ""} absolute bottom-8 left-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-52 shadow-xl z-20`}>
+                <div className="flex items-center gap-2 mb-3">
+                  <Activity className="w-4 h-4 text-[#F25929]" />
+                  <span className="text-white text-xs font-semibold">Recovery Rate</span>
+                </div>
+                <div className="flex items-center justify-between gap-4">
+                  <div className="relative w-16 h-16 shrink-0">
+                    <svg viewBox="0 0 44 44" className="w-16 h-16 -rotate-90">
+                      <circle cx="22" cy="22" r="16" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="4" />
+                      <circle
+                        cx="22" cy="22" r="16" fill="none"
+                        stroke="#F25929" strokeWidth="4"
+                        strokeDasharray="100.5"
+                        strokeDashoffset={ringOffset}
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">{counterVal}%</span>
                     </div>
-                    <div className="text-right">
-                      <div className="flex items-center gap-1.5 mb-1.5">
-                        <div className="w-2 h-2 rounded-full bg-[#F25929]" />
-                        <span className="text-white/70 text-[10px]">Satisfied</span>
-                        <span className="text-white text-xs font-bold">2k+</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-white/40" />
-                        <span className="text-white/70 text-[10px]">Procedures</span>
-                        <span className="text-white text-xs font-bold">850</span>
-                      </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <div className="w-2 h-2 rounded-full bg-[#F25929] shrink-0" />
+                      <span className="text-white/70 text-[10px]">Satisfied</span>
+                      <span className="text-white text-xs font-bold ml-auto">2k+</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2 h-2 rounded-full bg-white/40 shrink-0" />
+                      <span className="text-white/70 text-[10px]">Procedures</span>
+                      <span className="text-white text-xs font-bold ml-auto">850</span>
                     </div>
                   </div>
                 </div>
