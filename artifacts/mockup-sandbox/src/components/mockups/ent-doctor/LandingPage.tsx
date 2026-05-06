@@ -218,6 +218,122 @@ const faqs = [
   },
 ];
 
+const testimonials = [
+  {
+    quote: "Dr. Scheid has been an enormous asset to my family for over ten years. Her skill and expertise is unparalleled — she goes above and beyond in every way.",
+    name: "Long-Term Patient",
+    procedure: "ENT & Sleep Care",
+    initials: "LP",
+    color: "#1D3A5F",
+  },
+  {
+    quote: "She fixed my sinus problem that had been bothering me for years. I can't say enough good things about her and her staff.",
+    name: "Sinus Patient",
+    procedure: "Sinus Care",
+    initials: "SP",
+    color: "#809EB1",
+  },
+  {
+    quote: "Dr. Scheid and her team worked so hard to make sure I was taken care of. I will be a patient here for life.",
+    name: "Satisfied Patient",
+    procedure: "ENT Care",
+    initials: "SA",
+    color: "#BBDBED",
+  },
+  {
+    quote: "She is everything you want in a doctor. Caring, knowledgeable, and she truly loves what she does.",
+    name: "Sleep Medicine Patient",
+    procedure: "Sleep Medicine",
+    initials: "SM",
+    color: "#2A5080",
+  },
+];
+
+function TestimonialsCarousel() {
+  const [active, setActive] = useState(0);
+  const count = testimonials.length;
+  const prev = () => setActive(i => (i - 1 + count) % count);
+  const next = () => setActive(i => (i + 1) % count);
+
+  // Layout: 3-col grid — indices relative to active
+  const cardOrder = [
+    (active - 1 + count) % count,
+    active,
+    (active + 1) % count,
+    (active + 2) % count,
+    (active - 2 + count) % count,
+    (active + 3) % count,
+  ];
+
+  return (
+    <section className="bg-white py-24 md:py-32 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 items-center">
+
+        {/* Left — avatar card grid */}
+        <div className="grid grid-cols-3 gap-3">
+          {cardOrder.map((idx, pos) => {
+            const t = testimonials[idx];
+            const isActive = idx === active;
+            return (
+              <button
+                key={pos}
+                onClick={() => setActive(idx)}
+                className={`rounded-2xl aspect-square flex items-end p-3 transition-all duration-300 ${
+                  isActive
+                    ? "ring-2 ring-[#1D3A5F] scale-105 shadow-lg"
+                    : "opacity-40 hover:opacity-70"
+                }`}
+                style={{ background: t.color }}
+              >
+                <span className={`text-xs font-semibold ${isActive ? "text-white" : "text-white/80"}`}>
+                  {t.procedure}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Right — quote */}
+        <div>
+          {/* Large quote mark */}
+          <div className="text-[80px] leading-none text-[#1D3A5F] font-serif mb-4" style={{ fontFamily: "Georgia, serif" }}>"</div>
+
+          <p className="text-2xl md:text-3xl font-['Inter'] text-[#1D3A5F] leading-snug mb-10 transition-all duration-500">
+            {testimonials[active].quote}
+          </p>
+
+          <div className="flex items-center gap-3 mb-10">
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold"
+              style={{ background: testimonials[active].color }}
+            >
+              {testimonials[active].initials}
+            </div>
+            <span className="text-[#1D3A5F] font-medium">{testimonials[active].name}</span>
+          </div>
+
+          {/* Prev / Next */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={prev}
+              className="w-12 h-12 rounded-full border border-[#1D3A5F]/20 flex items-center justify-center hover:bg-[#1D3A5F] hover:text-white hover:border-[#1D3A5F] transition-all group"
+            >
+              <ArrowRight className="w-4 h-4 rotate-180 text-[#1D3A5F] group-hover:text-white" />
+            </button>
+            <button
+              onClick={next}
+              className="w-12 h-12 rounded-full border border-[#1D3A5F]/20 flex items-center justify-center hover:bg-[#1D3A5F] hover:text-white hover:border-[#1D3A5F] transition-all group"
+            >
+              <ArrowRight className="w-4 h-4 text-[#1D3A5F] group-hover:text-white" />
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
 function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -914,60 +1030,8 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-[#1D3A5F] py-24 md:py-32 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 rounded-full bg-[#809EB1]"></div>
-                <span className="uppercase tracking-widest text-sm font-semibold text-[#809EB1]">Patient Stories</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-['Inter'] text-white max-w-xl">
-                What Our Patients Are Saying
-              </h2>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                quote: "Dr. Scheid has been an enormous asset to my family for over ten years. Her skill and expertise is unparalleled — she goes above and beyond in every way.",
-                name: "Patient Review",
-                procedure: "Long-Term Patient"
-              },
-              {
-                quote: "She fixed my sinus problem that had been bothering me for years. I can't say enough good things about her and her staff.",
-                name: "Patient Review",
-                procedure: "Sinus Care"
-              },
-              {
-                quote: "Dr. Scheid and her team worked so hard to make sure I was taken care of. I will be a patient here for life.",
-                name: "Patient Review",
-                procedure: "ENT Care"
-              },
-              {
-                quote: "She is everything you want in a doctor. Caring, knowledgeable, and she truly loves what she does.",
-                name: "Patient Review",
-                procedure: "Sleep Medicine"
-              }
-            ].map((testimonial, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-[20px] p-8 hover:bg-white/10 transition-colors">
-                <div className="flex gap-1 mb-6">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-5 h-5 text-[#809EB1] fill-[#809EB1]" />
-                  ))}
-                </div>
-                <p className="text-lg text-white/90 mb-8 font-light leading-relaxed">"{testimonial.quote}"</p>
-                <div>
-                  <div className="text-white font-semibold">{testimonial.name}</div>
-                  <div className="text-white/50 text-sm">{testimonial.procedure}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Testimonials — Carousel */}
+      <TestimonialsCarousel />
 
       {/* FAQ Section */}
       <FaqSection />
