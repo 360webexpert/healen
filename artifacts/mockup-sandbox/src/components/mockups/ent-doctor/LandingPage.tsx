@@ -85,7 +85,7 @@ function RadialSelectorSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white relative overflow-hidden py-16 md:py-24">
+    <section ref={sectionRef} className="bg-white relative overflow-hidden py-32 md:py-48">
       {/* Radial ticks — rotates on scroll */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div
