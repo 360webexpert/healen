@@ -461,6 +461,9 @@ export function LandingPage() {
           </div>
         </div>
 
+        {/* Gradient fade into next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, #E0EAF8 100%)" }} />
+
         {/* Partner logos strip */}
         <div className="relative z-10 border-t border-white/10 py-6 px-6 md:px-12">
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-6 sm:gap-0 justify-between">
