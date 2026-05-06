@@ -100,14 +100,14 @@ function RadialSelectorSection() {
         {/* Center — main content */}
         <div className="flex-1 flex flex-col items-center text-center px-4">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] text-[#16215B] leading-[1.1] mb-5 max-w-lg">
-            Care built around<br />
-            <span className="italic">your ENT health</span>
+            A Practice Built<br />
+            <span className="italic">Around You</span>
           </h2>
           <p className="text-[#16215B]/55 text-base md:text-lg mb-8 max-w-sm font-light leading-relaxed">
-            From ear infections to sinus surgery, our specialists provide calm, expert, personalised care.
+            Synergy ENT & Wellness is led by Dr. Sara C. Scheid, MD — one of the few physicians in New Jersey board-certified in both Otolaryngology and Sleep Medicine.
           </p>
           <button className="bg-[#30D1FF] text-[#16215B] px-8 py-3.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all">
-            Schedule Now
+            Meet Dr. Scheid →
           </button>
         </div>
 
@@ -424,29 +424,39 @@ export function LandingPage() {
             {/* Left column — text */}
             <div>
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
-                <Zap className="w-4 h-4 text-[#F25929]" />
-                <span className="text-white/90 text-sm font-medium">Board Certified ENT Specialists</span>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {[
+                  "Board-Certified: Otolaryngology & Sleep Medicine",
+                  "25+ Years of Experience",
+                  "Paramus, NJ",
+                  "Accepting New Patients"
+                ].map((item) => (
+                  <div key={item} className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5">
+                    <CheckCircle className="w-3.5 h-3.5 text-[#30D1FF] shrink-0" />
+                    <span className="text-white/90 text-xs font-medium">{item}</span>
+                  </div>
+                ))}
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-6">
-                Expert ENT Care<br />
-                <span className="text-[#30D1FF]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>Starts Here.</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-4">
+                Clear Breathing.<br />Restful Sleep.<br />
+                <span className="text-[#30D1FF]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>Total Wellness.</span>
               </h1>
 
-              <p className="text-white/70 text-lg font-light leading-relaxed mb-10 max-w-lg">
-                Synergy ENT & Wellness is a precision-focused otolaryngology practice delivering advanced diagnostic and surgical solutions for ear, nose, and throat conditions.
+              <p className="text-white/80 text-base font-medium mb-4 max-w-lg">
+                Board-certified ENT and sleep medicine care — so you can feel like yourself again.
+              </p>
+
+              <p className="text-white/65 text-base font-light leading-relaxed mb-10 max-w-lg">
+                At Synergy ENT & Wellness, Dr. Sara Scheid brings over 25 years of expertise in ear, nose, throat, and sleep medicine to patients across Northern New Jersey. Whether you're struggling with chronic sinus issues, sleep apnea, or persistent ear problems, you'll receive personalized, compassionate care in a practice that truly listens.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <button className="bg-[#30D1FF] text-[#16215B] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#30D1FF]/20">
-                  Book a Free Consultation
+                  Request an Appointment
                 </button>
-                <button className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
-                  <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                    <Play className="w-4 h-4 fill-white text-white ml-0.5" />
-                  </div>
-                  <span className="font-medium text-sm">Watch a Demo</span>
+                <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-7 py-4 rounded-full font-semibold text-sm hover:bg-white/20 transition-all">
+                  Explore Our Services
                 </button>
               </div>
             </div>
@@ -551,13 +561,13 @@ export function LandingPage() {
               <span className="uppercase tracking-widest text-sm font-semibold">Our Specialties</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-['Inter'] leading-tight mb-8">
-              Advanced care for your vital senses.
+              Specialized Care for Every ENT & Sleep Need
             </h2>
             <p className="text-lg text-black/60 mb-8 font-light">
-              We employ state-of-the-art diagnostic tools and minimally invasive techniques to treat a wide spectrum of otolaryngological conditions.
+              From ear infections to obstructive sleep apnea, we treat the full spectrum of ear, nose, throat, and sleep concerns.
             </p>
             <button className="flex items-center gap-2 font-semibold border-b-2 border-[#16215B] pb-1 hover:text-[#16215B]/60 hover:border-[#16215B]/60 transition-colors">
-              View all services <ArrowRight className="w-4 h-4" />
+              View All Services <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
@@ -565,23 +575,33 @@ export function LandingPage() {
             {[
               {
                 icon: <Ear className="w-8 h-8" />,
-                title: "Hearing & Balance",
-                desc: "Comprehensive audiometry, tinnitus management, and vertigo treatments."
+                title: "Ear Care",
+                desc: "Hearing loss, ear infections, earwax buildup, swimmer's ear, balance disorders, and more."
               },
               {
                 icon: <Droplets className="w-8 h-8" />,
-                title: "Sinusitis Treatment",
-                desc: "Endoscopic sinus surgery and balloon sinuplasty for chronic sufferers."
-              },
-              {
-                icon: <Stethoscope className="w-8 h-8" />,
-                title: "Nasal Surgery",
-                desc: "Septoplasty and rhinoplasty to improve breathing and function."
+                title: "Nose & Sinus",
+                desc: "Chronic sinusitis, nasal congestion, deviated septum, nasal polyps, and post-nasal drip."
               },
               {
                 icon: <Mic2 className="w-8 h-8" />,
                 title: "Throat & Voice",
-                desc: "Laryngology services for voice disorders, swallowing issues, and reflux."
+                desc: "Sore throats, tonsil problems, hoarseness, voice disorders, and swallowing difficulties."
+              },
+              {
+                icon: <Activity className="w-8 h-8" />,
+                title: "Allergies",
+                desc: "Allergy testing, immunotherapy, and management of environmental and seasonal allergies."
+              },
+              {
+                icon: <Stethoscope className="w-8 h-8" />,
+                title: "Sleep Medicine",
+                desc: "Snoring, sleep apnea, obstructive sleep apnea (OSA), sleep studies, and CPAP alternatives."
+              },
+              {
+                icon: <Zap className="w-8 h-8" />,
+                title: "Head & Neck",
+                desc: "Thyroid and salivary gland concerns, neck masses, and general head and neck conditions."
               }
             ].map((service, i) => (
               <div 
@@ -746,21 +766,21 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Why Choose Us Section */}
       <section className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-['Inter'] mb-6">Your Path to Relief</h2>
-          <p className="text-lg text-black/60 font-light">We've streamlined our clinical process to provide swift, accurate diagnoses and effective treatment plans.</p>
+          <h2 className="text-4xl md:text-5xl font-['Inter'] mb-6">What Sets Synergy ENT & Wellness Apart</h2>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 relative">
-          <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-[#16215B]/10 z-0"></div>
+        <div className="grid md:grid-cols-5 gap-8 relative">
+          <div className="hidden md:block absolute top-12 left-[5%] right-[5%] h-[1px] bg-[#16215B]/10 z-0"></div>
           
           {[
-            { num: "01", title: "Consultation", desc: "Initial evaluation of symptoms and medical history." },
-            { num: "02", title: "Diagnosis", desc: "Advanced imaging and scoping to pinpoint the issue." },
-            { num: "03", title: "Treatment Plan", desc: "Customized medical or surgical approach." },
-            { num: "04", title: "Follow-up", desc: "Ongoing care to ensure complete recovery." }
+            { num: "01", title: "Dual Board Certification", desc: "Dr. Scheid holds rare dual certification in both Otolaryngology and Sleep Medicine, connecting your ENT health and sleep quality." },
+            { num: "02", title: "25+ Years of Experience", desc: "With over two decades of clinical and surgical practice, Dr. Scheid has helped thousands of NJ patients find lasting relief." },
+            { num: "03", title: "Personalized Plans", desc: "No two patients are the same. We understand your health history, lifestyle, and goals before recommending a path forward." },
+            { num: "04", title: "In-Office Procedures", desc: "Many diagnostic and treatment procedures are performed right in our office, saving you time and added stress." },
+            { num: "05", title: "Compassionate Care", desc: "Patients consistently describe Dr. Scheid as attentive, warm, and genuinely invested in their outcomes." }
           ].map((step, i) => (
             <div key={i} className="relative z-10 flex flex-col items-center text-center">
               <div className="w-24 h-24 rounded-full bg-white border border-[#16215B]/10 flex items-center justify-center text-3xl font-['Inter'] text-[#16215B] mb-6 shadow-sm">
@@ -783,27 +803,32 @@ export function LandingPage() {
                 <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">Patient Stories</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-['Inter'] text-white max-w-xl">
-                Life-changing results, in their own words.
+                What Our Patients Are Saying
               </h2>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                quote: "After years of chronic sinus infections, the balloon sinuplasty completely changed my life. I can finally breathe freely. Dr. Chen is phenomenal.",
-                name: "Sarah Jenkins",
-                procedure: "Sinus Surgery"
+                quote: "Dr. Scheid has been an enormous asset to my family for over ten years. Her skill and expertise is unparalleled — she goes above and beyond in every way.",
+                name: "Patient Review",
+                procedure: "Long-Term Patient"
               },
               {
-                quote: "The audiology team was incredibly patient with my mother. The new hearing aids were fitted perfectly on the first try.",
-                name: "Michael Torres",
-                procedure: "Hearing Assessment"
+                quote: "She fixed my sinus problem that had been bothering me for years. I can't say enough good things about her and her staff.",
+                name: "Patient Review",
+                procedure: "Sinus Care"
               },
               {
-                quote: "Professional, efficient, and deeply caring. The recovery from my tonsillectomy was exactly as they explained it would be.",
-                name: "David Park",
-                procedure: "Throat Surgery"
+                quote: "Dr. Scheid and her team worked so hard to make sure I was taken care of. I will be a patient here for life.",
+                name: "Patient Review",
+                procedure: "ENT Care"
+              },
+              {
+                quote: "She is everything you want in a doctor. Caring, knowledgeable, and she truly loves what she does.",
+                name: "Patient Review",
+                procedure: "Sleep Medicine"
               }
             ].map((testimonial, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-[20px] p-8 hover:bg-white/10 transition-colors">
@@ -830,14 +855,19 @@ export function LandingPage() {
       <section className="bg-[#F25929] py-24 px-6 md:px-12">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-5xl md:text-7xl font-['Inter'] text-[#16215B] mb-8">
-            Ready to Breathe Easier?
+            Ready to Breathe Better and Sleep Sounder?
           </h2>
           <p className="text-xl text-[#16215B]/70 mb-10 max-w-2xl mx-auto">
-            Schedule a consultation today and take the first step toward better sensory and respiratory health.
+            New and returning patients are welcome. Reach out today to schedule your appointment with Dr. Scheid at our Paramus, NJ office.
           </p>
-          <button className="bg-[#16215B]/80 backdrop-blur-sm border border-[#16215B]/40 text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#16215B] transition-all inline-flex items-center gap-3">
-            Book Your Consultation <ArrowRight className="w-5 h-5" />
-          </button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button className="bg-[#16215B]/80 backdrop-blur-sm border border-[#16215B]/40 text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#16215B] transition-all inline-flex items-center gap-3">
+              Request an Appointment <ArrowRight className="w-5 h-5" />
+            </button>
+            <button className="bg-[#16215B]/20 border border-[#16215B]/30 text-[#16215B] px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#16215B]/30 transition-all">
+              Call Our Office
+            </button>
+          </div>
         </div>
       </section>
 
