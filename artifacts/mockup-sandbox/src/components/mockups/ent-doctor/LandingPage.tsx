@@ -1258,100 +1258,53 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Why Choose Us — Bento Card Grid */}
+      {/* Why Choose Us — 3-column feature layout */}
       <section className="py-24 md:py-32 px-6 md:px-12 bg-[#F5F5F3]">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-5xl mx-auto">
 
-          {/* Header row */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <h2 className="text-4xl md:text-5xl font-['Inter'] leading-tight max-w-sm">
-              What sets Synergy ENT &amp; Wellness Apart
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p className="uppercase tracking-widest text-xs font-semibold text-[#809EB1] mb-4">Why Choose Us</p>
+            <h2 className="text-4xl md:text-5xl font-['Inter'] text-[#1D3A5F] leading-tight">
+              A Different Approach to ENT Care
             </h2>
-            <p className="text-black/50 font-light max-w-xs text-sm leading-relaxed">
-              Dual-certified expertise, personalized care plans, and in-office procedures — all designed around you and your health.
-            </p>
           </div>
 
-          {/* 4-col bento grid */}
-          <div ref={whyGridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 items-start">
-
-            {/* Card 1 — tall image + Learn More */}
-            <div className={`why-card why-card-image relative rounded-3xl overflow-hidden bg-[#BBDBED]${whyCardsVisible ? " visible" : ""}`} style={{ minHeight: 420 }}>
-              <img
-                src="/__mockup/images/ent-about.png"
-                alt="ENT specialty care"
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(29,58,95,0.1) 0%, rgba(29,58,95,0.7) 100%)" }} />
-              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
-                <button className="bg-white text-[#1D3A5F] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-colors">
-                  Learn More
-                </button>
-                <div className="w-9 h-9 rounded-full bg-white/20 border border-white/40 flex items-center justify-center">
-                  <ArrowRight className="w-4 h-4 text-white" />
+          {/* 3-col feature grid */}
+          <div ref={whyGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            {[
+              {
+                icon: <Cross className="w-5 h-5 text-[#1D3A5F]/60" />,
+                title: "Patient-First Philosophy",
+                desc: "We take a holistic approach, searching for root causes and developing treatment plans tailored to your life.",
+              },
+              {
+                icon: <Activity className="w-5 h-5 text-[#1D3A5F]/60" />,
+                title: "Unrushed Appointments",
+                desc: "We moved away from corporate medicine to spend more time with you — listening, explaining, and partnering in your care.",
+              },
+              {
+                icon: <Stethoscope className="w-5 h-5 text-[#1D3A5F]/60" />,
+                title: "Dual Board Certification",
+                desc: "Dual expertise in ENT and Sleep Medicine means comprehensive care for interconnected conditions under one roof.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className={`why-card flex flex-col items-center gap-5${whyCardsVisible ? " visible" : ""}`}
+                style={{ animationDelay: `${i * 120}ms` }}
+              >
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "rgba(29,58,95,0.07)" }}>
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-[#1D3A5F] text-lg mb-2">{item.title}</h3>
+                  <p className="text-[#1D3A5F]/55 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
-            </div>
-
-            {/* Card 2 — article/text card */}
-            <div className={`why-card why-card-article rounded-3xl bg-white p-6 flex flex-col justify-between${whyCardsVisible ? " visible" : ""}`} style={{ minHeight: 420 }}>
-              <div>
-                <span className="text-xs font-semibold tracking-widest text-[#809EB1] uppercase">Blog / Article</span>
-                <div className="mt-4 rounded-2xl overflow-hidden h-44">
-                  <img
-                    src="/__mockup/images/ent-about.png"
-                    alt="ENT article"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-              </div>
-              <div>
-                <h3 className="font-['Inter'] text-lg leading-snug mb-3 text-[#1D3A5F]">Dual Board Certification in ENT &amp; Sleep Medicine</h3>
-                <div className="arrow-btn w-9 h-9 rounded-full bg-[#BBDBED] flex items-center justify-center ml-auto">
-                  <ArrowRight className="w-4 h-4 text-[#1D3A5F]" />
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 — tall image */}
-            <div className={`why-card why-card-image relative rounded-3xl overflow-hidden bg-[#1D3A5F]${whyCardsVisible ? " visible" : ""}`} style={{ minHeight: 420 }}>
-              <img
-                src="/__mockup/images/ent-about-doctor-orig.png"
-                alt="Dr. Scheid"
-                className="absolute inset-0 w-full h-full object-cover object-top"
-              />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(29,58,95,0.75) 100%)" }} />
-              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
-                <button className="bg-white text-[#1D3A5F] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-colors">
-                  Learn More
-                </button>
-                <div className="w-9 h-9 rounded-full bg-white/20 border border-white/40 flex items-center justify-center">
-                  <ArrowRight className="w-4 h-4 text-white" />
-                </div>
-              </div>
-            </div>
-
-            {/* Card 4 — article/text card */}
-            <div className={`why-card why-card-article rounded-3xl bg-white p-6 flex flex-col justify-between${whyCardsVisible ? " visible" : ""}`} style={{ minHeight: 420 }}>
-              <div>
-                <span className="text-xs font-semibold tracking-widest text-[#809EB1] uppercase">Blog / Article</span>
-                <div className="mt-4 rounded-2xl overflow-hidden h-44">
-                  <img
-                    src="/__mockup/images/ent-hero.png"
-                    alt="ENT care article"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-              </div>
-              <div>
-                <h3 className="font-['Inter'] text-lg leading-snug mb-3 text-[#1D3A5F]">In-Office Procedures &amp; Personalized Care Plans</h3>
-                <div className="arrow-btn w-9 h-9 rounded-full bg-[#BBDBED] flex items-center justify-center ml-auto">
-                  <ArrowRight className="w-4 h-4 text-[#1D3A5F]" />
-                </div>
-              </div>
-            </div>
-
+            ))}
           </div>
+
         </div>
       </section>
 
