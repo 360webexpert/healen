@@ -1427,6 +1427,71 @@ export function LandingPage() {
             </div>
           </div>
         </div>
+
+        {/* Insurance / In-Network Strip */}
+        <div
+          className="relative mt-4 rounded-3xl overflow-hidden"
+          style={{ background: "#0F2840" }}
+        >
+          <div className="flex flex-col md:flex-row items-stretch">
+            {/* Left — logo grid */}
+            <div className="flex flex-col justify-center px-10 py-8 gap-5 md:w-5/12 border-r border-white/10">
+              <div className="flex items-center gap-6 flex-wrap">
+                {/* Horizon */}
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M4 10h12M10 4v12" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg>
+                  </div>
+                  <span className="text-white font-bold text-sm tracking-tight">Horizon</span>
+                </div>
+                {/* BCBS */}
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3a7 7 0 1 0 0 14A7 7 0 0 0 10 3Z" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M7 10h6M10 7v6" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg>
+                  </div>
+                  <span className="text-white font-bold text-sm tracking-tight">BlueCross<br/><span className="font-normal text-white/60 text-xs">BlueShield</span></span>
+                </div>
+                {/* Cigna */}
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4C7 4 4 6.5 4 10s3 6 6 6 6-2.5 6-6" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                  </div>
+                  <span className="text-white font-bold text-sm italic tracking-tight">cigna</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 flex-wrap">
+                {/* Aetna */}
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 15 10 5l5 10" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M7 11h6" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg>
+                  </div>
+                  <span className="text-white font-bold text-sm tracking-tight">❤ aetna</span>
+                </div>
+                {/* Medicare */}
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="9" rx="1.5" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M7 7V6a3 3 0 0 1 6 0v1" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg>
+                  </div>
+                  <span className="text-white font-bold text-sm tracking-tight">Medicare</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Divider dots */}
+            <div className="hidden md:flex flex-col items-center justify-center gap-1.5 px-4">
+              {[0,1,2].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#BBDBED]/30" />)}
+            </div>
+
+            {/* Right — headline */}
+            <div className="flex flex-col justify-center px-8 py-8 md:flex-1">
+              <p className="text-[#BBDBED] text-xs font-semibold uppercase tracking-widest mb-3">In-Network:</p>
+              <h3 className="text-white text-2xl md:text-3xl font-extrabold uppercase leading-tight mb-3">
+                We are in-network with most major insurances, including Medicare.
+              </h3>
+              <p className="text-white/45 text-sm">Please call our office to see if we accept your insurance.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* CTA Banner */}
