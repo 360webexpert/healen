@@ -323,9 +323,9 @@ export function LandingPage() {
       <nav className="fixed top-0 w-full z-50 px-6 md:px-10 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
-          {/* Logo pill */}
-          <a href="#" className="hidden lg:flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 hover:bg-white/15 transition-colors shrink-0">
-            <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-10 w-auto max-w-[220px] object-contain" style={{ mixBlendMode: 'screen' }} />
+          {/* Logo */}
+          <a href="#" className="hidden lg:flex items-center shrink-0">
+            <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-12 w-auto max-w-[260px] object-contain" style={{ mixBlendMode: 'screen' }} />
           </a>
 
           {/* Center nav links pill */}
