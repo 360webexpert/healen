@@ -650,6 +650,84 @@ function SynergyTextHover() {
   );
 }
 
+function WireframeHead() {
+  const cx = 100, cy = 140, rx = 74, ry = 108;
+  const latYs = [52, 74, 96, 118, 140, 162, 184, 206, 228];
+  const latitudes = latYs.map(y => {
+    const t = (y - cy) / ry;
+    const lrx = Math.abs(t) < 1 ? rx * Math.sqrt(1 - t * t) : 0;
+    return { y, lrx };
+  }).filter(l => l.lrx > 4);
+  const longitudes = [-70, -35, 0, 35, 70].map(deg => {
+    const rad = (deg * Math.PI) / 180;
+    const xEq = rx * Math.sin(rad) * 1.35;
+    return `M ${cx} 32 C ${cx + xEq} 88 ${cx + xEq} 192 ${cx} 248`;
+  });
+  // Floating network nodes
+  const nodes = [
+    { x: 10, y: 30 }, { x: 185, y: 55 }, { x: 20, y: 220 }, { x: 188, y: 200 },
+    { x: -10, y: 120 }, { x: 210, y: 130 }, { x: 60, y: 10 }, { x: 150, y: 265 },
+  ];
+  const nodeLinks = [[0,4],[1,5],[0,6],[1,6],[2,4],[3,5],[6,7]];
+  return (
+    <div style={{ perspective: "900px", width: 200, height: 280, flexShrink: 0, position: "relative" }}>
+      {/* Network nodes behind the head */}
+      <svg style={{ position: "absolute", inset: 0, overflow: "visible", pointerEvents: "none" }} width="200" height="280">
+        {nodeLinks.map(([a, b], i) => (
+          <line key={i}
+            x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y}
+            stroke="rgba(187,219,237,0.18)" strokeWidth="0.8" strokeDasharray="3 4"
+          />
+        ))}
+        {nodes.map((n, i) => (
+          <circle key={i} cx={n.x} cy={n.y} r="2.2" fill="rgba(187,219,237,0.45)" />
+        ))}
+      </svg>
+      {/* Rotating head */}
+      <div style={{ animation: "rotateHead 9s linear infinite", width: "100%", height: "100%", transformStyle: "preserve-3d" }}>
+        <svg viewBox="0 0 200 280" width="200" height="280">
+          <defs>
+            <filter id="headGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <clipPath id="headClip">
+              <ellipse cx={cx} cy={cy} rx={rx + 1} ry={ry + 1}/>
+            </clipPath>
+          </defs>
+          {/* Soft glow ring */}
+          <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="none"
+            stroke="rgba(187,219,237,0.2)" strokeWidth="8" filter="url(#headGlow)"/>
+          {/* Head outline */}
+          <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="none"
+            stroke="rgba(187,219,237,0.75)" strokeWidth="0.9"/>
+          {/* Latitude lines (clipped to head) */}
+          <g clipPath="url(#headClip)">
+            {latitudes.map(({ y, lrx }, i) => (
+              <ellipse key={i} cx={cx} cy={y} rx={lrx} ry={lrx * 0.11}
+                fill="none" stroke="rgba(187,219,237,0.38)" strokeWidth="0.7"/>
+            ))}
+          </g>
+          {/* Longitude arcs */}
+          <g clipPath="url(#headClip)">
+            {longitudes.map((d, i) => (
+              <path key={i} d={d} fill="none"
+                stroke={i === 2 ? "rgba(187,219,237,0.55)" : "rgba(187,219,237,0.35)"}
+                strokeWidth={i === 2 ? "1" : "0.7"}/>
+            ))}
+          </g>
+          {/* Highlighted equator */}
+          <line x1={cx - rx} y1={cy} x2={cx + rx} y2={cy}
+            stroke="rgba(187,219,237,0.6)" strokeWidth="1" clipPath="url(#headClip)"/>
+          {/* Small dot at top & bottom poles */}
+          <circle cx={cx} cy={32} r="2" fill="rgba(187,219,237,0.7)"/>
+          <circle cx={cx} cy={248} r="2" fill="rgba(187,219,237,0.7)"/>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
 export function LandingPage() {
   const [navOpacity, setNavOpacity] = useState(0);
   const [bentoProgress, setBentoProgress] = useState(0);
@@ -829,6 +907,10 @@ export function LandingPage() {
         }
         .why-connector.visible {
           animation: lineDraw 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+        }
+        @keyframes rotateHead {
+          from { transform: rotateY(0deg); }
+          to   { transform: rotateY(360deg); }
         }
         .why-card-image {
           transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
@@ -1320,22 +1402,28 @@ export function LandingPage() {
             boxShadow: "0 8px 48px rgba(10,20,40,0.28), inset 0 1px 0 rgba(255,255,255,0.1)",
           }}
         >
-          {/* Content */}
-          <div className="relative z-10 flex flex-col justify-center h-full px-10 py-14 max-w-lg">
-            <p className="text-white text-2xl md:text-3xl font-bold leading-snug mb-5">
-              <span className="text-[#E7FFD9]">Synergy ENT</span> addresses what traditional care overlooks.{" "}
-              <span className="font-normal text-white/80">How you actually feel.</span>
-            </p>
-            <button className="self-start flex items-center gap-2 bg-white text-[#1D3A5F] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-all shadow-md">
-              Book my appointment
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="#1D3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            <p className="mt-3 text-white/50 text-xs flex items-center gap-1.5">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="rgba(255,255,255,0.4)"/><path d="M4 7.5a3 3 0 0 0 6 0" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round"/><circle cx="7" cy="4.5" r="1" fill="rgba(255,255,255,0.5)"/></svg>
-              Now accepting new patients in Paramus, NJ
-            </p>
+          {/* Content row: text left + wireframe head right */}
+          <div className="relative z-10 flex items-center justify-between h-full px-10 py-12">
+            <div className="flex flex-col max-w-md">
+              <p className="text-white text-2xl md:text-3xl font-bold leading-snug mb-5">
+                <span className="text-[#E7FFD9]">Synergy ENT</span> addresses what traditional care overlooks.{" "}
+                <span className="font-normal text-white/80">How you actually feel.</span>
+              </p>
+              <button className="self-start flex items-center gap-2 bg-white text-[#1D3A5F] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-all shadow-md">
+                Book my appointment
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="#1D3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              <p className="mt-3 text-white/50 text-xs flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="rgba(255,255,255,0.4)"/><path d="M4 7.5a3 3 0 0 0 6 0" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round"/><circle cx="7" cy="4.5" r="1" fill="rgba(255,255,255,0.5)"/></svg>
+                Now accepting new patients in Paramus, NJ
+              </p>
+            </div>
+            {/* 3D wireframe head — right side */}
+            <div className="hidden md:flex items-center justify-center pr-8 opacity-90">
+              <WireframeHead />
+            </div>
           </div>
         </div>
       </section>
