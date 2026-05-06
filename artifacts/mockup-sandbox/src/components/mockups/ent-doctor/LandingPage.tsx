@@ -333,13 +333,13 @@ function AboutSection() {
               <span className="text-[#E7FFD9] font-semibold text-sm">—</span>
               <span className="uppercase tracking-widest text-sm font-semibold text-[#E7FFD9]">Meet Dr Scheid.</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-['Inter'] leading-tight mb-8">
+            <h2 className="text-2xl md:text-3xl font-['Inter'] leading-tight mb-6">
               Focused on Excellence in ENT and Sleep Medicine.
             </h2>
-            <p className="text-lg text-white/70 mb-6 font-light leading-relaxed">
+            <p className="text-sm text-white/70 mb-5 font-light leading-relaxed">
               Dr. Scheid is a Board certified Otolaryngologist and Sleep medicine specialist who offers care of a wide range of sleep, ear, nose, and throat conditions, including nasal obstruction, sinusitis, snoring, sleep apnea, circadian rhythm disorders, insomnia, allergy, ear infections, hearing loss, dizziness, voice, and swallowing problems.
             </p>
-            <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
+            <p className="text-sm text-white/70 mb-10 font-light leading-relaxed">
               As her career has evolved and her expertise has broadened, Dr. Scheid has become increasingly focused on taking a holistic approach to each patient. She moved away from corporate medicine to spend more time with patients, search for the root cause of disease, and incorporate lifestyle, nutrition, and other interventions that support optimal health, sleep, and longevity.
             </p>
             <div className="grid grid-cols-2 gap-8 mb-12">
