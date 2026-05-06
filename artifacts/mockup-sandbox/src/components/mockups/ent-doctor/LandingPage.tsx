@@ -1318,10 +1318,10 @@ export function LandingPage() {
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-          style={{ opacity: 0.7 }}
+          style={{ opacity: 1 }}
         />
-        {/* Light tinted overlay */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(187,219,237,0.25)" }} />
+        {/* Very faint overlay for text legibility */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(255,255,255,0.15)" }} />
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <h2 className="text-5xl md:text-7xl font-['Inter'] text-[#1D3A5F] mb-8">
             Ready to Breathe Better and Sleep Sounder?
