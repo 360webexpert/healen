@@ -557,7 +557,7 @@ function FaqSection() {
 }
 
 export function LandingPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [navOpacity, setNavOpacity] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [heroReady, setHeroReady] = useState(false);
   const [ringOffset, setRingOffset] = useState(100.5);
@@ -565,9 +565,10 @@ export function LandingPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // Fade in from 0→1 over first 200px of scroll
+      setNavOpacity(Math.min(window.scrollY / 200, 1));
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -635,7 +636,12 @@ export function LandingPage() {
       `}</style>
 
       {/* Navigation — Medora glassmorphism style */}
-      <nav className="fixed top-0 w-full z-50 px-6 md:px-10 py-4">
+      <nav
+        className="fixed top-0 w-full z-50 px-6 md:px-10 py-4 transition-colors duration-100"
+        style={{
+          backgroundColor: `rgba(29, 58, 95, ${navOpacity})`,
+        }}
+      >
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
           {/* Logo */}
