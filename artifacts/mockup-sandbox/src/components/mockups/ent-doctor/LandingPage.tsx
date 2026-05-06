@@ -1335,7 +1335,7 @@ export function LandingPage() {
         ref={footerRef}
         className="relative overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, #1D3A5F 0%, #24508A 40%, #3370B8 100%)",
+          background: "#1E2D4E",
           borderRadius: `${(1 - footerProgress) * 32}px`,
           marginLeft: `${(1 - footerProgress) * 24}px`,
           marginRight: `${(1 - footerProgress) * 24}px`,
