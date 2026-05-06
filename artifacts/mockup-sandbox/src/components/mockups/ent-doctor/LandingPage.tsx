@@ -36,7 +36,7 @@ function RadialTicks({ count = 60, radius = 340 }: { count?: number; radius?: nu
         key={i}
         x1={`${x1}%`} y1={`${y1}%`}
         x2={`${x2}%`} y2={`${y2}%`}
-        stroke="#020202"
+        stroke="#16215B"
         strokeWidth={i % 5 === 0 ? "1.5" : "0.8"}
         strokeOpacity={i % 5 === 0 ? "0.25" : "0.12"}
       />
@@ -59,7 +59,7 @@ function RadialSelectorSection() {
   }, []);
 
   return (
-    <section className="bg-[#FAF5EF] relative overflow-hidden py-16 md:py-24">
+    <section className="bg-[#E0EAF8] relative overflow-hidden py-16 md:py-24">
       {/* Radial ticks decoration */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="relative w-[700px] h-[700px] max-w-full">
@@ -83,13 +83,13 @@ function RadialSelectorSection() {
                 style={{ opacity, transform: `scale(${scale})` }}
               >
                 {dist === 0 ? (
-                  <div className="w-5 h-5 rounded-full bg-[#020202] flex items-center justify-center shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-[#16215B] flex items-center justify-center shrink-0">
                     <svg width="8" height="8" viewBox="0 0 8 8" fill="white"><polygon points="2,1 7,4 2,7"/></svg>
                   </div>
                 ) : (
-                  <div className="w-5 h-5 rounded-full border border-[#020202]/30 shrink-0" />
+                  <div className="w-5 h-5 rounded-full border border-[#16215B]/30 shrink-0" />
                 )}
-                <span className={`text-sm font-medium ${dist === 0 ? "text-[#020202]" : "text-[#020202]/50"}`}>
+                <span className={`text-sm font-medium ${dist === 0 ? "text-[#16215B]" : "text-[#16215B]/50"}`}>
                   {s.label}
                 </span>
               </button>
@@ -99,14 +99,14 @@ function RadialSelectorSection() {
 
         {/* Center — main content */}
         <div className="flex-1 flex flex-col items-center text-center px-4">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] text-[#020202] leading-[1.1] mb-5 max-w-lg">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] text-[#16215B] leading-[1.1] mb-5 max-w-lg">
             Care built around<br />
             <span className="italic">your ENT health</span>
           </h2>
-          <p className="text-[#020202]/55 text-base md:text-lg mb-8 max-w-sm font-light leading-relaxed">
+          <p className="text-[#16215B]/55 text-base md:text-lg mb-8 max-w-sm font-light leading-relaxed">
             From ear infections to sinus surgery, our specialists provide calm, expert, personalised care.
           </p>
-          <button className="bg-[#020202] text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-[#020202]/80 transition-colors">
+          <button className="bg-[#16215B] text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-[#16215B]/80 transition-colors">
             Schedule Now
           </button>
         </div>
@@ -125,13 +125,13 @@ function RadialSelectorSection() {
                 style={{ opacity, transform: `scale(${scale})` }}
               >
                 <div className="text-right">
-                  <div className={`text-sm font-medium ${dist === 0 ? "text-[#020202]" : "text-[#020202]/50"}`}>{d.name}</div>
-                  {dist === 0 && <div className="text-xs text-[#020202]/40">{d.title}</div>}
+                  <div className={`text-sm font-medium ${dist === 0 ? "text-[#16215B]" : "text-[#16215B]/50"}`}>{d.name}</div>
+                  {dist === 0 && <div className="text-xs text-[#16215B]/40">{d.title}</div>}
                 </div>
                 <div className={`w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-xs font-bold transition-all duration-300 ${
                   dist === 0
-                    ? "bg-[#020202] text-white ring-2 ring-[#020202]/20 ring-offset-2"
-                    : "bg-[#020202]/10 text-[#020202]/40"
+                    ? "bg-[#16215B] text-white ring-2 ring-[#16215B]/20 ring-offset-2"
+                    : "bg-[#16215B]/10 text-[#16215B]/40"
                 }`}>
                   {d.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
                 </div>
@@ -172,24 +172,24 @@ function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#FAF5EF] py-24 md:py-32 px-6 md:px-12">
+    <section className="bg-[#E0EAF8] py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
 
         {/* Left — heading + contact card */}
         <div className="flex flex-col gap-10">
           {/* Label */}
           <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#020202]" />
-            <span className="text-xs uppercase tracking-widest font-semibold text-[#020202]/60">FAQs</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#16215B]" />
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#16215B]/60">FAQs</span>
           </div>
 
           {/* Heading */}
-          <h2 className="text-5xl md:text-6xl font-['Inter'] text-[#020202] leading-[1.1] -mt-4">
+          <h2 className="text-5xl md:text-6xl font-['Inter'] text-[#16215B] leading-[1.1] -mt-4">
             Frequently asked<br />questions
           </h2>
 
           {/* Still have questions? card */}
-          <div className="relative rounded-[20px] overflow-hidden min-h-[200px] bg-[#020202]">
+          <div className="relative rounded-[20px] overflow-hidden min-h-[200px] bg-[#16215B]">
             <img
               src="/__mockup/images/ent-about.png"
               alt="Doctor ready to help"
@@ -200,7 +200,7 @@ function FaqSection() {
                 <h3 className="text-white font-['Inter'] text-2xl mb-2">Still have questions?</h3>
                 <p className="text-white/70 text-sm mb-6 max-w-xs">Our team is here to help. Get in touch for personalized answers.</p>
                 <button className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white rounded-full px-5 py-2.5 text-sm font-medium hover:bg-white/25 transition-colors">
-                  <span className="text-[#E4FF60]">✦</span> Contact us
+                  <span className="text-[#F25929]">✦</span> Contact us
                 </button>
               </div>
             </div>
@@ -208,7 +208,7 @@ function FaqSection() {
         </div>
 
         {/* Right — accordion */}
-        <div className="flex flex-col divide-y divide-[#020202]/10">
+        <div className="flex flex-col divide-y divide-[#16215B]/10">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
@@ -217,18 +217,18 @@ function FaqSection() {
                   className="w-full flex items-start justify-between gap-6 text-left group"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                 >
-                  <span className={`text-lg font-['Inter'] leading-snug transition-colors ${isOpen ? "text-[#020202]" : "text-[#020202]/80 group-hover:text-[#020202]"}`}>
+                  <span className={`text-lg font-['Inter'] leading-snug transition-colors ${isOpen ? "text-[#16215B]" : "text-[#16215B]/80 group-hover:text-[#16215B]"}`}>
                     {faq.q}
                   </span>
-                  <div className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all mt-0.5 ${isOpen ? "border-[#020202]/20 bg-[#020202]/5" : "border-[#020202]/20 bg-white"}`}>
+                  <div className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all mt-0.5 ${isOpen ? "border-[#16215B]/20 bg-[#16215B]/5" : "border-[#16215B]/20 bg-white"}`}>
                     {isOpen
-                      ? <X className="w-3.5 h-3.5 text-[#020202]" />
-                      : <span className="text-[#020202] text-lg leading-none -mt-px">+</span>
+                      ? <X className="w-3.5 h-3.5 text-[#16215B]" />
+                      : <span className="text-[#16215B] text-lg leading-none -mt-px">+</span>
                     }
                   </div>
                 </button>
                 {isOpen && (
-                  <p className="mt-4 text-[#020202]/60 font-light leading-relaxed text-[15px]">
+                  <p className="mt-4 text-[#16215B]/60 font-light leading-relaxed text-[15px]">
                     {faq.a}
                   </p>
                 )}
@@ -254,7 +254,7 @@ export function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF5EF] text-[#020202] font-['Inter',sans-serif] selection:bg-[#E4FF60] selection:text-[#020202] overflow-x-hidden">
+    <div className="min-h-screen bg-[#E0EAF8] text-[#16215B] font-['Inter',sans-serif] selection:bg-[#F25929] selection:text-[#16215B] overflow-x-hidden">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -337,7 +337,7 @@ export function LandingPage() {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ background: "linear-gradient(135deg, #0a2a2a 0%, #0d3d3a 60%, #1a5c4a 100%)" }}>
+      <div className={`fixed inset-0 z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ background: "linear-gradient(135deg, #16215B 0%, #1F299C 60%, #1F299C 100%)" }}>
         <div className="flex flex-col items-center justify-center h-full gap-6">
           {["Home", "Services", "About Us", "Treatments", "Blog", "Contact"].map((item) => (
             <a
@@ -349,19 +349,19 @@ export function LandingPage() {
               {item}
             </a>
           ))}
-          <button className="mt-6 bg-[#E4FF60] text-[#020202] px-8 py-4 rounded-full font-semibold text-base">
+          <button className="mt-6 bg-[#F25929] text-[#16215B] px-8 py-4 rounded-full font-semibold text-base">
             Book Appointment
           </button>
         </div>
       </div>
 
       {/* Hero Section — Medora style */}
-      <section id="home" className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ background: "linear-gradient(135deg, #0a2a2a 0%, #0d3d3a 40%, #1a5c4a 70%, #2a7a5a 100%)" }}>
+      <section id="home" className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ background: "linear-gradient(135deg, #16215B 0%, #1F299C 40%, #1F299C 70%, #0373FF 100%)" }}>
         {/* Decorative dot-grid background */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #E4FF60 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #F25929 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
         {/* Glow blobs */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: "#E4FF60" }} />
-        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "#00ffcc" }} />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: "#F25929" }} />
+        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "#30D1FF" }} />
 
         {/* Main content */}
         <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-6 md:px-12 pt-32 pb-16">
@@ -371,13 +371,13 @@ export function LandingPage() {
             <div>
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
-                <Zap className="w-4 h-4 text-[#E4FF60]" />
+                <Zap className="w-4 h-4 text-[#F25929]" />
                 <span className="text-white/90 text-sm font-medium">Board Certified ENT Specialists</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-['Inter'] text-white leading-[1.1] mb-6">
                 Expert ENT Care<br />
-                <span className="text-[#E4FF60]">Starts Here.</span>
+                <span className="text-[#F25929]">Starts Here.</span>
               </h1>
 
               <p className="text-white/70 text-lg font-light leading-relaxed mb-10 max-w-lg">
@@ -385,7 +385,7 @@ export function LandingPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <button className="bg-[#E4FF60] text-[#020202] px-7 py-4 rounded-[50px] font-bold text-sm uppercase tracking-wide hover:bg-[#d4f04b] transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-[#E4FF60]/20">
+                <button className="bg-[#F25929] text-[#16215B] px-7 py-4 rounded-[50px] font-bold text-sm uppercase tracking-wide hover:bg-[#d94520] transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-[#F25929]/20">
                   Book a Free Consultation
                 </button>
                 <button className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
@@ -412,12 +412,12 @@ export function LandingPage() {
                 <div className="absolute -top-4 -right-4 md:right-0 lg:-right-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-52 shadow-xl z-20">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-white text-xs font-semibold">Patient Overview</span>
-                    <TrendingUp className="w-3.5 h-3.5 text-[#E4FF60]" />
+                    <TrendingUp className="w-3.5 h-3.5 text-[#F25929]" />
                   </div>
                   {/* Mini chart bars */}
                   <div className="flex items-end gap-1 h-12 mb-2">
                     {[30, 55, 40, 70, 50, 80, 65].map((h, i) => (
-                      <div key={i} className="flex-1 rounded-t-sm transition-all" style={{ height: `${h}%`, background: i === 5 ? "#E4FF60" : "rgba(255,255,255,0.25)" }} />
+                      <div key={i} className="flex-1 rounded-t-sm transition-all" style={{ height: `${h}%`, background: i === 5 ? "#F25929" : "rgba(255,255,255,0.25)" }} />
                     ))}
                   </div>
                   <div className="flex justify-between text-white/50 text-[10px]">
@@ -428,7 +428,7 @@ export function LandingPage() {
                 {/* Floating card — Daily Stats (bottom left) */}
                 <div className="absolute -bottom-4 -left-4 md:left-0 lg:-left-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-48 shadow-xl z-20">
                   <div className="flex items-center gap-2 mb-3">
-                    <Activity className="w-4 h-4 text-[#E4FF60]" />
+                    <Activity className="w-4 h-4 text-[#F25929]" />
                     <span className="text-white text-xs font-semibold">Recovery Rate</span>
                   </div>
                   {/* Radial gauge mockup */}
@@ -436,7 +436,7 @@ export function LandingPage() {
                     <div className="relative w-14 h-14">
                       <svg viewBox="0 0 44 44" className="w-14 h-14 -rotate-90">
                         <circle cx="22" cy="22" r="16" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="4" />
-                        <circle cx="22" cy="22" r="16" fill="none" stroke="#E4FF60" strokeWidth="4" strokeDasharray="100.5" strokeDashoffset="16" strokeLinecap="round" />
+                        <circle cx="22" cy="22" r="16" fill="none" stroke="#F25929" strokeWidth="4" strokeDasharray="100.5" strokeDashoffset="16" strokeLinecap="round" />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
                         <span className="text-white text-xs font-bold">98%</span>
@@ -444,7 +444,7 @@ export function LandingPage() {
                     </div>
                     <div className="text-right">
                       <div className="flex items-center gap-1.5 mb-1.5">
-                        <div className="w-2 h-2 rounded-full bg-[#E4FF60]" />
+                        <div className="w-2 h-2 rounded-full bg-[#F25929]" />
                         <span className="text-white/70 text-[10px]">Satisfied</span>
                         <span className="text-white text-xs font-bold">2k+</span>
                       </div>
@@ -482,7 +482,7 @@ export function LandingPage() {
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-[#020202]"></div>
+              <div className="w-2 h-2 rounded-full bg-[#16215B]"></div>
               <span className="uppercase tracking-widest text-sm font-semibold">Our Specialties</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-['Inter'] leading-tight mb-8">
@@ -491,7 +491,7 @@ export function LandingPage() {
             <p className="text-lg text-black/60 mb-8 font-light">
               We employ state-of-the-art diagnostic tools and minimally invasive techniques to treat a wide spectrum of otolaryngological conditions.
             </p>
-            <button className="flex items-center gap-2 font-semibold border-b-2 border-[#020202] pb-1 hover:text-[#020202]/60 hover:border-[#020202]/60 transition-colors">
+            <button className="flex items-center gap-2 font-semibold border-b-2 border-[#16215B] pb-1 hover:text-[#16215B]/60 hover:border-[#16215B]/60 transition-colors">
               View all services <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -521,9 +521,9 @@ export function LandingPage() {
             ].map((service, i) => (
               <div 
                 key={i} 
-                className="bg-white p-8 rounded-[20px] border border-[#020202]/5 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-md group"
+                className="bg-white p-8 rounded-[20px] border border-[#16215B]/5 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-md group"
               >
-                <div className="w-16 h-16 rounded-full bg-[#FAF5EF] flex items-center justify-center text-[#020202] mb-6 group-hover:bg-[#E4FF60] group-hover:scale-110 transition-all duration-300">
+                <div className="w-16 h-16 rounded-full bg-[#E0EAF8] flex items-center justify-center text-[#16215B] mb-6 group-hover:bg-[#F25929] group-hover:scale-110 transition-all duration-300">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-['Inter'] mb-3">{service.title}</h3>
@@ -535,7 +535,7 @@ export function LandingPage() {
       </section>
 
       {/* About/Stats Section */}
-      <section id="about" className="bg-[#020202] text-white py-24 md:py-32">
+      <section id="about" className="bg-[#16215B] text-white py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="relative">
@@ -546,7 +546,7 @@ export function LandingPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-8 -right-8 bg-[#E4FF60] text-[#020202] p-8 rounded-[20px] hidden md:block">
+              <div className="absolute -bottom-8 -right-8 bg-[#F25929] text-[#16215B] p-8 rounded-[20px] hidden md:block">
                 <h3 className="text-4xl font-['Inter'] mb-1">Dr. Robert Chen</h3>
                 <p className="font-medium">Lead Surgeon, MD, FACS</p>
               </div>
@@ -554,8 +554,8 @@ export function LandingPage() {
 
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 rounded-full bg-[#E4FF60]"></div>
-                <span className="uppercase tracking-widest text-sm font-semibold text-[#E4FF60]">About Practice</span>
+                <div className="w-2 h-2 rounded-full bg-[#F25929]"></div>
+                <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">About Practice</span>
               </div>
               
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] leading-tight mb-8">
@@ -574,13 +574,13 @@ export function LandingPage() {
                   { value: "4", label: "Clinic Locations" }
                 ].map((stat, i) => (
                   <div key={i}>
-                    <div className="text-4xl md:text-5xl font-['Inter'] text-[#E4FF60] mb-2">{stat.value}</div>
+                    <div className="text-4xl md:text-5xl font-['Inter'] text-[#F25929] mb-2">{stat.value}</div>
                     <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
-              <button className="bg-white text-[#020202] px-8 py-4 rounded-[50px] font-semibold uppercase tracking-wide hover:bg-gray-200 transition-colors flex items-center gap-2">
+              <button className="bg-white text-[#16215B] px-8 py-4 rounded-[50px] font-semibold uppercase tracking-wide hover:bg-gray-200 transition-colors flex items-center gap-2">
                 Meet The Team <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -596,7 +596,7 @@ export function LandingPage() {
         </div>
 
         <div className="grid md:grid-cols-4 gap-8 relative">
-          <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-[#020202]/10 z-0"></div>
+          <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-[#16215B]/10 z-0"></div>
           
           {[
             { num: "01", title: "Consultation", desc: "Initial evaluation of symptoms and medical history." },
@@ -605,7 +605,7 @@ export function LandingPage() {
             { num: "04", title: "Follow-up", desc: "Ongoing care to ensure complete recovery." }
           ].map((step, i) => (
             <div key={i} className="relative z-10 flex flex-col items-center text-center">
-              <div className="w-24 h-24 rounded-full bg-white border border-[#020202]/10 flex items-center justify-center text-3xl font-['Inter'] text-[#020202] mb-6 shadow-sm">
+              <div className="w-24 h-24 rounded-full bg-white border border-[#16215B]/10 flex items-center justify-center text-3xl font-['Inter'] text-[#16215B] mb-6 shadow-sm">
                 {step.num}
               </div>
               <h3 className="text-xl font-['Inter'] mb-3">{step.title}</h3>
@@ -616,13 +616,13 @@ export function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-[#020202] py-24 md:py-32 px-6 md:px-12">
+      <section className="bg-[#16215B] py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 rounded-full bg-[#E4FF60]"></div>
-                <span className="uppercase tracking-widest text-sm font-semibold text-[#E4FF60]">Patient Stories</span>
+                <div className="w-2 h-2 rounded-full bg-[#F25929]"></div>
+                <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">Patient Stories</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-['Inter'] text-white max-w-xl">
                 Life-changing results, in their own words.
@@ -651,7 +651,7 @@ export function LandingPage() {
               <div key={i} className="bg-white/5 border border-white/10 rounded-[20px] p-8 hover:bg-white/10 transition-colors">
                 <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-5 h-5 text-[#E4FF60] fill-[#E4FF60]" />
+                    <Star key={j} className="w-5 h-5 text-[#F25929] fill-[#F25929]" />
                   ))}
                 </div>
                 <p className="text-lg text-white/90 mb-8 font-light leading-relaxed">"{testimonial.quote}"</p>
@@ -669,22 +669,22 @@ export function LandingPage() {
       <FaqSection />
 
       {/* CTA Banner */}
-      <section className="bg-[#E4FF60] py-24 px-6 md:px-12">
+      <section className="bg-[#F25929] py-24 px-6 md:px-12">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-['Inter'] text-[#020202] mb-8">
+          <h2 className="text-5xl md:text-7xl font-['Inter'] text-[#16215B] mb-8">
             Ready to Breathe Easier?
           </h2>
-          <p className="text-xl text-[#020202]/70 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-[#16215B]/70 mb-10 max-w-2xl mx-auto">
             Schedule a consultation today and take the first step toward better sensory and respiratory health.
           </p>
-          <button className="bg-[#020202] text-white px-10 py-5 rounded-[50px] font-semibold text-lg uppercase tracking-wide hover:bg-[#020202]/80 transition-colors inline-flex items-center gap-3">
+          <button className="bg-[#16215B] text-white px-10 py-5 rounded-[50px] font-semibold text-lg uppercase tracking-wide hover:bg-[#16215B]/80 transition-colors inline-flex items-center gap-3">
             Book Your Consultation <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#020202] text-white pt-24 pb-8 px-6 md:px-12 border-t border-white/10">
+      <footer className="bg-[#16215B] text-white pt-24 pb-8 px-6 md:px-12 border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
@@ -701,7 +701,7 @@ export function LandingPage() {
               <ul className="space-y-4">
                 {["Home", "About Us", "Our Services", "Meet the Team", "Patient Portal"].map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-white/60 hover:text-[#E4FF60] transition-colors">{link}</a>
+                    <a href="#" className="text-white/60 hover:text-[#F25929] transition-colors">{link}</a>
                   </li>
                 ))}
               </ul>
@@ -712,7 +712,7 @@ export function LandingPage() {
               <ul className="space-y-4">
                 {["Hearing & Balance", "Sinus & Allergy", "Voice & Swallowing", "Pediatric ENT", "Facial Plastics"].map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-white/60 hover:text-[#E4FF60] transition-colors">{link}</a>
+                    <a href="#" className="text-white/60 hover:text-[#F25929] transition-colors">{link}</a>
                   </li>
                 ))}
               </ul>
@@ -722,15 +722,15 @@ export function LandingPage() {
               <h4 className="text-lg font-semibold mb-6 uppercase tracking-wider text-white/90">Contact</h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-white/60">
-                  <MapPin className="w-5 h-5 shrink-0 text-[#E4FF60]" />
+                  <MapPin className="w-5 h-5 shrink-0 text-[#F25929]" />
                   <span>1450 Medical Plaza Way<br/>Suite 300<br/>San Francisco, CA 94102</span>
                 </li>
                 <li className="flex items-center gap-3 text-white/60">
-                  <Phone className="w-5 h-5 shrink-0 text-[#E4FF60]" />
+                  <Phone className="w-5 h-5 shrink-0 text-[#F25929]" />
                   <span>(415) 555-0198</span>
                 </li>
                 <li className="flex items-center gap-3 text-white/60">
-                  <Mail className="w-5 h-5 shrink-0 text-[#E4FF60]" />
+                  <Mail className="w-5 h-5 shrink-0 text-[#F25929]" />
                   <span>care@clearpathent.com</span>
                 </li>
               </ul>
