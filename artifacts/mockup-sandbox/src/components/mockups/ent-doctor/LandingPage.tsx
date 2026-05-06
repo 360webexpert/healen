@@ -27,8 +27,8 @@ function RadialTicks({ count = 60, radius = 340 }: { count?: number; radius?: nu
     const inGap = gaps.some(([a, b]) => angle >= a && angle <= b);
     if (inGap) continue;
     const rad = (angle * Math.PI) / 180;
-    const x1 = 50 + ((radius - 14) / radius) * 50 * Math.cos(rad);
-    const y1 = 50 + ((radius - 14) / radius) * 50 * Math.sin(rad);
+    const x1 = 50 + ((radius - 26) / radius) * 50 * Math.cos(rad);
+    const y1 = 50 + ((radius - 26) / radius) * 50 * Math.sin(rad);
     const x2 = 50 + (radius / radius) * 50 * Math.cos(rad);
     const y2 = 50 + (radius / radius) * 50 * Math.sin(rad);
     ticks.push(
@@ -37,7 +37,7 @@ function RadialTicks({ count = 60, radius = 340 }: { count?: number; radius?: nu
         x1={`${x1}%`} y1={`${y1}%`}
         x2={`${x2}%`} y2={`${y2}%`}
         stroke="#16215B"
-        strokeWidth={i % 5 === 0 ? "1.5" : "0.8"}
+        strokeWidth={i % 5 === 0 ? "0.7" : "0.35"}
         strokeOpacity={i % 5 === 0 ? "0.25" : "0.12"}
       />
     );
