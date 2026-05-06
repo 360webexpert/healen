@@ -1315,9 +1315,9 @@ export function LandingPage() {
       </section>
 
       {/* Footer — floating dark card */}
-      <footer className="relative overflow-hidden rounded-[32px] mx-6 mb-6" style={{ background: "#080F1A" }}>
-        {/* Background radial glow */}
-        <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(125% 125% at 50% 10%, rgba(8,15,26,0.85) 50%, rgba(187,219,237,0.12) 100%)" }} />
+      <footer className="relative overflow-hidden rounded-[32px] mx-6 mb-6" style={{ background: "linear-gradient(135deg, #1D3A5F 0%, #24508A 40%, #3370B8 100%)" }}>
+        {/* Subtle dot texture overlay */}
+        <div className="absolute inset-0 z-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-14 pt-14 pb-0">
 
