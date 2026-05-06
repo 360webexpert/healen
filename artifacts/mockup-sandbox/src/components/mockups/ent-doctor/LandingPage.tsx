@@ -278,7 +278,7 @@ export function LandingPage() {
 
           {/* Logo pill */}
           <a href="#" className="hidden lg:flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 hover:bg-white/15 transition-colors shrink-0">
-            <img src="/__mockup/images/logo-white.png" alt="Synergy ENT & Wellness" className="h-9 w-auto" />
+            <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-10 w-auto max-w-[220px] object-contain" style={{ mixBlendMode: 'screen' }} />
           </a>
 
           {/* Center nav links pill */}
@@ -325,7 +325,7 @@ export function LandingPage() {
 
           {/* Mobile: logo + hamburger */}
           <a href="#" className="lg:hidden flex items-center">
-            <img src="/__mockup/images/logo-white.png" alt="Synergy ENT & Wellness" className="h-8 w-auto" />
+            <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-9 w-auto max-w-[180px] object-contain" style={{ mixBlendMode: 'screen' }} />
           </a>
           <button
             className="lg:hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2.5 text-white"
@@ -692,7 +692,7 @@ export function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
               <a href="#" className="block mb-6">
-                <img src="/__mockup/images/logo-white.png" alt="Synergy ENT & Wellness" className="h-10 w-auto" />
+                <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-10 w-auto max-w-[220px] object-contain" style={{ mixBlendMode: 'screen' }} />
               </a>
               <p className="text-white/60 font-light mb-8 max-w-sm">
                 Premium ENT specialty care focused on precision, expertise, and patient comfort.
