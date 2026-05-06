@@ -1255,54 +1255,51 @@ export function LandingPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Why Choose Us — 3-column feature layout */}
-      <section className="py-24 md:py-32 px-6 md:px-12 bg-[#F5F5F3]">
-        <div className="max-w-5xl mx-auto">
+          {/* Divider */}
+          <div className="relative z-10 my-12 border-t border-white/10" />
 
-          {/* Header */}
-          <div className="text-center mb-16">
-            <p className="uppercase tracking-widest text-xs font-semibold text-[#809EB1] mb-4">Why Choose Us</p>
-            <h2 className="text-4xl md:text-5xl font-['Inter'] text-[#1D3A5F] leading-tight">
-              A Different Approach to ENT Care
-            </h2>
-          </div>
-
-          {/* 3-col feature grid */}
-          <div ref={whyGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            {[
-              {
-                icon: <Cross className="w-5 h-5 text-[#1D3A5F]/60" />,
-                title: "Patient-First Philosophy",
-                desc: "We take a holistic approach, searching for root causes and developing treatment plans tailored to your life.",
-              },
-              {
-                icon: <Activity className="w-5 h-5 text-[#1D3A5F]/60" />,
-                title: "Unrushed Appointments",
-                desc: "We moved away from corporate medicine to spend more time with you — listening, explaining, and partnering in your care.",
-              },
-              {
-                icon: <Stethoscope className="w-5 h-5 text-[#1D3A5F]/60" />,
-                title: "Dual Board Certification",
-                desc: "Dual expertise in ENT and Sleep Medicine means comprehensive care for interconnected conditions under one roof.",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className={`why-card flex flex-col items-center gap-5${whyCardsVisible ? " visible" : ""}`}
-                style={{ animationDelay: `${i * 120}ms` }}
-              >
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "rgba(29,58,95,0.07)" }}>
-                  {item.icon}
+          {/* Why Choose Us — 3-col feature strip inside the same card */}
+          <div className="relative z-10">
+            <div className="text-center mb-10">
+              <p className="uppercase tracking-widest text-xs font-semibold text-[#BBDBED]/70 mb-3">Why Choose Us</p>
+              <h2 className="text-3xl md:text-4xl font-['Inter'] text-white leading-tight">
+                A Different Approach to ENT Care
+              </h2>
+            </div>
+            <div ref={whyGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              {[
+                {
+                  icon: <Cross className="w-5 h-5 text-[#BBDBED]" />,
+                  title: "Patient-First Philosophy",
+                  desc: "We take a holistic approach, searching for root causes and developing treatment plans tailored to your life.",
+                },
+                {
+                  icon: <Activity className="w-5 h-5 text-[#BBDBED]" />,
+                  title: "Unrushed Appointments",
+                  desc: "We moved away from corporate medicine to spend more time with you — listening, explaining, and partnering in your care.",
+                },
+                {
+                  icon: <Stethoscope className="w-5 h-5 text-[#BBDBED]" />,
+                  title: "Dual Board Certification",
+                  desc: "Dual expertise in ENT and Sleep Medicine means comprehensive care for interconnected conditions under one roof.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`why-card flex flex-col items-center gap-4${whyCardsVisible ? " visible" : ""}`}
+                  style={{ animationDelay: `${i * 120}ms` }}
+                >
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(187,219,237,0.12)" }}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white text-base mb-1.5">{item.title}</h3>
+                    <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-[#1D3A5F] text-lg mb-2">{item.title}</h3>
-                  <p className="text-[#1D3A5F]/55 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
         </div>
