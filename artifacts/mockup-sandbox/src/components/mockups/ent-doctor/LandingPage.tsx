@@ -447,10 +447,6 @@ export function LandingPage() {
                 Board-certified ENT and sleep medicine care — so you can feel like yourself again.
               </p>
 
-              <p className="text-white/65 text-base font-light leading-relaxed mb-10 max-w-lg">
-                At Synergy ENT & Wellness, Dr. Sara Scheid brings over 25 years of expertise in ear, nose, throat, and sleep medicine to patients across Northern New Jersey. Whether you're struggling with chronic sinus issues, sleep apnea, or persistent ear problems, you'll receive personalized, compassionate care in a practice that truly listens.
-              </p>
-
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <button className="bg-[#30D1FF] text-[#16215B] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#30D1FF]/20">
                   Request an Appointment
