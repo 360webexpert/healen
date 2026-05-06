@@ -599,7 +599,16 @@ export function LandingPage() {
       <RadialSelectorSection />
 
       {/* Services Section */}
-      <section id="services" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+      <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+        {/* Dot-pattern background */}
+        <img
+          src="/__mockup/images/services-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-left pointer-events-none select-none"
+          style={{ opacity: 0.55 }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -662,6 +671,7 @@ export function LandingPage() {
               </div>
             ))}
           </div>
+        </div>
         </div>
       </section>
 
