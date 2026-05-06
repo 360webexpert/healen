@@ -423,7 +423,7 @@ function TestimonialsCarousel() {
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-        style={{ mixBlendMode: "multiply", opacity: 0.55 }}
+        style={{ mixBlendMode: "multiply", opacity: 0.4 }}
       />
       <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 items-center">
 
