@@ -431,7 +431,7 @@ export function LandingPage() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-6">
                 Expert ENT Care<br />
-                <span className="text-[#F25929]">Starts Here.</span>
+                <span className="text-[#30D1FF]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>Starts Here.</span>
               </h1>
 
               <p className="text-white/70 text-lg font-light leading-relaxed mb-10 max-w-lg">
