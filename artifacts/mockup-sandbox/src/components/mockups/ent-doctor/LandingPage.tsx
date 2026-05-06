@@ -817,30 +817,100 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-['Inter'] mb-6">What Sets Synergy ENT & Wellness Apart</h2>
-        </div>
+      {/* Why Choose Us — Bento Card Grid */}
+      <section className="py-24 md:py-32 px-6 md:px-12 bg-[#F5F5F3]">
+        <div className="max-w-7xl mx-auto">
 
-        <div className="grid md:grid-cols-5 gap-8 relative">
-          <div className="hidden md:block absolute top-12 left-[5%] right-[5%] h-[1px] bg-[#1D3A5F]/10 z-0"></div>
-          
-          {[
-            { num: "01", title: "Dual Board Certification", desc: "Dr. Scheid holds rare dual certification in both Otolaryngology and Sleep Medicine, connecting your ENT health and sleep quality." },
-            { num: "02", title: "25+ Years of Experience", desc: "With over two decades of clinical and surgical practice, Dr. Scheid has helped thousands of NJ patients find lasting relief." },
-            { num: "03", title: "Personalized Plans", desc: "No two patients are the same. We understand your health history, lifestyle, and goals before recommending a path forward." },
-            { num: "04", title: "In-Office Procedures", desc: "Many diagnostic and treatment procedures are performed right in our office, saving you time and added stress." },
-            { num: "05", title: "Compassionate Care", desc: "Patients consistently describe Dr. Scheid as attentive, warm, and genuinely invested in their outcomes." }
-          ].map((step, i) => (
-            <div key={i} className="relative z-10 flex flex-col items-center text-center">
-              <div className="w-24 h-24 rounded-full bg-white border border-[#1D3A5F]/10 flex items-center justify-center text-3xl font-['Inter'] text-[#1D3A5F] mb-6 shadow-sm">
-                {step.num}
+          {/* Header row */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <h2 className="text-4xl md:text-5xl font-['Inter'] leading-tight max-w-sm">
+              What sets Synergy ENT &amp; Wellness Apart
+            </h2>
+            <p className="text-black/50 font-light max-w-xs text-sm leading-relaxed">
+              Dual-certified expertise, personalized care plans, and in-office procedures — all designed around you and your health.
+            </p>
+          </div>
+
+          {/* 4-col bento grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-start">
+
+            {/* Card 1 — tall image + Learn More */}
+            <div className="relative rounded-3xl overflow-hidden bg-[#BBDBED]" style={{ minHeight: 420 }}>
+              <img
+                src="/__mockup/images/ent-about.png"
+                alt="ENT specialty care"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(29,58,95,0.1) 0%, rgba(29,58,95,0.7) 100%)" }} />
+              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
+                <button className="bg-white text-[#1D3A5F] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-colors">
+                  Learn More
+                </button>
+                <div className="w-9 h-9 rounded-full bg-white/20 border border-white/40 flex items-center justify-center">
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </div>
               </div>
-              <h3 className="text-xl font-['Inter'] mb-3">{step.title}</h3>
-              <p className="text-black/60 font-light">{step.desc}</p>
             </div>
-          ))}
+
+            {/* Card 2 — article/text card */}
+            <div className="rounded-3xl bg-white p-6 flex flex-col justify-between" style={{ minHeight: 420 }}>
+              <div>
+                <span className="text-xs font-semibold tracking-widest text-[#809EB1] uppercase">Blog / Article</span>
+                <div className="mt-4 rounded-2xl overflow-hidden h-44">
+                  <img
+                    src="/__mockup/images/ent-hero-doctor.png"
+                    alt="ENT article"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-['Inter'] text-lg leading-snug mb-3 text-[#1D3A5F]">Dual Board Certification in ENT &amp; Sleep Medicine</h3>
+                <div className="w-9 h-9 rounded-full bg-[#BBDBED] flex items-center justify-center ml-auto">
+                  <ArrowRight className="w-4 h-4 text-[#1D3A5F]" />
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 — tall image */}
+            <div className="relative rounded-3xl overflow-hidden bg-[#1D3A5F]" style={{ minHeight: 420 }}>
+              <img
+                src="/__mockup/images/ent-about-doctor-orig.png"
+                alt="Dr. Scheid"
+                className="absolute inset-0 w-full h-full object-cover object-top"
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(29,58,95,0.75) 100%)" }} />
+              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
+                <button className="bg-white text-[#1D3A5F] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-colors">
+                  Learn More
+                </button>
+                <div className="w-9 h-9 rounded-full bg-white/20 border border-white/40 flex items-center justify-center">
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 — article/text card */}
+            <div className="rounded-3xl bg-white p-6 flex flex-col justify-between" style={{ minHeight: 420 }}>
+              <div>
+                <span className="text-xs font-semibold tracking-widest text-[#809EB1] uppercase">Blog / Article</span>
+                <div className="mt-4 rounded-2xl overflow-hidden h-44">
+                  <img
+                    src="/__mockup/images/ent-hero.png"
+                    alt="ENT care article"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-['Inter'] text-lg leading-snug mb-3 text-[#1D3A5F]">In-Office Procedures &amp; Personalized Care Plans</h3>
+                <div className="w-9 h-9 rounded-full bg-[#BBDBED] flex items-center justify-center ml-auto">
+                  <ArrowRight className="w-4 h-4 text-[#1D3A5F]" />
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
