@@ -277,13 +277,8 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
           {/* Logo pill */}
-          <a href="#" className="hidden lg:flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2.5 hover:bg-white/15 transition-colors shrink-0">
-            <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M7 1v12M1 7h12" stroke="#E4FF60" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </div>
-            <span className="text-white font-semibold text-sm tracking-wide">ClearPath ENT</span>
+          <a href="#" className="hidden lg:flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 hover:bg-white/15 transition-colors shrink-0">
+            <img src="/__mockup/images/logo-white.png" alt="Synergy ENT & Wellness" className="h-9 w-auto" />
           </a>
 
           {/* Center nav links pill */}
@@ -329,13 +324,8 @@ export function LandingPage() {
           </div>
 
           {/* Mobile: logo + hamburger */}
-          <a href="#" className="lg:hidden flex items-center gap-2 text-white font-semibold">
-            <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M7 1v12M1 7h12" stroke="#E4FF60" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </div>
-            ClearPath
+          <a href="#" className="lg:hidden flex items-center">
+            <img src="/__mockup/images/logo-white.png" alt="Synergy ENT & Wellness" className="h-8 w-auto" />
           </a>
           <button
             className="lg:hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2.5 text-white"
@@ -391,7 +381,7 @@ export function LandingPage() {
               </h1>
 
               <p className="text-white/70 text-lg font-light leading-relaxed mb-10 max-w-lg">
-                ClearPath ENT is a precision-focused otolaryngology practice delivering advanced diagnostic and surgical solutions for ear, nose, and throat conditions.
+                Synergy ENT & Wellness is a precision-focused otolaryngology practice delivering advanced diagnostic and surgical solutions for ear, nose, and throat conditions.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -573,7 +563,7 @@ export function LandingPage() {
               </h2>
               
               <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
-                ClearPath ENT was founded on a simple principle: every patient deserves specialized care tailored to their unique anatomy and lifestyle. We combine decades of surgical expertise with the latest minimally invasive technologies to ensure faster recovery and better outcomes.
+                Synergy ENT & Wellness was founded on a simple principle: every patient deserves specialized care tailored to their unique anatomy and lifestyle. We combine decades of surgical expertise with the latest minimally invasive technologies to ensure faster recovery and better outcomes.
               </p>
 
               <div className="grid grid-cols-2 gap-8 mb-12">
@@ -698,8 +688,8 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
-              <a href="#" className="text-3xl font-['Inter'] tracking-wide text-white block mb-6">
-                ClearPath<span className="text-[#E4FF60]">.</span>
+              <a href="#" className="block mb-6">
+                <img src="/__mockup/images/logo-white.png" alt="Synergy ENT & Wellness" className="h-10 w-auto" />
               </a>
               <p className="text-white/60 font-light mb-8 max-w-sm">
                 Premium ENT specialty care focused on precision, expertise, and patient comfort.
@@ -748,7 +738,7 @@ export function LandingPage() {
           </div>
 
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
-            <p>© {new Date().getFullYear()} ClearPath ENT. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Synergy ENT & Wellness. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
