@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Menu, X, ArrowRight, Ear, Stethoscope, Droplets, Mic2, Star, CheckCircle, MapPin, Phone, Mail } from "lucide-react";
+import React, { useEffect, useState, useRef } from "react";
+import { Menu, X, ArrowRight, Ear, Stethoscope, Droplets, Mic2, Star, CheckCircle, MapPin, Phone, Mail, Zap, Play, TrendingUp, Activity } from "lucide-react";
 
 export function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -90,40 +90,122 @@ export function LandingPage() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section id="home" className="relative h-screen w-full overflow-hidden bg-[#020202]">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/__mockup/images/ent-hero.png" 
-            alt="ENT Doctor Consultation" 
-            className="w-full h-full object-cover object-center animate-ken-burns opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020202]/60 via-transparent to-[#020202]"></div>
-        </div>
+      {/* Hero Section — Medora style */}
+      <section id="home" className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ background: "linear-gradient(135deg, #0a2a2a 0%, #0d3d3a 40%, #1a5c4a 70%, #2a7a5a 100%)" }}>
+        {/* Decorative dot-grid background */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #E4FF60 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        {/* Glow blobs */}
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: "#E4FF60" }} />
+        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "#00ffcc" }} />
 
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 mt-12">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-['DM_Serif_Display'] text-white leading-[1.1] max-w-5xl mx-auto mb-6">
-            Expert Care for <br/>
-            <span className="italic text-white/90">Ear, Nose & Throat</span>
-          </h1>
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 font-light">
-            Comprehensive diagnostic and surgical solutions from board-certified specialists dedicated to your respiratory and sensory health.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <button className="w-full sm:w-auto bg-[#E4FF60] text-[#020202] px-8 py-4 rounded-[50px] font-semibold uppercase tracking-wide hover:bg-[#d4f04b] transition-colors flex items-center justify-center gap-2">
-              Book Appointment <ArrowRight className="w-4 h-4" />
-            </button>
-            <button className="w-full sm:w-auto border border-white text-white px-8 py-4 rounded-[50px] font-semibold uppercase tracking-wide hover:bg-white hover:text-[#020202] transition-colors">
-              Learn More
-            </button>
+        {/* Main content */}
+        <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-6 md:px-12 pt-32 pb-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+
+            {/* Left column — text */}
+            <div>
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
+                <Zap className="w-4 h-4 text-[#E4FF60]" />
+                <span className="text-white/90 text-sm font-medium">Board Certified ENT Specialists</span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-['DM_Serif_Display'] text-white leading-[1.1] mb-6">
+                Expert ENT Care<br />
+                <span className="text-[#E4FF60]">Starts Here.</span>
+              </h1>
+
+              <p className="text-white/70 text-lg font-light leading-relaxed mb-10 max-w-lg">
+                ClearPath ENT is a precision-focused otolaryngology practice delivering advanced diagnostic and surgical solutions for ear, nose, and throat conditions.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <button className="bg-[#E4FF60] text-[#020202] px-7 py-4 rounded-[50px] font-bold text-sm uppercase tracking-wide hover:bg-[#d4f04b] transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-[#E4FF60]/20">
+                  Book a Free Consultation
+                </button>
+                <button className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
+                  <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                    <Play className="w-4 h-4 fill-white text-white ml-0.5" />
+                  </div>
+                  <span className="font-medium text-sm">Watch a Demo</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Right column — doctor + floating cards */}
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Doctor image */}
+              <div className="relative">
+                <img
+                  src="/__mockup/images/ent-hero-doctor.png"
+                  alt="ENT Doctor"
+                  className="w-72 md:w-80 lg:w-96 object-contain drop-shadow-2xl relative z-10"
+                  style={{ filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.5))" }}
+                />
+
+                {/* Floating card — Dashboard Report (top right) */}
+                <div className="absolute -top-4 -right-4 md:right-0 lg:-right-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-52 shadow-xl z-20">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-white text-xs font-semibold">Patient Overview</span>
+                    <TrendingUp className="w-3.5 h-3.5 text-[#E4FF60]" />
+                  </div>
+                  {/* Mini chart bars */}
+                  <div className="flex items-end gap-1 h-12 mb-2">
+                    {[30, 55, 40, 70, 50, 80, 65].map((h, i) => (
+                      <div key={i} className="flex-1 rounded-t-sm transition-all" style={{ height: `${h}%`, background: i === 5 ? "#E4FF60" : "rgba(255,255,255,0.25)" }} />
+                    ))}
+                  </div>
+                  <div className="flex justify-between text-white/50 text-[10px]">
+                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                  </div>
+                </div>
+
+                {/* Floating card — Daily Stats (bottom left) */}
+                <div className="absolute -bottom-4 -left-4 md:left-0 lg:-left-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-48 shadow-xl z-20">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Activity className="w-4 h-4 text-[#E4FF60]" />
+                    <span className="text-white text-xs font-semibold">Recovery Rate</span>
+                  </div>
+                  {/* Radial gauge mockup */}
+                  <div className="flex items-center justify-between">
+                    <div className="relative w-14 h-14">
+                      <svg viewBox="0 0 44 44" className="w-14 h-14 -rotate-90">
+                        <circle cx="22" cy="22" r="16" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="4" />
+                        <circle cx="22" cy="22" r="16" fill="none" stroke="#E4FF60" strokeWidth="4" strokeDasharray="100.5" strokeDashoffset="16" strokeLinecap="round" />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">98%</span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="flex items-center gap-1.5 mb-1.5">
+                        <div className="w-2 h-2 rounded-full bg-[#E4FF60]" />
+                        <span className="text-white/70 text-[10px]">Satisfied</span>
+                        <span className="text-white text-xs font-bold">2k+</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-2 h-2 rounded-full bg-white/40" />
+                        <span className="text-white/70 text-[10px]">Procedures</span>
+                        <span className="text-white text-xs font-bold">850</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="absolute -bottom-16 md:-bottom-32 left-0 right-0 flex justify-center w-full pointer-events-none z-10">
-          <h2 className="text-[#E4FF60] text-[150px] md:text-[280px] lg:text-[400px] font-['DM_Serif_Display'] leading-none opacity-90 select-none">
-            ENT
-          </h2>
+        {/* Partner logos strip */}
+        <div className="relative z-10 border-t border-white/10 py-6 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-6 sm:gap-0 justify-between">
+            <span className="text-white/40 text-xs uppercase tracking-widest whitespace-nowrap">Trusted & Accredited By</span>
+            <div className="flex flex-wrap justify-center sm:justify-end items-center gap-8 sm:gap-12">
+              {["American Academy of Otolaryngology", "ACS Fellow", "Johns Hopkins", "Mayo Clinic Network", "JCI Accredited"].map((name) => (
+                <span key={name} className="text-white/50 text-xs md:text-sm font-semibold uppercase tracking-wider hover:text-white/80 transition-colors">{name}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
