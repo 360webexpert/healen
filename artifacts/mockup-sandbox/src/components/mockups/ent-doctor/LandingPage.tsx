@@ -285,8 +285,8 @@ function AboutSection() {
 
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-[#809EB1] font-semibold text-sm">—</span>
-              <span className="uppercase tracking-widest text-sm font-semibold text-[#809EB1]">Meet Dr Scheid.</span>
+              <span className="text-[#E7FFD9] font-semibold text-sm">—</span>
+              <span className="uppercase tracking-widest text-sm font-semibold text-[#E7FFD9]">Meet Dr Scheid.</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-['Inter'] leading-tight mb-8">
               Focused on Excellence in ENT and Sleep Medicine.
@@ -305,7 +305,7 @@ function AboutSection() {
                 { value: "4", label: "Clinic Locations" },
               ].map((stat, i) => (
                 <div key={i}>
-                  <div className="text-4xl md:text-5xl font-['Inter'] text-[#809EB1] mb-2">{stat.value}</div>
+                  <div className="text-4xl md:text-5xl font-['Inter'] text-[#E7FFD9] mb-2">{stat.value}</div>
                   <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
                 </div>
               ))}
