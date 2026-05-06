@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "vTcd1-o02YGlphohhdVK7"
+uri = "file://artifacts/mockup-sandbox/public/images/ent-hero.png"
+type = "image"
+title = "Hero background ENT doctor"
+
+[[generated]]
+id = "Yjmldszp2iUJePBSoghn4"
+uri = "file://artifacts/mockup-sandbox/public/images/ent-about.png"
+type = "image"
+title = "Doctor headshot"
