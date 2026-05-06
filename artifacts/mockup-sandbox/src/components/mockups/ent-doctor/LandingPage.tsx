@@ -646,6 +646,8 @@ export function LandingPage() {
   const [navOpacity, setNavOpacity] = useState(0);
   const [bentoProgress, setBentoProgress] = useState(0);
   const bentoRef = useRef<HTMLElement>(null);
+  const [footerProgress, setFooterProgress] = useState(0);
+  const footerRef = useRef<HTMLElement>(null);
   const [whyCardsVisible, setWhyCardsVisible] = useState(false);
   const whyGridRef = useRef<HTMLDivElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -660,6 +662,12 @@ export function LandingPage() {
         const rect = bentoRef.current.getBoundingClientRect();
         const raw = 1 - rect.top / (window.innerHeight * 0.75);
         setBentoProgress(Math.min(1, Math.max(0, raw)));
+      }
+      if (footerRef.current) {
+        const rect = footerRef.current.getBoundingClientRect();
+        // Start expanding when top of footer crosses 85% of viewport, finish at 20%
+        const raw = (window.innerHeight * 0.85 - rect.top) / (window.innerHeight * 0.65);
+        setFooterProgress(Math.min(1, Math.max(0, raw)));
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -1314,8 +1322,19 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Footer — floating dark card */}
-      <footer className="relative overflow-hidden rounded-[32px] mx-6 mb-6" style={{ background: "linear-gradient(135deg, #1D3A5F 0%, #24508A 40%, #3370B8 100%)" }}>
+      {/* Footer — scroll-expand floating card */}
+      <footer
+        ref={footerRef}
+        className="relative overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, #1D3A5F 0%, #24508A 40%, #3370B8 100%)",
+          borderRadius: `${(1 - footerProgress) * 32}px`,
+          marginLeft: `${(1 - footerProgress) * 24}px`,
+          marginRight: `${(1 - footerProgress) * 24}px`,
+          marginBottom: `${(1 - footerProgress) * 24}px`,
+          transition: "border-radius 0.05s, margin 0.05s",
+        }}
+      >
         {/* Subtle dot texture overlay */}
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
 
