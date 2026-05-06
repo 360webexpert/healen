@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Menu, X, ArrowRight, Ear, Stethoscope, Droplets, Mic2, Star, CheckCircle, MapPin, Phone, Mail, Zap, Play, TrendingUp, Activity, Search, ShoppingBag, Cross, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { Menu, X, ArrowRight, Ear, Stethoscope, Droplets, Mic2, Star, CheckCircle, MapPin, Phone, Mail, Zap, Play, TrendingUp, Activity, Search, ShoppingBag, Cross, ChevronDown, Globe, Share2, AtSign, Rss } from "lucide-react";
 
 const specialties = [
   { icon: "🦻", label: "Hearing & Balance" },
@@ -553,6 +554,91 @@ function FaqSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function SynergyTextHover() {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
+  const [maskPos, setMaskPos] = useState({ cx: "50%", cy: "50%" });
+
+  useEffect(() => {
+    if (!svgRef.current) return;
+    const rect = svgRef.current.getBoundingClientRect();
+    const cx = ((cursor.x - rect.left) / rect.width) * 100;
+    const cy = ((cursor.y - rect.top) / rect.height) * 100;
+    setMaskPos({ cx: `${cx}%`, cy: `${cy}%` });
+  }, [cursor]);
+
+  return (
+    <svg
+      ref={svgRef}
+      width="100%"
+      height="100%"
+      viewBox="0 0 800 160"
+      xmlns="http://www.w3.org/2000/svg"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
+      className="select-none cursor-pointer uppercase"
+    >
+      <defs>
+        <linearGradient id="footerTextGradient" gradientUnits="userSpaceOnUse">
+          {hovered && (
+            <>
+              <stop offset="0%"   stopColor="#BBDBED" />
+              <stop offset="33%"  stopColor="#E7FFD9" />
+              <stop offset="66%"  stopColor="#809EB1" />
+              <stop offset="100%" stopColor="#BBDBED" />
+            </>
+          )}
+        </linearGradient>
+        <motion.radialGradient
+          id="footerRevealMask"
+          gradientUnits="userSpaceOnUse"
+          r="18%"
+          initial={{ cx: "50%", cy: "50%" }}
+          animate={maskPos}
+          transition={{ duration: 0, ease: "easeOut" }}
+        >
+          <stop offset="0%"   stopColor="white" />
+          <stop offset="100%" stopColor="black" />
+        </motion.radialGradient>
+        <mask id="footerTextMask">
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#footerRevealMask)" />
+        </mask>
+      </defs>
+
+      {/* Outline ghost (appears on hover) */}
+      <text x="50%" y="58%" textAnchor="middle" dominantBaseline="middle"
+        strokeWidth="0.5" fontSize="120" fontFamily="Inter, Helvetica, sans-serif" fontWeight="800"
+        fill="transparent" stroke="rgba(187,219,237,0.12)"
+        style={{ opacity: hovered ? 1 : 0, transition: "opacity 0.3s" }}
+      >
+        SYNERGY
+      </text>
+
+      {/* Animated stroke draw-on */}
+      <motion.text x="50%" y="58%" textAnchor="middle" dominantBaseline="middle"
+        strokeWidth="0.5" fontSize="120" fontFamily="Inter, Helvetica, sans-serif" fontWeight="800"
+        fill="transparent" stroke="rgba(187,219,237,0.35)"
+        initial={{ strokeDashoffset: 2000, strokeDasharray: 2000 }}
+        animate={{ strokeDashoffset: 0, strokeDasharray: 2000 }}
+        transition={{ duration: 5, ease: "easeInOut" }}
+      >
+        SYNERGY
+      </motion.text>
+
+      {/* Hover gradient reveal */}
+      <text x="50%" y="58%" textAnchor="middle" dominantBaseline="middle"
+        strokeWidth="0.5" fontSize="120" fontFamily="Inter, Helvetica, sans-serif" fontWeight="800"
+        fill="transparent" stroke="url(#footerTextGradient)"
+        mask="url(#footerTextMask)"
+      >
+        SYNERGY
+      </text>
+    </svg>
   );
 }
 
@@ -1228,73 +1314,89 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#1D3A5F] text-white pt-14 pb-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+      {/* Footer — floating dark card */}
+      <footer className="relative overflow-hidden rounded-[32px] mx-6 mb-6" style={{ background: "#080F1A" }}>
+        {/* Background radial glow */}
+        <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(125% 125% at 50% 10%, rgba(8,15,26,0.85) 50%, rgba(187,219,237,0.12) 100%)" }} />
 
-            {/* Col 1 — Brand */}
-            <div>
-              <a href="#" className="block mb-4">
-                <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-10 w-auto max-w-[200px] object-contain" style={{ mixBlendMode: 'screen' }} />
-              </a>
-              <p className="text-white/55 text-sm leading-relaxed">
-                Premium ENT specialty care focused on precision, expertise, and patient comfort.
+        <div className="relative z-10 max-w-7xl mx-auto px-14 pt-14 pb-0">
+
+          {/* 4-col grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 text-white/55">
+
+            {/* Brand */}
+            <div className="flex flex-col space-y-4">
+              <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-10 w-auto max-w-[200px] object-contain" style={{ mixBlendMode: 'screen' }} />
+              <p className="text-sm leading-relaxed">
+                Board-certified ENT and sleep medicine care — so you can feel like yourself again.
               </p>
             </div>
 
-            {/* Col 2 — Quick Links */}
+            {/* About Us */}
             <div>
-              <h4 className="text-sm font-bold mb-5 uppercase tracking-widest text-white">Quick Links</h4>
-              <ul className="space-y-3">
-                {[["Home", true], ["About Us", false], ["Our Services", false], ["Meet the Team", false], ["Patient Portal", false]].map(([link, active]) => (
-                  <li key={link as string}>
-                    <a href="#" className={`text-sm transition-colors ${active ? "text-[#809EB1] font-medium" : "text-white/55 hover:text-white"}`}>{link as string}</a>
+              <h4 className="text-white text-lg font-semibold mb-6">About Us</h4>
+              <ul className="space-y-3 text-sm">
+                {["Our Story", "Meet Dr. Scheid", "Our Team", "Careers"].map((l) => (
+                  <li key={l}><a href="#" className="hover:text-[#BBDBED] transition-colors">{l}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Helpful Links */}
+            <div>
+              <h4 className="text-white text-lg font-semibold mb-6">Helpful Links</h4>
+              <ul className="space-y-3 text-sm">
+                {[
+                  { label: "FAQs" },
+                  { label: "Request Appointment" },
+                  { label: "Patient Portal", pulse: true },
+                  { label: "Insurance Info" },
+                ].map((l) => (
+                  <li key={l.label} className="relative">
+                    <a href="#" className="hover:text-[#BBDBED] transition-colors">{l.label}</a>
+                    {l.pulse && <span className="absolute top-1 right-0 w-2 h-2 rounded-full bg-[#BBDBED] animate-pulse" />}
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Col 3 — Services */}
+            {/* Contact */}
             <div>
-              <h4 className="text-sm font-bold mb-5 uppercase tracking-widest text-white">Services</h4>
-              <ul className="space-y-3">
-                {["Hearing & Balance", "Sinus & Allergy", "Voice & Swallowing", "Pediatric ENT", "Facial Plastics"].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-white/55 hover:text-white transition-colors">{link}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Col 4 — Contact */}
-            <div>
-              <h4 className="text-sm font-bold mb-5 uppercase tracking-widest text-white">Contact</h4>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-white/55 text-sm">
-                  <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#809EB1]" />
-                  <span>1450 Medical Plaza Way<br />Suite 300<br />San Francisco, CA 94102</span>
+              <h4 className="text-white text-lg font-semibold mb-6">Contact Us</h4>
+              <ul className="space-y-4 text-sm">
+                <li className="flex items-center gap-3">
+                  <Mail size={16} className="text-[#BBDBED] shrink-0" />
+                  <a href="mailto:care@synergyentwellness.com" className="hover:text-[#BBDBED] transition-colors">care@synergyentwellness.com</a>
                 </li>
-                <li className="flex items-center gap-3 text-white/55 text-sm">
-                  <Phone className="w-4 h-4 shrink-0 text-[#809EB1]" />
-                  <span>(415) 555-0198</span>
+                <li className="flex items-center gap-3">
+                  <Phone size={16} className="text-[#BBDBED] shrink-0" />
+                  <a href="tel:+12015550198" className="hover:text-[#BBDBED] transition-colors">(201) 555-0198</a>
                 </li>
-                <li className="flex items-center gap-3 text-white/55 text-sm">
-                  <Mail className="w-4 h-4 shrink-0 text-[#809EB1]" />
-                  <span>care@synergyentwellness.com</span>
+                <li className="flex items-center gap-3">
+                  <MapPin size={16} className="text-[#BBDBED] shrink-0" />
+                  <span>Paramus, NJ</span>
                 </li>
               </ul>
             </div>
           </div>
+
+          {/* Divider */}
+          <hr className="border-t border-white/10" />
 
           {/* Bottom bar */}
-          <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/35">
-            <p>© {new Date().getFullYear()} Synergy ENT & Wellness. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-white/70 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white/70 transition-colors">Terms of Service</a>
+          <div className="flex flex-col md:flex-row justify-between items-center py-6 text-sm text-white/40 gap-4">
+            <div className="flex gap-5">
+              {[Globe, Share2, AtSign, Rss, Mail].map((Icon, i) => (
+                <a key={i} href="#" className="hover:text-[#BBDBED] transition-colors"><Icon size={18} /></a>
+              ))}
             </div>
+            <p>© {new Date().getFullYear()} Synergy ENT &amp; Wellness. All rights reserved.</p>
           </div>
+        </div>
+
+        {/* Large animated text */}
+        <div className="hidden lg:block relative z-10 -mt-8" style={{ height: 220 }}>
+          <SynergyTextHover />
         </div>
       </footer>
     </div>
