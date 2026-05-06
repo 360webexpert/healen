@@ -384,7 +384,7 @@ export function LandingPage() {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ background: "linear-gradient(135deg, #16215B 0%, #1F299C 60%, #1F299C 100%)" }}>
+      <div className={`fixed inset-0 z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ backgroundImage: "url('/__mockup/images/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="flex flex-col items-center justify-center h-full gap-6">
           {["Home", "Services", "About Us", "Treatments", "Blog", "Contact"].map((item) => (
             <a
@@ -403,7 +403,9 @@ export function LandingPage() {
       </div>
 
       {/* Hero Section — Medora style */}
-      <section id="home" className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ background: "linear-gradient(135deg, #16215B 0%, #1F299C 40%, #1F299C 70%, #0373FF 100%)" }}>
+      <section id="home" className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ backgroundImage: "url('/__mockup/images/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
+        {/* Dark overlay for text legibility */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(22,33,91,0.72) 0%, rgba(31,41,156,0.55) 50%, rgba(3,115,255,0.35) 100%)" }} />
         {/* Decorative dot-grid background */}
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #F25929 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
         {/* Glow blobs */}
