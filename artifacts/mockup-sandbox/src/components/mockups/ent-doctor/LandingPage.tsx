@@ -451,7 +451,7 @@ export function LandingPage() {
               {/* Doctor image */}
               <div className="relative">
                 <img
-                  src="/__mockup/images/ent-hero-doctor.png"
+                  src="/__mockup/images/ent-hero-doctor.png?v=2"
                   alt="ENT Doctor"
                   className="w-72 md:w-80 lg:w-96 object-contain drop-shadow-2xl relative z-10"
                   style={{ filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.5))" }}
