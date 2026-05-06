@@ -699,7 +699,7 @@ export function LandingPage() {
                 <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">Meet Dr Scheid.</span>
               </div>
               
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] leading-tight mb-8">
+              <h2 className="text-3xl md:text-4xl font-['Inter'] leading-tight mb-8">
                 Focused on Excellence in ENT and Sleep Medicine.
               </h2>
               
