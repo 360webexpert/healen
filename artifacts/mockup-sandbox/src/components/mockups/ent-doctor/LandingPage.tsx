@@ -858,9 +858,9 @@ export function LandingPage() {
                 <span className="text-xs font-semibold tracking-widest text-[#809EB1] uppercase">Blog / Article</span>
                 <div className="mt-4 rounded-2xl overflow-hidden h-44">
                   <img
-                    src="/__mockup/images/ent-hero-doctor.png"
+                    src="/__mockup/images/ent-about.png"
                     alt="ENT article"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
               </div>
