@@ -1302,24 +1302,8 @@ export function LandingPage() {
       <section className="py-10 px-6 md:px-16 bg-[#F5F5F3]">
         <div
           className="relative overflow-hidden rounded-3xl"
-          style={{ minHeight: 260 }}
+          style={{ minHeight: 260, background: "linear-gradient(135deg, #1D3A5F 0%, #2A5080 60%, #0F2840 100%)" }}
         >
-          {/* Background photo */}
-          <img
-            src="/__mockup/images/ent-about-doctor-orig.png"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            style={{ objectPosition: "60% 20%" }}
-          />
-          {/* Dark gradient left → transparent right */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(100deg, rgba(10,20,40,0.88) 0%, rgba(10,20,40,0.72) 35%, rgba(10,20,40,0.28) 65%, transparent 100%)",
-            }}
-          />
           {/* Content */}
           <div className="relative z-10 flex flex-col justify-center h-full px-10 py-14 max-w-lg">
             <p className="text-white text-2xl md:text-3xl font-bold leading-snug mb-5">
