@@ -106,7 +106,7 @@ function RadialSelectorSection() {
           <p className="text-[#16215B]/55 text-base md:text-lg mb-8 max-w-sm font-light leading-relaxed">
             From ear infections to sinus surgery, our specialists provide calm, expert, personalised care.
           </p>
-          <button className="bg-[#16215B] text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-[#16215B]/80 transition-colors">
+          <button className="bg-[#30D1FF] text-[#16215B] px-8 py-3.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all">
             Schedule Now
           </button>
         </div>
@@ -355,7 +355,7 @@ export function LandingPage() {
 
           {/* Right group */}
           <div className="hidden lg:flex items-center gap-2 shrink-0">
-            <button className="bg-[#F25929] rounded-full px-5 py-2.5 text-white text-sm font-semibold hover:bg-[#d94a1e] transition-colors">
+            <button className="bg-[#30D1FF] rounded-full px-5 py-2.5 text-[#16215B] text-sm font-semibold hover:brightness-110 transition-all">
               Book Appointment
             </button>
           </div>
@@ -386,7 +386,7 @@ export function LandingPage() {
               {item}
             </a>
           ))}
-          <button className="mt-6 bg-[#F25929] text-[#16215B] px-8 py-4 rounded-full font-semibold text-base">
+          <button className="mt-6 bg-[#30D1FF] text-[#16215B] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all">
             Book Appointment
           </button>
         </div>
@@ -439,7 +439,7 @@ export function LandingPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <button className="bg-[#30D1FF] text-white px-7 py-4 rounded-[50px] font-bold text-sm uppercase tracking-wide hover:bg-[#1ab8e8] transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-[#30D1FF]/20">
+                <button className="bg-[#30D1FF] text-[#16215B] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#30D1FF]/20">
                   Book a Free Consultation
                 </button>
                 <button className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
@@ -648,7 +648,7 @@ export function LandingPage() {
                 ))}
               </div>
 
-              <button className="bg-white text-[#16215B] px-8 py-4 rounded-[50px] font-semibold uppercase tracking-wide hover:bg-gray-200 transition-colors flex items-center gap-2">
+              <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
                 Meet The Team <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -695,7 +695,7 @@ export function LandingPage() {
             </div>
             {/* Bottom CTA */}
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <button className="w-full bg-[#16215B] text-white text-xs font-semibold py-3 rounded-xl hover:bg-[#1F299C] transition-colors tracking-wide uppercase">
+              <button className="w-full bg-[#30D1FF] text-[#16215B] text-xs font-semibold py-3 rounded-xl hover:brightness-110 transition-all">
                 Schedule Exam Now
               </button>
             </div>
@@ -835,7 +835,7 @@ export function LandingPage() {
           <p className="text-xl text-[#16215B]/70 mb-10 max-w-2xl mx-auto">
             Schedule a consultation today and take the first step toward better sensory and respiratory health.
           </p>
-          <button className="bg-[#16215B] text-white px-10 py-5 rounded-[50px] font-semibold text-lg uppercase tracking-wide hover:bg-[#16215B]/80 transition-colors inline-flex items-center gap-3">
+          <button className="bg-[#16215B]/80 backdrop-blur-sm border border-[#16215B]/40 text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#16215B] transition-all inline-flex items-center gap-3">
             Book Your Consultation <ArrowRight className="w-5 h-5" />
           </button>
         </div>
