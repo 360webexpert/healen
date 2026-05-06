@@ -411,19 +411,19 @@ export function LandingPage() {
         {/* Glow blobs */}
         <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: "#F25929" }} />
         <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "#30D1FF" }} />
-        {/* NJ outline — decorative, upper-left */}
+        {/* NJ outline — decorative, behind doctor column */}
         <img
           src="/__mockup/images/nj-outline.png"
           alt=""
           aria-hidden="true"
           className="absolute pointer-events-none select-none"
           style={{
-            top: '-10%',
-            left: '-8%',
-            width: '520px',
-            opacity: 0.10,
+            top: '-5%',
+            left: '38%',
+            width: '580px',
+            opacity: 0.12,
             mixBlendMode: 'screen',
-            transform: 'rotate(-6deg)',
+            transform: 'rotate(-4deg)',
           }}
         />
 
