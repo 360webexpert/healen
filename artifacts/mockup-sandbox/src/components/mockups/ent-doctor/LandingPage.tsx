@@ -701,17 +701,16 @@ export function LandingPage() {
           {/* Right column — two stacked cards */}
           <div className="flex flex-col gap-4">
 
-            {/* Right top card — image + headline */}
+            {/* Right top card — photo background + headline */}
             <div className="relative rounded-3xl overflow-hidden bg-[#1a2d6b]" style={{ minHeight: 190 }}>
-              <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #1F299C 0%, #2B40B8 100%)" }} />
-              {/* Decorative ear anatomy svg */}
-              <div className="absolute right-4 top-4 opacity-20">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                  <circle cx="40" cy="40" r="36" stroke="#30D1FF" strokeWidth="2"/>
-                  <circle cx="40" cy="40" r="20" stroke="#30D1FF" strokeWidth="1.5"/>
-                  <circle cx="40" cy="40" r="8" fill="#30D1FF" opacity="0.4"/>
-                </svg>
-              </div>
+              {/* Photo background */}
+              <img
+                src="/__mockup/images/ent-about.png"
+                alt="ENT specialist care"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+              {/* Dark overlay for legibility */}
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(10,18,64,0.78) 0%, rgba(10,18,64,0.35) 60%, rgba(10,18,64,0.1) 100%)" }} />
               <div className="relative z-10 p-7">
                 <span className="text-[#30D1FF] text-xs font-semibold uppercase tracking-widest mb-3 block">Specialty Care</span>
                 <h4 className="text-white text-xl font-bold leading-snug">
