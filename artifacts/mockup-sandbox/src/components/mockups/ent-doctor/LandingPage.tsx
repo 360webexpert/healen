@@ -598,6 +598,63 @@ export function LandingPage() {
       {/* Radial Selector Section */}
       <RadialSelectorSection />
 
+      {/* About/Stats Section */}
+      <section id="about" className="bg-[#16215B] text-white py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="relative">
+              <div className="aspect-[3/4] rounded-[20px] overflow-hidden">
+                <img 
+                  src="/__mockup/images/ent-about-doctor-orig.png?v=1" 
+                  alt="Dr. Headshot" 
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="absolute -bottom-8 -right-8 bg-[#F25929] text-[#16215B] p-8 rounded-[20px] hidden md:block">
+                <h3 className="text-4xl font-['Inter'] mb-1">Dr. Scheid</h3>
+                <p className="font-medium">Otolaryngologist & Sleep Specialist</p>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-[#F25929] font-semibold text-sm">—</span>
+                <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">Meet Dr Scheid.</span>
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-['Inter'] leading-tight mb-8">
+                Focused on Excellence in ENT and Sleep Medicine.
+              </h2>
+              
+              <p className="text-lg text-white/70 mb-6 font-light leading-relaxed">
+                Dr. Scheid is a Board certified Otolaryngologist and Sleep medicine specialist who offers care of a wide range of sleep, ear, nose, and throat conditions, including nasal obstruction, sinusitis, snoring, sleep apnea, circadian rhythm disorders, insomnia, allergy, ear infections, hearing loss, dizziness, voice, and swallowing problems.
+              </p>
+              <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
+                As her career has evolved and her expertise has broadened, Dr. Scheid has become increasingly focused on taking a holistic approach to each patient. She moved away from corporate medicine to spend more time with patients, search for the root cause of disease, and incorporate lifestyle, nutrition, and other interventions that support optimal health, sleep, and longevity.
+              </p>
+
+              <div className="grid grid-cols-2 gap-8 mb-12">
+                {[
+                  { value: "2,000+", label: "Patients Served" },
+                  { value: "98%", label: "Satisfaction" },
+                  { value: "20+", label: "Years Experience" },
+                  { value: "4", label: "Clinic Locations" }
+                ].map((stat, i) => (
+                  <div key={i}>
+                    <div className="text-4xl md:text-5xl font-['Inter'] text-[#F25929] mb-2">{stat.value}</div>
+                    <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
+                Meet The Team <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden">
         {/* Dot-pattern background */}
@@ -672,63 +729,6 @@ export function LandingPage() {
             ))}
           </div>
         </div>
-        </div>
-      </section>
-
-      {/* About/Stats Section */}
-      <section id="about" className="bg-[#16215B] text-white py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div className="relative">
-              <div className="aspect-[3/4] rounded-[20px] overflow-hidden">
-                <img 
-                  src="/__mockup/images/ent-about-doctor-orig.png?v=1" 
-                  alt="Dr. Headshot" 
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              <div className="absolute -bottom-8 -right-8 bg-[#F25929] text-[#16215B] p-8 rounded-[20px] hidden md:block">
-                <h3 className="text-4xl font-['Inter'] mb-1">Dr. Scheid</h3>
-                <p className="font-medium">Otolaryngologist & Sleep Specialist</p>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-[#F25929] font-semibold text-sm">—</span>
-                <span className="uppercase tracking-widest text-sm font-semibold text-[#F25929]">Meet Dr Scheid.</span>
-              </div>
-              
-              <h2 className="text-3xl md:text-4xl font-['Inter'] leading-tight mb-8">
-                Focused on Excellence in ENT and Sleep Medicine.
-              </h2>
-              
-              <p className="text-lg text-white/70 mb-6 font-light leading-relaxed">
-                Dr. Scheid is a Board certified Otolaryngologist and Sleep medicine specialist who offers care of a wide range of sleep, ear, nose, and throat conditions, including nasal obstruction, sinusitis, snoring, sleep apnea, circadian rhythm disorders, insomnia, allergy, ear infections, hearing loss, dizziness, voice, and swallowing problems.
-              </p>
-              <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
-                As her career has evolved and her expertise has broadened, Dr. Scheid has become increasingly focused on taking a holistic approach to each patient. She moved away from corporate medicine to spend more time with patients, search for the root cause of disease, and incorporate lifestyle, nutrition, and other interventions that support optimal health, sleep, and longevity.
-              </p>
-
-              <div className="grid grid-cols-2 gap-8 mb-12">
-                {[
-                  { value: "2,000+", label: "Patients Served" },
-                  { value: "98%", label: "Satisfaction" },
-                  { value: "20+", label: "Years Experience" },
-                  { value: "4", label: "Clinic Locations" }
-                ].map((stat, i) => (
-                  <div key={i}>
-                    <div className="text-4xl md:text-5xl font-['Inter'] text-[#F25929] mb-2">{stat.value}</div>
-                    <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
-                Meet The Team <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
