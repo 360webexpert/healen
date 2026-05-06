@@ -1027,6 +1027,40 @@ export function LandingPage() {
           </div>
         </div>
 
+        {/* Credential bar — frosted glass pill at bottom of hero */}
+        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center px-6 pointer-events-none">
+          <div
+            className="pointer-events-auto w-full max-w-4xl flex items-center justify-between gap-2 px-8 py-5 rounded-2xl"
+            style={{
+              background: "rgba(255,255,255,0.72)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              boxShadow: "0 8px 40px rgba(29,58,95,0.12), 0 1px 0 rgba(255,255,255,0.8) inset",
+              border: "1px solid rgba(255,255,255,0.6)",
+            }}
+          >
+            {[
+              { icon: <CheckCircle className="w-4 h-4" />, title: "Board Certified", sub: "Otolaryngologist" },
+              { icon: <Stethoscope className="w-4 h-4" />, title: "Sleep Medicine", sub: "Certified Specialist" },
+              { icon: <TrendingUp className="w-4 h-4" />, title: "15+ Years", sub: "of Experience" },
+              { icon: <Activity className="w-4 h-4" />, title: "Accepting", sub: "New Patients" },
+            ].map((item, i, arr) => (
+              <React.Fragment key={i}>
+                <div className="flex items-center gap-3 flex-1 justify-center">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(29,58,95,0.07)" }}>
+                    <span className="text-[#1D3A5F]">{item.icon}</span>
+                  </div>
+                  <div>
+                    <p className="text-[#1D3A5F] font-semibold text-sm leading-tight">{item.title}</p>
+                    <p className="text-[#809EB1] text-xs leading-tight">{item.sub}</p>
+                  </div>
+                </div>
+                {i < arr.length - 1 && <div className="w-px h-8 bg-[#1D3A5F]/10 shrink-0" />}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
         {/* Gradient fade into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-64 pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 60%, white 100%)" }} />
 
