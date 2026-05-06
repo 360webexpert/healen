@@ -656,6 +656,8 @@ export function LandingPage() {
   const bentoRef = useRef<HTMLElement>(null);
   const [footerProgress, setFooterProgress] = useState(0);
   const footerRef = useRef<HTMLElement>(null);
+  const [credBarProgress, setCredBarProgress] = useState(0);
+  const credBarRef = useRef<HTMLDivElement>(null);
   const [whyCardsVisible, setWhyCardsVisible] = useState(false);
   const whyGridRef = useRef<HTMLDivElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -673,9 +675,13 @@ export function LandingPage() {
       }
       if (footerRef.current) {
         const rect = footerRef.current.getBoundingClientRect();
-        // Start expanding when top of footer crosses 85% of viewport, finish at 20%
         const raw = (window.innerHeight * 0.85 - rect.top) / (window.innerHeight * 0.65);
         setFooterProgress(Math.min(1, Math.max(0, raw)));
+      }
+      if (credBarRef.current) {
+        const rect = credBarRef.current.getBoundingClientRect();
+        const raw = (window.innerHeight * 0.9 - rect.top) / (window.innerHeight * 0.5);
+        setCredBarProgress(Math.min(1, Math.max(0, raw)));
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -1027,44 +1033,55 @@ export function LandingPage() {
           </div>
         </div>
 
-        {/* Credential bar — frosted glass pill at bottom of hero */}
-        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center px-6 pointer-events-none">
-          <div
-            className="pointer-events-auto w-full max-w-4xl flex items-center justify-between gap-2 px-8 py-5 rounded-2xl"
-            style={{
-              background: "rgba(255,255,255,0.72)",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-              boxShadow: "0 8px 40px rgba(29,58,95,0.12), 0 1px 0 rgba(255,255,255,0.8) inset",
-              border: "1px solid rgba(255,255,255,0.6)",
-            }}
-          >
-            {[
-              { icon: <CheckCircle className="w-4 h-4" />, title: "Board Certified", sub: "Otolaryngologist" },
-              { icon: <Stethoscope className="w-4 h-4" />, title: "Sleep Medicine", sub: "Certified Specialist" },
-              { icon: <TrendingUp className="w-4 h-4" />, title: "15+ Years", sub: "of Experience" },
-              { icon: <Activity className="w-4 h-4" />, title: "Accepting", sub: "New Patients" },
-            ].map((item, i, arr) => (
-              <React.Fragment key={i}>
-                <div className="flex items-center gap-3 flex-1 justify-center">
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(29,58,95,0.07)" }}>
-                    <span className="text-[#1D3A5F]">{item.icon}</span>
-                  </div>
-                  <div>
-                    <p className="text-[#1D3A5F] font-semibold text-sm leading-tight">{item.title}</p>
-                    <p className="text-[#809EB1] text-xs leading-tight">{item.sub}</p>
-                  </div>
-                </div>
-                {i < arr.length - 1 && <div className="w-px h-8 bg-[#1D3A5F]/10 shrink-0" />}
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-
         {/* Gradient fade into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-64 pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 60%, white 100%)" }} />
 
       </section>
+
+      {/* Credential bar — scroll-expand floating pill */}
+      <div
+        className="bg-white overflow-hidden"
+        style={{
+          paddingTop: `${(1 - credBarProgress) * 20}px`,
+          paddingBottom: `${(1 - credBarProgress) * 20}px`,
+        }}
+      >
+        <div
+          ref={credBarRef}
+          className="flex items-center justify-between gap-2 px-8 py-5"
+          style={{
+            background: "rgba(255,255,255,0.95)",
+            borderRadius: `${(1 - credBarProgress) * 24}px`,
+            marginLeft: `${(1 - credBarProgress) * 48}px`,
+            marginRight: `${(1 - credBarProgress) * 48}px`,
+            boxShadow: credBarProgress < 1
+              ? "0 8px 40px rgba(29,58,95,0.10), 0 1px 0 rgba(255,255,255,0.8) inset"
+              : "none",
+            border: `1px solid rgba(29,58,95,${(1 - credBarProgress) * 0.08})`,
+            transition: "box-shadow 0.05s, border 0.05s",
+          }}
+        >
+          {[
+            { icon: <CheckCircle className="w-4 h-4" />, title: "Board Certified", sub: "Otolaryngologist" },
+            { icon: <Stethoscope className="w-4 h-4" />, title: "Sleep Medicine", sub: "Certified Specialist" },
+            { icon: <TrendingUp className="w-4 h-4" />, title: "15+ Years", sub: "of Experience" },
+            { icon: <Activity className="w-4 h-4" />, title: "Accepting", sub: "New Patients" },
+          ].map((item, i, arr) => (
+            <React.Fragment key={i}>
+              <div className="flex items-center gap-3 flex-1 justify-center">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(29,58,95,0.07)" }}>
+                  <span className="text-[#1D3A5F]">{item.icon}</span>
+                </div>
+                <div>
+                  <p className="text-[#1D3A5F] font-semibold text-sm leading-tight">{item.title}</p>
+                  <p className="text-[#809EB1] text-xs leading-tight">{item.sub}</p>
+                </div>
+              </div>
+              {i < arr.length - 1 && <div className="w-px h-8 bg-[#1D3A5F]/10 shrink-0" />}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
 
       {/* Radial Selector Section */}
       <RadialSelectorSection />
