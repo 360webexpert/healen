@@ -1391,15 +1391,46 @@ export function LandingPage() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: "50% 18%", filter: "blur(18px) saturate(1.2) brightness(0.9)", transform: "scale(1.08)" }} />
         <div className="absolute inset-0" style={{ background: "rgba(245,245,243,0.35)" }} />
-        <div className="relative overflow-hidden rounded-3xl" style={{ border: "1px solid rgba(187,219,237,0.18)", boxShadow: "0 8px 48px rgba(10,20,40,0.28), inset 0 1px 0 rgba(255,255,255,0.1)" }}>
-          {/* Glass top */}
-          <div style={{ background: "rgba(20,42,80,0.45)", backdropFilter: "blur(28px) saturate(1.6)", WebkitBackdropFilter: "blur(28px) saturate(1.6)" }}>
-            <div className="px-10 py-12">
+        <div className="relative overflow-hidden rounded-3xl" style={{ border: "1px solid rgba(187,219,237,0.18)", boxShadow: "0 8px 48px rgba(10,20,40,0.28), inset 0 1px 0 rgba(255,255,255,0.1)", background: "#0F2840" }}>
+          <div className="flex flex-col md:flex-row items-stretch">
+            {/* Left — insurance logos */}
+            <div className="flex flex-col justify-center px-10 py-8 gap-5 md:w-5/12 border-r border-white/10">
+              <div className="flex items-center gap-6 flex-wrap">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M4 10h12M10 4v12" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
+                  <span className="text-white font-bold text-sm">Horizon</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3a7 7 0 1 0 0 14A7 7 0 0 0 10 3Z" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M7 10h6M10 7v6" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
+                  <span className="text-white font-bold text-sm">BlueCross <span className="font-normal text-white/60 text-xs">BlueShield</span></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4C7 4 4 6.5 4 10s3 6 6 6 6-2.5 6-6" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5" strokeLinecap="round"/></svg></div>
+                  <span className="text-white font-bold text-sm italic">cigna</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 flex-wrap">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 15 10 5l5 10" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M7 11h6" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
+                  <span className="text-white font-bold text-sm">❤ aetna</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="9" rx="1.5" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M7 7V6a3 3 0 0 1 6 0v1" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
+                  <span className="text-white font-bold text-sm">Medicare</span>
+                </div>
+              </div>
+            </div>
+            {/* Dot divider */}
+            <div className="hidden md:flex flex-col items-center justify-center gap-1.5 px-4">
+              {[0,1,2].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#BBDBED]/30" />)}
+            </div>
+            {/* Right — banner content */}
+            <div className="flex flex-col justify-center px-10 py-10 md:flex-1">
               <p className="text-white text-2xl md:text-3xl font-bold leading-snug mb-5">
                 <span className="text-[#E7FFD9]">Synergy ENT</span> addresses what traditional care overlooks.{" "}
                 <span className="font-normal text-white/80">How you actually feel.</span>
               </p>
-              <button className="flex items-center gap-2 bg-white text-[#1D3A5F] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-all shadow-md">
+              <button className="self-start flex items-center gap-2 bg-white text-[#1D3A5F] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-all shadow-md">
                 Book my appointment
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="#1D3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </button>
@@ -1407,49 +1438,6 @@ export function LandingPage() {
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="rgba(255,255,255,0.4)"/><path d="M4 7.5a3 3 0 0 0 6 0" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round"/><circle cx="7" cy="4.5" r="1" fill="rgba(255,255,255,0.5)"/></svg>
                 Now accepting new patients in Paramus, NJ
               </p>
-            </div>
-          </div>
-          {/* Thin divider */}
-          <div style={{ height: 1, background: "rgba(187,219,237,0.12)" }} />
-          {/* Dark navy insurance strip */}
-          <div style={{ background: "#0F2840" }}>
-            <div className="flex flex-col md:flex-row items-stretch">
-              <div className="flex flex-col justify-center px-10 py-8 gap-5 md:w-5/12 border-r border-white/10">
-                <div className="flex items-center gap-6 flex-wrap">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M4 10h12M10 4v12" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
-                    <span className="text-white font-bold text-sm">Horizon</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3a7 7 0 1 0 0 14A7 7 0 0 0 10 3Z" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M7 10h6M10 7v6" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
-                    <span className="text-white font-bold text-sm">BlueCross <span className="font-normal text-white/60 text-xs">BlueShield</span></span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4C7 4 4 6.5 4 10s3 6 6 6 6-2.5 6-6" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5" strokeLinecap="round"/></svg></div>
-                    <span className="text-white font-bold text-sm italic">cigna</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-6 flex-wrap">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 15 10 5l5 10" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M7 11h6" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
-                    <span className="text-white font-bold text-sm">❤ aetna</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="9" rx="1.5" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M7 7V6a3 3 0 0 1 6 0v1" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
-                    <span className="text-white font-bold text-sm">Medicare</span>
-                  </div>
-                </div>
-              </div>
-              <div className="hidden md:flex flex-col items-center justify-center gap-1.5 px-4">
-                {[0,1,2].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#BBDBED]/30" />)}
-              </div>
-              <div className="flex flex-col justify-center px-8 py-8 md:flex-1">
-                <p className="text-[#BBDBED] text-xs font-semibold uppercase tracking-widest mb-3">In-Network:</p>
-                <h3 className="text-white text-2xl md:text-3xl font-extrabold uppercase leading-tight mb-3">
-                  We are in-network with most major insurances, including Medicare.
-                </h3>
-                <p className="text-white/45 text-sm">Please call our office to see if we accept your insurance.</p>
-              </div>
             </div>
           </div>
         </div>
