@@ -439,7 +439,7 @@ export function LandingPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <button className="bg-[#F25929] text-[#16215B] px-7 py-4 rounded-[50px] font-bold text-sm uppercase tracking-wide hover:bg-[#d94520] transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-[#F25929]/20">
+                <button className="bg-[#30D1FF] text-white px-7 py-4 rounded-[50px] font-bold text-sm uppercase tracking-wide hover:bg-[#1ab8e8] transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-[#30D1FF]/20">
                   Book a Free Consultation
                 </button>
                 <button className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
