@@ -314,7 +314,7 @@ function AboutSection() {
               />
             </div>
             <div
-              className="absolute -bottom-8 -right-8 p-8 rounded-[20px] hidden md:block text-[#1D3A5F]"
+              className="absolute -bottom-8 -right-8 p-8 rounded-[20px] hidden md:block text-[#1D3A5F] z-10"
               style={{
                 background: "rgba(187, 219, 237, 0.45)",
                 backdropFilter: "blur(16px)",
