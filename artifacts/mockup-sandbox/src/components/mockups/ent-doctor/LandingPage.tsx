@@ -749,64 +749,70 @@ export function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#16215B] text-white pt-24 pb-8 px-6 md:px-12 border-t border-white/10">
+      <footer className="bg-[#16215B] text-white pt-14 pb-6 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+
+            {/* Col 1 — Brand */}
             <div>
-              <a href="#" className="block mb-6">
-                <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-10 w-auto max-w-[220px] object-contain" style={{ mixBlendMode: 'screen' }} />
+              <a href="#" className="block mb-4">
+                <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-10 w-auto max-w-[200px] object-contain" style={{ mixBlendMode: 'screen' }} />
               </a>
-              <p className="text-white/60 font-light mb-8 max-w-sm">
+              <p className="text-white/55 text-sm leading-relaxed">
                 Premium ENT specialty care focused on precision, expertise, and patient comfort.
               </p>
             </div>
-            
+
+            {/* Col 2 — Quick Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 uppercase tracking-wider text-white/90">Quick Links</h4>
-              <ul className="space-y-4">
-                {["Home", "About Us", "Our Services", "Meet the Team", "Patient Portal"].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-white/60 hover:text-[#F25929] transition-colors">{link}</a>
+              <h4 className="text-sm font-bold mb-5 uppercase tracking-widest text-white">Quick Links</h4>
+              <ul className="space-y-3">
+                {[["Home", true], ["About Us", false], ["Our Services", false], ["Meet the Team", false], ["Patient Portal", false]].map(([link, active]) => (
+                  <li key={link as string}>
+                    <a href="#" className={`text-sm transition-colors ${active ? "text-[#F25929] font-medium" : "text-white/55 hover:text-white"}`}>{link as string}</a>
                   </li>
                 ))}
               </ul>
             </div>
 
+            {/* Col 3 — Services */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 uppercase tracking-wider text-white/90">Services</h4>
-              <ul className="space-y-4">
+              <h4 className="text-sm font-bold mb-5 uppercase tracking-widest text-white">Services</h4>
+              <ul className="space-y-3">
                 {["Hearing & Balance", "Sinus & Allergy", "Voice & Swallowing", "Pediatric ENT", "Facial Plastics"].map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-white/60 hover:text-[#F25929] transition-colors">{link}</a>
+                    <a href="#" className="text-sm text-white/55 hover:text-white transition-colors">{link}</a>
                   </li>
                 ))}
               </ul>
             </div>
 
+            {/* Col 4 — Contact */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 uppercase tracking-wider text-white/90">Contact</h4>
+              <h4 className="text-sm font-bold mb-5 uppercase tracking-widest text-white">Contact</h4>
               <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-white/60">
-                  <MapPin className="w-5 h-5 shrink-0 text-[#F25929]" />
-                  <span>1450 Medical Plaza Way<br/>Suite 300<br/>San Francisco, CA 94102</span>
+                <li className="flex items-start gap-3 text-white/55 text-sm">
+                  <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#F25929]" />
+                  <span>1450 Medical Plaza Way<br />Suite 300<br />San Francisco, CA 94102</span>
                 </li>
-                <li className="flex items-center gap-3 text-white/60">
-                  <Phone className="w-5 h-5 shrink-0 text-[#F25929]" />
+                <li className="flex items-center gap-3 text-white/55 text-sm">
+                  <Phone className="w-4 h-4 shrink-0 text-[#F25929]" />
                   <span>(415) 555-0198</span>
                 </li>
-                <li className="flex items-center gap-3 text-white/60">
-                  <Mail className="w-5 h-5 shrink-0 text-[#F25929]" />
-                  <span>care@clearpathent.com</span>
+                <li className="flex items-center gap-3 text-white/55 text-sm">
+                  <Mail className="w-4 h-4 shrink-0 text-[#F25929]" />
+                  <span>care@synergyentwellness.com</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
+          {/* Bottom bar */}
+          <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/35">
             <p>© {new Date().getFullYear()} Synergy ENT & Wellness. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-white/70 transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white/70 transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
