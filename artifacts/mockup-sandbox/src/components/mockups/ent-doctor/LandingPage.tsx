@@ -599,17 +599,10 @@ export function LandingPage() {
       <RadialSelectorSection />
 
       {/* About/Stats Section */}
-      <section id="about" className="py-16 md:py-24 px-6 md:px-12" style={{ background: "linear-gradient(160deg, #BBDBED 0%, #ddeef8 40%, #f5f5f3 100%)" }}>
+      <section id="about" className="bg-white py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          {/* Floating glass card */}
-          <div className="relative text-white rounded-[32px] shadow-2xl overflow-hidden px-10 md:px-16 py-14 md:py-20"
-            style={{ background: "rgba(29,58,95,0.82)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)", border: "1px solid rgba(255,255,255,0.15)" }}>
-            {/* Gloss shine overlay */}
-            <div className="absolute inset-x-0 top-0 h-48 pointer-events-none rounded-t-[32px]"
-              style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 60%, transparent 100%)" }} />
-            {/* Subtle edge highlight */}
-            <div className="absolute inset-x-0 top-0 h-px pointer-events-none"
-              style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent)" }} />
+          {/* Floating card */}
+          <div className="bg-[#1D3A5F] text-white rounded-[32px] shadow-2xl overflow-visible px-10 md:px-16 py-14 md:py-20">
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <div className="relative">
                 <div className="aspect-[3/4] rounded-[20px] overflow-hidden">
