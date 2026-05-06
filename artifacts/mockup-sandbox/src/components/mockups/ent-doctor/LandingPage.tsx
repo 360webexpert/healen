@@ -653,6 +653,97 @@ export function LandingPage() {
         </div>
       </section>
 
+      {/* Bento Highlights Section */}
+      <section className="relative py-20 px-6 md:px-12 overflow-hidden" style={{ background: "linear-gradient(135deg, #1F299C 0%, #16215B 60%, #0a1240 100%)" }}>
+        {/* Soft radial glow */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(48,209,255,0.08) 0%, transparent 70%)" }} />
+
+        {/* Top CTA buttons */}
+        <div className="relative z-10 flex justify-center gap-3 mb-12">
+          <button className="bg-[#30D1FF] text-[#16215B] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg">
+            Get Started
+          </button>
+          <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-sm px-6 py-2.5 rounded-full hover:bg-white/20 transition-all">
+            Learn More
+          </button>
+        </div>
+
+        {/* Bento grid */}
+        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-4 items-start">
+
+          {/* Left large card */}
+          <div className="relative rounded-3xl overflow-hidden bg-[#0d1a4a] flex flex-col" style={{ minHeight: 420 }}>
+            <div className="p-8 pb-4 flex-1">
+              <h3 className="text-white text-2xl font-bold leading-tight mb-3">
+                Comprehensive ear, nose &amp; throat diagnostics to protect your health
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed max-w-xs">
+                Whether you're managing chronic symptoms or seeking a second opinion, our specialists help you make informed ENT decisions.
+              </p>
+            </div>
+            {/* Doctor image fills bottom */}
+            <div className="relative h-52 overflow-hidden">
+              <img
+                src="/__mockup/images/ent-about-doctor-orig.png"
+                alt="ENT specialist"
+                className="w-full h-full object-cover object-top"
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(13,26,74,0.9) 0%, transparent 40%, rgba(13,26,74,0.5) 100%)" }} />
+            </div>
+            {/* Bottom CTA */}
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <button className="w-full bg-[#16215B] text-white text-xs font-semibold py-3 rounded-xl hover:bg-[#1F299C] transition-colors tracking-wide uppercase">
+                Schedule Exam Now
+              </button>
+            </div>
+          </div>
+
+          {/* Right column — two stacked cards */}
+          <div className="flex flex-col gap-4">
+
+            {/* Right top card — image + headline */}
+            <div className="relative rounded-3xl overflow-hidden bg-[#1a2d6b]" style={{ minHeight: 190 }}>
+              <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #1F299C 0%, #2B40B8 100%)" }} />
+              {/* Decorative ear anatomy svg */}
+              <div className="absolute right-4 top-4 opacity-20">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                  <circle cx="40" cy="40" r="36" stroke="#30D1FF" strokeWidth="2"/>
+                  <circle cx="40" cy="40" r="20" stroke="#30D1FF" strokeWidth="1.5"/>
+                  <circle cx="40" cy="40" r="8" fill="#30D1FF" opacity="0.4"/>
+                </svg>
+              </div>
+              <div className="relative z-10 p-7">
+                <span className="text-[#30D1FF] text-xs font-semibold uppercase tracking-widest mb-3 block">Specialty Care</span>
+                <h4 className="text-white text-xl font-bold leading-snug">
+                  Advanced sinus &amp; allergy treatment for lasting relief
+                </h4>
+              </div>
+            </div>
+
+            {/* Right bottom card — bar chart */}
+            <div className="relative rounded-3xl overflow-hidden bg-[#0d1a4a] p-6">
+              {/* Animated bar chart */}
+              <div className="flex items-end gap-1 h-20 mb-4">
+                {[30, 50, 40, 65, 55, 80, 60, 90, 75, 95, 70, 85, 65, 78, 88, 72, 82, 92, 68, 76].map((h, i) => (
+                  <div
+                    key={i}
+                    className="flex-1 rounded-sm"
+                    style={{
+                      height: `${h}%`,
+                      background: i >= 16 ? "#30D1FF" : i >= 10 ? "rgba(48,209,255,0.5)" : "rgba(48,209,255,0.25)",
+                      transition: "height 0.8s ease",
+                    }}
+                  />
+                ))}
+              </div>
+              <p className="text-white/55 text-xs leading-relaxed">
+                Hearing, balance, and sinus conditions affect millions — timely expert care leads to measurably better outcomes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -745,97 +836,6 @@ export function LandingPage() {
           <button className="bg-[#16215B] text-white px-10 py-5 rounded-[50px] font-semibold text-lg uppercase tracking-wide hover:bg-[#16215B]/80 transition-colors inline-flex items-center gap-3">
             Book Your Consultation <ArrowRight className="w-5 h-5" />
           </button>
-        </div>
-      </section>
-
-      {/* Bento Highlights Section */}
-      <section className="relative py-20 px-6 md:px-12 overflow-hidden" style={{ background: "linear-gradient(135deg, #1F299C 0%, #16215B 60%, #0a1240 100%)" }}>
-        {/* Soft radial glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(48,209,255,0.08) 0%, transparent 70%)" }} />
-
-        {/* Top CTA buttons */}
-        <div className="relative z-10 flex justify-center gap-3 mb-12">
-          <button className="bg-[#30D1FF] text-[#16215B] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg">
-            Get Started
-          </button>
-          <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-sm px-6 py-2.5 rounded-full hover:bg-white/20 transition-all">
-            Learn More
-          </button>
-        </div>
-
-        {/* Bento grid */}
-        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-4 items-start">
-
-          {/* Left large card */}
-          <div className="relative rounded-3xl overflow-hidden bg-[#0d1a4a] flex flex-col" style={{ minHeight: 420 }}>
-            <div className="p-8 pb-4 flex-1">
-              <h3 className="text-white text-2xl font-bold leading-tight mb-3">
-                Comprehensive ear, nose &amp; throat diagnostics to protect your health
-              </h3>
-              <p className="text-white/50 text-sm leading-relaxed max-w-xs">
-                Whether you're managing chronic symptoms or seeking a second opinion, our specialists help you make informed ENT decisions.
-              </p>
-            </div>
-            {/* Doctor image fills bottom */}
-            <div className="relative h-52 overflow-hidden">
-              <img
-                src="/__mockup/images/ent-about-doctor-orig.png"
-                alt="ENT specialist"
-                className="w-full h-full object-cover object-top"
-              />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(13,26,74,0.9) 0%, transparent 40%, rgba(13,26,74,0.5) 100%)" }} />
-            </div>
-            {/* Bottom CTA */}
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <button className="w-full bg-[#16215B] text-white text-xs font-semibold py-3 rounded-xl hover:bg-[#1F299C] transition-colors tracking-wide uppercase">
-                Schedule Exam Now
-              </button>
-            </div>
-          </div>
-
-          {/* Right column — two stacked cards */}
-          <div className="flex flex-col gap-4">
-
-            {/* Right top card — image + headline */}
-            <div className="relative rounded-3xl overflow-hidden bg-[#1a2d6b]" style={{ minHeight: 190 }}>
-              <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #1F299C 0%, #2B40B8 100%)" }} />
-              {/* Decorative ear anatomy svg */}
-              <div className="absolute right-4 top-4 opacity-20">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                  <circle cx="40" cy="40" r="36" stroke="#30D1FF" strokeWidth="2"/>
-                  <circle cx="40" cy="40" r="20" stroke="#30D1FF" strokeWidth="1.5"/>
-                  <circle cx="40" cy="40" r="8" fill="#30D1FF" opacity="0.4"/>
-                </svg>
-              </div>
-              <div className="relative z-10 p-7">
-                <span className="text-[#30D1FF] text-xs font-semibold uppercase tracking-widest mb-3 block">Specialty Care</span>
-                <h4 className="text-white text-xl font-bold leading-snug">
-                  Advanced sinus &amp; allergy treatment for lasting relief
-                </h4>
-              </div>
-            </div>
-
-            {/* Right bottom card — bar chart */}
-            <div className="relative rounded-3xl overflow-hidden bg-[#0d1a4a] p-6">
-              {/* Animated bar chart */}
-              <div className="flex items-end gap-1 h-20 mb-4">
-                {[30, 50, 40, 65, 55, 80, 60, 90, 75, 95, 70, 85, 65, 78, 88, 72, 82, 92, 68, 76].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 rounded-sm"
-                    style={{
-                      height: `${h}%`,
-                      background: i >= 16 ? "#30D1FF" : i >= 10 ? "rgba(48,209,255,0.5)" : "rgba(48,209,255,0.25)",
-                      transition: "height 0.8s ease",
-                    }}
-                  />
-                ))}
-              </div>
-              <p className="text-white/55 text-xs leading-relaxed">
-                Hearing, balance, and sinus conditions affect millions — timely expert care leads to measurably better outcomes.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
