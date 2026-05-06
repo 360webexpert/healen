@@ -472,29 +472,36 @@ export function LandingPage() {
                 style={{ filter: "drop-shadow(0 30px 80px rgba(0,0,0,0.45))" }}
               />
 
-              {/* Floating card — Patient Overview (top-right corner, above face) */}
-              <div className={`card-top-right${heroReady ? " ready" : ""} absolute top-0 right-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-56 shadow-xl z-20`}>
-                <div className="flex items-center justify-between mb-3">
+              {/* Floating card — Patient Overview (top-right corner) */}
+              <div className={`card-top-right${heroReady ? " ready" : ""} absolute top-0 right-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-64 shadow-xl z-20`}>
+                <div className="flex items-center justify-between mb-2">
                   <span className="text-white text-xs font-semibold">Patient Overview</span>
                   <TrendingUp className="w-3.5 h-3.5 text-[#F25929]" />
                 </div>
-                <div className="flex items-end gap-1 h-14 mb-2">
-                  {[30, 55, 40, 70, 50, 85, 65].map((h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 rounded-t-sm"
-                      style={{
-                        height: heroReady ? `${h}%` : "0%",
-                        background: i === 5 ? "#F25929" : "rgba(255,255,255,0.25)",
-                        transition: `height 0.6s cubic-bezier(0.34,1.2,0.64,1)`,
-                        transitionDelay: heroReady ? `${0.9 + i * 0.07}s` : "0s",
-                      }}
-                    />
+                <svg viewBox="0 0 220 100" className="w-full" style={{ opacity: heroReady ? 1 : 0, transition: "opacity 0.8s ease 1s" }}>
+                  {/* Y-axis labels */}
+                  {[100, 75, 50, 25, 0].map((v, i) => (
+                    <text key={v} x="16" y={8 + i * 19} textAnchor="end" fill="rgba(255,255,255,0.45)" fontSize="7">{v}</text>
                   ))}
-                </div>
-                <div className="flex justify-between text-white/50 text-[10px]">
-                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-                </div>
+                  {/* Grid lines */}
+                  {[8, 27, 46, 65, 84].map((y, i) => (
+                    <line key={i} x1="20" y1={y} x2="218" y2={y} stroke="rgba(255,255,255,0.08)" strokeWidth="0.5" />
+                  ))}
+                  {/* Line 1 — cyan (trending up) */}
+                  <path
+                    d="M 20,68 C 32,69 42,70 57,70 C 70,70 80,53 95,50 C 108,47 118,44 133,43 C 146,42 158,40 173,38 C 185,36 204,20 218,18"
+                    fill="none" stroke="#4DD9E0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                  />
+                  {/* Line 2 — yellow-green (flatter) */}
+                  <path
+                    d="M 20,57 C 32,61 42,62 57,63 C 70,64 80,59 95,60 C 108,61 118,55 133,54 C 146,53 158,61 173,62 C 185,63 204,54 218,55"
+                    fill="none" stroke="#B8E04A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                  />
+                  {/* X-axis labels */}
+                  {["Jan","Feb","Mar","Apr","May","Jun"].map((m, i) => (
+                    <text key={m} x={20 + i * 39.6} y="96" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="7">{m}</text>
+                  ))}
+                </svg>
               </div>
 
               {/* Floating card — Recovery Rate (bottom-left, at body level) */}
