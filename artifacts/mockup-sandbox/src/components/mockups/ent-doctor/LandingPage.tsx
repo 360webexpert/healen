@@ -462,8 +462,8 @@ export function LandingPage() {
                 style={{ filter: "drop-shadow(0 30px 80px rgba(0,0,0,0.45))" }}
               />
 
-              {/* Floating card — Patient Overview (top-right corner) */}
-              <div className={`card-top-right${heroReady ? " ready" : ""} absolute top-0 right-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-64 shadow-xl z-20`}>
+              {/* Floating card — Patient Overview (behind doctor's head) */}
+              <div className={`card-top-right${heroReady ? " ready" : ""} absolute top-10 left-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-64 shadow-xl z-[5]`}>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white text-xs font-semibold">Patient Overview</span>
                   <TrendingUp className="w-3.5 h-3.5 text-[#F25929]" />
