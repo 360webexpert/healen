@@ -355,17 +355,7 @@ export function LandingPage() {
 
           {/* Right group */}
           <div className="hidden lg:flex items-center gap-2 shrink-0">
-            {/* Search pill */}
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2.5 w-36">
-              <Search className="w-4 h-4 text-white/50 shrink-0" />
-              <span className="text-white/40 text-sm">Search</span>
-            </div>
-            {/* Icon button */}
-            <button className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors">
-              <ShoppingBag className="w-4 h-4 text-white/80" />
-            </button>
-            {/* Contact Us pill */}
-            <button className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-white text-sm font-medium hover:bg-white/20 transition-colors">
+            <button className="bg-[#F25929] rounded-full px-5 py-2.5 text-white text-sm font-semibold hover:bg-[#d94a1e] transition-colors">
               Book Appointment
             </button>
           </div>
