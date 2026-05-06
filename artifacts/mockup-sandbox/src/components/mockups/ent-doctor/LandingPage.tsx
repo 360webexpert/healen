@@ -338,10 +338,10 @@ function AboutSection() {
               Focused on Excellence in ENT and Sleep Medicine.
             </h2>
             <p className="text-sm text-white/70 mb-5 font-light leading-relaxed">
-              Dr. Scheid is a Board certified Otolaryngologist and Sleep medicine specialist who offers care of a wide range of sleep, ear, nose, and throat conditions, including nasal obstruction, sinusitis, snoring, sleep apnea, circadian rhythm disorders, insomnia, allergy, ear infections, hearing loss, dizziness, voice, and swallowing problems.
+              Dr. Sara Scheid is a board-certified Otolaryngologist (ENT) and Sleep Medicine specialist serving patients throughout the Paramus, NJ area.
             </p>
             <p className="text-sm text-white/70 mb-10 font-light leading-relaxed">
-              As her career has evolved and her expertise has broadened, Dr. Scheid has become increasingly focused on taking a holistic approach to each patient. She moved away from corporate medicine to spend more time with patients, search for the root cause of disease, and incorporate lifestyle, nutrition, and other interventions that support optimal health, sleep, and longevity.
+              With expertise spanning ear, nose, and throat disorders, chronic sinusitis, hearing concerns, and obstructive sleep apnea, Dr. Scheid brings a comprehensive, patient-first approach to every visit. She is committed to providing care that combines clinical precision with genuine compassion.
             </p>
             <div className="grid grid-cols-2 gap-8 mb-12">
               {[
