@@ -867,7 +867,7 @@ export function LandingPage() {
       <AboutSection />
 
       {/* Services Section */}
-      <section id="services" className="py-24 md:py-32 px-6 md:px-12">
+      <section id="services" className="py-24 md:py-32 px-6 md:px-12" style={{ background: "linear-gradient(to bottom, #ffffff 0%, #BBDBED 100%)" }}>
         <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
           <div>
