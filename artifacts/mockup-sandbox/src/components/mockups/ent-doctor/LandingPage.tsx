@@ -1235,16 +1235,6 @@ export function LandingPage() {
           {/* Beam sweep overlay */}
           {whyCardsVisible && <div className="why-beam" />}
 
-          {/* Top CTA buttons */}
-          <div className="relative z-10 flex justify-center gap-3 mb-10">
-            <button className="bg-[#E7FFD9] text-[#1D3A5F] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg">
-              Get Started
-            </button>
-            <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-sm px-6 py-2.5 rounded-full hover:bg-white/20 transition-all">
-              Learn More
-            </button>
-          </div>
-
           {/* Why Choose Us — 3-col feature strip inside the same card */}
           <div className="relative z-10">
             <div className="text-center mb-10">
@@ -1289,6 +1279,16 @@ export function LandingPage() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Bottom CTA buttons */}
+            <div className="relative z-10 flex justify-center gap-3 mt-12">
+              <button className="bg-[#E7FFD9] text-[#1D3A5F] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg">
+                Get Started
+              </button>
+              <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-sm px-6 py-2.5 rounded-full hover:bg-white/20 transition-all">
+                Learn More
+              </button>
             </div>
           </div>
 
