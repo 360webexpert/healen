@@ -420,7 +420,7 @@ export function LandingPage() {
           style={{
             top: '-5%',
             left: '38%',
-            width: '580px',
+            width: '320px',
             opacity: 0.12,
             mixBlendMode: 'screen',
             transform: 'rotate(-4deg)',
