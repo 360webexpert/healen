@@ -996,6 +996,9 @@ export function LandingPage() {
 
           {/* Right group */}
           <div className="hidden lg:flex items-center gap-2 shrink-0">
+            <button className="rounded-full px-5 py-2.5 text-white text-sm font-semibold transition-all hover:bg-white/10" style={{ border: "1.5px solid rgba(255,255,255,0.35)" }}>
+              Patient Portal
+            </button>
             <button className="bg-[#E7FFD9] rounded-full px-5 py-2.5 text-[#1D3A5F] text-sm font-semibold hover:brightness-110 transition-all">
               Book Appointment
             </button>
