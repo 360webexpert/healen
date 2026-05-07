@@ -338,7 +338,7 @@ function AboutSection() {
                 boxShadow: "0 4px 32px rgba(29,58,95,0.18), inset 0 1px 0 rgba(255,255,255,0.9)",
               }}
             >
-              <h3 className="text-base md:text-4xl font-['Inter'] mb-0.5 md:mb-1">Dr. Scheid</h3>
+              <h3 className="text-base md:text-4xl font-['Inter'] mb-0.5 md:mb-1">Dr. Sara Scheid</h3>
               <p className="font-medium text-xs md:text-base">Otolaryngologist & Sleep Specialist</p>
             </div>
           </div>
