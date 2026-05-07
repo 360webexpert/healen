@@ -945,12 +945,22 @@ export function LandingPage() {
         }
       `}</style>
 
+      {/* Info bar — above nav */}
+      <div className="fixed top-0 w-full z-50 flex items-center justify-between px-6 md:px-10" style={{ height: 36, background: "#0F2840" }}>
+        <div className="flex items-center gap-2 text-white/60 text-xs">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1A3.5 3.5 0 0 1 9.5 4.5C9.5 7 6 11 6 11S2.5 7 2.5 4.5A3.5 3.5 0 0 1 6 1Z" fill="rgba(187,219,237,0.5)"/><circle cx="6" cy="4.5" r="1.2" fill="#0F2840"/></svg>
+          <span>37 West Century Rd., Suite 104, Paramus, NJ 07652</span>
+        </div>
+        <a href="tel:+12014534540" className="flex items-center gap-2 text-white/60 text-xs hover:text-white transition-colors">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 3a.8.8 0 0 1 .8-.8h1.5l1.2 2.8-1.2.8c.7 1.3 1.7 2.3 3 3l.8-1.2 2.8 1.2v1.5A.8.8 0 0 1 11 11 9 9 0 0 1 3 3Z" stroke="rgba(187,219,237,0.6)" strokeWidth="1" strokeLinejoin="round"/></svg>
+          <span>201-453-4540</span>
+        </a>
+      </div>
+
       {/* Navigation — Medora glassmorphism style */}
       <nav
-        className="fixed top-0 w-full z-50 px-6 md:px-10 py-4 transition-colors duration-100"
-        style={{
-          backgroundColor: `rgba(29, 58, 95, ${navOpacity})`,
-        }}
+        className="fixed w-full z-50 px-6 md:px-10 py-4 transition-colors duration-100"
+        style={{ top: 36, backgroundColor: `rgba(29, 58, 95, ${navOpacity})` }}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
