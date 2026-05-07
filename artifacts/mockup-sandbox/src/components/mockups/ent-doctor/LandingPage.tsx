@@ -10,14 +10,6 @@ const specialties = [
   { icon: "👶", label: "Pediatric ENT" },
 ];
 
-const doctors = [
-  { name: "Dr. Robert Chen", title: "Lead Surgeon" },
-  { name: "Dr. Sarah Park", title: "Audiologist" },
-  { name: "Dr. Alin Torres", title: "Rhinologist", active: true },
-  { name: "Dr. James Wilson", title: "Laryngologist" },
-  { name: "Dr. Emily Nguyen", title: "Pediatric ENT" },
-];
-
 // Tick marks arranged in a semicircle on left and right, with gap at sides for the lists
 function RadialTicks({ count = 60, radius = 340 }: { count?: number; radius?: number }) {
   const ticks = [];
@@ -155,40 +147,37 @@ function RadialSelectorSection() {
           </button>
         </div>
 
-        {/* Right — doctor list — slides in from right */}
+        {/* Right — insurance logos — slides in from right */}
         <div
-          className="hidden md:flex flex-col gap-3 w-52 shrink-0 items-end"
+          className="hidden md:flex flex-col gap-2.5 w-56 shrink-0"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateX(0)" : "translateX(36px)",
             transition: "opacity 0.7s ease 0.1s, transform 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.1s",
           }}
         >
-          {doctors.map((d, i) => {
-            const dist = Math.abs(i - activeIdx);
-            const opacity = dist === 0 ? 1 : dist === 1 ? 0.5 : 0.2;
-            const scale = dist === 0 ? 1 : 0.95;
-            return (
-              <button
-                key={i}
-                onClick={() => setActiveIdx(i)}
-                className="flex items-center gap-2.5 text-right transition-all duration-500"
-                style={{ opacity, transform: `scale(${scale})` }}
-              >
-                <div className="text-right">
-                  <div className={`text-sm font-medium ${dist === 0 ? "text-[#1D3A5F]" : "text-[#1D3A5F]/50"}`}>{d.name}</div>
-                  {dist === 0 && <div className="text-xs text-[#1D3A5F]/40">{d.title}</div>}
-                </div>
-                <div className={`w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-xs font-bold transition-all duration-300 ${
-                  dist === 0
-                    ? "bg-[#1D3A5F] text-white ring-2 ring-[#1D3A5F]/20 ring-offset-2"
-                    : "bg-[#1D3A5F]/10 text-[#1D3A5F]/40"
-                }`}>
-                  {d.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
-                </div>
-              </button>
-            );
-          })}
+          <p className="text-[#1D3A5F]/40 text-[10px] font-semibold uppercase tracking-widest mb-1">In-Network</p>
+          {[
+            { src: "/__mockup/images/logo-horizon.png", alt: "Horizon Blue Cross Blue Shield", h: 22 },
+            { src: "/__mockup/images/logo-cigna.png",   alt: "Cigna Healthcare",              h: 36 },
+            { src: "/__mockup/images/logo-aetna.png",   alt: "Aetna",                        h: 18 },
+            { src: "/__mockup/images/logo-medicare.png",alt: "Medicare",                      h: 18 },
+          ].map(({ src, alt, h }, i) => (
+            <div
+              key={alt}
+              className="flex items-center justify-center rounded-xl px-4 py-3"
+              style={{
+                background: "rgba(29,58,95,0.07)",
+                border: "1px solid rgba(29,58,95,0.10)",
+                minHeight: 52,
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateX(0)" : "translateX(24px)",
+                transition: `opacity 0.5s ease ${0.15 + i * 0.08}s, transform 0.5s cubic-bezier(0.34,1.56,0.64,1) ${0.15 + i * 0.08}s`,
+              }}
+            >
+              <img src={src} alt={alt} style={{ height: h, width: "auto", maxWidth: "100%", objectFit: "contain", filter: "brightness(0) saturate(100%) invert(18%) sepia(40%) saturate(600%) hue-rotate(190deg) brightness(80%)", opacity: 0.75 }} />
+            </div>
+          ))}
         </div>
 
       </div>
