@@ -162,22 +162,43 @@ function RadialSelectorSection() {
             { src: "/__mockup/images/logo-cigna.png",   alt: "Cigna Healthcare",              h: 36 },
             { src: "/__mockup/images/logo-aetna.png",   alt: "Aetna",                        h: 18 },
             { src: "/__mockup/images/logo-medicare.png",alt: "Medicare",                      h: 18 },
-          ].map(({ src, alt, h }, i) => (
-            <div
-              key={alt}
-              className="flex items-center justify-center rounded-xl px-4 py-3"
-              style={{
-                background: "rgba(29,58,95,0.07)",
-                border: "1px solid rgba(29,58,95,0.10)",
-                minHeight: 52,
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateX(0)" : "translateX(24px)",
-                transition: `opacity 0.5s ease ${0.15 + i * 0.08}s, transform 0.5s cubic-bezier(0.34,1.56,0.64,1) ${0.15 + i * 0.08}s`,
-              }}
-            >
-              <img src={src} alt={alt} style={{ height: h, width: "auto", maxWidth: "100%", objectFit: "contain", filter: "brightness(0) saturate(100%) invert(18%) sepia(40%) saturate(600%) hue-rotate(190deg) brightness(80%)", opacity: 0.75 }} />
-            </div>
-          ))}
+          ].map(({ src, alt, h }, i) => {
+            const logoActive = activeIdx % 4;
+            const dist = Math.abs(i - logoActive);
+            const itemOpacity = dist === 0 ? 1 : dist === 1 ? 0.45 : 0.18;
+            const itemScale = dist === 0 ? 1 : 0.95;
+            return (
+              <button
+                key={alt}
+                onClick={() => setActiveIdx(i)}
+                className="flex items-center justify-center rounded-xl px-4 py-3 w-full transition-all duration-500"
+                style={{
+                  background: dist === 0 ? "rgba(29,58,95,0.10)" : "rgba(29,58,95,0.05)",
+                  border: dist === 0 ? "1px solid rgba(29,58,95,0.18)" : "1px solid rgba(29,58,95,0.07)",
+                  minHeight: 52,
+                  opacity: visible ? itemOpacity : 0,
+                  transform: visible
+                    ? `translateX(0) scale(${itemScale})`
+                    : `translateX(24px) scale(${itemScale})`,
+                  transition: `opacity 0.5s ease ${0.15 + i * 0.08}s, transform 0.5s cubic-bezier(0.34,1.56,0.64,1) ${0.15 + i * 0.08}s, background 0.4s ease, border-color 0.4s ease`,
+                }}
+              >
+                <img
+                  src={src}
+                  alt={alt}
+                  style={{
+                    height: h,
+                    width: "auto",
+                    maxWidth: "100%",
+                    objectFit: "contain",
+                    filter: "brightness(0) saturate(100%) invert(18%) sepia(40%) saturate(600%) hue-rotate(190deg) brightness(80%)",
+                    opacity: dist === 0 ? 0.85 : 0.55,
+                    transition: "opacity 0.4s ease",
+                  }}
+                />
+              </button>
+            );
+          })}
         </div>
 
       </div>
