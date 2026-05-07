@@ -429,34 +429,10 @@ function TestimonialsCarousel() {
         <h2 className="text-3xl md:text-4xl font-bold text-[#1D3A5F] leading-tight">What Our Patients Say</h2>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto">
 
-        {/* Left — avatar card grid */}
-        <div className="grid grid-cols-3 gap-3">
-          {cardOrder.map((idx, pos) => {
-            const t = testimonials[idx];
-            const isActive = idx === active;
-            return (
-              <button
-                key={pos}
-                onClick={() => setActive(idx)}
-                className={`rounded-2xl aspect-square flex items-end p-3 transition-all duration-300 ${
-                  isActive
-                    ? "ring-2 ring-[#1D3A5F] scale-105 shadow-lg"
-                    : "opacity-40 hover:opacity-70"
-                }`}
-                style={{ background: t.color }}
-              >
-                <span className={`text-xs font-semibold ${isActive ? "text-white" : "text-white/80"}`}>
-                  {t.procedure}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Right — quote */}
-        <div>
+        {/* Quote */}
+        <div className="max-w-3xl mx-auto">
           {/* Large quote mark */}
           <div className="text-[80px] leading-none text-[#1D3A5F] font-serif mb-4" style={{ fontFamily: "Georgia, serif" }}>"</div>
 
