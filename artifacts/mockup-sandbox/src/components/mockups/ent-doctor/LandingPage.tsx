@@ -310,6 +310,10 @@ function AboutSection() {
       >
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className="relative">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-[#E7FFD9] font-semibold text-sm">—</span>
+              <span className="uppercase tracking-widest text-sm font-semibold text-[#E7FFD9]">Meet Dr Scheid.</span>
+            </div>
             <div className="aspect-[3/4] rounded-[20px] overflow-hidden relative">
               <img
                 src="/__mockup/images/ent-about-doctor-orig.png?v=1"
@@ -340,10 +344,6 @@ function AboutSection() {
           </div>
 
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-[#E7FFD9] font-semibold text-sm">—</span>
-              <span className="uppercase tracking-widest text-sm font-semibold text-[#E7FFD9]">Meet Dr Scheid.</span>
-            </div>
             <h2 className="text-2xl md:text-3xl font-['Inter'] leading-tight mb-6">
               Focused on Excellence in ENT and Sleep Medicine.
             </h2>
