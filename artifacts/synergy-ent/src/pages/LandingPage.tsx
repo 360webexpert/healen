@@ -1236,7 +1236,6 @@ export function LandingPage() {
           <div className="flex flex-col md:flex-row items-stretch">
             {/* Left — insurance logos */}
             <div className="flex flex-col justify-center px-10 py-8 gap-4 md:w-5/12 border-r border-white/10">
-              <p className="text-[#BBDBED] text-xs font-semibold uppercase tracking-widest">In-Network</p>
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { src: "/images/logo-horizon.png", alt: "Horizon Blue Cross Blue Shield", h: 28 },
