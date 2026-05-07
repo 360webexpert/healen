@@ -156,7 +156,7 @@ function RadialSelectorSection() {
             transition: "opacity 0.7s ease 0.1s, transform 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.1s",
           }}
         >
-          <p className="text-[#1D3A5F]/40 text-[10px] font-semibold uppercase tracking-widest mb-1">In-Network</p>
+          <p className="text-[#1D3A5F]/40 text-[10px] font-semibold uppercase tracking-widest mb-1 text-right">In-Network</p>
           {[
             { src: "/__mockup/images/logo-horizon.png", alt: "Horizon Blue Cross Blue Shield", h: 22 },
             { src: "/__mockup/images/logo-cigna.png",   alt: "Cigna Healthcare",              h: 36 },
