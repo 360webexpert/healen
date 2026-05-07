@@ -320,18 +320,18 @@ function AboutSection() {
               <div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(160deg, rgba(10,20,40,0.55) 0%, rgba(10,20,40,0.15) 45%, rgba(10,20,40,0.6) 100%)",
+                  background: "linear-gradient(160deg, rgba(10,20,40,0.18) 0%, rgba(10,20,40,0.04) 45%, rgba(10,20,40,0.22) 100%)",
                 }}
               />
             </div>
             <div
               className="absolute -bottom-8 -right-8 p-8 rounded-[20px] hidden md:block text-[#1D3A5F] z-10"
               style={{
-                background: "rgba(187, 219, 237, 0.45)",
+                background: "rgba(220, 237, 248, 0.82)",
                 backdropFilter: "blur(16px)",
                 WebkitBackdropFilter: "blur(16px)",
-                border: "1px solid rgba(255,255,255,0.5)",
-                boxShadow: "0 4px 24px rgba(29,58,95,0.12), inset 0 1px 0 rgba(255,255,255,0.6)",
+                border: "1px solid rgba(255,255,255,0.85)",
+                boxShadow: "0 4px 32px rgba(29,58,95,0.18), inset 0 1px 0 rgba(255,255,255,0.9)",
               }}
             >
               <h3 className="text-4xl font-['Inter'] mb-1">Dr. Scheid</h3>
