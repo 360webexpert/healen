@@ -1078,16 +1078,16 @@ export function LandingPage() {
             {/* Left column — text */}
             <div>
               {/* Badge */}
-              <div className="flex flex-wrap gap-2 mb-8">
+              <div className="flex flex-wrap gap-1.5 mb-5">
                 {[
                   "Board-Certified: Otolaryngology & Sleep Medicine",
                   "25+ Years of Experience",
                   "Paramus, NJ",
                   "Accepting New Patients"
                 ].map((item) => (
-                  <div key={item} className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5">
-                    <CheckCircle className="w-3.5 h-3.5 text-[#E7FFD9] shrink-0" />
-                    <span className="text-white/90 text-xs font-medium">{item}</span>
+                  <div key={item} className="inline-flex items-center gap-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-2 py-1">
+                    <CheckCircle className="w-2.5 h-2.5 text-[#E7FFD9] shrink-0" />
+                    <span className="text-white/90 text-[10px] font-medium">{item}</span>
                   </div>
                 ))}
               </div>
