@@ -1394,30 +1394,19 @@ export function LandingPage() {
         <div className="relative overflow-hidden rounded-3xl" style={{ border: "1px solid rgba(187,219,237,0.18)", boxShadow: "0 8px 48px rgba(10,20,40,0.28), inset 0 1px 0 rgba(255,255,255,0.1)", background: "#0F2840" }}>
           <div className="flex flex-col md:flex-row items-stretch">
             {/* Left — insurance logos */}
-            <div className="flex flex-col justify-center px-10 py-8 gap-5 md:w-5/12 border-r border-white/10">
-              <div className="flex items-center gap-6 flex-wrap">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M4 10h12M10 4v12" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
-                  <span className="text-white font-bold text-sm">Horizon</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3a7 7 0 1 0 0 14A7 7 0 0 0 10 3Z" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M7 10h6M10 7v6" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
-                  <span className="text-white font-bold text-sm">BlueCross <span className="font-normal text-white/60 text-xs">BlueShield</span></span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4C7 4 4 6.5 4 10s3 6 6 6 6-2.5 6-6" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5" strokeLinecap="round"/></svg></div>
-                  <span className="text-white font-bold text-sm italic">cigna</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-6 flex-wrap">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 15 10 5l5 10" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M7 11h6" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
-                  <span className="text-white font-bold text-sm">❤ aetna</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="9" rx="1.5" stroke="rgba(187,219,237,0.7)" strokeWidth="1.5"/><path d="M7 7V6a3 3 0 0 1 6 0v1" stroke="rgba(187,219,237,0.5)" strokeWidth="1.2"/></svg></div>
-                  <span className="text-white font-bold text-sm">Medicare</span>
-                </div>
+            <div className="flex flex-col justify-center px-10 py-8 gap-4 md:w-5/12 border-r border-white/10">
+              <p className="text-[#BBDBED] text-xs font-semibold uppercase tracking-widest">In-Network</p>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { src: "/__mockup/images/logo-horizon.png", alt: "Horizon Blue Cross Blue Shield", h: 28 },
+                  { src: "/__mockup/images/logo-cigna.png",   alt: "Cigna Healthcare",              h: 44 },
+                  { src: "/__mockup/images/logo-aetna.png",   alt: "Aetna",                        h: 22 },
+                  { src: "/__mockup/images/logo-medicare.png",alt: "Medicare",                      h: 22 },
+                ].map(({ src, alt, h }) => (
+                  <div key={alt} className="flex items-center justify-center rounded-xl px-4 py-3" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", minHeight: 60 }}>
+                    <img src={src} alt={alt} style={{ height: h, width: "auto", maxWidth: "100%", objectFit: "contain", opacity: 0.85 }} />
+                  </div>
+                ))}
               </div>
             </div>
             {/* Dot divider */}
