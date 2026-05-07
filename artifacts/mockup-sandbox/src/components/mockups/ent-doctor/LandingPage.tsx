@@ -1120,7 +1120,7 @@ export function LandingPage() {
       >
         <div
           ref={credBarRef}
-          className="flex flex-col md:flex-row items-stretch md:items-center md:justify-between gap-0 px-8 py-5"
+          className="grid grid-cols-2 md:flex md:flex-row md:items-center md:justify-between px-8 py-5"
           style={{
             background: "rgba(255,255,255,0.95)",
             borderRadius: `${(1 - credBarProgress) * 24}px`,
@@ -1150,10 +1150,7 @@ export function LandingPage() {
                 </div>
               </div>
               {i < arr.length - 1 && (
-                <>
-                  <div className="block md:hidden h-px bg-[#1D3A5F]/10 w-full" />
-                  <div className="hidden md:block w-px h-8 bg-[#1D3A5F]/10 shrink-0" />
-                </>
+                <div className="hidden md:block w-px h-8 bg-[#1D3A5F]/10 shrink-0" />
               )}
             </React.Fragment>
           ))}
