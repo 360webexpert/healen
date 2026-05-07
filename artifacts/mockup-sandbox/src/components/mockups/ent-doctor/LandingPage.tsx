@@ -1490,13 +1490,13 @@ export function LandingPage() {
         {/* Subtle dot texture overlay */}
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-14 pt-14 pb-0">
+        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-14 pt-14 pb-0 text-center md:text-left">
 
           {/* 4-col grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 text-white/55">
 
             {/* Brand */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col items-center md:items-start space-y-4">
               <img src="/__mockup/images/logo-white-orig.png" alt="Synergy ENT & Wellness" className="h-10 w-auto max-w-[200px] object-contain" style={{ mixBlendMode: 'screen' }} />
               <p className="text-sm leading-relaxed">
                 Board-certified ENT and sleep medicine care — so you can feel like yourself again.
@@ -1523,9 +1523,9 @@ export function LandingPage() {
                   { label: "Patient Portal", pulse: true },
                   { label: "Insurance Info" },
                 ].map((l) => (
-                  <li key={l.label} className="relative">
+                  <li key={l.label} className="relative inline-block md:block">
                     <a href="#" className="hover:text-[#BBDBED] transition-colors">{l.label}</a>
-                    {l.pulse && <span className="absolute top-1 right-0 w-2 h-2 rounded-full bg-[#BBDBED] animate-pulse" />}
+                    {l.pulse && <span className="inline-block ml-2 w-2 h-2 rounded-full bg-[#BBDBED] animate-pulse align-middle" />}
                   </li>
                 ))}
               </ul>
@@ -1535,15 +1535,15 @@ export function LandingPage() {
             <div>
               <h4 className="text-white text-lg font-semibold mb-6">Contact Us</h4>
               <ul className="space-y-4 text-sm">
-                <li className="flex items-center gap-3">
+                <li className="flex items-center justify-center md:justify-start gap-3">
                   <Mail size={16} className="text-[#BBDBED] shrink-0" />
                   <a href="mailto:care@synergyentwellness.com" className="hover:text-[#BBDBED] transition-colors">care@synergyentwellness.com</a>
                 </li>
-                <li className="flex items-center gap-3">
+                <li className="flex items-center justify-center md:justify-start gap-3">
                   <Phone size={16} className="text-[#BBDBED] shrink-0" />
                   <a href="tel:+12015550198" className="hover:text-[#BBDBED] transition-colors">(201) 555-0198</a>
                 </li>
-                <li className="flex items-center gap-3">
+                <li className="flex items-center justify-center md:justify-start gap-3">
                   <MapPin size={16} className="text-[#BBDBED] shrink-0" />
                   <span>Paramus, NJ</span>
                 </li>
@@ -1555,7 +1555,7 @@ export function LandingPage() {
           <hr className="border-t border-white/10" />
 
           {/* Bottom bar */}
-          <div className="flex flex-col md:flex-row justify-between items-center py-6 text-sm text-white/40 gap-4">
+          <div className="flex flex-col items-center md:flex-row md:justify-between py-6 text-sm text-white/40 gap-4">
             <div className="flex gap-5">
               {[Globe, Share2, AtSign, Rss, Mail].map((Icon, i) => (
                 <a key={i} href="#" className="hover:text-[#BBDBED] transition-colors"><Icon size={18} /></a>
