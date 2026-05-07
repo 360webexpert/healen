@@ -420,6 +420,15 @@ function TestimonialsCarousel() {
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
         style={{ mixBlendMode: "multiply", opacity: 0.15 }}
       />
+      {/* Section header */}
+      <div className="relative z-10 max-w-7xl mx-auto mb-12">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-2 h-2 rounded-full bg-[#1D3A5F]" />
+          <span className="text-[#1D3A5F] text-xs font-semibold uppercase tracking-widest">Testimonials</span>
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-[#1D3A5F] leading-tight">What Our Patients Say</h2>
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 items-center">
 
         {/* Left — avatar card grid */}
