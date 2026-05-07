@@ -1012,11 +1012,11 @@ export function LandingPage() {
                 Board-certified ENT and sleep medicine care — so you can feel like yourself again.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <button className="bg-[#E7FFD9] text-[#1D3A5F] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#E7FFD9]/20">
+              <div className="flex flex-col items-stretch gap-3 w-full max-w-xs">
+                <button className="bg-[#E7FFD9] text-[#1D3A5F] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#E7FFD9]/20 w-full">
                   Request an Appointment
                 </button>
-                <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-7 py-4 rounded-full font-semibold text-sm hover:bg-white/20 transition-all">
+                <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-7 py-4 rounded-full font-semibold text-sm hover:bg-white/20 transition-all w-full">
                   Explore Our Services
                 </button>
               </div>
