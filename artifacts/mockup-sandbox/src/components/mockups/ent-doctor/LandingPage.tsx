@@ -660,83 +660,6 @@ function SynergyTextHover() {
   );
 }
 
-function WireframeHead() {
-  const cx = 100, cy = 140, rx = 74, ry = 108;
-  const latYs = [52, 74, 96, 118, 140, 162, 184, 206, 228];
-  const latitudes = latYs.map(y => {
-    const t = (y - cy) / ry;
-    const lrx = Math.abs(t) < 1 ? rx * Math.sqrt(1 - t * t) : 0;
-    return { y, lrx };
-  }).filter(l => l.lrx > 4);
-  const longitudes = [-70, -35, 0, 35, 70].map(deg => {
-    const rad = (deg * Math.PI) / 180;
-    const xEq = rx * Math.sin(rad) * 1.35;
-    return `M ${cx} 32 C ${cx + xEq} 88 ${cx + xEq} 192 ${cx} 248`;
-  });
-  // Floating network nodes
-  const nodes = [
-    { x: 10, y: 30 }, { x: 185, y: 55 }, { x: 20, y: 220 }, { x: 188, y: 200 },
-    { x: -10, y: 120 }, { x: 210, y: 130 }, { x: 60, y: 10 }, { x: 150, y: 265 },
-  ];
-  const nodeLinks = [[0,4],[1,5],[0,6],[1,6],[2,4],[3,5],[6,7]];
-  return (
-    <div style={{ perspective: "900px", width: 200, height: 280, flexShrink: 0, position: "relative" }}>
-      {/* Network nodes behind the head */}
-      <svg style={{ position: "absolute", inset: 0, overflow: "visible", pointerEvents: "none" }} width="200" height="280">
-        {nodeLinks.map(([a, b], i) => (
-          <line key={i}
-            x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y}
-            stroke="rgba(187,219,237,0.18)" strokeWidth="0.8" strokeDasharray="3 4"
-          />
-        ))}
-        {nodes.map((n, i) => (
-          <circle key={i} cx={n.x} cy={n.y} r="2.2" fill="rgba(187,219,237,0.45)" />
-        ))}
-      </svg>
-      {/* Rotating head */}
-      <div style={{ animation: "rotateHead 9s linear infinite", width: "100%", height: "100%", transformStyle: "preserve-3d" }}>
-        <svg viewBox="0 0 200 280" width="200" height="280">
-          <defs>
-            <filter id="headGlow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <clipPath id="headClip">
-              <ellipse cx={cx} cy={cy} rx={rx + 1} ry={ry + 1}/>
-            </clipPath>
-          </defs>
-          {/* Soft glow ring */}
-          <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="none"
-            stroke="rgba(187,219,237,0.2)" strokeWidth="8" filter="url(#headGlow)"/>
-          {/* Head outline */}
-          <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="none"
-            stroke="rgba(187,219,237,0.75)" strokeWidth="0.9"/>
-          {/* Latitude lines (clipped to head) */}
-          <g clipPath="url(#headClip)">
-            {latitudes.map(({ y, lrx }, i) => (
-              <ellipse key={i} cx={cx} cy={y} rx={lrx} ry={lrx * 0.11}
-                fill="none" stroke="rgba(187,219,237,0.38)" strokeWidth="0.7"/>
-            ))}
-          </g>
-          {/* Longitude arcs */}
-          <g clipPath="url(#headClip)">
-            {longitudes.map((d, i) => (
-              <path key={i} d={d} fill="none"
-                stroke={i === 2 ? "rgba(187,219,237,0.55)" : "rgba(187,219,237,0.35)"}
-                strokeWidth={i === 2 ? "1" : "0.7"}/>
-            ))}
-          </g>
-          {/* Highlighted equator */}
-          <line x1={cx - rx} y1={cy} x2={cx + rx} y2={cy}
-            stroke="rgba(187,219,237,0.6)" strokeWidth="1" clipPath="url(#headClip)"/>
-          {/* Small dot at top & bottom poles */}
-          <circle cx={cx} cy={32} r="2" fill="rgba(187,219,237,0.7)"/>
-          <circle cx={cx} cy={248} r="2" fill="rgba(187,219,237,0.7)"/>
-        </svg>
-      </div>
-    </div>
-  );
-}
 
 export function LandingPage() {
   const [navOpacity, setNavOpacity] = useState(0);
@@ -1269,10 +1192,6 @@ export function LandingPage() {
               View All Services <ArrowRight className="w-4 h-4" />
             </button>
 
-            {/* 3D rotating wireframe head — bottom-left decoration */}
-            <div className="mt-10 flex justify-start opacity-80">
-              <WireframeHead />
-            </div>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
