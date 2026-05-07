@@ -1051,7 +1051,7 @@ export function LandingPage() {
               </div>
 
               {/* Floating card — Recovery Rate (bottom-left, at body level) */}
-              <div className={`card-bottom-left${heroReady ? " ready" : ""} absolute bottom-8 left-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-52 shadow-xl z-20`}>
+              <div className={`card-bottom-left${heroReady ? " ready" : ""} absolute bottom-8 left-0 backdrop-blur-md rounded-2xl p-4 w-52 shadow-xl z-20`} style={{ background: "#1D3A5F", border: "1px solid rgba(255,255,255,0.12)" }}>
                 <div className="flex items-center gap-2 mb-3">
                   <Activity className="w-4 h-4 text-[#809EB1]" />
                   <span className="text-white text-xs font-semibold">Recovery Rate</span>
