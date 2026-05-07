@@ -353,21 +353,6 @@ function AboutSection() {
             <p className="text-sm text-white/70 mb-10 font-light leading-relaxed">
               With expertise spanning ear, nose, and throat disorders, chronic sinusitis, hearing concerns, and obstructive sleep apnea, Dr. Scheid brings a comprehensive, patient-first approach to every visit. She is committed to providing care that combines clinical precision with genuine compassion.
             </p>
-            <div className="grid grid-cols-2 gap-8 mb-12">
-              {[
-                { target: 2000, suffix: "+", label: "Patients Served" },
-                { target: 98,   suffix: "%", label: "Satisfaction" },
-                { target: 20,   suffix: "+", label: "Years Experience" },
-                { target: 4,    suffix: "",  label: "Clinic Locations" },
-              ].map((stat, i) => (
-                <div key={i}>
-                  <div className="text-4xl md:text-5xl font-['Inter'] text-[#E7FFD9] mb-2">
-                    <StatNumber target={stat.target} suffix={stat.suffix} started={statsStarted} />
-                  </div>
-                  <div className="text-sm uppercase tracking-wider text-white/60 font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </div>
             <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
               Meet The Team <ArrowRight className="w-4 h-4" />
             </button>
