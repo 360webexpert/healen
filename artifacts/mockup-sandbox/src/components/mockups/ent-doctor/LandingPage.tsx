@@ -174,7 +174,7 @@ function RadialSelectorSection() {
                 className="flex items-center justify-center rounded-xl px-4 py-3 w-full transition-all duration-500"
                 style={{
                   background: dist === 0 ? "rgba(29,58,95,0.10)" : "rgba(29,58,95,0.05)",
-                  border: dist === 0 ? "1px solid rgba(29,58,95,0.18)" : "1px solid rgba(29,58,95,0.07)",
+                  border: "none",
                   minHeight: 52,
                   opacity: visible ? itemOpacity : 0,
                   transform: visible
