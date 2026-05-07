@@ -1140,7 +1140,7 @@ export function LandingPage() {
             { icon: <Activity className="w-4 h-4" />, title: "Accepting", sub: "New Patients" },
           ].map((item, i, arr) => (
             <React.Fragment key={i}>
-              <div className="flex items-center gap-3 md:flex-1 md:justify-center py-3 md:py-0">
+              <div className="flex items-center gap-3 justify-center md:flex-1 py-3 md:py-0">
                 <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(29,58,95,0.07)" }}>
                   <span className="text-[#1D3A5F]">{item.icon}</span>
                 </div>
