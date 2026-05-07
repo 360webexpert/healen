@@ -1120,7 +1120,7 @@ export function LandingPage() {
       >
         <div
           ref={credBarRef}
-          className="flex items-center justify-between gap-2 px-8 py-5"
+          className="flex flex-col md:flex-row items-stretch md:items-center md:justify-between gap-0 px-8 py-5"
           style={{
             background: "rgba(255,255,255,0.95)",
             borderRadius: `${(1 - credBarProgress) * 24}px`,
@@ -1140,7 +1140,7 @@ export function LandingPage() {
             { icon: <Activity className="w-4 h-4" />, title: "Accepting", sub: "New Patients" },
           ].map((item, i, arr) => (
             <React.Fragment key={i}>
-              <div className="flex items-center gap-3 flex-1 justify-center">
+              <div className="flex items-center gap-3 md:flex-1 md:justify-center py-3 md:py-0">
                 <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(29,58,95,0.07)" }}>
                   <span className="text-[#1D3A5F]">{item.icon}</span>
                 </div>
@@ -1149,7 +1149,12 @@ export function LandingPage() {
                   <p className="text-[#809EB1] text-xs leading-tight">{item.sub}</p>
                 </div>
               </div>
-              {i < arr.length - 1 && <div className="w-px h-8 bg-[#1D3A5F]/10 shrink-0" />}
+              {i < arr.length - 1 && (
+                <>
+                  <div className="block md:hidden h-px bg-[#1D3A5F]/10 w-full" />
+                  <div className="hidden md:block w-px h-8 bg-[#1D3A5F]/10 shrink-0" />
+                </>
+              )}
             </React.Fragment>
           ))}
         </div>
