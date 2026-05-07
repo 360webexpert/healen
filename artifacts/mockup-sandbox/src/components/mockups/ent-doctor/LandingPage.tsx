@@ -173,14 +173,14 @@ function RadialSelectorSection() {
                 onClick={() => setActiveIdx(i)}
                 className="flex items-center justify-center rounded-xl px-4 py-3 w-full transition-all duration-500"
                 style={{
-                  background: dist === 0 ? "rgba(29,58,95,0.10)" : "rgba(29,58,95,0.05)",
+                  background: "none",
                   border: "none",
                   minHeight: 52,
                   opacity: visible ? itemOpacity : 0,
                   transform: visible
                     ? `translateX(0) scale(${itemScale})`
                     : `translateX(24px) scale(${itemScale})`,
-                  transition: `opacity 0.5s ease ${0.15 + i * 0.08}s, transform 0.5s cubic-bezier(0.34,1.56,0.64,1) ${0.15 + i * 0.08}s, background 0.4s ease, border-color 0.4s ease`,
+                  transition: `opacity 0.5s ease ${0.15 + i * 0.08}s, transform 0.5s cubic-bezier(0.34,1.56,0.64,1) ${0.15 + i * 0.08}s`,
                 }}
               >
                 <img
