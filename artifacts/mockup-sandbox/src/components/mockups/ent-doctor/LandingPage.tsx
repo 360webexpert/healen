@@ -1351,7 +1351,7 @@ export function LandingPage() {
               {[0,1,2].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#BBDBED]/30" />)}
             </div>
             {/* Right — banner content */}
-            <div className="flex flex-col justify-center px-10 py-10 md:flex-1">
+            <div className="flex flex-col justify-center px-6 py-8 md:px-10 md:py-10 md:flex-1">
               <p className="text-white text-2xl md:text-3xl font-bold leading-snug mb-5">
                 <span className="text-[#E7FFD9]">Synergy ENT</span> addresses what traditional care overlooks.{" "}
                 <span className="font-normal text-white/80">How you actually feel.</span>
@@ -1360,8 +1360,8 @@ export function LandingPage() {
                 Book my appointment
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="#1D3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </button>
-              <p className="mt-3 text-white/50 text-xs flex items-center gap-1.5">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="rgba(255,255,255,0.4)"/><path d="M4 7.5a3 3 0 0 0 6 0" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round"/><circle cx="7" cy="4.5" r="1" fill="rgba(255,255,255,0.5)"/></svg>
+              <p className="mt-3 text-white/50 text-xs flex items-center gap-1.5 whitespace-nowrap">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0"><circle cx="7" cy="7" r="6.5" stroke="rgba(255,255,255,0.4)"/><path d="M4 7.5a3 3 0 0 0 6 0" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round"/><circle cx="7" cy="4.5" r="1" fill="rgba(255,255,255,0.5)"/></svg>
                 Now accepting new patients in Paramus, NJ
               </p>
             </div>
