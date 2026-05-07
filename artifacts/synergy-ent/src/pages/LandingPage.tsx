@@ -1021,7 +1021,7 @@ export function LandingPage() {
 
               {/* Doctor image — tall, anchored to bottom, centred in column */}
               <img
-                src="/images/ent-hero-doctor.png?v=2"
+                src="/images/dr-scheid-hero.png"
                 alt="ENT Doctor"
                 className="h-[540px] w-auto object-contain drop-shadow-2xl relative z-10 mx-auto"
                 style={{ filter: "drop-shadow(0 30px 80px rgba(0,0,0,0.45))" }}
