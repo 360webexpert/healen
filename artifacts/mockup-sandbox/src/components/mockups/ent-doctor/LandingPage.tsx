@@ -1684,15 +1684,16 @@ export function LandingPage() {
           </a>
           <a
             href="tel:2014534540"
-            className="flex items-center justify-center gap-2 rounded-full py-3.5 px-5 text-white text-[13px] font-semibold uppercase tracking-widest transition-all active:scale-95"
+            className="flex items-center justify-center gap-2 rounded-full py-3.5 px-5 text-[13px] font-semibold uppercase tracking-widest transition-all active:scale-95"
             style={{
-              background: "#2855A0",
+              background: "#E7FFD9",
+              color: "#1D3A5F",
               letterSpacing: "0.12em",
               flexShrink: 0,
             }}
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M3.5 2h3l1.5 3.5-1.75 1.75a9.5 9.5 0 0 0 4.5 4.5L12.5 10l3.5 1.5v3A1.5 1.5 0 0 1 14.5 16C7.596 16 2 10.404 2 3.5A1.5 1.5 0 0 1 3.5 2z" fill="white"/>
+              <path d="M3.5 2h3l1.5 3.5-1.75 1.75a9.5 9.5 0 0 0 4.5 4.5L12.5 10l3.5 1.5v3A1.5 1.5 0 0 1 14.5 16C7.596 16 2 10.404 2 3.5A1.5 1.5 0 0 1 3.5 2z" fill="#1D3A5F"/>
             </svg>
             Call Now
           </a>
