@@ -1443,6 +1443,81 @@ export function LandingPage() {
         </div>
       </section>
 
+      {/* Location Section */}
+      <section className="py-16 px-6 md:px-16" style={{ background: "#F5F5F3" }}>
+        {/* Header */}
+        <div className="mb-10">
+          <p className="text-[#809EB1] text-xs font-semibold uppercase tracking-widest mb-2">Visit Us</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1D3A5F]">Our Location</h2>
+        </div>
+
+        {/* Map + Card row */}
+        <div className="flex flex-col md:flex-row gap-5" style={{ minHeight: 420 }}>
+
+          {/* Map — left 2/3 */}
+          <div className="flex-1 md:flex-[2] rounded-2xl overflow-hidden relative" style={{ minHeight: 360, boxShadow: "0 4px 32px rgba(29,58,95,0.10)" }}>
+            <iframe
+              title="Synergy ENT location map"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-74.1810%2C40.8912%2C-73.9810%2C40.9912&layer=mapnik&marker=40.9512%2C-74.0710"
+              className="absolute inset-0 w-full h-full border-0"
+              style={{ filter: "saturate(0.85) contrast(1.05)" }}
+              loading="lazy"
+            />
+            {/* Pin overlay label */}
+            <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-xl px-3 py-2 shadow-md">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5Z" fill="#1D3A5F"/><circle cx="8" cy="6" r="1.5" fill="white"/></svg>
+              <span className="text-[#1D3A5F] text-xs font-semibold">Paramus, NJ</span>
+            </div>
+          </div>
+
+          {/* Location card — right 1/3 */}
+          <div className="md:flex-1 rounded-2xl overflow-hidden flex flex-col" style={{ background: "#1D3A5F", boxShadow: "0 4px 32px rgba(29,58,95,0.18)" }}>
+            {/* Card header */}
+            <div className="px-8 pt-8 pb-5 border-b border-white/10">
+              <p className="text-[#BBDBED] text-xs font-bold uppercase tracking-widest mb-1">New Jersey</p>
+              <h3 className="text-white text-2xl font-bold mb-3">Paramus</h3>
+              <div className="flex items-start gap-2 text-white/70 text-sm mb-1.5">
+                <svg className="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1A4 4 0 0 1 11 5c0 2.667-4 8-4 8S3 7.667 3 5a4 4 0 0 1 4-4Z" fill="rgba(187,219,237,0.7)"/><circle cx="7" cy="5" r="1.5" fill="#1D3A5F"/></svg>
+                <span>140 Route 17 North, Suite 105<br/>Paramus, NJ 07652</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/70 text-sm">
+                <svg className="shrink-0" width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="rgba(187,219,237,0.7)" strokeWidth="1.2"/><path d="M5 2v2M9 2v2M2 6h10" stroke="rgba(187,219,237,0.7)" strokeWidth="1.2" strokeLinecap="round"/></svg>
+                <span>Mon – Fri: 9am – 5pm</span>
+              </div>
+            </div>
+
+            {/* Specialty tags */}
+            <div className="px-8 py-5 border-b border-white/10 flex flex-wrap gap-2">
+              {["ENT", "Sleep Medicine", "Allergy", "Sinus Care"].map(tag => (
+                <span key={tag} className="text-xs font-medium px-3 py-1 rounded-full" style={{ background: "rgba(187,219,237,0.12)", color: "#BBDBED", border: "1px solid rgba(187,219,237,0.18)" }}>{tag}</span>
+              ))}
+            </div>
+
+            {/* Phone */}
+            <div className="px-8 py-5 border-b border-white/10">
+              <p className="text-[#BBDBED] text-xs uppercase tracking-widest mb-1">Phone</p>
+              <a href="tel:+12015550198" className="text-white font-semibold text-sm hover:text-[#E7FFD9] transition-colors">(201) 555-0198</a>
+            </div>
+
+            {/* Action buttons */}
+            <div className="px-8 py-6 mt-auto grid grid-cols-3 gap-3">
+              {[
+                { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2a5 5 0 0 1 5 5c0 3.5-5 10-5 10S4 10.5 4 7a5 5 0 0 1 5-5Z" stroke="white" strokeWidth="1.4"/><circle cx="9" cy="7" r="1.8" stroke="white" strokeWidth="1.4"/></svg>, label: "Directions" },
+                { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 4a1 1 0 0 1 1-1h2l1.5 3.5-1.5 1c.8 1.5 2 2.7 3.5 3.5l1-1.5L15 11v2a1 1 0 0 1-1 1A10 10 0 0 1 4 5V4Z" stroke="white" strokeWidth="1.4" strokeLinejoin="round"/></svg>, label: "Call Now" },
+                { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="white" strokeWidth="1.4"/><path d="M6 3v2M12 3v2M3 8h12" stroke="white" strokeWidth="1.4" strokeLinecap="round"/></svg>, label: "Book Now" },
+              ].map(({ icon, label }) => (
+                <button key={label} className="flex flex-col items-center gap-2 py-3 rounded-xl transition-all" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+                  onMouseOver={e => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
+                  onMouseOut={e => (e.currentTarget.style.background = "rgba(255,255,255,0.06)")}>
+                  {icon}
+                  <span className="text-white/70 text-xs font-medium">{label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Banner */}
       <section className="relative overflow-hidden bg-[#809EB1] py-24 px-6 md:px-12">
         {/* Office background photo */}
