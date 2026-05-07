@@ -982,6 +982,15 @@ export function LandingPage() {
 
             {/* Left column — text */}
             <div>
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-4">
+                Clear Breathing.<br />Restful Sleep.<br />
+                <span className="text-[#E7FFD9]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>Total Wellness.</span>
+              </h1>
+
+              <p className="text-white/80 text-base font-medium mb-4 max-w-lg">
+                Board-certified ENT and sleep medicine care — so you can feel like yourself again.
+              </p>
+
               {/* Badge */}
               <div className="flex flex-wrap gap-1.5 mb-5">
                 {[
@@ -996,15 +1005,6 @@ export function LandingPage() {
                   </div>
                 ))}
               </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-4">
-                Clear Breathing.<br />Restful Sleep.<br />
-                <span className="text-[#E7FFD9]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>Total Wellness.</span>
-              </h1>
-
-              <p className="text-white/80 text-base font-medium mb-4 max-w-lg">
-                Board-certified ENT and sleep medicine care — so you can feel like yourself again.
-              </p>
 
               <div className="flex flex-col items-stretch gap-3 w-full max-w-xs">
                 <button className="bg-[#E7FFD9] text-[#1D3A5F] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#E7FFD9]/20 w-full">
