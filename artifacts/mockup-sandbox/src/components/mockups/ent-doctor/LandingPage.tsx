@@ -960,7 +960,7 @@ export function LandingPage() {
       {/* Navigation — Medora glassmorphism style */}
       <nav
         className="fixed w-full z-50 px-6 md:px-10 py-4 transition-colors duration-100"
-        style={{ top: 36, backgroundColor: `rgba(29, 58, 95, ${navOpacity})` }}
+        style={{ top: 36, backgroundColor: `rgba(29, 58, 95, ${navOpacity})`, borderBottomLeftRadius: 20, borderBottomRightRadius: 20 }}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
