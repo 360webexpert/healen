@@ -1663,6 +1663,41 @@ export function LandingPage() {
           <SynergyTextHover />
         </div>
       </footer>
+
+      {/* Mobile bottom floater — md:hidden */}
+      <div
+        className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
+        style={{
+          background: "linear-gradient(135deg, #0F2840 0%, #1D3A5F 100%)",
+          padding: "12px 16px",
+          paddingBottom: "calc(12px + env(safe-area-inset-bottom, 0px))",
+          boxShadow: "0 -8px 32px rgba(10,20,40,0.35)",
+        }}
+      >
+        <div className="flex items-center gap-3">
+          <a
+            href="#book"
+            className="flex-1 flex items-center justify-center rounded-full border border-white/60 py-3.5 text-white text-[13px] font-semibold uppercase tracking-widest transition-all active:scale-95"
+            style={{ letterSpacing: "0.12em" }}
+          >
+            Book Appointment
+          </a>
+          <a
+            href="tel:2014534540"
+            className="flex items-center justify-center gap-2 rounded-full py-3.5 px-5 text-white text-[13px] font-semibold uppercase tracking-widest transition-all active:scale-95"
+            style={{
+              background: "#2855A0",
+              letterSpacing: "0.12em",
+              flexShrink: 0,
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3.5 2h3l1.5 3.5-1.75 1.75a9.5 9.5 0 0 0 4.5 4.5L12.5 10l3.5 1.5v3A1.5 1.5 0 0 1 14.5 16C7.596 16 2 10.404 2 3.5A1.5 1.5 0 0 1 3.5 2z" fill="white"/>
+            </svg>
+            Call Now
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
