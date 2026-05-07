@@ -1304,11 +1304,11 @@ export function LandingPage() {
             </div>
 
             {/* Bottom CTA buttons */}
-            <div className="relative z-10 flex justify-center gap-3 mt-12">
-              <button className="bg-[#E7FFD9] text-[#1D3A5F] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg">
+            <div className="relative z-10 flex flex-col items-center gap-3 mt-12">
+              <button className="bg-[#E7FFD9] text-[#1D3A5F] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg w-48">
                 Get Started
               </button>
-              <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-sm px-6 py-2.5 rounded-full hover:bg-white/20 transition-all">
+              <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-sm px-6 py-2.5 rounded-full hover:bg-white/20 transition-all w-48">
                 Learn More
               </button>
             </div>
