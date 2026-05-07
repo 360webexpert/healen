@@ -329,7 +329,7 @@ function AboutSection() {
               />
             </div>
             <div
-              className="absolute bottom-4 right-4 p-4 md:-bottom-8 md:-right-8 md:p-8 rounded-[20px] text-[#1D3A5F] z-10"
+              className="absolute bottom-3 right-3 p-3 md:-bottom-8 md:-right-8 md:p-8 rounded-[16px] md:rounded-[20px] text-[#1D3A5F] z-10"
               style={{
                 background: "rgba(220, 237, 248, 0.82)",
                 backdropFilter: "blur(16px)",
@@ -338,8 +338,8 @@ function AboutSection() {
                 boxShadow: "0 4px 32px rgba(29,58,95,0.18), inset 0 1px 0 rgba(255,255,255,0.9)",
               }}
             >
-              <h3 className="text-2xl md:text-4xl font-['Inter'] mb-0.5 md:mb-1">Dr. Scheid</h3>
-              <p className="font-medium text-sm md:text-base">Otolaryngologist & Sleep Specialist</p>
+              <h3 className="text-base md:text-4xl font-['Inter'] mb-0.5 md:mb-1">Dr. Scheid</h3>
+              <p className="font-medium text-xs md:text-base">Otolaryngologist & Sleep Specialist</p>
             </div>
           </div>
 
