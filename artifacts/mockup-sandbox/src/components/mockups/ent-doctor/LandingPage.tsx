@@ -1404,7 +1404,14 @@ export function LandingPage() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: "50% 18%", filter: "blur(18px) saturate(1.2) brightness(0.9)", transform: "scale(1.08)" }} />
         <div className="absolute inset-0" style={{ background: "rgba(245,245,243,0.35)" }} />
-        <div className="relative overflow-hidden rounded-3xl" style={{ border: "1px solid rgba(187,219,237,0.18)", boxShadow: "0 8px 48px rgba(10,20,40,0.28), inset 0 1px 0 rgba(255,255,255,0.1)", background: "#0F2840" }}>
+        <motion.div
+          className="relative overflow-hidden rounded-3xl"
+          style={{ border: "1px solid rgba(187,219,237,0.18)", boxShadow: "0 8px 48px rgba(10,20,40,0.28), inset 0 1px 0 rgba(255,255,255,0.1)", background: "#0F2840" }}
+          initial={{ x: 80, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
           <div className="flex flex-col md:flex-row items-stretch">
             {/* Left — insurance logos */}
             <div className="flex flex-col justify-center px-10 py-8 gap-4 md:w-5/12 border-r border-white/10">
@@ -1442,7 +1449,7 @@ export function LandingPage() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Location Section */}
