@@ -312,7 +312,7 @@ function AboutSection() {
         }}
       >
         {/* Dark overlay so text stays readable */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(15,40,64,0.88) 0%, rgba(29,58,95,0.82) 60%, rgba(15,40,64,0.90) 100%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(15,40,64,0.68) 0%, rgba(29,58,95,0.62) 60%, rgba(15,40,64,0.70) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className="relative">
             <div className="flex items-center gap-3 mb-5">
