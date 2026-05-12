@@ -319,6 +319,7 @@ function AboutSection() {
                 src="/images/dr-scheid-about.png"
                 alt="Dr. Headshot"
                 className="w-full h-full object-cover object-top"
+                style={{ filter: "brightness(1.25) contrast(0.95)" }}
               />
               {/* Dark gradient overlay */}
               <div
