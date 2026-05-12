@@ -364,16 +364,16 @@ function AboutSection() {
                 WebkitBackdropFilter: "blur(4px)",
               }}
             />
-            <h2 className="relative text-2xl md:text-3xl font-['Inter'] leading-tight mb-6">
+            <h2 className="relative z-10 text-2xl md:text-3xl font-['Inter'] leading-tight mb-6">
               Focused on Excellence in ENT and Sleep Medicine.
             </h2>
-            <p className="text-sm text-white/70 mb-5 font-light leading-relaxed">
+            <p className="relative z-10 text-sm text-white/70 mb-5 font-light leading-relaxed">
               Dr. Sara Scheid is a board-certified Otolaryngologist (ENT) and Sleep Medicine specialist serving patients throughout the Paramus, NJ area.
             </p>
-            <p className="text-sm text-white/70 mb-10 font-light leading-relaxed">
+            <p className="relative z-10 text-sm text-white/70 mb-10 font-light leading-relaxed">
               With expertise spanning ear, nose, and throat disorders, chronic sinusitis, hearing concerns, and obstructive sleep apnea, Dr. Scheid brings a comprehensive, patient-first approach to every visit. She is committed to providing care that combines clinical precision with genuine compassion.
             </p>
-            <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
+            <button className="relative z-10 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
               Meet The Team <ArrowRight className="w-4 h-4" />
             </button>
           </div>
