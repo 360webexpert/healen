@@ -348,8 +348,23 @@ function AboutSection() {
             </div>
           </div>
 
-          <div>
-            <h2 className="text-2xl md:text-3xl font-['Inter'] leading-tight mb-6">
+          <div className="relative">
+            {/* Decorative background square */}
+            <div
+              className="absolute pointer-events-none"
+              style={{
+                top: "-32px",
+                right: "-32px",
+                bottom: "-32px",
+                left: "-24px",
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: "20px",
+                backdropFilter: "blur(4px)",
+                WebkitBackdropFilter: "blur(4px)",
+              }}
+            />
+            <h2 className="relative text-2xl md:text-3xl font-['Inter'] leading-tight mb-6">
               Focused on Excellence in ENT and Sleep Medicine.
             </h2>
             <p className="text-sm text-white/70 mb-5 font-light leading-relaxed">
