@@ -928,7 +928,7 @@ export function LandingPage() {
       </div>
 
       {/* Hero Section — Medora style */}
-      <section id="home" className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ backgroundImage: "url('/images/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section id="home" className="relative w-full overflow-hidden flex flex-col" style={{ backgroundImage: "url('/images/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
         {/* Dark overlay for text legibility */}
         <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(29,58,95,0.72) 0%, rgba(42,80,128,0.55) 50%, rgba(128,158,177,0.35) 100%)" }} />
         {/* Decorative dot-grid background */}
@@ -953,22 +953,22 @@ export function LandingPage() {
         />
 
         {/* Main content */}
-        <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-6 md:px-12 pt-20 md:pt-24 pb-12">
+        <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-6 md:px-12 pt-24 pb-6">
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 items-center w-full">
 
             {/* Left column — text */}
             <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-3">
                 Clear Breathing.<br />Restful Sleep.<br />
                 <span className="text-[#E7FFD9]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>Total Wellness.</span>
               </h1>
 
-              <p className="text-white/80 text-base font-medium mb-4 max-w-lg">
+              <p className="text-white/80 text-base font-medium mb-3 max-w-lg">
                 Board-certified ENT and sleep medicine care — so you can feel like yourself again.
               </p>
 
               {/* Badge */}
-              <div className="flex flex-wrap gap-1.5 mb-5">
+              <div className="flex flex-wrap gap-1.5 mb-4">
                 {[
                   "Board-Certified: Otolaryngology & Sleep Medicine",
                   "25+ Years of Experience",
@@ -993,7 +993,7 @@ export function LandingPage() {
             </div>
 
             {/* Right column — doctor + floating cards */}
-            <div className="relative flex justify-center lg:justify-end items-end" style={{ minHeight: '580px' }}>
+            <div className="relative flex justify-center lg:justify-end items-end" style={{ minHeight: '460px' }}>
 
               {/* Doctor image — tall, anchored to bottom, centred in column */}
               <img
