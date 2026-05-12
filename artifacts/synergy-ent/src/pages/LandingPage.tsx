@@ -295,7 +295,7 @@ function AboutSection() {
     <section ref={sectionRef} id="about" className="bg-white overflow-hidden" style={{ paddingTop: 64, paddingBottom: 64 }}>
       {/* Scroll-expand card */}
       <div
-        className="bg-[#1D3A5F] text-white shadow-2xl"
+        className="text-white shadow-2xl relative"
         style={{
           marginLeft: mx,
           marginRight: mx,
@@ -305,10 +305,15 @@ function AboutSection() {
           paddingLeft: px,
           paddingRight: px,
           transition: "border-radius 0.05s linear",
-          overflow: "visible",
+          overflow: "hidden",
+          backgroundImage: "url('/images/about-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        {/* Dark overlay so text stays readable */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(15,40,64,0.88) 0%, rgba(29,58,95,0.82) 60%, rgba(15,40,64,0.90) 100%)" }} />
+        <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className="relative">
             <div className="flex items-center gap-3 mb-5">
               <span className="text-[#E7FFD9] font-semibold text-sm">—</span>
