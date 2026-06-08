@@ -368,7 +368,13 @@ function AboutSection() {
               Focused on Excellence in ENT and Sleep Medicine.
             </h2>
             <p className="relative z-10 text-sm text-white/70 mb-5 font-light leading-relaxed">
-              Dr. Sara Scheid is a board-certified Otolaryngologist (ENT) and Sleep Medicine specialist serving patients throughout the Paramus, NJ area.
+              Dr. Sara Scheid is a board-certified ENT and sleep medicine physician in Paramus, NJ, specializing in thoughtful evaluation of breathing, sleep, and airway-related concerns. She helps patients with nasal obstruction, chronic congestion, allergies, snoring, sleep apnea, CPAP intolerance, mouth breathing, throat clearing, reflux-related throat symptoms, and complex ENT/sleep issues that have not improved with standard treatment.
+            </p>
+            <p className="relative z-10 text-sm text-white/70 mb-5 font-light leading-relaxed">
+              As both an otolaryngologist and sleep medicine physician, Dr. Scheid is able to look beyond a single symptom and evaluate how the nose, throat, airway, sleep quality, allergies, reflux, and inflammation may be connected. Her approach is careful, educational, and personalized, with a focus on helping patients understand their symptoms and make confident decisions about next steps.
+            </p>
+            <p className="relative z-10 text-sm text-white/70 mb-5 font-light leading-relaxed">
+              At Synergy ENT &amp; Wellness, patients receive unrushed, physician-led care designed to help them breathe better, sleep better, and feel more in control of their health.
             </p>
             <button className="relative z-10 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
               Meet The Team <ArrowRight className="w-4 h-4" />
