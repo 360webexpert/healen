@@ -1084,7 +1084,7 @@ export function LandingPage() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-[#1D3A5F]"></div>
-              <span className="uppercase tracking-widest text-sm font-semibold">Our Specialties</span>
+              <span className="uppercase tracking-widest text-sm font-semibold">Services</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-['Inter'] leading-tight mb-8">
               Specialized Care for Every ENT & Sleep Need
