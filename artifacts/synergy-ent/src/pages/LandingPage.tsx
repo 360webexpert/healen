@@ -991,21 +991,6 @@ export function LandingPage() {
                 Dr. Sara Scheid is a board-certified sleep medicine and otolaryngology physician helping patients understand why they cannot breathe or sleep well—and what to do next.
               </p>
 
-              {/* Badge */}
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {[
-                  "Board-Certified: Otolaryngology & Sleep Medicine",
-                  "25+ Years of Experience",
-                  "Paramus, NJ",
-                  "Accepting New Patients"
-                ].map((item) => (
-                  <div key={item} className="inline-flex items-center gap-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-2 py-1">
-                    <CheckCircle className="w-2.5 h-2.5 text-[#E7FFD9] shrink-0" />
-                    <span className="text-white/90 text-[10px] font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-
               <div className="flex flex-col items-stretch gap-3 w-full max-w-xs">
                 <button className="bg-[#E7FFD9] text-[#1D3A5F] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#E7FFD9]/20 w-full">
                   Request an Appointment
