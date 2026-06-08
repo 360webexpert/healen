@@ -7,7 +7,7 @@ const specialties = [
   { icon: "💧", label: "Sinusitis & Allergy" },
   { icon: "🩺", label: "Nasal Surgery", active: true },
   { icon: "🗣️", label: "Throat & Voice" },
-  { icon: "👶", label: "Pediatric ENT" },
+  { icon: "🌙", label: "Sleep & Airway" },
 ];
 
 // Tick marks arranged in a semicircle on left and right, with gap at sides for the lists
@@ -208,24 +208,24 @@ function RadialSelectorSection() {
 
 const faqs = [
   {
-    q: "What conditions do ENT specialists treat?",
-    a: "Our ENT specialists treat a wide range of conditions including chronic sinusitis, hearing loss, tinnitus, sleep apnea, voice disorders, thyroid issues, nasal polyps, and ear infections — in both adults and children."
+    q: "What kinds of concerns does Dr. Scheid evaluate?",
+    a: "Dr. Scheid sees adults dealing with nasal obstruction, chronic congestion, sinus pressure, allergies, snoring, sleep apnea, CPAP intolerance, mouth breathing, throat clearing, and voice or reflux-related throat symptoms. She also works with patients whose symptoms haven't improved with standard care and who want a more thorough evaluation."
   },
   {
-    q: "How do I know if I need a referral to see an ENT?",
-    a: "While many insurers allow direct ENT appointments, a referral from your primary care physician can help. If you experience recurring ear infections, persistent sinus issues, hearing changes, or breathing difficulties, it's time to see a specialist."
+    q: "How do I know if I need a referral?",
+    a: "Many insurers allow direct ENT appointments without a referral. If you've been dealing with persistent sinus symptoms, breathing or sleep issues, recurring ear problems, or unexplained throat discomfort — and haven't felt fully heard elsewhere — a consultation with Dr. Scheid is a good next step."
   },
   {
-    q: "Are ENT procedures painful?",
-    a: "Most diagnostic procedures are minimally uncomfortable and performed in-office with local anesthesia if needed. Surgical procedures use appropriate anesthesia and our team provides detailed aftercare instructions to ensure a smooth recovery."
+    q: "What is a visit with Dr. Scheid like?",
+    a: "Appointments at Synergy ENT are unhurried and physician-led. Dr. Scheid takes time to listen to your full history, explain what she's finding, and walk you through your options. Most patients leave with a clear understanding of what's going on and a plan they feel good about."
   },
   {
     q: "What should I expect at my first visit?",
-    a: "Your first visit includes a thorough review of your medical history, a physical examination of your ears, nose, and throat, and any necessary in-office diagnostic tests. We'll discuss findings with you and outline a personalized treatment plan."
+    a: "Your first visit includes a detailed review of your health history, an in-office examination, and any same-day diagnostic tests that may be helpful. You'll have time to ask questions, and Dr. Scheid will explain her findings and recommendations in plain language before you leave."
   },
   {
-    q: "Do you offer minimally invasive surgical options?",
-    a: "Yes. We specialize in balloon sinuplasty, functional endoscopic sinus surgery (FESS), and other minimally invasive procedures that offer shorter recovery times and less discomfort compared to traditional surgery."
+    q: "Do you offer alternatives to surgery?",
+    a: "Yes. Dr. Scheid's approach is to start with the least invasive option that makes sense for your situation. Many patients improve significantly with medical management, in-office procedures, or sleep-focused treatment before surgery is ever considered."
   },
 ];
 
@@ -365,7 +365,7 @@ function AboutSection() {
               }}
             />
             <h2 className="relative z-10 text-2xl md:text-3xl font-['Inter'] leading-tight mb-6">
-              Focused on Excellence in ENT and Sleep Medicine.
+              Care That Takes You Seriously.
             </h2>
             <p className="relative z-10 text-sm text-white/70 mb-5 font-light leading-relaxed">
               Dr. Sara Scheid is a board-certified ENT and sleep medicine physician in Paramus, NJ, specializing in thoughtful evaluation of breathing, sleep, and airway-related concerns. She helps patients with nasal obstruction, chronic congestion, allergies, snoring, sleep apnea, CPAP intolerance, mouth breathing, throat clearing, reflux-related throat symptoms, and complex ENT/sleep issues that have not improved with standard treatment.
@@ -377,7 +377,7 @@ function AboutSection() {
               At Synergy ENT &amp; Wellness, patients receive unrushed, physician-led care designed to help them breathe better, sleep better, and feel more in control of their health.
             </p>
             <button className="relative z-10 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
-              Meet The Team <ArrowRight className="w-4 h-4" />
+              Learn More About Dr. Scheid <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
