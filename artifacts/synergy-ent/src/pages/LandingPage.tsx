@@ -987,6 +987,10 @@ export function LandingPage() {
                 Board-certified ENT and sleep medicine care — so you can feel like yourself again.
               </p>
 
+              <p className="text-white/60 text-sm font-light leading-relaxed mb-3 max-w-lg">
+                Dr. Sara Scheid is a board-certified sleep medicine and otolaryngology physician helping patients understand why they cannot breathe or sleep well—and what to do next.
+              </p>
+
               {/* Badge */}
               <div className="flex flex-wrap gap-1.5 mb-4">
                 {[
