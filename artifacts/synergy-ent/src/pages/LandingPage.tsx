@@ -379,6 +379,54 @@ function AboutSection() {
             <button className="relative z-10 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
               Learn More About Dr. Scheid <ArrowRight className="w-4 h-4" />
             </button>
+
+            {/* Credential sections */}
+            <div className="relative z-10 mt-10 flex flex-col gap-7 border-t border-white/10 pt-8">
+
+              {/* Board Certifications */}
+              <div>
+                <p className="text-[#BBDBED] text-xs font-semibold uppercase tracking-widest mb-3">Board Certifications</p>
+                <ul className="flex flex-col gap-1.5">
+                  {[
+                    "Diplomate – American Board of Otolaryngology",
+                    "Diplomate – American Board of Sleep Medicine",
+                    "Fellow – American Academy of Pediatrics",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-white/70 font-light leading-snug">
+                      <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-[#E7FFD9]/60" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Education & Training */}
+              <div>
+                <p className="text-[#BBDBED] text-xs font-semibold uppercase tracking-widest mb-3">Education & Training</p>
+                <ul className="flex flex-col gap-1.5">
+                  {[
+                    "Dartmouth College (Undergraduate)",
+                    "Rush Medical College, MD — Alpha Omega Alpha",
+                    "Thomas Jefferson University Hospital (General Surgery Internship; Otolaryngology Residency)",
+                    "St. Christopher's Hospital for Children (Pediatric Otolaryngology Fellowship)",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-white/70 font-light leading-snug">
+                      <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-[#E7FFD9]/60" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Outside the Office */}
+              <div>
+                <p className="text-[#BBDBED] text-xs font-semibold uppercase tracking-widest mb-3">Outside the Office</p>
+                <p className="text-sm text-white/70 font-light leading-relaxed">
+                  Dr. Scheid is a proud mother of two college-aged children and two dogs. In her free time she enjoys hiking, skiing, reading, and spending time with her family.
+                </p>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
