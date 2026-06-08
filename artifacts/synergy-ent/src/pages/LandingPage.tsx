@@ -1101,35 +1101,50 @@ export function LandingPage() {
           <div className="grid sm:grid-cols-2 gap-6">
             {[
               {
-                icon: <Ear className="w-8 h-8" />,
-                title: "Ear Care",
-                desc: "Hearing loss, ear infections, earwax buildup, swimmer's ear, balance disorders, and more."
-              },
-              {
-                icon: <Droplets className="w-8 h-8" />,
-                title: "Nose & Sinus",
-                desc: "Chronic sinusitis, nasal congestion, deviated septum, nasal polyps, and post-nasal drip."
+                icon: <Stethoscope className="w-8 h-8" />,
+                title: "Sleep Apnea",
+                desc: "Comprehensive evaluation and management of obstructive and central sleep apnea, including advanced diagnostic workup and individualized treatment planning."
               },
               {
                 icon: <Mic2 className="w-8 h-8" />,
-                title: "Throat & Voice",
-                desc: "Sore throats, tonsil problems, hoarseness, voice disorders, and swallowing difficulties."
+                title: "Snoring",
+                desc: "Identifying the anatomical and physiological causes of snoring and developing targeted solutions that go beyond lifestyle advice."
               },
               {
                 icon: <Activity className="w-8 h-8" />,
-                title: "Allergies",
-                desc: "Allergy testing, immunotherapy, and management of environmental and seasonal allergies."
-              },
-              {
-                icon: <Stethoscope className="w-8 h-8" />,
-                title: "Sleep Medicine",
-                desc: "Snoring, sleep apnea, obstructive sleep apnea (OSA), sleep studies, and CPAP alternatives."
+                title: "CPAP Intolerance",
+                desc: "For patients who can't tolerate CPAP therapy, Dr. Scheid explores alternative treatment options tailored to your airway anatomy and sleep patterns."
               },
               {
                 icon: <Zap className="w-8 h-8" />,
-                title: "Head & Neck",
-                desc: "Thyroid and salivary gland concerns, neck masses, and general head and neck conditions."
-              }
+                title: "Circadian Rhythm Disorders",
+                desc: "Evaluation and management of disrupted sleep-wake cycles, including delayed sleep phase, shift work disorder, and jet lag syndrome."
+              },
+              {
+                icon: <TrendingUp className="w-8 h-8" />,
+                title: "Insomnia",
+                desc: "Physician-led assessment of chronic insomnia, with attention to underlying ENT or sleep conditions that may be contributing to difficulty falling or staying asleep."
+              },
+              {
+                icon: <Cross className="w-8 h-8" />,
+                title: "Narcolepsy",
+                desc: "Evaluation of excessive daytime sleepiness and narcolepsy symptoms, with coordination of appropriate diagnostic testing and ongoing care."
+              },
+              {
+                icon: <Star className="w-8 h-8" />,
+                title: "Pediatric Sleep Problems",
+                desc: "Assessment of sleep-disordered breathing, snoring, and sleep disturbances in children, including evaluation for enlarged tonsils and adenoids."
+              },
+              {
+                icon: <Droplets className="w-8 h-8" />,
+                title: "Nasal Obstruction",
+                desc: "Thorough evaluation of nasal blockage from deviated septum, turbinate hypertrophy, nasal polyps, and structural issues affecting breathing."
+              },
+              {
+                icon: <Ear className="w-8 h-8" />,
+                title: "Chronic Cough",
+                desc: "Investigation of persistent cough from ENT-related causes including post-nasal drip, reflux, and upper airway inflammation."
+              },
             ].map((service, i) => (
               <div 
                 key={i} 
