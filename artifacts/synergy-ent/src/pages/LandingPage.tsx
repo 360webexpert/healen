@@ -1102,48 +1102,33 @@ export function LandingPage() {
             {[
               {
                 icon: <Stethoscope className="w-8 h-8" />,
-                title: "Sleep Apnea",
-                desc: "Comprehensive evaluation and management of obstructive and central sleep apnea, including advanced diagnostic workup and individualized treatment planning."
-              },
-              {
-                icon: <Mic2 className="w-8 h-8" />,
-                title: "Snoring",
-                desc: "Identifying the anatomical and physiological causes of snoring and developing targeted solutions that go beyond lifestyle advice."
-              },
-              {
-                icon: <Activity className="w-8 h-8" />,
-                title: "CPAP Intolerance",
-                desc: "For patients who can't tolerate CPAP therapy, Dr. Scheid explores alternative treatment options tailored to your airway anatomy and sleep patterns."
-              },
-              {
-                icon: <Zap className="w-8 h-8" />,
-                title: "Circadian Rhythm Disorders",
-                desc: "Evaluation and management of disrupted sleep-wake cycles, including delayed sleep phase, shift work disorder, and jet lag syndrome."
-              },
-              {
-                icon: <TrendingUp className="w-8 h-8" />,
-                title: "Insomnia",
-                desc: "Physician-led assessment of chronic insomnia, with attention to underlying ENT or sleep conditions that may be contributing to difficulty falling or staying asleep."
-              },
-              {
-                icon: <Cross className="w-8 h-8" />,
-                title: "Narcolepsy",
-                desc: "Evaluation of excessive daytime sleepiness and narcolepsy symptoms, with coordination of appropriate diagnostic testing and ongoing care."
-              },
-              {
-                icon: <Star className="w-8 h-8" />,
-                title: "Pediatric Sleep Problems",
-                desc: "Assessment of sleep-disordered breathing, snoring, and sleep disturbances in children, including evaluation for enlarged tonsils and adenoids."
+                title: "Sleep Apnea, Snoring & CPAP Intolerance",
+                desc: "Evaluation for patients who continue to feel tired, congested, or frustrated despite CPAP or other sleep apnea treatment."
               },
               {
                 icon: <Droplets className="w-8 h-8" />,
-                title: "Nasal Obstruction",
-                desc: "Thorough evaluation of nasal blockage from deviated septum, turbinate hypertrophy, nasal polyps, and structural issues affecting breathing."
+                title: "Nasal Obstruction & Chronic Congestion",
+                desc: "Assessment of nasal blockage, chronic congestion, sinus symptoms, mouth breathing, postnasal drip, allergies, and structural causes of poor nasal breathing."
               },
               {
-                icon: <Ear className="w-8 h-8" />,
-                title: "Chronic Cough",
-                desc: "Investigation of persistent cough from ENT-related causes including post-nasal drip, reflux, and upper airway inflammation."
+                icon: <Activity className="w-8 h-8" />,
+                title: "ENT/Sleep Airway Evaluation",
+                desc: "A comprehensive look at how the nose, throat, airway, sleep quality, reflux, allergies, and inflammation may be connected."
+              },
+              {
+                icon: <Search className="w-8 h-8" />,
+                title: "Second Opinions",
+                desc: "For patients who have already tried treatment, had testing, or received recommendations but still do not have a clear answer."
+              },
+              {
+                icon: <Mic2 className="w-8 h-8" />,
+                title: "Reflux & Throat Symptoms",
+                desc: "Evaluation of throat clearing, chronic cough, hoarseness, globus sensation, postnasal drip sensation, and reflux-related throat irritation."
+              },
+              {
+                icon: <Cross className="w-8 h-8" />,
+                title: "Non-Surgical ENT & Sleep Care",
+                desc: "Thoughtful medical evaluation and management, with referral for surgical opinions when appropriate."
               },
             ].map((service, i) => (
               <div 
