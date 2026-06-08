@@ -317,7 +317,7 @@ function AboutSection() {
           <div className="relative">
             <div className="flex items-center gap-3 mb-5">
               <span className="text-[#E7FFD9] font-semibold text-sm">—</span>
-              <span className="uppercase tracking-widest text-sm font-semibold text-[#E7FFD9]">Meet Dr Scheid.</span>
+              <span className="uppercase tracking-widest text-sm font-semibold text-[#E7FFD9]">Meet Dr Scheid</span>
             </div>
             <div className="aspect-[3/4] rounded-[20px] overflow-hidden relative">
               <img
