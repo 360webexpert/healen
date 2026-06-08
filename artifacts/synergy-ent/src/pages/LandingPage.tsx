@@ -886,16 +886,16 @@ export function LandingPage() {
           {/* Center nav links pill */}
           <div className="hidden lg:flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-1.5 gap-1">
             {[
-              { label: "Home", active: true },
-              { label: "Services", dropdown: true },
-              { label: "Dr. Scheid" },
-              { label: "Treatments" },
-              { label: "Blog" },
-              { label: "Contact" },
+              { label: "Home", active: true, href: "#home" },
+              { label: "Services", dropdown: true, href: "#services" },
+              { label: "Dr. Scheid", href: "#about" },
+              { label: "Treatments", href: "#treatments" },
+              { label: "Blog", href: "#blog" },
+              { label: "Contact", href: "#contact" },
             ].map((item) => (
               <a
                 key={item.label}
-                href={`#${item.label.toLowerCase().replace(" ", "")}`}
+                href={item.href}
                 className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   item.active
                     ? "bg-white/20 text-white"
@@ -1144,6 +1144,24 @@ export function LandingPage() {
             ))}
           </div>
         </div>
+        </div>
+      </section>
+
+      {/* Callout Statement */}
+      <section className="bg-white px-6 md:px-12 py-16 md:py-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-2xl md:text-3xl font-['Inter'] text-[#1D3A5F] leading-snug mb-6">
+            You may have been told your sleep study is{" "}
+            <span className="italic text-[#809EB1]">"treated,"</span>{" "}
+            your sinuses are{" "}
+            <span className="italic text-[#809EB1]">"fine,"</span>{" "}
+            or your symptoms are{" "}
+            <span className="italic text-[#809EB1]">"just allergies"</span>{" "}
+            — but you still cannot breathe or sleep well.
+          </p>
+          <p className="text-lg text-[#1D3A5F]/60 font-light leading-relaxed max-w-2xl mx-auto">
+            A focused ENT/sleep airway evaluation can help connect the dots.
+          </p>
         </div>
       </section>
 
