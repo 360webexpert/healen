@@ -1055,11 +1055,11 @@ export function LandingPage() {
             {/* Right column — doctor + floating cards */}
             <div className="relative flex justify-center lg:justify-end items-end" style={{ minHeight: '460px' }}>
 
-              {/* Doctor image — tall, anchored to bottom, centred in column */}
+              {/* Hero sleep image */}
               <img
-                src="/images/dr-scheid-hero.png"
-                alt="ENT Doctor"
-                className="h-[700px] w-auto object-contain drop-shadow-2xl relative z-10 mx-auto"
+                src="/images/hero-sleep.png"
+                alt="Restful sleep"
+                className="h-[560px] w-auto object-contain drop-shadow-2xl relative z-10 mx-auto"
                 style={{ filter: "drop-shadow(0 30px 80px rgba(0,0,0,0.45))" }}
               />
 
