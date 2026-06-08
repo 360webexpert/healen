@@ -885,7 +885,7 @@ export function LandingPage() {
             {[
               { label: "Home", active: true },
               { label: "Services", dropdown: true },
-              { label: "About Us" },
+              { label: "Dr. Scheid" },
               { label: "Treatments" },
               { label: "Blog" },
               { label: "Contact" },
@@ -931,7 +931,7 @@ export function LandingPage() {
       {/* Mobile Menu */}
       <div className={`fixed inset-0 z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ backgroundImage: "url('/images/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="flex flex-col items-center justify-center h-full gap-6">
-          {["Home", "Services", "About Us", "Treatments", "Blog", "Contact"].map((item) => (
+          {["Home", "Services", "Dr. Scheid", "Treatments", "Blog", "Contact"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
