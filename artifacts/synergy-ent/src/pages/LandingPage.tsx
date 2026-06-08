@@ -979,8 +979,8 @@ export function LandingPage() {
             {/* Left column — text */}
             <div>
               <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-['Inter'] text-white leading-[1.1] mb-3">
-                Clear Breathing.<br />Restful Sleep.<br />
-                <span className="text-[#E7FFD9]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>Total Wellness.</span>
+                Still congested, snoring,<br />tired, or struggling<br />
+                <span className="text-[#E7FFD9]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 700 }}>with CPAP?</span>
               </h1>
 
               <p className="text-white/80 text-base font-medium mb-3 max-w-lg">
