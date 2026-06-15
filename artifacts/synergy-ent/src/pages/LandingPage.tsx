@@ -161,7 +161,6 @@ function RadialSelectorSection() {
             { src: "/images/logo-horizon.png", alt: "Horizon Blue Cross Blue Shield", h: 22 },
             { src: "/images/logo-cigna.png",   alt: "Cigna Healthcare",              h: 36 },
             { src: "/images/logo-aetna.png",   alt: "Aetna",                        h: 18 },
-            { src: "/images/logo-medicare.png",alt: "Medicare",                      h: 18 },
           ].map(({ src, alt, h }, i) => {
             const logoActive = activeIdx % 4;
             const dist = Math.abs(i - logoActive);
@@ -1309,20 +1308,21 @@ export function LandingPage() {
           transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <div className="flex flex-col md:flex-row items-stretch">
-            {/* Left — insurance logos */}
-            <div className="flex flex-col justify-center px-10 py-8 gap-4 md:w-5/12 border-r border-white/10">
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { src: "/images/logo-horizon.png", alt: "Horizon Blue Cross Blue Shield", h: 28 },
-                  { src: "/images/logo-cigna.png",   alt: "Cigna Healthcare",              h: 44 },
-                  { src: "/images/logo-aetna.png",   alt: "Aetna",                        h: 22 },
-                  { src: "/images/logo-medicare.png",alt: "Medicare",                      h: 22 },
-                ].map(({ src, alt, h }) => (
-                  <div key={alt} className="flex items-center justify-center rounded-xl px-4 py-3" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", minHeight: 60 }}>
-                    <img src={src} alt={alt} style={{ height: h, width: "auto", maxWidth: "100%", objectFit: "contain", opacity: 0.85 }} />
-                  </div>
-                ))}
+            {/* Left — insurance info */}
+            <div className="flex flex-col justify-center px-10 py-8 gap-5 md:w-5/12 border-r border-white/10">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#E7FFD9]" />
+                <span className="text-[#BBDBED] text-xs font-semibold uppercase tracking-widest">Insurance</span>
               </div>
+              <p className="text-white text-lg font-semibold leading-snug">
+                We work with most insurance plans.
+              </p>
+              <p className="text-white/55 text-sm font-light leading-relaxed">
+                Synergy ENT &amp; Wellness is an out-of-network practice. We are happy to provide documentation to help you submit claims to your insurance carrier for potential reimbursement.
+              </p>
+              <a href="#contact" className="self-start text-[#E7FFD9] text-sm font-semibold flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+                Questions about coverage? Contact us <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
             {/* Dot divider */}
             <div className="hidden md:flex flex-col items-center justify-center gap-1.5 px-4">
@@ -1382,7 +1382,7 @@ export function LandingPage() {
               <h3 className="text-white text-2xl font-bold mb-3">Paramus</h3>
               <div className="flex items-start gap-2 text-white/70 text-sm mb-1.5">
                 <svg className="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1A4 4 0 0 1 11 5c0 2.667-4 8-4 8S3 7.667 3 5a4 4 0 0 1 4-4Z" fill="rgba(187,219,237,0.7)"/><circle cx="7" cy="5" r="1.5" fill="#1D3A5F"/></svg>
-                <span>140 Route 17 North, Suite 105<br/>Paramus, NJ 07652</span>
+                <span>37 West Century Road, Suite 104<br/>Paramus, NJ 07652</span>
               </div>
               <div className="flex items-center gap-2 text-white/70 text-sm">
                 <svg className="shrink-0" width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="rgba(187,219,237,0.7)" strokeWidth="1.2"/><path d="M5 2v2M9 2v2M2 6h10" stroke="rgba(187,219,237,0.7)" strokeWidth="1.2" strokeLinecap="round"/></svg>
@@ -1400,7 +1400,7 @@ export function LandingPage() {
             {/* Phone */}
             <div className="px-8 py-5 border-b border-white/10">
               <p className="text-[#BBDBED] text-xs uppercase tracking-widest mb-1">Phone</p>
-              <a href="tel:+12015550198" className="text-white font-semibold text-sm hover:text-[#E7FFD9] transition-colors">(201) 555-0198</a>
+              <a href="tel:+12014534540" className="text-white font-semibold text-sm hover:text-[#E7FFD9] transition-colors">(201) 453-4540</a>
             </div>
 
             {/* Action buttons */}
@@ -1531,7 +1531,7 @@ export function LandingPage() {
                 </li>
                 <li className="flex items-center justify-center md:justify-start gap-3">
                   <Phone size={16} className="text-[#BBDBED] shrink-0" />
-                  <a href="tel:+12015550198" className="hover:text-[#BBDBED] transition-colors">(201) 555-0198</a>
+                  <a href="tel:+12014534540" className="hover:text-[#BBDBED] transition-colors">(201) 453-4540</a>
                 </li>
                 <li className="flex items-center justify-center md:justify-start gap-3">
                   <MapPin size={16} className="text-[#BBDBED] shrink-0" />
