@@ -374,7 +374,7 @@ function AboutSection() {
               As both an otolaryngologist and sleep medicine physician, Dr. Scheid is able to look beyond a single symptom and evaluate how the nose, throat, airway, sleep quality, allergies, reflux, and inflammation may be connected. Her approach is careful, educational, and personalized, with a focus on helping patients understand their symptoms and make confident decisions about next steps.
             </p>
             <p className="relative z-10 text-sm text-white/70 mb-5 font-light leading-relaxed">
-              At Synergy ENT &amp; Wellness, patients receive unrushed, physician-led care designed to help them breathe better, sleep better, and feel more in control of their health.
+              At Synergy ENT &amp; Wellness, patients receive unrushed, patient-driven care designed to provide solutions to help you breathe better, sleep better, and gain control of your health.
             </p>
             <button className="relative z-10 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
               Learn More About Dr. Scheid <ArrowRight className="w-4 h-4" />
@@ -422,7 +422,7 @@ function AboutSection() {
               <div>
                 <p className="text-[#BBDBED] text-xs font-semibold uppercase tracking-widest mb-3">Outside the Office</p>
                 <p className="text-sm text-white/70 font-light leading-relaxed">
-                  Dr. Scheid is a proud mother of two college-aged children and two dogs. In her free time she enjoys hiking, skiing, reading, and spending time with her family.
+                  Dr. Scheid is happily married and a proud mother of two college-aged children and two dogs. In her free time she enjoys hiking, skiing, reading, and spending time with her family.
                 </p>
               </div>
 
@@ -1046,9 +1046,6 @@ export function LandingPage() {
                 <button className="bg-[#E7FFD9] text-[#1D3A5F] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#E7FFD9]/20 w-full">
                   Schedule a Consultation
                 </button>
-                <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-7 py-4 rounded-full font-semibold text-sm hover:bg-white/20 transition-all w-full">
-                  Not sure? Start with a brief fit call
-                </button>
               </div>
             </div>
 
@@ -1098,7 +1095,7 @@ export function LandingPage() {
           {[
             { icon: <CheckCircle className="w-4 h-4" />, title: "Board Certified", sub: "Otolaryngologist" },
             { icon: <Stethoscope className="w-4 h-4" />, title: "Sleep Medicine", sub: "Certified Specialist" },
-            { icon: <TrendingUp className="w-4 h-4" />, title: "15+ Years", sub: "of Experience" },
+            { icon: <TrendingUp className="w-4 h-4" />, title: "20+ Years", sub: "of Experience" },
             { icon: <Activity className="w-4 h-4" />, title: "Accepting", sub: "New Patients" },
           ].map((item, i, arr) => (
             <React.Fragment key={i}>
