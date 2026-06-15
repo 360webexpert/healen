@@ -1423,33 +1423,45 @@ export function LandingPage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="relative overflow-hidden bg-[#809EB1] py-24 px-6 md:px-12">
-        {/* Office background photo */}
-        <img
-          src="/images/office-bg.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-          style={{ opacity: 1 }}
-        />
-        {/* Very faint overlay for text legibility */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(255,255,255,0.15)" }} />
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-['Inter'] text-[#1D3A5F] mb-8">
-            Ready to Breathe Better and Sleep Sounder?
-          </h2>
-          <p className="text-xl text-[#1D3A5F]/70 mb-10 max-w-2xl mx-auto">
-            New and returning patients are welcome. Reach out today to schedule your appointment with Dr. Scheid at our Paramus, NJ office.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-[#1D3A5F]/80 backdrop-blur-sm border border-[#1D3A5F]/40 text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#1D3A5F] transition-all inline-flex items-center gap-3">
-              Request an Appointment <ArrowRight className="w-5 h-5" />
-            </button>
-            <button className="bg-[#1D3A5F]/20 border border-[#1D3A5F]/30 text-[#1D3A5F] px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#1D3A5F]/30 transition-all">
-              Call Our Office
-            </button>
+      <section className="relative overflow-hidden py-0 px-0" style={{ background: "linear-gradient(135deg, #0F2840 0%, #1D3A5F 60%, #2A5080 100%)" }}>
+        {/* Ambient glow */}
+        <div className="absolute pointer-events-none" style={{ top: "10%", left: "5%", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(187,219,237,0.10) 0%, transparent 70%)", filter: "blur(2px)" }} />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-0 items-end min-h-[480px]">
+
+          {/* Left — text + buttons */}
+          <div className="py-20 md:py-28 flex flex-col justify-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] text-white leading-[1.1] mb-6">
+              Ready to Breathe Better<br />
+              <span className="text-[#E7FFD9]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic" }}>and Sleep Sounder?</span>
+            </h2>
+            <p className="text-white/60 text-lg mb-10 max-w-lg font-light leading-relaxed">
+              New and returning patients are welcome. Reach out today to schedule your appointment with Dr. Scheid at our Paramus, NJ office.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all inline-flex items-center gap-2 shadow-lg">
+                Request an Appointment <ArrowRight className="w-4 h-4" />
+              </button>
+              <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-white/20 transition-all">
+                Call Our Office
+              </button>
+            </div>
           </div>
-        </div>{/* end z-10 */}
+
+          {/* Right — sleep image anchored to bottom */}
+          <div className="relative flex items-end justify-center lg:justify-end h-full">
+            <img
+              src="/images/hero-sleep.png"
+              alt="Restful sleep"
+              className="w-auto object-contain select-none pointer-events-none"
+              style={{
+                maxHeight: 460,
+                filter: "drop-shadow(0 20px 60px rgba(0,0,0,0.5))",
+              }}
+            />
+          </div>
+
+        </div>
       </section>
 
       {/* Footer — scroll-expand floating card */}
