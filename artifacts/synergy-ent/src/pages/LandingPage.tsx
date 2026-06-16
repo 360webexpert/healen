@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Menu, X, ArrowRight, Ear, Stethoscope, Droplets, Mic2, Star, CheckCircle, MapPin, Phone, Mail, Zap, Play, TrendingUp, Activity, Search, ShoppingBag, Cross, ChevronDown, Globe, Share2, AtSign, Rss } from "lucide-react";
 
 const specialties = [
@@ -932,26 +933,33 @@ export function LandingPage() {
 
           {/* Center nav links pill */}
           <div className="hidden lg:flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-1.5 gap-1">
-            {[
-              { label: "Home", active: true, href: "#home" },
-              { label: "Services", dropdown: true, href: "#services" },
-              { label: "Dr. Scheid", href: "#about" },
-              { label: "Treatments", href: "#treatments" },
-              { label: "Blog", href: "#blog" },
-              { label: "Contact", href: "#contact" },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  item.active
-                    ? "bg-white/20 text-white"
-                    : "text-white/70 hover:text-white hover:bg-white/10"
-                }`}
-              >
-                {item.label}
-                {item.dropdown && <ChevronDown className="w-3 h-3 opacity-60" />}
-              </a>
+            {([
+              { label: "Home", href: "/" as string, anchor: true },
+              { label: "Services", href: "/services" as string, dropdown: true },
+              { label: "Dr. Scheid", href: "/about" as string },
+              { label: "Treatments", href: "#treatments" as string, anchor: true },
+              { label: "New Patient", href: "/new-patient" as string },
+              { label: "Contact", href: "/contact" as string },
+            ] as { label: string; href: string; anchor?: boolean; dropdown?: boolean }[]).map((item) => (
+              item.anchor ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all text-white/70 hover:text-white hover:bg-white/10"
+                >
+                  {item.label}
+                  {item.dropdown && <ChevronDown className="w-3 h-3 opacity-60" />}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all text-white/70 hover:text-white hover:bg-white/10"
+                >
+                  {item.label}
+                  {item.dropdown && <ChevronDown className="w-3 h-3 opacity-60" />}
+                </Link>
+              )
             ))}
           </div>
 
@@ -981,19 +989,27 @@ export function LandingPage() {
       {/* Mobile Menu */}
       <div className={`fixed inset-0 z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ backgroundImage: "url('/images/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="flex flex-col items-center justify-center h-full gap-6">
-          {["Home", "Services", "Dr. Scheid", "Treatments", "Blog", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-white text-2xl font-['Inter']"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
-          <button className="mt-6 bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all">
+          {([
+            { label: "Home", href: "/", anchor: true },
+            { label: "Services", href: "/services" },
+            { label: "Dr. Scheid", href: "/about" },
+            { label: "New Patient", href: "/new-patient" },
+            { label: "Contact", href: "/contact" },
+          ] as { label: string; href: string; anchor?: boolean }[]).map((item) =>
+            item.anchor ? (
+              <a key={item.label} href={item.href} className="text-white text-2xl font-['Inter']" onClick={() => setMobileMenuOpen(false)}>{item.label}</a>
+            ) : (
+              <Link key={item.label} href={item.href} className="text-white text-2xl font-['Inter']" onClick={() => setMobileMenuOpen(false)}>{item.label}</Link>
+            )
+          )}
+          <a
+            href="https://healow.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all"
+          >
             Book Appointment
-          </button>
+          </a>
         </div>
       </div>
 
