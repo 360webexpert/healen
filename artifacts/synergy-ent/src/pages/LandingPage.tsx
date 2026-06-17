@@ -937,7 +937,6 @@ export function LandingPage() {
               { label: "Home", href: "/" as string, anchor: true },
               { label: "Services", href: "/services" as string },
               { label: "Dr. Scheid", href: "/about" as string },
-              { label: "Treatments", href: "#treatments" as string, anchor: true },
               { label: "New Patient", href: "/new-patient" as string },
               { label: "Contact", href: "/contact" as string },
             ] as { label: string; href: string; anchor?: boolean; dropdown?: boolean }[]).map((item) => (

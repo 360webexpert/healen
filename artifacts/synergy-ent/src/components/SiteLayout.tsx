@@ -6,7 +6,6 @@ const navLinks = [
   { label: "Home",        href: "/",            anchor: true },
   { label: "Services",   href: "/services" },
   { label: "Dr. Scheid", href: "/about" },
-  { label: "Treatments", href: "/#treatments", anchor: true },
   { label: "New Patient", href: "/new-patient" },
   { label: "Contact",    href: "/contact" },
 ];
