@@ -935,7 +935,7 @@ export function LandingPage() {
           <div className="hidden lg:flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-1.5 gap-1">
             {([
               { label: "Home", href: "/" as string, anchor: true },
-              { label: "Services", href: "/services" as string, dropdown: true },
+              { label: "Services", href: "/services" as string },
               { label: "Dr. Scheid", href: "/about" as string },
               { label: "Treatments", href: "#treatments" as string, anchor: true },
               { label: "New Patient", href: "/new-patient" as string },
