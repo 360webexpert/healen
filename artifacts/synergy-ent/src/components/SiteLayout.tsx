@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Mail, Phone, MapPin, Globe, Share2, AtSign, Rss, ChevronRight } from "lucide-react";
+import { Menu, X, Mail, Phone, MapPin, Globe, Share2, AtSign, Rss, ChevronRight, ChevronDown } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Home",        href: "/",            anchor: true },
+  { label: "Services",   href: "/services",    dropdown: true },
+  { label: "Dr. Scheid", href: "/about" },
+  { label: "Treatments", href: "/#treatments", anchor: true },
   { label: "New Patient", href: "/new-patient" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact",    href: "/contact" },
 ];
 
 function SiteNav() {
@@ -39,31 +40,31 @@ function SiteNav() {
 
           <div className="hidden lg:flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-1.5 gap-1">
             {navLinks.map((item) => {
-              const active = location === item.href || (item.href !== "/" && location.startsWith(item.href));
-              return (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    active
-                      ? "bg-white/20 text-white"
-                      : "text-white/70 hover:text-white hover:bg-white/10"
-                  }`}
-                >
+              const active = !item.anchor && (location === item.href || (item.href !== "/" && location.startsWith(item.href)));
+              const cls = `flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                active ? "bg-white/20 text-white" : "text-white/70 hover:text-white hover:bg-white/10"
+              }`;
+              return item.anchor ? (
+                <a key={item.label} href={item.href} className={cls}>
                   {item.label}
+                  {item.dropdown && <ChevronDown className="w-3 h-3 opacity-60" />}
+                </a>
+              ) : (
+                <Link key={item.label} href={item.href} className={cls}>
+                  {item.label}
+                  {item.dropdown && <ChevronDown className="w-3 h-3 opacity-60" />}
                 </Link>
               );
             })}
           </div>
 
           <div className="hidden lg:flex items-center gap-2 shrink-0">
-            <Link
-              href="/new-patient"
+            <button
               className="rounded-full px-5 py-2.5 text-white text-sm font-semibold transition-all hover:bg-white/10"
               style={{ border: "1.5px solid rgba(255,255,255,0.35)" }}
             >
-              New Patient
-            </Link>
+              Patient Portal
+            </button>
             <a
               href="https://healow.com"
               target="_blank"
