@@ -4,6 +4,7 @@ import { AboutPage } from "./pages/AboutPage";
 import { ServicesPage } from "./pages/ServicesPage";
 import { NewPatientPage } from "./pages/NewPatientPage";
 import { ContactPage } from "./pages/ContactPage";
+import { ServiceDetailPage } from "./pages/ServiceDetailPage";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -14,6 +15,42 @@ function App() {
         <Route path="/" component={LandingPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/services" component={ServicesPage} />
+        <Route path="/services/sleep-apnea">
+          {() => <ServiceDetailPage slug="sleep-apnea" />}
+        </Route>
+        <Route path="/services/snoring">
+          {() => <ServiceDetailPage slug="snoring" />}
+        </Route>
+        <Route path="/services/cpap">
+          {() => <ServiceDetailPage slug="cpap" />}
+        </Route>
+        <Route path="/services/circadian-rhythm">
+          {() => <ServiceDetailPage slug="circadian-rhythm" />}
+        </Route>
+        <Route path="/services/insomnia">
+          {() => <ServiceDetailPage slug="insomnia" />}
+        </Route>
+        <Route path="/services/hypersomnia">
+          {() => <ServiceDetailPage slug="hypersomnia" />}
+        </Route>
+        <Route path="/services/nasal-obstruction">
+          {() => <ServiceDetailPage slug="nasal-obstruction" />}
+        </Route>
+        <Route path="/services/sinusitis">
+          {() => <ServiceDetailPage slug="sinusitis" />}
+        </Route>
+        <Route path="/services/allergies">
+          {() => <ServiceDetailPage slug="allergies" />}
+        </Route>
+        <Route path="/services/ear-conditions">
+          {() => <ServiceDetailPage slug="ear-conditions" />}
+        </Route>
+        <Route path="/services/throat-voice">
+          {() => <ServiceDetailPage slug="throat-voice" />}
+        </Route>
+        <Route path="/services/pediatric-ent">
+          {() => <ServiceDetailPage slug="pediatric-ent" />}
+        </Route>
         <Route path="/new-patient" component={NewPatientPage} />
         <Route path="/contact" component={ContactPage} />
         <Route>

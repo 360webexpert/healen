@@ -5,21 +5,21 @@ import { SiteLayout, PageHero } from "../components/SiteLayout";
 import { Link } from "wouter";
 
 const sleepServices = [
-  { icon: "🌙", title: "Sleep Apnea", body: "Evaluation and treatment for obstructive sleep apnea. From diagnosis to therapy selection, we guide you through every step." },
-  { icon: "💨", title: "Snoring", body: "Comprehensive snoring evaluation to rule out airway problems, anatomic contributors, and sleep-disordered breathing." },
-  { icon: "⚙️", title: "CPAP Troubleshooting", body: "Still tired on CPAP? We help optimize therapy — mask fit, pressure settings, and alternatives like oral appliance therapy." },
-  { icon: "🕐", title: "Circadian Rhythm Disorders", body: "Diagnosis and management of internal clock disruptions including delayed sleep phase and shift work disorder." },
-  { icon: "😴", title: "Insomnia", body: "Evidence-based insomnia evaluation, including assessment for underlying airway, medical, or behavioral contributors." },
-  { icon: "🧠", title: "Hypersomnia & Fatigue", body: "Workup for excessive daytime sleepiness, narcolepsy, idiopathic hypersomnia, and other causes of persistent fatigue." },
+  { icon: "🌙", title: "Sleep Apnea", slug: "sleep-apnea", body: "Evaluation and treatment for obstructive sleep apnea. From diagnosis to therapy selection, we guide you through every step." },
+  { icon: "💨", title: "Snoring", slug: "snoring", body: "Comprehensive snoring evaluation to rule out airway problems, anatomic contributors, and sleep-disordered breathing." },
+  { icon: "⚙️", title: "CPAP Troubleshooting", slug: "cpap", body: "Still tired on CPAP? We help optimize therapy — mask fit, pressure settings, and alternatives like oral appliance therapy." },
+  { icon: "🕐", title: "Circadian Rhythm Disorders", slug: "circadian-rhythm", body: "Diagnosis and management of internal clock disruptions including delayed sleep phase and shift work disorder." },
+  { icon: "😴", title: "Insomnia", slug: "insomnia", body: "Evidence-based insomnia evaluation, including assessment for underlying airway, medical, or behavioral contributors." },
+  { icon: "🧠", title: "Hypersomnia & Fatigue", slug: "hypersomnia", body: "Workup for excessive daytime sleepiness, narcolepsy, idiopathic hypersomnia, and other causes of persistent fatigue." },
 ];
 
 const entServices = [
-  { icon: "👃", title: "Nasal Obstruction", body: "Evaluation of blocked breathing due to deviated septum, enlarged turbinates, nasal valve collapse, or chronic inflammation." },
-  { icon: "💧", title: "Chronic Sinusitis", body: "Thorough workup for recurrent sinus infections, polyps, and pressure — including in-office endoscopy and imaging review." },
-  { icon: "🌿", title: "Allergies", body: "Testing and treatment for environmental and seasonal allergies contributing to congestion, post-nasal drip, and throat symptoms." },
-  { icon: "🦻", title: "Ear Conditions", body: "Evaluation of ear infections, hearing loss, tinnitus, dizziness, and Eustachian tube dysfunction in adults and children." },
-  { icon: "🗣️", title: "Throat & Voice", body: "Assessment of hoarseness, chronic throat clearing, globus sensation, reflux-related throat symptoms, and voice changes." },
-  { icon: "👶", title: "Pediatric ENT", body: "Expert pediatric otolaryngology care for children with ear infections, tonsil/adenoid issues, and airway concerns." },
+  { icon: "👃", title: "Nasal Obstruction", slug: "nasal-obstruction", body: "Evaluation of blocked breathing due to deviated septum, enlarged turbinates, nasal valve collapse, or chronic inflammation." },
+  { icon: "💧", title: "Chronic Sinusitis", slug: "sinusitis", body: "Thorough workup for recurrent sinus infections, polyps, and pressure — including in-office endoscopy and imaging review." },
+  { icon: "🌿", title: "Allergies", slug: "allergies", body: "Testing and treatment for environmental and seasonal allergies contributing to congestion, post-nasal drip, and throat symptoms." },
+  { icon: "🦻", title: "Ear Conditions", slug: "ear-conditions", body: "Evaluation of ear infections, hearing loss, tinnitus, dizziness, and Eustachian tube dysfunction in adults and children." },
+  { icon: "🗣️", title: "Throat & Voice", slug: "throat-voice", body: "Assessment of hoarseness, chronic throat clearing, globus sensation, reflux-related throat symptoms, and voice changes." },
+  { icon: "👶", title: "Pediatric ENT", slug: "pediatric-ent", body: "Expert pediatric otolaryngology care for children with ear infections, tonsil/adenoid issues, and airway concerns." },
 ];
 
 const fadeUp = {
@@ -30,7 +30,7 @@ const fadeUp = {
   }),
 };
 
-function ServiceCard({ icon, title, body, index, dark = false }: { icon: string; title: string; body: string; index: number; dark?: boolean }) {
+function ServiceCard({ icon, title, slug, body, index, dark = false }: { icon: string; title: string; slug: string; body: string; index: number; dark?: boolean }) {
   const [hovered, setHovered] = useState(false);
   return (
     <motion.div
@@ -60,7 +60,7 @@ function ServiceCard({ icon, title, body, index, dark = false }: { icon: string;
         style={{ color: dark ? "rgba(255,255,255,0.6)" : hovered ? "rgba(255,255,255,0.65)" : "rgba(29,58,95,0.6)" }}>
         {body}
       </p>
-      <Link href="/contact"
+      <Link href={`/services/${slug}`}
         className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 mt-auto pt-2"
         style={{ color: dark ? "#E7FFD9" : hovered ? "#E7FFD9" : "#809EB1" }}>
         Learn More <ArrowRight className="w-3 h-3" />
