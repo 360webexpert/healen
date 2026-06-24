@@ -321,8 +321,8 @@ function AboutSection() {
             </div>
             <div className="aspect-[3/4] rounded-[20px] overflow-hidden relative">
               <img
-                src="/images/dr-scheid-about.png"
-                alt="Dr. Headshot"
+                src="/images/dr-scheid-new.jpg"
+                alt="Dr. Sara Scheid"
                 className="w-full h-full object-cover object-top"
               />
               {/* Dark gradient overlay */}
@@ -566,8 +566,8 @@ function FaqSection() {
           {/* Still have questions? card */}
           <div className="relative rounded-[20px] overflow-hidden min-h-[200px] bg-[#1D3A5F]">
             <img
-              src="/images/dr-scheid-about.png"
-              alt="Doctor ready to help"
+              src="/images/dr-scheid-new.jpg"
+              alt="Dr. Sara Scheid"
               className="absolute inset-0 w-full h-full object-cover object-top opacity-50"
             />
             <div className="relative z-10 p-8 flex flex-col justify-end h-full min-h-[200px]">

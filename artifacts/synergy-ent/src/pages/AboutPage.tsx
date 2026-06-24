@@ -69,7 +69,7 @@ export function AboutPage() {
           >
             <div className="aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl">
               <img
-                src="/images/dr-scheid-about.png"
+                src="/images/dr-scheid-new.jpg"
                 alt="Dr. Sara Scheid"
                 className="w-full h-full object-cover object-top"
               />
