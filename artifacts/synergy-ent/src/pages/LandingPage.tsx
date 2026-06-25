@@ -1612,6 +1612,9 @@ export function LandingPage() {
         </div>
       </section>
 
+      {/* Book Appointment Form */}
+      <BookingFormSection />
+
       {/* CTA Banner */}
       <section className="relative overflow-hidden py-0 px-0" style={{ background: "linear-gradient(135deg, #0F2840 0%, #1D3A5F 60%, #2A5080 100%)" }}>
         {/* Ambient glow */}
@@ -1653,9 +1656,6 @@ export function LandingPage() {
 
         </div>
       </section>
-
-      {/* Book Appointment Form */}
-      <BookingFormSection />
 
       {/* Footer — scroll-expand floating card */}
       <footer
