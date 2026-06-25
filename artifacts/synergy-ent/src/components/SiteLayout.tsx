@@ -65,9 +65,7 @@ function SiteNav() {
               Patient Portal
             </button>
             <a
-              href="https://healow.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/#book"
               className="bg-[#E7FFD9] rounded-full px-5 py-2.5 text-[#1D3A5F] text-sm font-semibold hover:brightness-110 transition-all"
             >
               Book Appointment
@@ -111,9 +109,7 @@ function SiteNav() {
             </Link>
           ))}
           <a
-            href="https://healow.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#book"
             className="mt-6 bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all"
           >
             Book Appointment
@@ -160,7 +156,7 @@ function SiteFooter() {
             <ul className="space-y-3 text-sm">
               {[
                 { label: "New Patient Info", href: "/new-patient" },
-                { label: "Book Appointment", href: "https://healow.com" },
+                { label: "Book Appointment", href: "/#book" },
                 { label: "Insurance Info", href: "/new-patient" },
                 { label: "Contact Us", href: "/contact" },
               ].map((l) => (
@@ -271,9 +267,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       >
         <div className="flex items-center gap-3">
           <a
-            href="https://healow.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#book"
             className="flex-1 flex items-center justify-center rounded-full border border-white/60 py-3.5 text-white text-[13px] font-semibold uppercase tracking-widest transition-all active:scale-95"
             style={{ letterSpacing: "0.12em" }}
           >

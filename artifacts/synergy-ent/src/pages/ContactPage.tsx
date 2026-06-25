@@ -318,9 +318,7 @@ export function ContactPage() {
             <h2 className="text-2xl font-['Inter'] text-white">Book your appointment online — it only takes a minute.</h2>
           </div>
           <a
-            href="https://healow.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#book"
             className="shrink-0 inline-flex items-center gap-2 bg-[#E7FFD9] text-[#1D3A5F] px-7 py-3.5 rounded-full font-semibold hover:brightness-110 transition-all"
           >
             Book Online <ArrowRight className="w-4 h-4" />
