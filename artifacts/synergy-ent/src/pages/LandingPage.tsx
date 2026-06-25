@@ -1255,9 +1255,9 @@ export function LandingPage() {
             <button className="rounded-full px-5 py-2.5 text-white text-sm font-semibold transition-all hover:bg-white/10" style={{ border: "1.5px solid rgba(255,255,255,0.35)" }}>
               Patient Portal
             </button>
-            <button className="bg-[#E7FFD9] rounded-full px-5 py-2.5 text-[#1D3A5F] text-sm font-semibold hover:brightness-110 transition-all">
+            <a href="#book" className="bg-[#E7FFD9] rounded-full px-5 py-2.5 text-[#1D3A5F] text-sm font-semibold hover:brightness-110 transition-all">
               Book Appointment
-            </button>
+            </a>
           </div>
 
           {/* Mobile: logo + hamburger */}
@@ -1290,10 +1290,9 @@ export function LandingPage() {
             )
           )}
           <a
-            href="https://healow.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#book"
             className="mt-6 bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all"
+            onClick={() => setMobileMenuOpen(false)}
           >
             Book Appointment
           </a>
@@ -1345,9 +1344,9 @@ export function LandingPage() {
               </p>
 
               <div className="flex flex-col items-stretch gap-3 w-full max-w-xs">
-                <button className="bg-[#E7FFD9] text-[#1D3A5F] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#E7FFD9]/20 w-full">
+                <a href="#book" className="bg-[#E7FFD9] text-[#1D3A5F] px-7 py-4 rounded-full font-semibold text-sm hover:brightness-110 transition-all shadow-lg shadow-[#E7FFD9]/20 w-full text-center">
                   Schedule a Consultation
-                </button>
+                </a>
               </div>
             </div>
 
@@ -1581,9 +1580,9 @@ export function LandingPage() {
 
             {/* Bottom CTA buttons */}
             <div className="relative z-10 flex flex-col items-center gap-3 mt-12">
-              <button className="bg-[#E7FFD9] text-[#1D3A5F] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg w-48">
+              <a href="#book" className="bg-[#E7FFD9] text-[#1D3A5F] font-semibold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all shadow-lg w-48 text-center">
                 Get Started
-              </button>
+              </a>
               <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-sm px-6 py-2.5 rounded-full hover:bg-white/20 transition-all w-48">
                 Learn More
               </button>
@@ -1637,10 +1636,10 @@ export function LandingPage() {
                 <span className="text-[#E7FFD9]">Synergy ENT</span> addresses what traditional care overlooks.{" "}
                 <span className="font-normal text-white/80">How you actually feel.</span>
               </p>
-              <button className="self-start flex items-center gap-2 bg-white text-[#1D3A5F] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-all shadow-md">
+              <a href="#book" className="self-start flex items-center gap-2 bg-white text-[#1D3A5F] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#E7FFD9] transition-all shadow-md">
                 Book my appointment
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="#1D3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </button>
+              </a>
               <p className="mt-3 text-white/50 text-xs flex items-center gap-1.5 whitespace-nowrap">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0"><circle cx="7" cy="7" r="6.5" stroke="rgba(255,255,255,0.4)"/><path d="M4 7.5a3 3 0 0 0 6 0" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round"/><circle cx="7" cy="4.5" r="1" fill="rgba(255,255,255,0.5)"/></svg>
                 Now accepting new patients in Paramus, NJ
@@ -1711,14 +1710,23 @@ export function LandingPage() {
               {[
                 { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2a5 5 0 0 1 5 5c0 3.5-5 10-5 10S4 10.5 4 7a5 5 0 0 1 5-5Z" stroke="white" strokeWidth="1.4"/><circle cx="9" cy="7" r="1.8" stroke="white" strokeWidth="1.4"/></svg>, label: "Directions" },
                 { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 4a1 1 0 0 1 1-1h2l1.5 3.5-1.5 1c.8 1.5 2 2.7 3.5 3.5l1-1.5L15 11v2a1 1 0 0 1-1 1A10 10 0 0 1 4 5V4Z" stroke="white" strokeWidth="1.4" strokeLinejoin="round"/></svg>, label: "Call Now" },
-                { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="white" strokeWidth="1.4"/><path d="M6 3v2M12 3v2M3 8h12" stroke="white" strokeWidth="1.4" strokeLinecap="round"/></svg>, label: "Book Now" },
-              ].map(({ icon, label }) => (
-                <button key={label} className="flex flex-col items-center gap-2 py-3 rounded-xl transition-all" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
-                  onMouseOver={e => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
-                  onMouseOut={e => (e.currentTarget.style.background = "rgba(255,255,255,0.06)")}>
-                  {icon}
-                  <span className="text-white/70 text-xs font-medium">{label}</span>
-                </button>
+                { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="white" strokeWidth="1.4"/><path d="M6 3v2M12 3v2M3 8h12" stroke="white" strokeWidth="1.4" strokeLinecap="round"/></svg>, label: "Book Now", href: "#book" },
+              ].map(({ icon, label, href }: { icon: React.ReactNode; label: string; href?: string }) => (
+                href ? (
+                  <a key={label} href={href} className="flex flex-col items-center gap-2 py-3 rounded-xl transition-all" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+                    onMouseOver={e => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
+                    onMouseOut={e => (e.currentTarget.style.background = "rgba(255,255,255,0.06)")}>
+                    {icon}
+                    <span className="text-white/70 text-xs font-medium">{label}</span>
+                  </a>
+                ) : (
+                  <button key={label} className="flex flex-col items-center gap-2 py-3 rounded-xl transition-all" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+                    onMouseOver={e => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
+                    onMouseOut={e => (e.currentTarget.style.background = "rgba(255,255,255,0.06)")}>
+                    {icon}
+                    <span className="text-white/70 text-xs font-medium">{label}</span>
+                  </button>
+                )
               ))}
             </div>
           </div>
@@ -1742,9 +1750,9 @@ export function LandingPage() {
               New and returning patients are welcome. Reach out today to schedule your appointment with Dr. Scheid at our Paramus, NJ office.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all inline-flex items-center gap-2 shadow-lg">
+              <a href="#book" className="bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all inline-flex items-center gap-2 shadow-lg">
                 Request an Appointment <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
               <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-white/20 transition-all">
                 Call Our Office
               </button>
