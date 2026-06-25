@@ -944,7 +944,6 @@ export function LandingPage() {
               { label: "Services", href: "/services" as string },
               { label: "Dr. Scheid", href: "/about" as string },
               { label: "New Patient", href: "/new-patient" as string },
-              { label: "Contact", href: "/contact" as string },
             ] as { label: string; href: string; anchor?: boolean; dropdown?: boolean }[]).map((item) => (
               item.anchor ? (
                 <a
@@ -999,7 +998,6 @@ export function LandingPage() {
             { label: "Services", href: "/services" },
             { label: "Dr. Scheid", href: "/about" },
             { label: "New Patient", href: "/new-patient" },
-            { label: "Contact", href: "/contact" },
           ] as { label: string; href: string; anchor?: boolean }[]).map((item) =>
             item.anchor ? (
               <a key={item.label} href={item.href} className="text-white text-2xl font-['Inter']" onClick={() => setMobileMenuOpen(false)}>{item.label}</a>
@@ -1428,7 +1426,7 @@ export function LandingPage() {
               {[
                 { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2a5 5 0 0 1 5 5c0 3.5-5 10-5 10S4 10.5 4 7a5 5 0 0 1 5-5Z" stroke="white" strokeWidth="1.4"/><circle cx="9" cy="7" r="1.8" stroke="white" strokeWidth="1.4"/></svg>, label: "Directions" },
                 { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 4a1 1 0 0 1 1-1h2l1.5 3.5-1.5 1c.8 1.5 2 2.7 3.5 3.5l1-1.5L15 11v2a1 1 0 0 1-1 1A10 10 0 0 1 4 5V4Z" stroke="white" strokeWidth="1.4" strokeLinejoin="round"/></svg>, label: "Call Now" },
-                { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="white" strokeWidth="1.4"/><path d="M6 3v2M12 3v2M3 8h12" stroke="white" strokeWidth="1.4" strokeLinecap="round"/></svg>, label: "Book Now", href: "#book" },
+                { icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="white" strokeWidth="1.4"/><path d="M6 3v2M12 3v2M3 8h12" stroke="white" strokeWidth="1.4" strokeLinecap="round"/></svg>, label: "Book Now", href: "/contact" },
               ].map(({ icon, label, href }: { icon: React.ReactNode; label: string; href?: string }) => (
                 href ? (
                   <a key={label} href={href} className="flex flex-col items-center gap-2 py-3 rounded-xl transition-all" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
