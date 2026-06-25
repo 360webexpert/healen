@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, ExternalLink, ArrowRight, CheckCircle, ChevronDown, Calendar } from "lucide-react";
 import { SiteLayout, PageHero } from "../components/SiteLayout";
@@ -53,6 +53,10 @@ export function ContactPage() {
   const [form, setForm] = useState<FormState>(empty);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
+
+  useEffect(() => {
+    window.location.replace("/#book");
+  }, []);
 
   const validate = () => {
     const e: Partial<Record<keyof FormState, string>> = {};

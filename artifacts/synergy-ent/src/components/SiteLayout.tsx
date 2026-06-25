@@ -7,7 +7,6 @@ const navLinks = [
   { label: "Services",   href: "/services" },
   { label: "Dr. Scheid", href: "/about" },
   { label: "New Patient", href: "/new-patient" },
-  { label: "Contact",    href: "/contact" },
 ];
 
 function SiteNav() {
@@ -158,7 +157,7 @@ function SiteFooter() {
                 { label: "New Patient Info", href: "/new-patient" },
                 { label: "Book Appointment", href: "/#book" },
                 { label: "Insurance Info", href: "/new-patient" },
-                { label: "Contact Us", href: "/contact" },
+                { label: "Contact Us", href: "/#book" },
               ].map((l) => (
                 <li key={l.label} className="relative inline-block md:block">
                   <Link href={l.href} className="hover:text-[#BBDBED] transition-colors">
