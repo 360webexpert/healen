@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, ExternalLink, ArrowRight, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ExternalLink, ArrowRight, CheckCircle, ChevronDown, Calendar } from "lucide-react";
 import { SiteLayout, PageHero } from "../components/SiteLayout";
 
 const infoCards = [
@@ -37,20 +37,31 @@ const infoCards = [
   },
 ];
 
-type FormState = { name: string; email: string; phone: string; message: string };
-const empty: FormState = { name: "", email: "", phone: "", message: "" };
+const INSURANCE_OPTIONS = [
+  "Aetna", "Blue Cross Blue Shield", "Cigna", "UnitedHealthcare",
+  "Humana", "Medicare", "Medicaid", "Oxford", "Empire BCBS",
+  "Horizon BCBS", "Oscar Health", "Out-of-pocket / Self-pay", "Other",
+];
+
+type FormState = {
+  firstName: string; lastName: string; phone: string;
+  email: string; insurance: string; message: string;
+};
+const empty: FormState = { firstName: "", lastName: "", phone: "", email: "", insurance: "", message: "" };
 
 export function ContactPage() {
   const [form, setForm] = useState<FormState>(empty);
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState<Partial<FormState>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
 
   const validate = () => {
-    const e: Partial<FormState> = {};
-    if (!form.name.trim()) e.name = "Name is required";
-    if (!form.email.trim()) e.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = "Please enter a valid email";
-    if (!form.message.trim()) e.message = "Message is required";
+    const e: Partial<Record<keyof FormState, string>> = {};
+    if (!form.firstName.trim()) e.firstName = "Required";
+    if (!form.lastName.trim()) e.lastName = "Required";
+    if (!form.email.trim()) e.email = "Required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Invalid email";
+    if (!form.insurance) e.insurance = "Required";
+    if (!form.message.trim()) e.message = "Required";
     return e;
   };
 
@@ -63,48 +74,15 @@ export function ContactPage() {
     setErrors({});
   };
 
-  const field = (
-    key: keyof FormState,
-    label: string,
-    type = "text",
-    textarea = false,
-  ) => {
-    const base =
-      "w-full px-4 py-3 rounded-[12px] text-sm text-[#1D3A5F] placeholder-[#1D3A5F]/30 outline-none transition-all";
-    const style: React.CSSProperties = {
-      background: "white",
-      border: errors[key]
-        ? "1.5px solid #e53e3e"
-        : "1.5px solid rgba(29,58,95,0.15)",
-      boxShadow: "0 1px 4px rgba(29,58,95,0.05)",
-    };
-
-    return (
-      <div className="flex flex-col gap-1.5">
-        <label className="text-xs font-semibold uppercase tracking-wider text-[#1D3A5F]/50">{label}</label>
-        {textarea ? (
-          <textarea
-            rows={5}
-            placeholder={label}
-            value={form[key]}
-            onChange={(e) => { setForm(f => ({ ...f, [key]: e.target.value })); setErrors(er => ({ ...er, [key]: undefined })); }}
-            className={base + " resize-none"}
-            style={style}
-          />
-        ) : (
-          <input
-            type={type}
-            placeholder={label}
-            value={form[key]}
-            onChange={(e) => { setForm(f => ({ ...f, [key]: e.target.value })); setErrors(er => ({ ...er, [key]: undefined })); }}
-            className={base}
-            style={style}
-          />
-        )}
-        {errors[key] && <p className="text-xs text-red-500">{errors[key]}</p>}
-      </div>
-    );
+  const handleChange = (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = ev.target;
+    setForm(f => ({ ...f, [name]: value }));
+    setErrors(er => { const n = { ...er }; delete n[name as keyof FormState]; return n; });
   };
+
+  const inputBase = "w-full rounded-xl px-4 py-3.5 text-sm text-[#1D3A5F] placeholder-[#1D3A5F]/35 font-light outline-none transition-all duration-200 focus:ring-2 focus:ring-[#1D3A5F]/20 border";
+  const inputCls = (key: keyof FormState) =>
+    inputBase + (errors[key] ? " ring-2 ring-red-400/60 bg-red-50/40 border-red-300" : " bg-white border-[#1D3A5F]/12 focus:bg-white");
 
   return (
     <SiteLayout>
@@ -135,52 +113,135 @@ export function ContactPage() {
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="rounded-[20px] p-10 text-center flex flex-col items-center gap-4"
-                style={{ background: "#f0faf5", border: "1.5px solid rgba(29,58,95,0.1)" }}
+                style={{ background: "rgba(231,255,217,0.35)", border: "1.5px solid rgba(29,58,95,0.1)" }}
               >
-                <CheckCircle className="w-12 h-12 text-[#1D3A5F]" />
-                <h3 className="text-2xl font-['Inter'] text-[#1D3A5F]">Message Sent!</h3>
-                <p className="text-[#1D3A5F]/60 font-light">
-                  Thank you for reaching out. We'll be in touch within one business day.
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center"
+                  style={{ background: "rgba(231,255,217,0.6)", border: "2px solid rgba(29,58,95,0.12)" }}
+                >
+                  <CheckCircle className="w-8 h-8 text-[#1D3A5F]" />
+                </div>
+                <h3 className="text-2xl font-['Inter'] text-[#1D3A5F] font-semibold">Request Received!</h3>
+                <p className="text-[#1D3A5F]/60 font-light max-w-xs leading-relaxed">
+                  Thank you, {form.firstName || "there"}. Our team will be in touch within one business day to confirm your appointment.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="mt-2 text-sm text-[#809EB1] underline hover:text-[#1D3A5F] transition-colors"
                 >
-                  Send another message
+                  Submit another request
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {field("name", "Full Name")}
-                  {field("email", "Email Address", "email")}
+              <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <Calendar className="w-4 h-4 text-[#809EB1]" />
+                  <p className="text-[#1D3A5F] font-semibold text-sm">Tell us about yourself</p>
                 </div>
+
+                {/* First + Last Name */}
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {field("phone", "Phone Number", "tel")}
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold uppercase tracking-wider text-[#1D3A5F]/50">Reason for Visit</label>
-                    <select
-                      className="w-full px-4 py-3 rounded-[12px] text-sm text-[#1D3A5F] outline-none"
-                      style={{ background: "white", border: "1.5px solid rgba(29,58,95,0.15)", boxShadow: "0 1px 4px rgba(29,58,95,0.05)" }}
-                    >
-                      <option value="">Select a reason…</option>
-                      <option>General Inquiry</option>
-                      <option>Book an Appointment</option>
-                      <option>Sleep Medicine / Sleep Apnea</option>
-                      <option>ENT / Sinus / Allergy</option>
-                      <option>Insurance Question</option>
-                      <option>Referral</option>
-                      <option>Other</option>
-                    </select>
+                  <div>
+                    <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">
+                      First Name <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      name="firstName" type="text" value={form.firstName}
+                      onChange={handleChange} placeholder="Sara"
+                      className={inputCls("firstName")}
+                    />
+                    {errors.firstName && <p className="text-red-400 text-xs mt-1">{errors.firstName}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">
+                      Last Name <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      name="lastName" type="text" value={form.lastName}
+                      onChange={handleChange} placeholder="Scheid"
+                      className={inputCls("lastName")}
+                    />
+                    {errors.lastName && <p className="text-red-400 text-xs mt-1">{errors.lastName}</p>}
                   </div>
                 </div>
-                {field("message", "Message", "text", true)}
+
+                {/* Phone + Email */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">
+                      Phone Number
+                    </label>
+                    <input
+                      name="phone" type="tel" value={form.phone}
+                      onChange={handleChange} placeholder="(201) 000-0000"
+                      className={inputCls("phone")}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">
+                      Email <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      name="email" type="email" value={form.email}
+                      onChange={handleChange} placeholder="you@email.com"
+                      className={inputCls("email")}
+                    />
+                    {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+                  </div>
+                </div>
+
+                {/* Insurance Carrier */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">
+                    Insurance Carrier <span className="text-red-400">*</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      name="insurance" value={form.insurance}
+                      onChange={handleChange}
+                      className={inputCls("insurance") + " appearance-none pr-10 cursor-pointer"}
+                    >
+                      <option value="">Select your insurance carrier…</option>
+                      {INSURANCE_OPTIONS.map(opt => (
+                        <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                    <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#809EB1] pointer-events-none" />
+                  </div>
+                  {errors.insurance && <p className="text-red-400 text-xs mt-1">{errors.insurance}</p>}
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">
+                    Message <span className="text-red-400">*</span>
+                  </label>
+                  <textarea
+                    name="message" value={form.message}
+                    onChange={handleChange} rows={4}
+                    placeholder="How can we help? Tell us about your symptoms or concerns…"
+                    className={inputCls("message") + " resize-none"}
+                  />
+                  {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
+                </div>
+
+                <p className="text-[#1D3A5F]/35 text-xs font-light">
+                  Fields marked <span className="text-red-400">*</span> are required
+                </p>
+
                 <button
                   type="submit"
-                  className="self-start inline-flex items-center gap-2 bg-[#1D3A5F] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#0F2840] transition-colors mt-2"
+                  className="w-full flex items-center justify-center gap-2.5 rounded-xl py-4 text-sm font-semibold text-[#1D3A5F] hover:brightness-110 transition-all shadow-md shadow-[#E7FFD9]/30"
+                  style={{ background: "#E7FFD9" }}
                 >
-                  Send Message <ArrowRight className="w-4 h-4" />
+                  <Calendar className="w-4 h-4" />
+                  Send Appointment Request
+                  <ArrowRight className="w-4 h-4" />
                 </button>
+
+                <p className="text-[#1D3A5F]/30 text-xs text-center font-light">
+                  We'll confirm your appointment within one business day.
+                </p>
               </form>
             )}
           </motion.div>
