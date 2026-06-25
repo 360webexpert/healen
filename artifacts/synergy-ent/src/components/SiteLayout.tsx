@@ -64,7 +64,7 @@ function SiteNav() {
               Patient Portal
             </button>
             <a
-              href="/#book"
+              href="/contact"
               className="bg-[#E7FFD9] rounded-full px-5 py-2.5 text-[#1D3A5F] text-sm font-semibold hover:brightness-110 transition-all"
             >
               Book Appointment
@@ -108,7 +108,7 @@ function SiteNav() {
             </Link>
           ))}
           <a
-            href="/#book"
+            href="/contact"
             className="mt-6 bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all"
           >
             Book Appointment
@@ -266,7 +266,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       >
         <div className="flex items-center gap-3">
           <a
-            href="/#book"
+            href="/contact"
             className="flex-1 flex items-center justify-center rounded-full border border-white/60 py-3.5 text-white text-[13px] font-semibold uppercase tracking-widest transition-all active:scale-95"
             style={{ letterSpacing: "0.12em" }}
           >

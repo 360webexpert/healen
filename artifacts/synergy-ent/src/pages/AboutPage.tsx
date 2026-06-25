@@ -146,7 +146,7 @@ export function AboutPage() {
               className="flex flex-col sm:flex-row gap-3 pt-2"
             >
               <a
-                href="/#book"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-[#1D3A5F] text-white px-7 py-3.5 rounded-full font-semibold hover:bg-[#0F2840] transition-colors"
               >
                 Book an Appointment <ArrowRight className="w-4 h-4" />
@@ -243,7 +243,7 @@ export function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="/#book"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-[#1D3A5F] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#0F2840] transition-colors text-base"
             >
               Book an Appointment <ArrowRight className="w-4 h-4" />

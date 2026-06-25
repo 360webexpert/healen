@@ -288,7 +288,7 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
                 className="flex flex-col sm:flex-row gap-3"
               >
                 <a
-                  href="/#book"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold bg-[#E7FFD9] text-[#1D3A5F] hover:brightness-110 transition-all shadow-lg shadow-[#E7FFD9]/20"
                 >
                   <Calendar className="w-4 h-4" />
@@ -407,7 +407,7 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
                 <p className="text-[#1D3A5F] font-semibold text-sm mb-4">Ready to get started?</p>
                 <div className="space-y-2.5">
                   <a
-                    href="/#book"
+                    href="/contact"
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold bg-[#1D3A5F] text-white hover:bg-[#0F2840] transition-colors"
                   >
                     <Calendar className="w-3.5 h-3.5" />
@@ -522,7 +522,7 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="/#book"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-semibold bg-[#E7FFD9] text-[#1D3A5F] hover:brightness-110 transition-all shadow-lg shadow-black/20"
               >
                 <Calendar className="w-4 h-4" />

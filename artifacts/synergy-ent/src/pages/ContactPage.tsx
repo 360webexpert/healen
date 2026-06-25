@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, ExternalLink, ArrowRight, CheckCircle, ChevronDown, Calendar } from "lucide-react";
 import { SiteLayout, PageHero } from "../components/SiteLayout";
@@ -54,10 +54,6 @@ export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
 
-  useEffect(() => {
-    window.location.replace("/#book");
-  }, []);
-
   const validate = () => {
     const e: Partial<Record<keyof FormState, string>> = {};
     if (!form.firstName.trim()) e.firstName = "Required";
@@ -90,7 +86,7 @@ export function ContactPage() {
 
   return (
     <SiteLayout>
-      <PageHero title="Contact Us" subtitle="Our team is ready to help. Reach out with any questions." breadcrumb="Contact Us" />
+      <PageHero title="Book an Appointment" subtitle="Fill out the form below and our team will be in touch within one business day." breadcrumb="Book Appointment" />
 
       {/* Main content */}
       <section className="bg-white py-20 md:py-28 px-6 md:px-12">
@@ -322,7 +318,7 @@ export function ContactPage() {
             <h2 className="text-2xl font-['Inter'] text-white">Book your appointment online — it only takes a minute.</h2>
           </div>
           <a
-            href="/#book"
+            href="/contact"
             className="shrink-0 inline-flex items-center gap-2 bg-[#E7FFD9] text-[#1D3A5F] px-7 py-3.5 rounded-full font-semibold hover:brightness-110 transition-all"
           >
             Book Online <ArrowRight className="w-4 h-4" />
