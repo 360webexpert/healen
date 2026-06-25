@@ -708,6 +708,169 @@ const INSURANCE_OPTIONS = [
   "Horizon BCBS", "Oscar Health", "Out-of-pocket / Self-pay", "Other",
 ];
 
+function BookingFormSection() {
+  const [form, setForm] = useState({ firstName: "", lastName: "", phone: "", email: "", insurance: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  function validate() {
+    const e: Record<string, string> = {};
+    if (!form.firstName.trim()) e.firstName = "Required";
+    if (!form.lastName.trim()) e.lastName = "Required";
+    if (!form.email.trim()) e.email = "Required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Invalid email";
+    if (!form.insurance) e.insurance = "Required";
+    if (!form.message.trim()) e.message = "Required";
+    return e;
+  }
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+    const { name, value } = e.target;
+    setForm(f => ({ ...f, [name]: value }));
+    if (errors[name]) setErrors(prev => { const n = { ...prev }; delete n[name]; return n; });
+  }
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length) { setErrors(errs); return; }
+    setSubmitted(true);
+  }
+
+  const inputBase = "w-full rounded-xl px-4 py-3.5 text-sm text-[#1D3A5F] placeholder-[#1D3A5F]/35 font-light outline-none transition-all duration-200 focus:ring-2 focus:ring-[#1D3A5F]/20 border border-[#1D3A5F]/12";
+  const inputStyle = (field: string) => `${inputBase} ${errors[field] ? "ring-2 ring-red-400/60 bg-red-50/40" : "bg-white/70 focus:bg-white"}`;
+
+  return (
+    <section
+      id="book"
+      className="relative overflow-hidden py-20 md:py-28 px-6 md:px-12"
+      style={{ background: "linear-gradient(160deg, #EEF6FB 0%, #F8FBFD 60%, #EEF6FB 100%)" }}
+    >
+      <div className="absolute inset-0 opacity-40 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #BBDBED 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+      <div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start">
+
+        {/* Left — headline + contact info */}
+        <div className="lg:sticky lg:top-10">
+          <div className="flex items-center gap-2 mb-5">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#1D3A5F]" />
+            <span className="text-[#1D3A5F]/50 text-xs font-semibold uppercase tracking-widest">Book Appointment</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-['Inter'] text-[#1D3A5F] leading-tight mb-5">Request an<br />Appointment</h2>
+          <p className="text-[#1D3A5F]/55 font-light leading-relaxed mb-8 text-base">
+            Fill out the form and our team will be in touch within one business day to confirm your visit.
+          </p>
+          <div className="space-y-4">
+            <a href="tel:+12014534540" className="flex items-center gap-3.5 group">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#1D3A5F] transition-colors" style={{ background: "rgba(29,58,95,0.08)" }}>
+                <Phone className="w-4 h-4 text-[#1D3A5F] group-hover:text-white transition-colors" />
+              </div>
+              <div>
+                <p className="text-[#1D3A5F] font-semibold text-sm">(201) 453-4540</p>
+                <p className="text-[#1D3A5F]/40 text-xs font-light">Call our office directly</p>
+              </div>
+            </a>
+            <a href="mailto:Info@synergyentwellness.com" className="flex items-center gap-3.5 group">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#1D3A5F] transition-colors" style={{ background: "rgba(29,58,95,0.08)" }}>
+                <Mail className="w-4 h-4 text-[#1D3A5F] group-hover:text-white transition-colors" />
+              </div>
+              <div>
+                <p className="text-[#1D3A5F] font-semibold text-sm">Info@synergyentwellness.com</p>
+                <p className="text-[#1D3A5F]/40 text-xs font-light">Email us any time</p>
+              </div>
+            </a>
+            <div className="flex items-center gap-3.5">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(29,58,95,0.08)" }}>
+                <MapPin className="w-4 h-4 text-[#1D3A5F]" />
+              </div>
+              <div>
+                <p className="text-[#1D3A5F] font-semibold text-sm">37 West Century Rd, Suite 104</p>
+                <p className="text-[#1D3A5F]/40 text-xs font-light">Paramus, NJ 07652</p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 rounded-2xl px-5 py-4" style={{ background: "rgba(231,255,217,0.5)", border: "1px solid rgba(29,58,95,0.10)" }}>
+            <p className="text-[#1D3A5F] text-sm font-semibold mb-1">Out-of-network practice</p>
+            <p className="text-[#1D3A5F]/55 text-xs font-light leading-relaxed">We do not accept Medicare. Please contact your insurance to ask about out-of-network benefits before your visit.</p>
+          </div>
+        </div>
+
+        {/* Right — form */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.55 }}
+          className="rounded-3xl p-8 md:p-10"
+          style={{ background: "rgba(255,255,255,0.85)", backdropFilter: "blur(20px)", border: "1px solid rgba(29,58,95,0.10)", boxShadow: "0 8px 48px rgba(29,58,95,0.10)" }}
+        >
+          {submitted ? (
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4 }} className="py-10 text-center flex flex-col items-center gap-4">
+              <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: "rgba(231,255,217,0.6)", border: "2px solid rgba(29,58,95,0.12)" }}>
+                <CheckCircle className="w-8 h-8 text-[#1D3A5F]" />
+              </div>
+              <h3 className="text-2xl font-['Inter'] text-[#1D3A5F] font-semibold">Request Received!</h3>
+              <p className="text-[#1D3A5F]/55 font-light max-w-xs leading-relaxed">Thank you, {form.firstName}. Our team will be in touch within one business day to confirm your appointment.</p>
+              <button onClick={() => { setSubmitted(false); setForm({ firstName: "", lastName: "", phone: "", email: "", insurance: "", message: "" }); }} className="mt-2 text-sm text-[#1D3A5F]/50 underline underline-offset-2 hover:text-[#1D3A5F] transition-colors">Submit another request</button>
+            </motion.div>
+          ) : (
+            <form onSubmit={handleSubmit} noValidate className="space-y-5">
+              <div className="flex items-center gap-2 mb-2">
+                <Calendar className="w-4 h-4 text-[#809EB1]" />
+                <p className="text-[#1D3A5F] font-semibold text-sm">Tell us about yourself</p>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">First Name <span className="text-red-400">*</span></label>
+                  <input name="firstName" type="text" value={form.firstName} onChange={handleChange} placeholder="Sara" className={inputStyle("firstName")} />
+                  {errors.firstName && <p className="text-red-400 text-xs mt-1">{errors.firstName}</p>}
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">Last Name <span className="text-red-400">*</span></label>
+                  <input name="lastName" type="text" value={form.lastName} onChange={handleChange} placeholder="Scheid" className={inputStyle("lastName")} />
+                  {errors.lastName && <p className="text-red-400 text-xs mt-1">{errors.lastName}</p>}
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">Phone Number</label>
+                  <input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="(201) 000-0000" className={inputStyle("phone")} />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">Email <span className="text-red-400">*</span></label>
+                  <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@email.com" className={inputStyle("email")} />
+                  {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">Insurance Carrier <span className="text-red-400">*</span></label>
+                <div className="relative">
+                  <select name="insurance" value={form.insurance} onChange={handleChange} className={`${inputStyle("insurance")} appearance-none pr-10 cursor-pointer`}>
+                    <option value="">Select your insurance carrier…</option>
+                    {INSURANCE_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+                  </select>
+                  <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#809EB1] pointer-events-none" />
+                </div>
+                {errors.insurance && <p className="text-red-400 text-xs mt-1">{errors.insurance}</p>}
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-[#1D3A5F]/60 uppercase tracking-wider mb-1.5">Message <span className="text-red-400">*</span></label>
+                <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="How can we help? Tell us about your symptoms or concerns…" className={`${inputStyle("message")} resize-none`} />
+                {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
+              </div>
+              <p className="text-[#1D3A5F]/35 text-xs font-light">Fields marked <span className="text-red-400">*</span> are required</p>
+              <button type="submit" className="w-full flex items-center justify-center gap-2.5 rounded-xl py-4 text-sm font-semibold text-[#1D3A5F] hover:brightness-110 transition-all shadow-md shadow-[#E7FFD9]/30" style={{ background: "#E7FFD9" }}>
+                <Calendar className="w-4 h-4" />
+                Send Appointment Request
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <p className="text-[#1D3A5F]/30 text-xs text-center font-light">We'll confirm your appointment within one business day.</p>
+            </form>
+          )}
+        </motion.div>
+
+      </div>
+    </section>
+  );
+}
+
 export function LandingPage() {
   const [navOpacity, setNavOpacity] = useState(0);
   const [bentoProgress, setBentoProgress] = useState(0);
@@ -1490,6 +1653,9 @@ export function LandingPage() {
 
         </div>
       </section>
+
+      {/* Book Appointment Form */}
+      <BookingFormSection />
 
       {/* Footer — scroll-expand floating card */}
       <footer
