@@ -1,0 +1,382 @@
+/*
+ * Site-specific overrides.
+ *
+ * This file is enqueued after the main theme CSS so you can adjust spacing,
+ * colors, or small presentation details without editing generated/build files.
+ */
+
+.healen-react-body,
+.healen-react-body #root {
+  font-family: "Inter", sans-serif;
+}
+
+.healen-gform {
+  color: #1d3a5f;
+}
+
+.healen-gform .gform_wrapper,
+.healen-gform .gform-theme,
+.healen-gform .gform-theme--foundation,
+.healen-gform .gform-theme--framework {
+  font-family: "Inter", sans-serif;
+}
+
+.healen-gform .gform_wrapper.gravity-theme .gform_fields,
+.healen-gform .gform-theme--foundation .gform_fields {
+  row-gap: 16px;
+}
+
+.healen-gform .gform_wrapper.gravity-theme .gfield_label,
+.healen-gform .gform-theme--foundation .gfield_label,
+.healen-gform .gfield_label {
+  color: rgba(29, 58, 95, 0.5);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.healen-gform .gfield_required,
+.healen-gform .gfield_required_text {
+  color: #809eb1;
+  font-size: 11px;
+}
+
+.healen-gform input[type="text"],
+.healen-gform input[type="email"],
+.healen-gform input[type="tel"],
+.healen-gform input[type="url"],
+.healen-gform input[type="number"],
+.healen-gform select,
+.healen-gform textarea {
+  background: #fff;
+  border: 1.5px solid rgba(29, 58, 95, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(29, 58, 95, 0.05);
+  color: #1d3a5f;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  min-height: 50px;
+  outline: none;
+  padding: 12px 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.healen-gform textarea {
+  min-height: 138px;
+  resize: vertical;
+}
+
+.healen-gform select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #809eb1 50%),
+    linear-gradient(135deg, #809eb1 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 22px,
+    calc(100% - 14px) 22px;
+  background-repeat: no-repeat;
+  background-size: 6px 6px, 6px 6px;
+  padding-right: 42px;
+}
+
+.healen-gform input:focus,
+.healen-gform select:focus,
+.healen-gform textarea:focus {
+  border-color: rgba(29, 58, 95, 0.45);
+  box-shadow: 0 0 0 4px rgba(187, 219, 237, 0.38);
+}
+
+.healen-gform .gform_footer,
+.healen-gform .gform_page_footer {
+  margin-top: 18px;
+  padding: 0;
+}
+
+.healen-gform .gform_button,
+.healen-gform input[type="submit"],
+.healen-gform button[type="submit"] {
+  align-items: center;
+  background: #1d3a5f;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  min-height: 52px;
+  padding: 16px 32px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.healen-gform .gform_button:hover,
+.healen-gform input[type="submit"]:hover,
+.healen-gform button[type="submit"]:hover {
+  background: #0f2840;
+  transform: translateY(-1px);
+}
+
+.healen-gform .gform_validation_errors,
+.healen-gform .validation_error {
+  background: #fff5f5;
+  border: 1px solid rgba(229, 62, 62, 0.3);
+  border-radius: 14px;
+  box-shadow: none;
+  color: #9b2c2c;
+  font-size: 14px;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+}
+
+.healen-gform .gfield_error input,
+.healen-gform .gfield_error select,
+.healen-gform .gfield_error textarea {
+  border-color: #e53e3e;
+}
+
+.healen-gform .gfield_validation_message,
+.healen-gform .validation_message {
+  background: transparent;
+  border: 0;
+  color: #e53e3e;
+  font-size: 12px;
+  margin-top: 6px;
+  padding: 0;
+}
+
+.healen-gform .gform_confirmation_message {
+  background: #f0faf5;
+  border: 1.5px solid rgba(29, 58, 95, 0.1);
+  border-radius: 20px;
+  color: rgba(29, 58, 95, 0.68);
+  font-size: 16px;
+  line-height: 1.7;
+  padding: 34px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .healen-gform .gform_button,
+  .healen-gform input[type="submit"],
+  .healen-gform button[type="submit"] {
+    width: 100%;
+  }
+}
+
+#services.py-24.md\:py-32.px-6.md\:px-12 {
+  display: none;
+}
+
+.page-template-page-contact .gform-body.gform_body input[type="text"],
+.page-template-page-contact .gform-body.gform_body input[type="email"],
+.page-template-page-contact .gform-body.gform_body input[type="tel"],
+.page-template-page-contact .gform-body.gform_body textarea,
+.healen-contact-page .gform-body.gform_body input[type="text"],
+.healen-contact-page .gform-body.gform_body input[type="email"],
+.healen-contact-page .gform-body.gform_body input[type="tel"],
+.healen-contact-page .gform-body.gform_body textarea {
+  background: #fff;
+  border: 1.5px solid rgba(29, 58, 95, 0.15);
+  border-radius: 12px;
+  box-shadow: rgba(29, 58, 95, 0.05) 0 1px 4px;
+  font-size: 0.875rem;
+  height: 47px;
+  padding: 12px 16px;
+}
+
+.page-template-page-contact .gform-body.gform_body select,
+.healen-contact-page .gform-body.gform_body select {
+  border: 1.5px solid rgba(29, 58, 95, 0.15);
+  border-radius: 12px;
+  box-shadow: rgba(29, 58, 95, 0.05) 0 1px 4px;
+  color: #1d3a5f !important;
+  font-size: 0.875rem;
+  height: 47px;
+  opacity: 0.6;
+  padding: 3px 0 3px 16px;
+}
+
+.page-template-page-contact ::-webkit-input-placeholder,
+.healen-contact-page ::-webkit-input-placeholder {
+  color: #1d3a5f !important;
+  opacity: 0.4;
+}
+
+.page-template-page-contact ::-moz-placeholder,
+.healen-contact-page ::-moz-placeholder {
+  color: #1d3a5f !important;
+  opacity: 0.4;
+}
+
+.page-template-page-contact :-ms-input-placeholder,
+.healen-contact-page :-ms-input-placeholder {
+  color: #1d3a5f !important;
+  opacity: 0.4;
+}
+
+.page-template-page-contact ::placeholder,
+.healen-contact-page ::placeholder {
+  color: #1d3a5f !important;
+  opacity: 0.4;
+}
+
+.page-template-page-contact .gform-body.gform_body textarea,
+.healen-contact-page .gform-body.gform_body textarea {
+  min-height: 127px;
+}
+
+.page-template-page-contact .gform_heading,
+.healen-contact-page .gform_heading {
+  display: none;
+}
+
+.page-template-page-contact input[type="submit"],
+.healen-contact-page input[type="submit"] {
+  background-color: #1d3a5f !important;
+  border-radius: 30px !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  padding: 18px !important;
+  width: 210px !important;
+}
+
+.healen-booking-gform .gform_heading,
+.healen-booking-gform .gform_required_legend,
+.healen-booking-gform .healen-gform .gform_heading,
+.healen-booking-gform .healen-gform .gform_required_legend {
+  display: none;
+}
+
+.healen-booking-gform .gform_fields,
+.healen-booking-gform .healen-gform .gform_fields {
+  column-gap: 16px !important;
+  row-gap: 16px !important;
+}
+
+.healen-booking-gform .gfield_label,
+.healen-booking-gform .healen-gform .gfield_label {
+  color: rgba(29, 58, 95, 0.6);
+  display: block;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.healen-booking-gform .gfield_required,
+.healen-booking-gform .gfield_required_text,
+.healen-booking-gform .healen-gform .gfield_required,
+.healen-booking-gform .healen-gform .gfield_required_text {
+  color: #f87171;
+}
+
+.healen-booking-gform input[type="text"],
+.healen-booking-gform input[type="email"],
+.healen-booking-gform input[type="tel"],
+.healen-booking-gform input[type="url"],
+.healen-booking-gform input[type="number"],
+.healen-booking-gform select,
+.healen-booking-gform textarea,
+.healen-booking-gform .healen-gform input[type="text"],
+.healen-booking-gform .healen-gform input[type="email"],
+.healen-booking-gform .healen-gform input[type="tel"],
+.healen-booking-gform .healen-gform input[type="url"],
+.healen-booking-gform .healen-gform input[type="number"],
+.healen-booking-gform .healen-gform select,
+.healen-booking-gform .healen-gform textarea,
+.healen-booking-gform .gform-body.gform_body input[type="text"],
+.healen-booking-gform .gform-body.gform_body input[type="email"],
+.healen-booking-gform .gform-body.gform_body input[type="tel"],
+.healen-booking-gform .gform-body.gform_body input[type="url"],
+.healen-booking-gform .gform-body.gform_body input[type="number"],
+.healen-booking-gform .gform-body.gform_body select,
+.healen-booking-gform .gform-body.gform_body textarea {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(29, 58, 95, 0.12) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  color: #1d3a5f !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  line-height: 1.4 !important;
+  min-height: 50px !important;
+  padding: 14px 16px !important;
+  width: 100% !important;
+}
+
+.healen-booking-gform input[type="text"]:focus,
+.healen-booking-gform input[type="email"]:focus,
+.healen-booking-gform input[type="tel"]:focus,
+.healen-booking-gform input[type="url"]:focus,
+.healen-booking-gform input[type="number"]:focus,
+.healen-booking-gform select:focus,
+.healen-booking-gform textarea:focus,
+.healen-booking-gform .healen-gform input:focus,
+.healen-booking-gform .healen-gform select:focus,
+.healen-booking-gform .healen-gform textarea:focus {
+  background: #fff !important;
+  border-color: rgba(29, 58, 95, 0.12) !important;
+  box-shadow: 0 0 0 2px rgba(29, 58, 95, 0.2) !important;
+}
+
+.healen-booking-gform textarea,
+.healen-booking-gform .healen-gform textarea,
+.healen-booking-gform .gform-body.gform_body textarea {
+  min-height: 118px !important;
+  resize: none !important;
+}
+
+.healen-booking-gform .gform_footer,
+.healen-booking-gform .gform_page_footer,
+.healen-booking-gform .healen-gform .gform_footer,
+.healen-booking-gform .healen-gform .gform_page_footer {
+  margin-top: 20px !important;
+  padding: 0 !important;
+}
+
+.healen-booking-gform .gform_button,
+.healen-booking-gform input[type="submit"],
+.healen-booking-gform button[type="submit"],
+.healen-booking-gform .healen-gform .gform_button,
+.healen-booking-gform .healen-gform input[type="submit"],
+.healen-booking-gform .healen-gform button[type="submit"] {
+  background: #e7ffd9 !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(231, 255, 217, 0.3) !important;
+  color: #1d3a5f !important;
+  display: flex !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  justify-content: center;
+  min-height: 54px;
+  padding: 16px !important;
+  width: 100% !important;
+}
+
+.healen-booking-gform .gform_button:hover,
+.healen-booking-gform input[type="submit"]:hover,
+.healen-booking-gform button[type="submit"]:hover,
+.healen-booking-gform .healen-gform .gform_button:hover,
+.healen-booking-gform .healen-gform input[type="submit"]:hover,
+.healen-booking-gform .healen-gform button[type="submit"]:hover {
+  background: #e7ffd9 !important;
+  filter: brightness(1.1);
+  transform: none;
+}
+
+.healen-booking-gform ::placeholder {
+  color: rgba(29, 58, 95, 0.35) !important;
+  opacity: 1 !important;
+}

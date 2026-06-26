@@ -1,0 +1,16 @@
+@import "../../../assets/css/extra.css";
+
+/*
+ * Manual React overrides.
+ *
+ * Add site-specific CSS below this line, then run the production build.
+ * This file is bundled after index.css.
+ */
+
+.healen-home-hero-cta {
+  --tw-shadow-color: rgb(231 255 217 / 0.8);
+}
+
+.healen-home-hero-body {
+  color: rgb(255 255 255 / 0.8);
+}
