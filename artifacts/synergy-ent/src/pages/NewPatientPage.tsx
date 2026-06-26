@@ -112,6 +112,7 @@ function ActionLink({ link, className, children }: { link?: ButtonLink; classNam
 
 export function NewPatientPage() {
   const content = wpData().content?.newPatient;
+  const bookingLink = wpData().bookingLink ?? { url: wpData().bookingUrl ?? "https://healow.com", target: "_blank" };
   const patientCards = (content?.cards?.length ? content.cards : cards).map((card, index) => ({
     icon: typeof card.icon === "string" ? cardIcons[card.icon] ?? cards[index]?.icon ?? FileText : cards[index]?.icon ?? FileText,
     color: card.color ?? cards[index]?.color ?? "#1D3A5F",
@@ -273,7 +274,7 @@ export function NewPatientPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <ActionLink
-              link={content?.ctaPrimaryButton ?? { label: "Book an Appointment", url: wpData().bookingUrl ?? "https://healow.com" }}
+              link={content?.ctaPrimaryButton ?? { label: "Book an Appointment", url: bookingLink.url, target: bookingLink.target }}
               className="inline-flex items-center justify-center gap-2 bg-[#1D3A5F] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#0F2840] transition-colors"
             >
               {content?.ctaPrimaryButton?.label ?? "Book an Appointment"} <ArrowRight className="w-4 h-4" />

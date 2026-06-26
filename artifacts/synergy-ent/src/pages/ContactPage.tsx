@@ -57,6 +57,7 @@ function InlineLink({ link, className, children }: { link?: ButtonLink; classNam
 
 export function ContactPage() {
   const content = wpData().content?.contact;
+  const bookingLink = wpData().bookingLink ?? { url: wpData().bookingUrl ?? "https://healow.com", target: "_blank" };
   const contactCards = [
     {
       ...infoCards[0],
@@ -184,7 +185,7 @@ export function ContactPage() {
               <h2 className="text-2xl font-['Inter'] text-white">{content?.ctaHeading ?? "Book your appointment online - it only takes a minute."}</h2>
             </div>
             <InlineLink
-              link={content?.ctaButton ?? { label: "Book Online", url: wpData().bookingUrl ?? "https://healow.com" }}
+              link={content?.ctaButton ?? { label: "Book Online", url: bookingLink.url, target: bookingLink.target }}
               className="shrink-0 inline-flex items-center gap-2 bg-[#E7FFD9] text-[#1D3A5F] px-7 py-3.5 rounded-full font-semibold hover:brightness-110 transition-all"
             >
               {content?.ctaButton?.label ?? "Book Online"} <ArrowRight className="w-4 h-4" />

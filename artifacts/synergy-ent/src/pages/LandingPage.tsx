@@ -839,6 +839,7 @@ export function LandingPage() {
   const [counterVal, setCounterVal] = useState(0);
   const navLinks = navItems();
   const portalLink = wpData().portalLink;
+  const bookingLink = wpData().bookingLink ?? { url: wpData().bookingUrl ?? "https://healow.com", target: "_blank" };
   const footer = wpData().footer;
   const footerQuickLinks = footer?.quickLinks?.length ? footer.quickLinks.map((item) => ({
     label: item.label,
@@ -847,7 +848,7 @@ export function LandingPage() {
     external: isExternalLink(item.url),
   })) : navLinks;
   const footerResources = footer?.resources?.length ? footer.resources : [
-    { label: "Request Appointment", url: wpData().bookingUrl ?? "https://healow.com", target: "_blank" },
+    { label: "Request Appointment", url: bookingLink.url ?? "https://healow.com", target: bookingLink.target },
     { label: "Patient Portal", url: portalLink?.url ?? sitePath("/new-patient"), target: portalLink?.target },
     { label: "Insurance Info", url: "#insurance" },
   ];
@@ -1162,7 +1163,7 @@ export function LandingPage() {
             <a href={portalLink?.url ?? "#"} target={portalLink?.target} rel={portalLink?.target ? "noopener noreferrer" : undefined} className="rounded-full px-5 py-2.5 text-white text-sm font-semibold transition-all hover:bg-white/10" style={{ border: "1.5px solid rgba(255,255,255,0.35)" }}>
               Patient Portal
             </a>
-            <a href={wpData().bookingUrl ?? "https://healow.com"} target="_blank" rel="noopener noreferrer" className="bg-[#E7FFD9] rounded-full px-5 py-2.5 text-[#1D3A5F] text-sm font-semibold hover:brightness-110 transition-all">
+            <a href={bookingLink.url ?? "https://healow.com"} target={bookingLink.target} rel={bookingLink.target ? "noopener noreferrer" : undefined} className="bg-[#E7FFD9] rounded-full px-5 py-2.5 text-[#1D3A5F] text-sm font-semibold hover:brightness-110 transition-all">
               Book Appointment
             </a>
           </div>
@@ -1191,9 +1192,9 @@ export function LandingPage() {
             )
           )}
           <a
-            href={wpData().bookingUrl ?? "https://healow.com"}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={bookingLink.url ?? "https://healow.com"}
+            target={bookingLink.target}
+            rel={bookingLink.target ? "noopener noreferrer" : undefined}
             className="mt-6 bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all"
           >
             Book Appointment
@@ -1749,7 +1750,9 @@ export function LandingPage() {
       >
         <div className="flex items-center gap-3">
           <a
-            href={wpData().bookingUrl ?? "https://healow.com"}
+            href={bookingLink.url ?? "https://healow.com"}
+            target={bookingLink.target}
+            rel={bookingLink.target ? "noopener noreferrer" : undefined}
             className="flex-1 flex items-center justify-center rounded-full border border-white/60 py-3.5 text-white text-[13px] font-semibold uppercase tracking-widest transition-all active:scale-95"
             style={{ letterSpacing: "0.12em" }}
           >

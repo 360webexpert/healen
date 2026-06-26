@@ -73,12 +73,12 @@ function healen_link_target(mixed $link): string
     return '';
 }
 
-function healen_link_data(mixed $link, string $default_label, string $default_url = '#'): array
+function healen_link_data(mixed $link, string $default_label, string $default_url = '#', string $default_target = ''): array
 {
     return [
         'label' => healen_link_title($link, $default_label),
         'url' => healen_link_url($link, $default_url),
-        'target' => healen_link_target($link),
+        'target' => healen_link_target($link) ?: $default_target,
     ];
 }
 

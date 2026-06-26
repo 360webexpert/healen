@@ -8,6 +8,7 @@ function SiteNav() {
   const [location] = useLocation();
   const navLinks = navItems();
   const portalLink = wpData().portalLink;
+  const bookingLink = wpData().bookingLink ?? { url: wpData().bookingUrl ?? "https://healow.com", target: "_blank" };
 
   return (
     <>
@@ -70,9 +71,9 @@ function SiteNav() {
               Patient Portal
             </a>
             <a
-              href={wpData().bookingUrl ?? "https://healow.com"}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={bookingLink.url ?? "https://healow.com"}
+              target={bookingLink.target}
+              rel={bookingLink.target ? "noopener noreferrer" : undefined}
               className="bg-[#E7FFD9] rounded-full px-5 py-2.5 text-[#1D3A5F] text-sm font-semibold hover:brightness-110 transition-all"
             >
               Book Appointment
@@ -127,9 +128,9 @@ function SiteNav() {
             );
           })}
           <a
-            href={wpData().bookingUrl ?? "https://healow.com"}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={bookingLink.url ?? "https://healow.com"}
+            target={bookingLink.target}
+            rel={bookingLink.target ? "noopener noreferrer" : undefined}
             className="mt-6 bg-[#E7FFD9] text-[#1D3A5F] px-8 py-4 rounded-full font-semibold text-base hover:brightness-110 transition-all"
           >
             Book Appointment
@@ -142,6 +143,7 @@ function SiteNav() {
 
 function SiteFooter() {
   const footer = wpData().footer;
+  const bookingLink = wpData().bookingLink ?? { url: wpData().bookingUrl ?? "https://healow.com", target: "_blank" };
   const quickLinks = footer?.quickLinks?.length ? footer.quickLinks.map((item) => ({
     label: item.label,
     href: item.url,
@@ -150,7 +152,7 @@ function SiteFooter() {
   })) : navItems();
   const resources = footer?.resources?.length ? footer.resources : [
     { label: "New Patient Info", url: "/new-patient" },
-    { label: "Book Appointment", url: wpData().bookingUrl ?? "https://healow.com", target: "_blank" },
+    { label: "Book Appointment", url: bookingLink.url ?? "https://healow.com", target: bookingLink.target },
     { label: "Insurance Info", url: "/new-patient" },
     { label: "Contact Us", url: "/contact" },
   ];
@@ -322,6 +324,8 @@ export function PageHero({ title, subtitle, breadcrumb }: PageHeroProps) {
 }
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
+  const bookingLink = wpData().bookingLink ?? { url: wpData().bookingUrl ?? "https://healow.com", target: "_blank" };
+
   return (
     <div className="min-h-screen bg-white text-[#1D3A5F] font-['Inter',sans-serif] selection:bg-[#809EB1] selection:text-[#1D3A5F]">
       <SiteNav />
@@ -339,9 +343,9 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       >
         <div className="flex items-center gap-3">
           <a
-            href={wpData().bookingUrl ?? "https://healow.com"}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={bookingLink.url ?? "https://healow.com"}
+            target={bookingLink.target}
+            rel={bookingLink.target ? "noopener noreferrer" : undefined}
             className="flex-1 flex items-center justify-center rounded-full border border-white/60 py-3.5 text-white text-[13px] font-semibold uppercase tracking-widest transition-all active:scale-95"
             style={{ letterSpacing: "0.12em" }}
           >

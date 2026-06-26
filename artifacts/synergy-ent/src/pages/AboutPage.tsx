@@ -80,6 +80,7 @@ function ActionLink({ link, className, children }: { link?: ButtonLink; classNam
 
 export function AboutPage() {
   const content = wpData().content?.about;
+  const bookingLink = wpData().bookingLink ?? { url: wpData().bookingUrl ?? "https://healow.com", target: "_blank" };
   const bioParagraphs = content?.body?.length ? content.body : [
     "Dr. Sara Scheid is a board-certified ENT and sleep medicine physician in Paramus, NJ, specializing in thoughtful evaluation of breathing, sleep, and airway-related concerns. She helps patients with nasal obstruction, chronic congestion, allergies, snoring, sleep apnea, CPAP intolerance, mouth breathing, throat clearing, reflux-related throat symptoms, and complex ENT/sleep issues that have not improved with standard treatment.",
     "As both an otolaryngologist and sleep medicine physician, Dr. Scheid is able to look beyond a single symptom and evaluate how the nose, throat, airway, sleep quality, allergies, reflux, and inflammation may be connected. Her approach is careful, educational, and personalized, with a focus on helping patients understand their symptoms and make confident decisions about next steps.",
@@ -191,7 +192,7 @@ export function AboutPage() {
               className="flex flex-col sm:flex-row gap-3 pt-2"
             >
               <ActionLink
-                link={content?.bioPrimaryButton ?? { label: "Book an Appointment", url: wpData().bookingUrl ?? "https://healow.com" }}
+                link={content?.bioPrimaryButton ?? { label: "Book an Appointment", url: bookingLink.url, target: bookingLink.target }}
                 className="inline-flex items-center justify-center gap-2 bg-[#1D3A5F] text-white px-7 py-3.5 rounded-full font-semibold hover:bg-[#0F2840] transition-colors"
               >
                 {content?.bioPrimaryButton?.label ?? "Book an Appointment"} <ArrowRight className="w-4 h-4" />
@@ -288,7 +289,7 @@ export function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <ActionLink
-              link={content?.ctaPrimaryButton ?? { label: "Book an Appointment", url: wpData().bookingUrl ?? "https://healow.com" }}
+              link={content?.ctaPrimaryButton ?? { label: "Book an Appointment", url: bookingLink.url, target: bookingLink.target }}
               className="inline-flex items-center justify-center gap-2 bg-[#1D3A5F] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#0F2840] transition-colors text-base"
             >
               {content?.ctaPrimaryButton?.label ?? "Book an Appointment"} <ArrowRight className="w-4 h-4" />

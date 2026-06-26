@@ -3,6 +3,7 @@ export type HealenData = {
   homeUrl?: string;
   assetUrl?: string;
   bookingUrl?: string;
+  bookingLink?: ButtonLink;
   phone?: string;
   email?: string;
   menu?: Array<{

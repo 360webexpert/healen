@@ -240,6 +240,7 @@ function healen_print_react_data(): void
 {
     $defaults = healen_defaults();
     $content = healen_react_content();
+    $booking_link = healen_link_data(healen_option('healen_booking_link'), 'Book Appointment', $defaults['booking_url'], '_blank');
     $page_titles = [
         'home' => healen_page_title('home', get_bloginfo('name')),
         'about' => healen_page_title('about', 'About Us'),
@@ -252,7 +253,8 @@ function healen_print_react_data(): void
         'basePath' => wp_parse_url(home_url('/'), PHP_URL_PATH) ?: '/',
         'homeUrl' => home_url('/'),
         'assetUrl' => HEALEN_URI . '/assets/react/',
-        'bookingUrl' => healen_link_url(healen_option('healen_booking_link'), $defaults['booking_url']),
+        'bookingUrl' => $booking_link['url'],
+        'bookingLink' => $booking_link,
         'portalLink' => healen_link_data(healen_option('healen_portal_link'), 'Patient Portal', $defaults['portal_url']),
         'phone' => healen_option('healen_phone', $defaults['phone']),
         'email' => healen_option('healen_email', $defaults['email']),
@@ -308,6 +310,9 @@ function healen_service_detail_data(): array
             )));
             $decode = static fn(string $field, string $default = ''): string =>
                 healen_decode_text((string) healen_field($field, $default, $post->ID));
+            $booking_option = healen_option('healen_booking_link');
+            $booking_url = healen_link_url($booking_option, healen_defaults()['booking_url']);
+            $booking_target = healen_link_target($booking_option) ?: '_blank';
 
             return [
                 'slug' => $post->post_name,
@@ -322,7 +327,7 @@ function healen_service_detail_data(): array
                 'phone' => $decode('service_phone', (string) healen_option('healen_phone', healen_defaults()['phone'])),
                 'breadcrumbHomeLabel' => $decode('service_breadcrumb_home_label', 'Home'),
                 'breadcrumbServicesLabel' => $decode('service_breadcrumb_services_label', 'Services'),
-                'primaryButton' => healen_link_data(healen_field('service_primary_button', null, $post->ID), 'Book a Consultation', healen_link_url(healen_option('healen_booking_link'), healen_defaults()['booking_url'])),
+                'primaryButton' => healen_link_data(healen_field('service_primary_button', null, $post->ID), 'Book a Consultation', $booking_url, $booking_target),
                 'whenToSeekHeading' => $decode('service_when_to_seek_heading', 'When to Seek Help'),
                 'quickNote' => $decode('service_quick_note', get_bloginfo('name') . ' · Paramus, NJ' . "\n" . 'Accepting new patients'),
                 'progressSteps' => array_map('healen_decode_text', healen_lines(healen_field('service_progress_steps', "Comprehensive Evaluation\nEvidence-Based Treatment\nPersonalized Care Plan", $post->ID))),
@@ -330,13 +335,13 @@ function healen_service_detail_data(): array
                 'sidebarText' => $decode('service_sidebar_text', 'Dr. Scheid takes a full-picture view of the airway — from nose to throat — so nothing gets missed. Every plan is built around your specific situation.'),
                 'sidebarItems' => array_map('healen_decode_text', healen_lines(healen_field('service_sidebar_items', "Dual board-certified (ENT + Sleep)\nUnrushed, comprehensive appointments\nAccepting new patients in Paramus, NJ", $post->ID))),
                 'contactHeading' => $decode('service_contact_heading', 'Ready to get started?'),
-                'contactButton' => healen_link_data(healen_field('service_contact_button', null, $post->ID), 'Book Appointment', healen_link_url(healen_option('healen_booking_link'), healen_defaults()['booking_url'])),
+                'contactButton' => healen_link_data(healen_field('service_contact_button', null, $post->ID), 'Book Appointment', $booking_url, $booking_target),
                 'seekEyebrow' => $decode('service_seek_eyebrow', 'When to Seek Evaluation'),
                 'seekHeading' => $decode('service_seek_heading', 'Consider reaching out if any of these sound familiar'),
                 'ctaEyebrow' => $decode('service_cta_eyebrow', get_bloginfo('name') . ' · Paramus, NJ'),
                 'ctaHeading' => $decode('service_cta_heading'),
                 'ctaText' => $decode('service_cta_text', 'Dr. Scheid takes the time to understand the full picture. Board-certified in both ENT and Sleep Medicine — so you get one focused evaluation, not a referral runaround.'),
-                'ctaPrimaryButton' => healen_link_data(healen_field('service_cta_primary_button', null, $post->ID), 'Book an Appointment', healen_link_url(healen_option('healen_booking_link'), healen_defaults()['booking_url'])),
+                'ctaPrimaryButton' => healen_link_data(healen_field('service_cta_primary_button', null, $post->ID), 'Book an Appointment', $booking_url, $booking_target),
                 'ctaSecondaryLabel' => $decode('service_cta_secondary_label', 'Call {phone}'),
                 'relatedEyebrow' => $decode('service_related_eyebrow', 'Related'),
                 'relatedHeading' => $decode('service_related_heading', 'More {category} Services'),
@@ -430,7 +435,9 @@ function healen_react_footer_data(): array
 function healen_react_content(): array
 {
     $defaults = healen_defaults();
-    $booking_url = healen_link_url(healen_option('healen_booking_link'), $defaults['booking_url']);
+    $booking_option = healen_option('healen_booking_link');
+    $booking_url = healen_link_url($booking_option, $defaults['booking_url']);
+    $booking_target = healen_link_target($booking_option) ?: '_blank';
 
     $home = $defaults['home'];
     $about = $defaults['about'];
@@ -442,7 +449,7 @@ function healen_react_content(): array
             'heroBody' => healen_page_field('home', 'home_hero_body', $home['hero_body']),
             'heroImage' => healen_image_value(healen_page_field('home', 'home_hero_image'), 'hero-sleep.png'),
             'heroImageAlt' => healen_page_field('home', 'home_hero_image_alt', 'Restful sleep'),
-            'heroButton' => healen_link_data(healen_page_field('home', 'home_hero_button'), 'Schedule a Consultation', $booking_url),
+            'heroButton' => healen_link_data(healen_page_field('home', 'home_hero_button'), 'Schedule a Consultation', $booking_url, $booking_target),
             'credentials' => healen_repeater_rows(healen_page_field('home', 'home_credentials', $home['credentials'])),
             'specialties' => array_map(
                 static fn(array $row): array => [
@@ -500,7 +507,7 @@ function healen_react_content(): array
                 ['title' => 'Unrushed Appointments', 'text' => 'We moved away from corporate medicine to spend more time with you - listening, explaining, and partnering in your care.'],
                 ['title' => 'Dual Board Certification', 'text' => 'Dual expertise in ENT and Sleep Medicine means comprehensive care for interconnected conditions under one roof.'],
             ])),
-            'whyPrimaryButton' => healen_link_data(healen_page_field('home', 'home_why_primary_button'), 'Get Started', $booking_url),
+            'whyPrimaryButton' => healen_link_data(healen_page_field('home', 'home_why_primary_button'), 'Get Started', $booking_url, $booking_target),
             'whySecondaryButton' => healen_link_data(healen_page_field('home', 'home_why_secondary_button'), 'Learn More', home_url('/about/')),
             'testimonialsEyebrow' => healen_page_field('home', 'home_testimonials_eyebrow', 'Testimonials'),
             'testimonialsHeading' => healen_page_field('home', 'home_testimonials_heading', 'What Our Patients Say'),
@@ -524,7 +531,7 @@ function healen_react_content(): array
             'insuranceText' => healen_page_field('home', 'home_insurance_text', 'Synergy ENT & Wellness is an out-of-network practice. We are happy to provide documentation to help you submit claims to your insurance carrier for potential reimbursement.'),
             'insuranceContactLink' => healen_link_data(healen_page_field('home', 'home_insurance_contact_link'), 'Questions about coverage? Contact us', home_url('/contact/')),
             'bannerHeading' => healen_page_field('home', 'home_banner_heading', 'Synergy ENT addresses what traditional care overlooks. How you actually feel.'),
-            'bannerButton' => healen_link_data(healen_page_field('home', 'home_banner_button'), 'Book my appointment', $booking_url),
+            'bannerButton' => healen_link_data(healen_page_field('home', 'home_banner_button'), 'Book my appointment', $booking_url, $booking_target),
             'bannerNote' => healen_page_field('home', 'home_banner_note', 'Now accepting new patients in Paramus, NJ'),
             'locationEyebrow' => healen_page_field('home', 'home_location_eyebrow', 'Visit Us'),
             'locationHeading' => healen_page_field('home', 'home_location_heading', 'Our Location'),
@@ -546,7 +553,7 @@ function healen_react_content(): array
             'locationBookLabel' => healen_page_field('home', 'home_location_book_label', 'Book Now'),
             'locationDirectionsLink' => healen_link_data(healen_page_field('home', 'home_location_directions_link'), 'Directions', 'https://maps.google.com/?q=' . rawurlencode(str_replace("\n", ' ', healen_page_field('home', 'home_location_address', $defaults['address'])))),
             'locationPhoneLink' => healen_link_data(healen_page_field('home', 'home_location_phone_link'), 'Call Now', healen_phone_href(healen_option('healen_phone', $defaults['phone']))),
-            'locationBookLink' => healen_link_data(healen_page_field('home', 'home_location_book_link'), 'Book Now', $booking_url),
+            'locationBookLink' => healen_link_data(healen_page_field('home', 'home_location_book_link'), 'Book Now', $booking_url, $booking_target),
             'bookingEyebrow' => healen_page_field('home', 'home_booking_eyebrow', 'Book Appointment'),
             'bookingHeading' => healen_page_field('home', 'home_booking_heading', 'Request an Appointment'),
             'bookingText' => healen_page_field('home', 'home_booking_text', 'Fill out the form and our team will be in touch within one business day to confirm your visit.'),
@@ -560,7 +567,7 @@ function healen_react_content(): array
             'ctaHeading' => healen_page_field('home', 'home_cta_heading', 'Ready to Breathe Better'),
             'ctaHighlight' => healen_page_field('home', 'home_cta_highlight', 'and Sleep Sounder?'),
             'ctaText' => healen_page_field('home', 'home_cta_text', 'New and returning patients are welcome. Reach out today to schedule your appointment with Dr. Scheid at our Paramus, NJ office.'),
-            'ctaPrimaryButton' => healen_link_data(healen_page_field('home', 'home_cta_primary_button'), 'Request an Appointment', $booking_url),
+            'ctaPrimaryButton' => healen_link_data(healen_page_field('home', 'home_cta_primary_button'), 'Request an Appointment', $booking_url, $booking_target),
             'ctaSecondaryButton' => healen_link_data(healen_page_field('home', 'home_cta_secondary_button'), 'Call Our Office', healen_phone_href(healen_option('healen_phone', $defaults['phone']))),
             'ctaImage' => healen_image_value(healen_page_field('home', 'home_cta_image'), 'hero-sleep.png'),
             'ctaImageAlt' => healen_page_field('home', 'home_cta_image_alt', 'Restful sleep'),
@@ -579,7 +586,7 @@ function healen_react_content(): array
             'experienceNumber' => healen_page_field('about', 'about_experience_number', '20+'),
             'experienceLabel' => healen_page_field('about', 'about_experience_label', "Years\nExp."),
             'body' => healen_text_rows(healen_page_field('about', 'about_body', array_map(static fn(string $text): array => ['text' => $text], $about['body']))),
-            'bioPrimaryButton' => healen_link_data(healen_page_field('about', 'about_bio_primary_button'), 'Book an Appointment', healen_link_url(healen_option('healen_booking_link'), $defaults['booking_url'])),
+            'bioPrimaryButton' => healen_link_data(healen_page_field('about', 'about_bio_primary_button'), 'Book an Appointment', $booking_url, $booking_target),
             'bioSecondaryButton' => healen_link_data(healen_page_field('about', 'about_bio_secondary_button'), 'Contact the Office', home_url('/contact/')),
             'credentials' => array_map(
                 static fn(array $row): array => [
@@ -595,7 +602,7 @@ function healen_react_content(): array
             'approach' => healen_icon_text_rows(healen_page_field('about', 'about_approach', $about['approach']), $about['approach']),
             'ctaHeading' => healen_page_field('about', 'about_cta_heading', 'Ready to get started?'),
             'ctaText' => healen_page_field('about', 'about_cta_text', 'New patients are welcome. Book an appointment or reach out with any questions.'),
-            'ctaPrimaryButton' => healen_link_data(healen_page_field('about', 'about_cta_primary_button'), 'Book an Appointment', healen_link_url(healen_option('healen_booking_link'), $defaults['booking_url'])),
+            'ctaPrimaryButton' => healen_link_data(healen_page_field('about', 'about_cta_primary_button'), 'Book an Appointment', $booking_url, $booking_target),
             'ctaSecondaryButton' => healen_link_data(healen_page_field('about', 'about_cta_secondary_button'), 'Contact the Office', home_url('/contact/')),
         ],
         'services' => [
@@ -608,14 +615,14 @@ function healen_react_content(): array
             'sleep' => healen_service_rows(healen_page_field('services', 'services_sleep', $defaults['services_sleep']), 'Learn More', home_url('/contact/'), $defaults['services_sleep']),
             'bannerEyebrow' => healen_page_field('services', 'services_banner_eyebrow', 'Did You Know?'),
             'bannerText' => healen_page_field('services', 'services_banner_text', 'Many sleep problems have a nasal or airway component. Dr. Scheid evaluates both specialties together - so nothing gets missed.'),
-            'bannerButton' => healen_link_data(healen_page_field('services', 'services_banner_button'), 'Book a Consultation', healen_link_url(healen_option('healen_booking_link'), $defaults['booking_url'])),
+            'bannerButton' => healen_link_data(healen_page_field('services', 'services_banner_button'), 'Book a Consultation', $booking_url, $booking_target),
             'entEyebrow' => healen_page_field('services', 'services_ent_eyebrow', 'Otolaryngology'),
             'entHeading' => healen_page_field('services', 'services_ent_heading', 'ENT Services'),
             'entIntro' => healen_page_field('services', 'services_ent_intro', 'From ear infections to nasal surgery, Dr. Scheid provides comprehensive otolaryngology care for adults and children in the Paramus, NJ area.'),
             'ent' => healen_service_rows(healen_page_field('services', 'services_ent', $defaults['services_ent']), 'Learn More', home_url('/contact/'), $defaults['services_ent']),
             'ctaHeading' => healen_page_field('services', 'services_cta_heading', 'Not sure where to start?'),
             'ctaText' => healen_page_field('services', 'services_cta_text', 'Call our office or book a consultation - Dr. Scheid will help determine which evaluation is right for you.'),
-            'ctaPrimaryButton' => healen_link_data(healen_page_field('services', 'services_cta_primary_button'), 'Book an Appointment', healen_link_url(healen_option('healen_booking_link'), $defaults['booking_url'])),
+            'ctaPrimaryButton' => healen_link_data(healen_page_field('services', 'services_cta_primary_button'), 'Book an Appointment', $booking_url, $booking_target),
             'ctaSecondaryButton' => healen_link_data(healen_page_field('services', 'services_cta_secondary_button'), 'Call ' . healen_option('healen_phone', $defaults['phone']), healen_phone_href(healen_option('healen_phone', $defaults['phone']))),
         ],
         'newPatient' => [
@@ -650,7 +657,7 @@ function healen_react_content(): array
             'coverageButton' => healen_link_data(healen_page_field('new-patient', 'new_patient_coverage_button'), healen_option('healen_phone', $defaults['phone']), healen_phone_href(healen_option('healen_phone', $defaults['phone']))),
             'ctaHeading' => healen_page_field('new-patient', 'new_patient_cta_heading', 'Ready to book your first visit?'),
             'ctaText' => healen_page_field('new-patient', 'new_patient_cta_text', 'Dr. Scheid is currently accepting new patients. We look forward to meeting you.'),
-            'ctaPrimaryButton' => healen_link_data(healen_page_field('new-patient', 'new_patient_cta_primary_button'), 'Book an Appointment', healen_link_url(healen_option('healen_booking_link'), $defaults['booking_url'])),
+            'ctaPrimaryButton' => healen_link_data(healen_page_field('new-patient', 'new_patient_cta_primary_button'), 'Book an Appointment', $booking_url, $booking_target),
             'ctaSecondaryButton' => healen_link_data(healen_page_field('new-patient', 'new_patient_cta_secondary_button'), 'Contact the Office', home_url('/contact/')),
         ],
         'contact' => [
@@ -672,7 +679,7 @@ function healen_react_content(): array
             'emailLink' => healen_link_data(healen_page_field('contact', 'contact_email_link'), 'Send Email', 'mailto:' . healen_option('healen_email', $defaults['email'])),
             'ctaEyebrow' => healen_page_field('contact', 'contact_cta_eyebrow', 'Ready to see Dr. Scheid?'),
             'ctaHeading' => healen_page_field('contact', 'contact_cta_heading', 'Book your appointment online - it only takes a minute.'),
-            'ctaButton' => healen_link_data(healen_page_field('contact', 'contact_cta_button'), 'Book Online', healen_link_url(healen_option('healen_booking_link'), $defaults['booking_url'])),
+            'ctaButton' => healen_link_data(healen_page_field('contact', 'contact_cta_button'), 'Book Online', $booking_url, $booking_target),
         ],
     ];
 }
